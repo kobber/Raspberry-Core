@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","category":"building","pattern":["III","# #","#C#"],"key":{"I":{"item":"minecraft:iron_ingot"},"C":{"item":"minecraft:campfire"},"#":{"item":"supplementaries:ash_bricks"}},"result":{"item":"ash_stove","count":1}}

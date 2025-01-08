@@ -1,0 +1,28 @@
+modLoader = "javafml"
+loaderVersion = "[43,)"
+#issueTrackerURL = ""
+license = "MIT"
+
+[[mods]]
+modId = "raspberry"
+version = "${version}"
+displayName = "Raspberry Core"
+authors = "cassiancc"
+description = '''
+Various compatibility blocks for Raspberry Flavoured.
+'''
+#logoFile = ""
+
+[[dependencies.raspberry]]
+modId = "forge"
+mandatory = true
+versionRange = "[43,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.raspberry]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.19.2,)"
+ordering = "NONE"
+side = "BOTH"
