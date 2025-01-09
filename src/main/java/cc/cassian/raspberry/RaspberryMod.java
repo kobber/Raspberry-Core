@@ -2,8 +2,8 @@ package cc.cassian.raspberry;
 
 import cc.cassian.raspberry.client.config.ModConfigFactory;
 import cc.cassian.raspberry.config.ModConfig;
-import cc.cassian.raspberry.registry.ModBlocks;
-import cc.cassian.raspberry.registry.ModItems;
+import cc.cassian.raspberry.registry.RaspberryBlocks;
+import cc.cassian.raspberry.registry.RaspberryItems;
 import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
@@ -11,8 +11,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.logging.LogManager;
 
 @Mod(RaspberryMod.MOD_ID)
 public final class RaspberryMod {
@@ -26,8 +24,8 @@ public final class RaspberryMod {
         ModConfig.load();
         FMLJavaModLoadingContext context = FMLJavaModLoadingContext.get(); //replace this with initializer once RF updates
         IEventBus modEventBus = context.getModEventBus();
-        ModBlocks.BLOCKS.register(modEventBus);
-        ModItems.ITEMS.register(modEventBus);
+        RaspberryBlocks.BLOCKS.register(modEventBus);
+        RaspberryItems.ITEMS.register(modEventBus);
         registerModsPage(context);
     }
 
