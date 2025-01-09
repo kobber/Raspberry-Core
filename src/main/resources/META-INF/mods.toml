@@ -9,7 +9,7 @@ version = "${version}"
 displayName = "Raspberry Core"
 authors = "cassiancc"
 description = '''
-Various compatibility blocks for Raspberry Flavoured.
+Various compatibility blocks and fixes for the Raspberry Flavoured modpack.
 '''
 #logoFile = ""
 

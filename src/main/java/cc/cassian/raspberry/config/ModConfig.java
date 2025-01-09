@@ -30,7 +30,7 @@ public class ModConfig {
         try (var input = Files.newInputStream(configPath())) {
             INSTANCE = GSON.fromJson(new InputStreamReader(input, StandardCharsets.UTF_8), ModConfig.class);
         } catch (IOException e) {
-            RaspberryMod.LOGGER.warning("Unable to load config file!");
+            RaspberryMod.LOGGER.warn("Unable to load config file!");
         }
     }
 
@@ -38,7 +38,7 @@ public class ModConfig {
         try (var output = Files.newOutputStream(configPath()); var writer = new OutputStreamWriter(output, StandardCharsets.UTF_8)) {
             GSON.toJson(INSTANCE, writer);
         } catch (IOException e) {
-            RaspberryMod.LOGGER.warning("Unable to save config file!");
+            RaspberryMod.LOGGER.warn("Unable to save config file!");
         }
     }
 
@@ -48,6 +48,8 @@ public class ModConfig {
     }
 
     public static Path configPath() {
-        return Path.of(FMLPaths.CONFIGDIR + "/raspberry-core.json");
+        return Path.of(FMLPaths.CONFIGDIR.get() + "/raspberry_core.json");
     }
+
+
 }
