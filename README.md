@@ -10,4 +10,5 @@ Comfortable Campfires is a client and server mod for Forge 1.19.2.
 - [Farmer's Delight](https://modrinth.com/mod/farmers-delight) is required.
 - [Twigs](https://modrinth.com/mod/twigs) is required.
 - [Supplementaries](https://modrinth.com/mod/supplementaries) is required.
+- [Caverns and Chasms](https://modrinth.com/mod/caverns-and-chasms) is optional.
 - [Cloth Config](https://modrinth.com/mod/cloth-config) is recommended to configure the mod.

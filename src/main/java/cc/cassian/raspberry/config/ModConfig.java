@@ -20,6 +20,7 @@ public class ModConfig {
     //General settings
     public boolean stovesStartLit = false;
     public boolean campfiresStartLit = false;
+    public boolean braziersStartLit = false;
 
 
     public static void load() {
