@@ -19,6 +19,7 @@ public class ModConfig {
     private static ModConfig INSTANCE = new ModConfig();
     //General settings
     public boolean stovesStartLit = false;
+    public boolean campfiresStartLit = false;
 
 
     public static void load() {
