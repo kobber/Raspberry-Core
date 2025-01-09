@@ -26,3 +26,10 @@ mandatory = true
 versionRange = "[1.19.2,)"
 ordering = "NONE"
 side = "BOTH"
+
+[[dependencies.raspberry]]
+modId = "farmersdelight"
+mandatory = true
+versionRange = "[1.19.2-1.2.4,)"
+ordering = "AFTER"
+side = "BOTH"
