@@ -12,3 +12,19 @@ Comfortable Campfires is a client and server mod for Forge 1.19.2.
 - [Supplementaries](https://modrinth.com/mod/supplementaries) is required.
 - [Caverns and Chasms](https://modrinth.com/mod/caverns-and-chasms) is optional.
 - [Cloth Config](https://modrinth.com/mod/cloth-config) is recommended to configure the mod.
+
+
+## Additions
+
+### Blocks
+- Ash Ovens, crafted from Supplementaries Ash Bricks
+- Silt Ovens, crafted from Twigs Silt Bricks
+
+### Compatibility Changes
+- Twigs can now light Stoves.
+
+### Configurable Tweaks
+- Stoves (Farmer's Delight) start unlit
+- Campfires start unlit
+- Braziers (Caverns and Chasms) start unlit 
+- World version is hidden
