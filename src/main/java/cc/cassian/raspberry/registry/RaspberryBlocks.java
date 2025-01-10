@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import org.jetbrains.annotations.NotNull;
 import oshi.util.tuples.Pair;
 import vectorwing.farmersdelight.FarmersDelight;
 import vectorwing.farmersdelight.common.block.StoveBlock;
@@ -28,5 +29,13 @@ public class RaspberryBlocks {
         final var item = RaspberryItems.ITEMS.register(blockID, () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));
         return new Pair<>(block, item);
 
+    }
+
+    public static @NotNull Block getBlock(Pair<RegistryObject<Block>, RegistryObject<BlockItem>> block) {
+        return block.getA().get();
+    }
+
+    public static @NotNull Item getItem(Pair<RegistryObject<Block>, RegistryObject<BlockItem>> block) {
+        return block.getB().get();
     }
 }
