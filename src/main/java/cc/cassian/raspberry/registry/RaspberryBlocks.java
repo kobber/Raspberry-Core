@@ -31,10 +31,16 @@ public class RaspberryBlocks {
 
     }
 
+    /**
+	 * Get a block from the registry
+	 */
     public static @NotNull Block getBlock(Pair<RegistryObject<Block>, RegistryObject<BlockItem>> block) {
         return block.getA().get();
     }
 
+    /**
+     * Get a blockitem from the registry
+     */
     public static @NotNull Item getItem(Pair<RegistryObject<Block>, RegistryObject<BlockItem>> block) {
         return block.getB().get();
     }
