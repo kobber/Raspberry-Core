@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "oreganized:lead_block"
+  },
+  "result": "raspberry:lead_grate",
+  "count": 1
+}

@@ -8,8 +8,9 @@ This is a collection of minor tweaks for the Raspberry Flavoured modpack, focusi
 
 Comfortable Campfires is a client and server mod for Forge 1.19.2.
 - [Farmer's Delight](https://modrinth.com/mod/farmers-delight) is required.
-- [Twigs](https://modrinth.com/mod/twigs) is required.
-- [Supplementaries](https://modrinth.com/mod/supplementaries) is required.
+- [Twigs](https://modrinth.com/mod/twigs) is recommended.
+- [Supplementaries](https://modrinth.com/mod/supplementaries) is recommended.
+- [Oreganized](https://modrinth.com/mod/oreganized) is recommended.
 - [Caverns and Chasms](https://modrinth.com/mod/caverns-and-chasms) is optional.
 - [Cloth Config](https://modrinth.com/mod/cloth-config) is recommended to configure the mod.
 
@@ -17,14 +18,23 @@ Comfortable Campfires is a client and server mod for Forge 1.19.2.
 ## Additions
 
 ### Blocks
-- Ash Ovens, crafted from Supplementaries Ash Bricks
-- Silt Ovens, crafted from Twigs Silt Bricks
+- Ash Ovens, crafted from Supplementaries Ash Bricks.
+- Silt Ovens, crafted from Twigs Silt Bricks.
+- Lead Grate, crafted from Oreganized Lead Blocks
 
 ### Compatibility Changes
 - Twigs can now light Stoves.
 
 ### Configurable Tweaks
-- Stoves (Farmer's Delight) start unlit
-- Campfires start unlit
-- Braziers (Caverns and Chasms) start unlit 
-- World version is hidden
+- Stoves (Farmer's Delight) start unlit.
+- Campfires start unlit.
+- Braziers (Caverns and Chasms) start unlit. 
+- World version is hidden.
+
+## License
+[![Asset license (Unlicensed)](https://img.shields.io/badge/assets%20license-All%20Rights%20Reserved-red.svg?style=flat-square)](https://en.wikipedia.org/wiki/All_rights_reserved)
+[![Code license (MIT)](https://img.shields.io/badge/code%20license-MIT-green.svg?style=flat-square)](https://github.com/cassiancc/Raspberry-Core/blob/main/LICENSE.txt)
+
+
+
+If you are thinking about using the code or assets from Raspberry Core, please note the mod's licensing. **All assets of Raspberry Core are unlicensed and all rights are reserved to them by their respective authors.** The source code of Raspberry Flavoured mod for Minecraft 1.19.2 is under the MIT license.

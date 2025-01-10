@@ -37,6 +37,16 @@ repositories {
     maven {
         url = "https://maven.jaackson.me"
     }
+    exclusiveContent {
+        forRepository {
+            maven {
+                url "https://cursemaven.com"
+            }
+        }
+        filter {
+            includeGroup "curse.maven"
+        }
+    }
 }
 
 dependencies {
@@ -48,6 +58,10 @@ dependencies {
     modImplementation "maven.modrinth:caverns-and-chasms:1.0.2"
     modImplementation "com.teamabnormals:blueprint:1.19.2-6.2.0"
     modApi "me.shedaniel.cloth:cloth-config-forge:8.3.134"
+    modImplementation "curse.maven:copper-tuff-backport-fabric-950738:5083546"
+    modImplementation "maven.modrinth:emi:1.1.18+1.19.2+forge"
+    modImplementation "maven.modrinth:oreganized:2.0.2"
+
 
 }
 
