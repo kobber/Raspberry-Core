@@ -37,4 +37,4 @@ Comfortable Campfires is a client and server mod for Forge 1.19.2.
 
 
 
-If you are thinking about using the code or assets from Raspberry Core, please note the mod's licensing. **All assets of Raspberry Core are unlicensed and all rights are reserved to them by their respective authors.** The source code of Raspberry Flavoured mod for Minecraft 1.19.2 is under the MIT license.
+If you are thinking about using the code or assets from Raspberry Core, please note the mod's licensing. **All assets of Raspberry Core are unlicensed and all rights are reserved to them by their respective authors.** The source code of Raspberry Core mod for Minecraft 1.19.2 is under the MIT license.
