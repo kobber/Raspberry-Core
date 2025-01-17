@@ -8,6 +8,8 @@ This is a collection of minor tweaks for the Raspberry Flavoured modpack, focusi
 
 Comfortable Campfires is a client and server mod for Forge 1.19.2.
 - [Farmer's Delight](https://modrinth.com/mod/farmers-delight) is required.
+- [Aquaculture 2](https://modrinth.com/mod/aquaculture) is required.
+
 - [Twigs](https://modrinth.com/mod/twigs) is recommended.
 - [Supplementaries](https://modrinth.com/mod/supplementaries) is recommended.
 - [Oreganized](https://modrinth.com/mod/oreganized) is recommended.

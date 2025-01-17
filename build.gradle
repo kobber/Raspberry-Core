@@ -61,6 +61,7 @@ dependencies {
     modImplementation "curse.maven:copper-tuff-backport-fabric-950738:5083546"
     modImplementation "maven.modrinth:emi:1.1.18+1.19.2+forge"
     modImplementation "maven.modrinth:oreganized:2.0.2"
+    modImplementation "curse.maven:aquaculture-60028:5320128"
 
 
 }
