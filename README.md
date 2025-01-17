@@ -8,12 +8,11 @@ This is a collection of minor tweaks for the Raspberry Flavoured modpack, focusi
 
 Comfortable Campfires is a client and server mod for Forge 1.19.2.
 - [Farmer's Delight](https://modrinth.com/mod/farmers-delight) is required.
-- [Aquaculture 2](https://modrinth.com/mod/aquaculture) is required.
-
 - [Twigs](https://modrinth.com/mod/twigs) is recommended.
 - [Supplementaries](https://modrinth.com/mod/supplementaries) is recommended.
 - [Oreganized](https://modrinth.com/mod/oreganized) is recommended.
 - [Caverns and Chasms](https://modrinth.com/mod/caverns-and-chasms) is optional.
+- [Aquaculture 2](https://modrinth.com/mod/aquaculture) is optional.
 - [Cloth Config](https://modrinth.com/mod/cloth-config) is recommended to configure the mod.
 
 
@@ -26,6 +25,9 @@ Comfortable Campfires is a client and server mod for Forge 1.19.2.
 
 ### Compatibility Changes
 - Twigs can now light Stoves.
+
+### Tweaks
+- Fishing Rods (Aquaculture 2) show their bait as a tooltip.
 
 ### Configurable Tweaks
 - Stoves (Farmer's Delight) start unlit.
