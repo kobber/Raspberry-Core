@@ -60,8 +60,11 @@ dependencies {
     modApi "me.shedaniel.cloth:cloth-config-forge:8.3.134"
     modImplementation "curse.maven:copper-tuff-backport-fabric-950738:5083546"
     modImplementation "maven.modrinth:emi:1.1.18+1.19.2+forge"
+    modImplementation "maven.modrinth:jei:11.8.1.1034-forge"
     modImplementation "maven.modrinth:oreganized:2.0.2"
     modImplementation "curse.maven:aquaculture-60028:5320128"
+    modImplementation "curse.maven:brewin-and-chewin-637808:4468049"
+
 
 
 }
