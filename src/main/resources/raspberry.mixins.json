@@ -12,7 +12,8 @@
     "FlintAndSteelMixin",
     "LevelSummaryMixin",
     "PigMixin",
-    "StoveBlockMixin"
+    "StoveBlockMixin",
+    "KegBlockEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

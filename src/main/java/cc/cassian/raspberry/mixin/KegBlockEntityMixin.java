@@ -11,7 +11,7 @@ import umpaz.brewinandchewin.common.block.entity.KegBlockEntity;
 @Pseudo
 @Mixin(KegBlockEntity.class)
 public class KegBlockEntityMixin {
-    @Redirect(method = "canFerment", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/Item;getCraftingRemainingItem()Lnet/minecraft/world/item/Item;"), remap = false)
+    @Redirect(method = "canFerment", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/Item;getCraftingRemainingItem()Lnet/minecraft/world/item/Item;"))
     private Item mixin(Item instance) {
         if (instance == null) {
             instance = Items.AIR;
