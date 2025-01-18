@@ -10,8 +10,8 @@
     "BrazierBlockMixin",
     "CampfireBlockMixin",
     "FlintAndSteelMixin",
-    "KegBlockEntityMixin",
     "LevelSummaryMixin",
+    "PigMixin",
     "StoveBlockMixin"
   ],
   "injectors": {
