@@ -2,6 +2,7 @@
  "block.raspberry.ash_stove": "Ash Stove",
  "block.raspberry.lead_grate": "Lead Grate",
  "block.raspberry.silt_stove": "Silt Stove",
+ "block.raspberry.wormy_dirt": "Wormy Dirt",
  "config.raspberry.title": "Raspberry Core",
  "config.raspberry.config.stovesStartLit": "Light stoves by default",
  "config.raspberry.config.campfiresStartLit": "Light campfires by default",
