@@ -12,7 +12,7 @@ import umpaz.brewinandchewin.common.block.entity.KegBlockEntity;
 @Mixin(KegBlockEntity.class)
 public class KegBlockEntityMixin {
     @Redirect(method = "canFerment", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/Item;getCraftingRemainingItem()Lnet/minecraft/world/item/Item;"))
-    private Item mixin(Item instance) {
+    private Item fixFermentingCrash(Item instance) {
         if (instance == null) {
             instance = Items.AIR;
         }
