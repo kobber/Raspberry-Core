@@ -42,8 +42,7 @@ public class SMPlayerEventsMixin {
 
     @WrapOperation(
             method = "onRightClickBlock",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/util/ParticleUtils;spawnParticlesOnBlockFace(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/particles/ParticleOptions;Lnet/minecraft/util/valueproviders/IntProvider;Lnet/minecraft/core/Direction;Ljava/util/function/Supplier;D)V", ordinal = 1),
-            remap = false)
+            at = @At(value = "INVOKE", target = "Lnet/minecraft/util/ParticleUtils;spawnParticlesOnBlockFace(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/particles/ParticleOptions;Lnet/minecraft/util/valueproviders/IntProvider;Lnet/minecraft/core/Direction;Ljava/util/function/Supplier;D)V", ordinal = 1))
     private static void replaceParticles(Level i, BlockPos j, ParticleOptions arg, IntProvider arg2, Direction arg3, Supplier<Vec3> arg4, double arg5, Operation<Void> original) {
         // you get NOTHING good DAY sir
     }
