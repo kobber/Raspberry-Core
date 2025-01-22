@@ -10,10 +10,11 @@
     "BrazierBlockMixin",
     "CampfireBlockMixin",
     "FlintAndSteelMixin",
+    "KegBlockEntityMixin",
     "LevelSummaryMixin",
     "PigMixin",
-    "StoveBlockMixin",
-    "KegBlockEntityMixin"
+    "SMPlayerEventsMixin",
+    "StoveBlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1

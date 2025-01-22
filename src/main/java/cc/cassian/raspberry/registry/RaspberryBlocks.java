@@ -1,5 +1,7 @@
 package cc.cassian.raspberry.registry;
 
+import com.teamabnormals.environmental.common.entity.ai.goal.HuntTruffleGoal;
+import com.teamabnormals.environmental.core.other.EnvironmentalProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -36,6 +38,11 @@ public class RaspberryBlocks {
     public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
             LEAD_GRATE = registerBlock("lead_grate",
             ()-> new GrateBlock(BlockBehaviour.Properties.of(Material.HEAVY_METAL).noOcclusion().strength(5.0F, 6.0F).requiresCorrectToolForDrops().sound(SoundType.METAL)), CreativeModeTab.TAB_BUILDING_BLOCKS);
+
+    public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
+            WORMY_DIRT = registerBlock("wormy_dirt",
+            ()-> new Block(EnvironmentalProperties.BURIED_TRUFFLE), CreativeModeTab.TAB_BUILDING_BLOCKS);
+
 
 
     public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>> registerBlock(String blockID, Supplier<Block> blockSupplier, CreativeModeTab tab) {

@@ -14,6 +14,7 @@ Comfortable Campfires is a client and server mod for Forge 1.19.2.
 - [Caverns and Chasms](https://modrinth.com/mod/caverns-and-chasms) is optional.
 - [Aquaculture 2](https://modrinth.com/mod/aquaculture) is optional.
 - [Brewing and Chewin](https://www.curseforge.com/minecraft/mc-mods/brewin-and-chewin) is optional.
+- [Sully's Mod](https://modrinth.com/mod/sullysmod) is optional.
 - [Cloth Config](https://modrinth.com/mod/cloth-config) is recommended to configure the mod.
 
 
@@ -31,6 +32,7 @@ Comfortable Campfires is a client and server mod for Forge 1.19.2.
 - Fishing Rods (Aquaculture 2) show their bait as a tooltip.
 - Jerky (Brewin and Chewin) and other items without a fluid no longer cause a ticking block entity crash.
 - Braziers (Caverns and Chasms) no longer produce fire sounds when unlit.
+- Grindstones no longer display missing item textures when the last item in a stack is polished (Sully's Mod).
 
 ### Configurable Tweaks
 - Stoves (Farmer's Delight) start unlit.
