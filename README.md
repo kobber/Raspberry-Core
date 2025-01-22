@@ -30,6 +30,7 @@ Comfortable Campfires is a client and server mod for Forge 1.19.2.
 ### Tweaks
 - Fishing Rods (Aquaculture 2) show their bait as a tooltip.
 - Jerky (Brewin and Chewin) and other items without a fluid no longer cause a ticking block entity crash.
+- Braziers (Caverns and Chasms) no longer produce fire sounds when unlit.
 
 ### Configurable Tweaks
 - Stoves (Farmer's Delight) start unlit.
