@@ -21,18 +21,19 @@ Comfortable Campfires is a client and server mod for Forge 1.19.2.
 ## Additions
 
 ### Blocks
-- Ash Ovens, crafted from Supplementaries Ash Bricks.
-- Silt Ovens, crafted from Twigs Silt Bricks.
-- Lead Grate, crafted from Oreganized Lead Blocks
+- Ash Ovens, crafted from Ash Bricks (Supplementaries).
+- Silt Ovens, crafted from Silt Bricks (Twigs).
+- Lead Grate, crafted from Lead Blocks (Oreganized)
 
 ### Compatibility Changes
-- Twigs can now light Stoves.
+- Twigs (Twigs) can now light Stoves (Farmer's Delight).
 
 ### Tweaks
 - Fishing Rods (Aquaculture 2) show their bait as a tooltip.
 - Jerky (Brewin and Chewin) and other items without a fluid no longer cause a ticking block entity crash.
 - Braziers (Caverns and Chasms) no longer produce fire sounds when unlit.
 - Grindstones no longer display missing item textures when the last item in a stack is polished (Sully's Mod).
+- Pigs no longer follow players with an empty hand.
 
 ### Configurable Tweaks
 - Stoves (Farmer's Delight) start unlit.
