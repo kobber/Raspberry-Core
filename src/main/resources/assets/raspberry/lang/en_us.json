@@ -7,5 +7,7 @@
  "config.raspberry.config.stovesStartLit": "Light stoves by default",
  "config.raspberry.config.campfiresStartLit": "Light campfires by default",
  "config.raspberry.config.braziersStartLit": "Light braziers by default",
- "config.raspberry.config.hideWorldVersion": "Hide world version"
+ "config.raspberry.config.hideWorldVersion": "Hide world version",
+ "config.raspberry.config.hideTooltips": "Hide some modded tooltips"
+
 }

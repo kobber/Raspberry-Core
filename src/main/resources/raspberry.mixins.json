@@ -16,6 +16,7 @@
 	"create.MountedStorageMixin",
 	"farmersdelight.BlockEntityTypeMixin",
 	"farmersdelight.StoveBlockMixin",
+	"naturalist.GlowGoopItemMixin",
 	"upgrade_aquatic.PikeMixin",
 	"upgrade_aquatic.ThrasherMixin",
 	"upgrade_aquatic.ThrasherThrashGoalMixin"

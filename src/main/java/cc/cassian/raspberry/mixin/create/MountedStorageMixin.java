@@ -12,7 +12,7 @@ import vectorwing.farmersdelight.common.block.entity.CabinetBlockEntity;
 @Pseudo
 @Mixin(MountedStorage.class)
 public class MountedStorageMixin {
-    @Inject(method = "canUseAsStorage", at = @At(value = "HEAD"), cancellable = true)
+    @Inject(method = "canUseAsStorage", at = @At(value = "HEAD"), remap = false, cancellable = true)
     private static void cabinetsAreStorage(BlockEntity be, CallbackInfoReturnable<Boolean> cir) {
         if (be instanceof CabinetBlockEntity)
             cir.setReturnValue(true);

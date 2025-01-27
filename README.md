@@ -40,6 +40,7 @@ Comfortable Campfires is a client and server mod for Forge 1.19.2.
 - Campfires start unlit.
 - Braziers (Caverns and Chasms) start unlit.
 - World version is hidden.
+- Glow Goop (Naturalist) has its tooltip hidden.
 
 ### Tweaks
 - Fishing Rods (Aquaculture 2) show their bait as a tooltip.
