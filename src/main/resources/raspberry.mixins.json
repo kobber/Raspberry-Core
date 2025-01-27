@@ -6,17 +6,20 @@
   "client": [
   ],
   "mixins": [
-    "BlockEntityTypeMixin",
-    "BrazierBlockMixin",
-    "CampfireBlockMixin",
-    "FlintAndSteelMixin",
-    "KegBlockEntityMixin",
-    "LevelSummaryMixin",
-    "PigMixin",
-    "SMPlayerEventsMixin",
-    "StoveBlockMixin"
+	"BrazierBlockMixin",
+	"CampfireBlockMixin",
+	"FlintAndSteelMixin",
+	"KegBlockEntityMixin",
+	"LevelSummaryMixin",
+	"PigMixin",
+	"SMPlayerEventsMixin",
+	"farmersdelight.BlockEntityTypeMixin",
+	"farmersdelight.StoveBlockMixin",
+	"upgrade_aquatic.PikeMixin",
+	"upgrade_aquatic.ThrasherMixin",
+	"upgrade_aquatic.ThrasherThrashGoalMixin"
   ],
   "injectors": {
-    "defaultRequire": 1
+	"defaultRequire": 1
   }
 }

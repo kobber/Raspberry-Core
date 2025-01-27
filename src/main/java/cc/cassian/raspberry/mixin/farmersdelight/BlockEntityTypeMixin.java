@@ -1,4 +1,4 @@
-package cc.cassian.raspberry.mixin;
+package cc.cassian.raspberry.mixin.farmersdelight;
 
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;

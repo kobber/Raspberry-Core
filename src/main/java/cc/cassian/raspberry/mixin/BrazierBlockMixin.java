@@ -22,7 +22,6 @@ import static vectorwing.farmersdelight.common.block.StoveBlock.LIT;
 @Pseudo
 @Mixin(BrazierBlock.class)
 public abstract class BrazierBlockMixin {
-    @Shadow @Final public static BooleanProperty LIT;
 
     @Inject(
             method = "getStateForPlacement",

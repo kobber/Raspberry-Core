@@ -2,7 +2,7 @@
 
 <a href='https://files.minecraftforge.net'><img alt="forge" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/forge_vector.svg"></a>
 
-This is a collection of minor tweaks for the Raspberry Flavoured modpack, focusing on compatibility.
+This is a collection of minor tweaks for the Raspberry Flavoured modpack, focusing on compatibility and fixes for issues in older mods.
 
 ## Installation
 
@@ -25,12 +25,9 @@ Comfortable Campfires is a client and server mod for Forge 1.19.2.
 - Silt Ovens, crafted from Silt Bricks (Twigs).
 - Lead Grate, crafted from Lead Blocks (Oreganized)
 
-### Compatibility Changes
-- Twigs (Twigs) can now light Stoves (Farmer's Delight).
-
-### Tweaks
-- Fishing Rods (Aquaculture 2) show their bait as a tooltip.
+### Fixes
 - Jerky (Brewin and Chewin) and other items without a fluid no longer cause a ticking block entity crash.
+- Pikes, Thrashers, and Great Thrashers (Upgrade Aquatic) should no longer cause index out of bound crashes when grabbing players.
 - Braziers (Caverns and Chasms) no longer produce fire sounds when unlit.
 - Grindstones no longer display missing item textures when the last item in a stack is polished (Sully's Mod).
 - Pigs no longer follow players with an empty hand.
@@ -38,8 +35,14 @@ Comfortable Campfires is a client and server mod for Forge 1.19.2.
 ### Configurable Tweaks
 - Stoves (Farmer's Delight) start unlit.
 - Campfires start unlit.
-- Braziers (Caverns and Chasms) start unlit. 
+- Braziers (Caverns and Chasms) start unlit.
 - World version is hidden.
+
+### Tweaks
+- Fishing Rods (Aquaculture 2) show their bait as a tooltip.
+
+### Compatibility Changes
+- Twigs (Twigs) can now light Stoves (Farmer's Delight).
 
 ## License
 [![Asset license (Unlicensed)](https://img.shields.io/badge/assets%20license-All%20Rights%20Reserved-red.svg?style=flat-square)](https://en.wikipedia.org/wiki/All_rights_reserved)
