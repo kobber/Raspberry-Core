@@ -13,6 +13,7 @@
 	"LevelSummaryMixin",
 	"PigMixin",
 	"SMPlayerEventsMixin",
+	"create.MountedStorageMixin",
 	"farmersdelight.BlockEntityTypeMixin",
 	"farmersdelight.StoveBlockMixin",
 	"upgrade_aquatic.PikeMixin",
