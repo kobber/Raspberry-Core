@@ -34,6 +34,7 @@ Comfortable Campfires is a client and server mod for Forge 1.19.2.
 - Grindstones no longer display missing item textures when the last item in a stack is polished (Sully's Mod).
 - Pigs no longer follow players with an empty hand.
 - Cabinets (Farmer's Delight) should now be usable as Mounted Storage (Create).
+- Items with empty NBT will now combine with items without NBT.
 
 ### Configurable Tweaks
 - Stoves (Farmer's Delight) start unlit.
