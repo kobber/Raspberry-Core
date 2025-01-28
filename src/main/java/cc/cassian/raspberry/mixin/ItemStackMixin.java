@@ -1,6 +1,8 @@
 package cc.cassian.raspberry.mixin;
 
+import cc.cassian.raspberry.compat.SpelunkeryCompat;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.fml.ModList;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.spongepowered.asm.mixin.Mixin;
@@ -17,5 +19,10 @@ public abstract class ItemStackMixin {
         if (!arg.hasTag() && !arg2.hasTag()) {
             cir.setReturnValue(true);
         }
+        else if (ModList.get().isLoaded("spelunkery")) {
+            if (SpelunkeryCompat.checkDimensionalTears(arg, arg2))
+                cir.setReturnValue(true);
+        }
+
     }
 }
