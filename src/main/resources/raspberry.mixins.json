@@ -25,6 +25,7 @@
 	"upgrade_aquatic.ThrasherMixin",
 	"upgrade_aquatic.ThrasherThrashGoalMixin"
   ],
+  "plugin": "cc.cassian.raspberry.mixin.RaspberryMixinPlugin",
   "injectors": {
 	"defaultRequire": 1
   }

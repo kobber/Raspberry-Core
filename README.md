@@ -2,13 +2,18 @@
 
 <a href='https://files.minecraftforge.net'><img alt="forge" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/forge_vector.svg"></a>
 
-This is a collection of minor tweaks for the Raspberry Flavoured modpack, focusing on compatibility and fixes for issues in older mods.
+This is a collection of minor tweaks for the [Raspberry Flavoured](https://www.curseforge.com/minecraft/modpacks/raspberry-flavoured) modpack, focusing on compatibility and fixes for issues in older mods.
 
 ## Installation
 
-Raspberry Core is a client and server mod for Forge 1.19.2.
+Raspberry Core is a client and server mod for Forge 1.19.2. While it was created for use with the [Raspberry Flavoured](https://www.curseforge.com/minecraft/modpacks/raspberry-flavoured) modpack, dependencies have been kept to a minimum to allow it to be used elsewhere.
+
+#### Required Dependencies
 - [Farmer's Delight](https://modrinth.com/mod/farmers-delight) is required.
-- [Environmental](https://modrinth.com/mod/farmers-delight) is required.
+- [Copper and Tuff Backport](https://www.curseforge.com/minecraft/mc-mods/copper-tuff-backport-fabric) is required.
+
+#### Optional Dependencies
+- [Environmental](https://modrinth.com/mod/environmental) is recommended.
 - [Twigs](https://modrinth.com/mod/twigs) is recommended.
 - [Supplementaries](https://modrinth.com/mod/supplementaries) is recommended.
 - [Oreganized](https://modrinth.com/mod/oreganized) is recommended.
