@@ -6,6 +6,7 @@
   "client": [
   ],
   "mixins": [
+    "BaitItemMixin",
     "BrazierBlockMixin",
     "CampfireBlockMixin",
     "FlintAndSteelMixin",

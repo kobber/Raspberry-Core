@@ -46,7 +46,8 @@ Comfortable Campfires is a client and server mod for Forge 1.19.2.
 
 ### Tweaks
 - Fishing Rods (Aquaculture 2) show their bait as a tooltip.
-- Create's flowing Honey fluid makes Ochrum with Lava instead of Limestone.
+- Bait items (Aquaculture 2) no longer have durability.
+- Flowing Honey fluid (Create) makes Ochrum with Lava instead of Limestone.
 
 ### Compatibility Changes
 - Twigs (Twigs) can now light Stoves (Farmer's Delight).
