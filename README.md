@@ -6,7 +6,7 @@ This is a collection of minor tweaks for the Raspberry Flavoured modpack, focusi
 
 ## Installation
 
-Comfortable Campfires is a client and server mod for Forge 1.19.2.
+Raspberry Core is a client and server mod for Forge 1.19.2.
 - [Farmer's Delight](https://modrinth.com/mod/farmers-delight) is required.
 - [Twigs](https://modrinth.com/mod/twigs) is recommended.
 - [Supplementaries](https://modrinth.com/mod/supplementaries) is recommended.
@@ -17,6 +17,7 @@ Comfortable Campfires is a client and server mod for Forge 1.19.2.
 - [Sully's Mod](https://modrinth.com/mod/sullysmod) is optional.
 - [Create](https://modrinth.com/mod/create) is optional.
 - [Upgrade Aquatic](https://modrinth.com/mod/upgrade-aquatic) is optional.
+- [Another Furniture](https://modrinth.com/mod/another-furniture) is optional.
 - [Cloth Config](https://modrinth.com/mod/cloth-config) is recommended to configure the mod.
 
 
@@ -33,7 +34,6 @@ Comfortable Campfires is a client and server mod for Forge 1.19.2.
 - Braziers (Caverns and Chasms) no longer produce fire sounds when unlit.
 - Grindstones no longer display missing item textures when the last item in a stack is polished (Sully's Mod).
 - Pigs no longer follow players with an empty hand.
-- Cabinets (Farmer's Delight) should now be usable as Mounted Storage (Create).
 - Items with empty NBT will now combine with items without NBT.
 - Dimensional Tears (Spelunkery) will now stack correctly.
 
@@ -50,6 +50,7 @@ Comfortable Campfires is a client and server mod for Forge 1.19.2.
 
 ### Compatibility Changes
 - Twigs (Twigs) can now light Stoves (Farmer's Delight).
+- Cabinets (Farmer's Delight), Drawers (Another Furniture) can be used as Mounted Storage (Create).
 
 ## License
 [![Asset license (Unlicensed)](https://img.shields.io/badge/assets%20license-All%20Rights%20Reserved-red.svg?style=flat-square)](https://en.wikipedia.org/wiki/All_rights_reserved)
