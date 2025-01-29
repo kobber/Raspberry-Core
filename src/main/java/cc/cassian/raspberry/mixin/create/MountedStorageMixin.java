@@ -2,6 +2,7 @@ package cc.cassian.raspberry.mixin.create;
 
 import cc.cassian.raspberry.compat.AnotherFurnitureCompat;
 import cc.cassian.raspberry.compat.FarmersDelightCompat;
+import cc.cassian.raspberry.compat.SupplementariesCompat;
 import com.simibubi.create.content.contraptions.MountedStorage;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.fml.ModList;
@@ -22,6 +23,9 @@ public class MountedStorageMixin {
                 cir.setReturnValue(true);
         else if (modlist.isLoaded("another_furniture"))
             if (AnotherFurnitureCompat.isDrawer(be))
+                cir.setReturnValue(true);
+        else if (modlist.isLoaded("supplementaries"))
+            if (SupplementariesCompat.isStorage(be))
                 cir.setReturnValue(true);
     }
 }
