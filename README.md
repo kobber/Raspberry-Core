@@ -8,6 +8,7 @@ This is a collection of minor tweaks for the Raspberry Flavoured modpack, focusi
 
 Raspberry Core is a client and server mod for Forge 1.19.2.
 - [Farmer's Delight](https://modrinth.com/mod/farmers-delight) is required.
+- [Environmental](https://modrinth.com/mod/farmers-delight) is required.
 - [Twigs](https://modrinth.com/mod/twigs) is recommended.
 - [Supplementaries](https://modrinth.com/mod/supplementaries) is recommended.
 - [Oreganized](https://modrinth.com/mod/oreganized) is recommended.
@@ -36,6 +37,7 @@ Raspberry Core is a client and server mod for Forge 1.19.2.
 - Pigs no longer follow players with an empty hand.
 - Items with empty NBT will now combine with items without NBT.
 - Dimensional Tears (Spelunkery) will now stack correctly.
+- Yak Pants (Environmental) now use Forge's step height modifier.
 
 ### Configurable Tweaks
 - Stoves (Farmer's Delight) start unlit.
