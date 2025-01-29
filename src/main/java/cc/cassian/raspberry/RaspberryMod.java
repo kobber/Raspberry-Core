@@ -2,6 +2,7 @@ package cc.cassian.raspberry;
 
 import cc.cassian.raspberry.client.config.ModConfigFactory;
 import cc.cassian.raspberry.compat.AquacultureCompat;
+import cc.cassian.raspberry.compat.NeapolitanCompat;
 import cc.cassian.raspberry.config.ModConfig;
 import cc.cassian.raspberry.registry.RaspberryBlocks;
 import cc.cassian.raspberry.registry.RaspberryItems;
@@ -11,12 +12,10 @@ import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Collections;
-import java.util.List;
 
 @Mod(RaspberryMod.MOD_ID)
 public final class RaspberryMod {
@@ -24,14 +23,22 @@ public final class RaspberryMod {
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
     public RaspberryMod(FMLJavaModLoadingContext context) {
+        var eventBus = context.getModEventBus();
         // This code runs as soon as Minecraft is in a mod-load-ready state.
         // However, some things (like registries and resources) may still be uninitialized.
         // Proceed with mild caution.
         ModConfig.load();
-        RaspberryBlocks.BLOCKS.register(context.getModEventBus());
-        RaspberryItems.ITEMS.register(context.getModEventBus());
+        RaspberryBlocks.BLOCKS.register(eventBus);
+        RaspberryItems.ITEMS.register(eventBus);
         registerModsPage(context);
-        addTooltips();
+        MinecraftForge.EVENT_BUS.addListener(this::onItemTooltipEvent);
+        eventBus.addListener(RaspberryMod::commonSetup);
+    }
+
+    @SubscribeEvent
+    public static void commonSetup(FMLCommonSetupEvent event) {
+        if (ModList.get().isLoaded("neapolitan"))
+            NeapolitanCompat.boostAgility();
     }
 
     /**
@@ -40,10 +47,6 @@ public final class RaspberryMod {
     public static void registerModsPage(FMLJavaModLoadingContext context) {
         if (ModList.get().isLoaded("cloth_config"))
             context.registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class, () -> new ConfigScreenHandler.ConfigScreenFactory(ModConfigFactory::createScreen));
-    }
-
-    public void addTooltips() {
-        MinecraftForge.EVENT_BUS.addListener(this::onItemTooltipEvent);
     }
 
     @SubscribeEvent

@@ -18,6 +18,7 @@ Raspberry Core is a client and server mod for Forge 1.19.2.
 - [Sully's Mod](https://modrinth.com/mod/sullysmod) is optional.
 - [Create](https://modrinth.com/mod/create) is optional.
 - [Upgrade Aquatic](https://modrinth.com/mod/upgrade-aquatic) is optional.
+- [Neapolitan](https://modrinth.com/mod/neapolitan) is optional.
 - [Another Furniture](https://modrinth.com/mod/another-furniture) is optional.
 - [Cloth Config](https://modrinth.com/mod/cloth-config) is recommended to configure the mod.
 
@@ -37,7 +38,6 @@ Raspberry Core is a client and server mod for Forge 1.19.2.
 - Pigs no longer follow players with an empty hand.
 - Items with empty NBT will now combine with items without NBT.
 - Dimensional Tears (Spelunkery) will now stack correctly.
-- Yak Pants (Environmental) now use Forge's step height modifier.
 
 ### Configurable Tweaks
 - Stoves (Farmer's Delight) start unlit.
@@ -49,6 +49,8 @@ Raspberry Core is a client and server mod for Forge 1.19.2.
 ### Tweaks
 - Fishing Rods (Aquaculture 2) show their bait as a tooltip.
 - Create's flowing Honey fluid makes Ochrum with Lava instead of Limestone.
+- Yak Pants (Environmental) now uses Forge's step height modifier instead of its own.
+- Agility (Neapolitan) now uses Forge's step height modifier as well as the climbing boost.
 
 ### Compatibility Changes
 - Twigs (Twigs) can now light Stoves (Farmer's Delight).
