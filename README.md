@@ -52,8 +52,9 @@ Raspberry Core is a client and server mod for Forge 1.19.2. While it was created
 - Glow Goop (Naturalist) has its tooltip hidden.
 
 ### Tweaks
-- Fishing Rods (Aquaculture 2) show their bait as a tooltip.
-- Create's flowing Honey fluid makes Ochrum with Lava instead of Limestone.
+- Fishing Rods (Aquaculture 2) show their bait as a tooltip, and can hold up to a stack. Bait items can also be moved freely in and out of rods.
+- Bait (Aquaculture 2) decreases with each successful fishing reel, instead of relying on durability.
+- Flowing Honey fluid (Create) makes Ochrum with Lava instead of Limestone.
 - Yak Pants (Environmental) now uses Forge's step height modifier instead of its own.
 - Agility (Neapolitan) now uses Forge's step height modifier as well as the climbing boost.
 

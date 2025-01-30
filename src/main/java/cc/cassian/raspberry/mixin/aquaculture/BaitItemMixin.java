@@ -1,4 +1,4 @@
-package cc.cassian.raspberry.mixin;
+package cc.cassian.raspberry.mixin.aquaculture;
 
 import com.teammetallurgy.aquaculture.item.BaitItem;
 import org.spongepowered.asm.mixin.Mixin;
