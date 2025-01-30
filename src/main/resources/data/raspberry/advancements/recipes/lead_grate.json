@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "raspberry:lead_grate_stonecutting"
+        "recipe": "raspberry:lead_grate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "raspberry:lead_grate_stonecutting"
+      "raspberry:lead_grate"
     ]
   }
 }

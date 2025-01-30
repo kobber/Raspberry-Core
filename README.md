@@ -56,7 +56,7 @@ Raspberry Core is a client and server mod for Forge 1.19.2. While it was created
 - Bait (Aquaculture 2) decreases with each successful fishing reel, instead of relying on durability.
 - Flowing Honey fluid (Create) makes Ochrum with Lava instead of Limestone.
 - Yak Pants (Environmental) now uses Forge's step height modifier instead of its own.
-- Agility (Neapolitan) now uses Forge's step height modifier as well as the climbing boost.
+- Agility (Neapolitan) now uses Forge's step height modifier as well as its climbing boost.
 
 ### Compatibility Changes
 - Twigs (Twigs) can now light Stoves (Farmer's Delight).
