@@ -2,13 +2,16 @@ package cc.cassian.raspberry;
 
 import cc.cassian.raspberry.client.config.ModConfigFactory;
 import cc.cassian.raspberry.compat.AquacultureCompat;
+import cc.cassian.raspberry.compat.CopperizedCompat;
 import cc.cassian.raspberry.compat.NeapolitanCompat;
 import cc.cassian.raspberry.config.ModConfig;
 import cc.cassian.raspberry.registry.RaspberryBlocks;
 import cc.cassian.raspberry.registry.RaspberryItems;
 import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -33,12 +36,19 @@ public final class RaspberryMod {
         registerModsPage(context);
         MinecraftForge.EVENT_BUS.addListener(this::onItemTooltipEvent);
         eventBus.addListener(RaspberryMod::commonSetup);
+        MinecraftForge.EVENT_BUS.addListener(RaspberryMod::copperTick);
     }
 
     @SubscribeEvent
     public static void commonSetup(FMLCommonSetupEvent event) {
         if (ModList.get().isLoaded("neapolitan"))
             NeapolitanCompat.boostAgility();
+    }
+
+    @SubscribeEvent
+    public static void copperTick(PlayerEvent.LivingTickEvent event) {
+        if (ModList.get().isLoaded("copperized"))
+            CopperizedCompat.electrify(event);
     }
 
     /**
