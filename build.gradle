@@ -72,6 +72,7 @@ dependencies {
     modImplementation "maven.modrinth:environmental:$environmental_version"
     modImplementation "maven.modrinth:caverns-and-chasms:$caverns_and_chasms_version"
     modImplementation "maven.modrinth:upgrade-aquatic:$upgrade_aquatic_version"
+    modImplementation "maven.modrinth:neapolitan:$neapolitan_version"
     modImplementation "com.teamabnormals:blueprint:$blueprint_version"
 
     // Recipe viewers
@@ -92,8 +93,10 @@ dependencies {
     modImplementation "curse.maven:aquaculture-60028:$aquaculture_version"
     modImplementation "curse.maven:copper-tuff-backport-fabric-950738:$copper_backport_version"
     modImplementation "software.bernie.geckolib:geckolib-forge-$geckolib_version"
+    modImplementation "maven.modrinth:supplementaries:$supplementaries_version-forge"
     modImplementation "maven.modrinth:moonlight:$moonlight_lib_version-forge"
     modImplementation "maven.modrinth:naturalist:$naturalist_version"
+    modImplementation "maven.modrinth:another-furniture:$another_furniture_version"
     modImplementation "maven.modrinth:oreganized:$oreganized_version"
     modImplementation "maven.modrinth:spelunkery:$spelunkery_version-forge"
     modImplementation "maven.modrinth:sullysmod:$sullys_version"

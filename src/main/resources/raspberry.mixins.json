@@ -6,25 +6,27 @@
   "client": [
   ],
   "mixins": [
-    "BaitItemMixin",
-    "BrazierBlockMixin",
-    "CampfireBlockMixin",
-    "FlintAndSteelMixin",
-    "ItemStackMixin",
-    "KegBlockEntityMixin",
-    "LevelSummaryMixin",
-    "PigMixin",
-    "SMPlayerEventsMixin",
-    "create.AllFluidsMixin",
-    "create.MountedStorageMixin",
-    "farmersdelight.BlockEntityTypeMixin",
-    "farmersdelight.StoveBlockMixin",
-    "naturalist.GlowGoopItemMixin",
-    "upgrade_aquatic.PikeMixin",
-    "upgrade_aquatic.ThrasherMixin",
-    "upgrade_aquatic.ThrasherThrashGoalMixin"
+	"BrazierBlockMixin",
+	"CampfireBlockMixin",
+	"FlintAndSteelMixin",
+	"ItemStackMixin",
+	"KegBlockEntityMixin",
+	"LevelSummaryMixin",
+	"PigMixin",
+	"SMPlayerEventsMixin",
+	"create.AllFluidsMixin",
+	"create.MountedStorageMixin",
+	"environmental.ArmorItemMixin",
+	"environmental.YakPantsItemMixin",
+	"farmersdelight.BlockEntityTypeMixin",
+	"farmersdelight.StoveBlockMixin",
+	"naturalist.GlowGoopItemMixin",
+	"upgrade_aquatic.PikeMixin",
+	"upgrade_aquatic.ThrasherMixin",
+	"upgrade_aquatic.ThrasherThrashGoalMixin"
   ],
+  "plugin": "cc.cassian.raspberry.mixin.RaspberryMixinPlugin",
   "injectors": {
-    "defaultRequire": 1
+	"defaultRequire": 1
   }
 }
