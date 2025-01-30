@@ -7,8 +7,10 @@ import cc.cassian.raspberry.compat.NeapolitanCompat;
 import cc.cassian.raspberry.config.ModConfig;
 import cc.cassian.raspberry.registry.RaspberryBlocks;
 import cc.cassian.raspberry.registry.RaspberryItems;
+import cc.cassian.raspberry.registry.RasperryMobEffects;
 import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -31,9 +33,13 @@ public final class RaspberryMod {
         // However, some things (like registries and resources) may still be uninitialized.
         // Proceed with mild caution.
         ModConfig.load();
+        // Register deferred registers.
         RaspberryBlocks.BLOCKS.register(eventBus);
         RaspberryItems.ITEMS.register(eventBus);
+        RasperryMobEffects.MOB_EFFECTS.register(eventBus);
+        // Register config
         registerModsPage(context);
+        // Register event bus listeners.
         MinecraftForge.EVENT_BUS.addListener(this::onItemTooltipEvent);
         eventBus.addListener(RaspberryMod::commonSetup);
         MinecraftForge.EVENT_BUS.addListener(RaspberryMod::copperTick);
@@ -46,7 +52,7 @@ public final class RaspberryMod {
     }
 
     @SubscribeEvent
-    public static void copperTick(PlayerEvent.LivingTickEvent event) {
+    public static void copperTick(EntityStruckByLightningEvent event) {
         if (ModList.get().isLoaded("copperized"))
             CopperizedCompat.electrify(event);
     }
