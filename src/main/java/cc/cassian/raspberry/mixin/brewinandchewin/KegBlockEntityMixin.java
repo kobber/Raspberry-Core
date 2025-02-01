@@ -1,4 +1,4 @@
-package cc.cassian.raspberry.mixin;
+package cc.cassian.raspberry.mixin.brewinandchewin;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;

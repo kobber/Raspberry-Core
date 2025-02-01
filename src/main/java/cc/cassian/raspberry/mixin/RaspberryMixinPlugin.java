@@ -21,22 +21,33 @@ public class RaspberryMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        if (mixinClassName.contains("cc.cassian.raspberry.mixin.environmental") && LoadingModList.get().getModFileById("environmental") == null){
+        if (checkMixin("environmental", mixinClassName)){
             return false;
         }
-        else if (mixinClassName.contains("cc.cassian.raspberry.mixin.create") && LoadingModList.get().getModFileById("create") == null){
+        else if (checkMixin("create", mixinClassName)){
             return false;
         }
-        else if (mixinClassName.contains("cc.cassian.raspberry.mixin.farmersdelight") && LoadingModList.get().getModFileById("farmersdelight") == null){
+        else if (checkMixin("farmersdelight", mixinClassName)){
             return false;
         }
-        else if (mixinClassName.contains("cc.cassian.raspberry.mixin.naturalist") && LoadingModList.get().getModFileById("naturalist") == null){
+        else if (checkMixin("naturalist", mixinClassName)){
             return false;
         }
-        else if (mixinClassName.contains("cc.cassian.raspberry.mixin.upgrade_aquatic") && LoadingModList.get().getModFileById("upgrade_aquatic") == null){
+        else if (checkMixin("upgrade_aquatic", mixinClassName)){
+            return false;
+        }
+        else if (checkMixin("sullysmod", mixinClassName)){
+            return false;
+        }
+        else if (checkMixin("caverns_and_chasms", mixinClassName)){
             return false;
         }
         return true;
+    }
+
+    public static boolean checkMixin(String modID, String mixinClassName) {
+        var modList = LoadingModList.get();
+        return (mixinClassName.contains("cc.cassian.raspberry.mixin."+modID) && modList.getModFileById(modID) == null);
     }
 
     @Override
