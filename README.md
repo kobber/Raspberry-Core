@@ -50,6 +50,7 @@ Raspberry Core is a client and server mod for Forge 1.19.2. While it was created
 - Braziers (Caverns and Chasms) start unlit.
 - World version is hidden.
 - Glow Goop (Naturalist) has its tooltip hidden.
+- Thief Hoods (Environmental) no longer generates on skeletons.
 
 ### Tweaks
 - Fishing Rods (Aquaculture 2) show their bait as a tooltip, and can hold up to a stack. Bait items can also be moved freely in and out of rods.
