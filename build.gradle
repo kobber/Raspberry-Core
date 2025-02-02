@@ -101,7 +101,7 @@ dependencies {
     modImplementation "curse.maven:copper-tuff-backport-fabric-950738:$copper_backport_version"
     modImplementation "curse.maven:copperized-567666:$copperized_version"
     modImplementation "software.bernie.geckolib:geckolib-forge-$geckolib_version"
-    modImplementation "maven.modrinth:supplementaries:$supplementaries_version-forge"
+    modCompileOnly "maven.modrinth:supplementaries:$supplementaries_version-forge"
     modImplementation "maven.modrinth:moonlight:$moonlight_lib_version-forge"
     modImplementation "maven.modrinth:naturalist:$naturalist_version"
     modImplementation "maven.modrinth:another-furniture:$another_furniture_version"
@@ -109,6 +109,10 @@ dependencies {
     modImplementation "maven.modrinth:spelunkery:$spelunkery_version-forge"
     modImplementation "maven.modrinth:sullysmod:$sullys_version"
     modImplementation "maven.modrinth:twigs:$twigs_version"
+
+    // beacons
+    modImplementation "curse.maven:just-enough-beacons-reforged-912266:$jeb_reforged_version"
+    modImplementation "curse.maven:cerbons-better-beacons-921066:$better_beacons_version"
 
     // MixinExtras
     compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:0.4.1"))
