@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_17",
   "minVersion": "0.8",
   "client": [
+	"naturalist.GlowGoopItemMixin"
   ],
   "mixins": [
 	"CampfireBlockMixin",
@@ -25,7 +26,6 @@
 	"farmersdelight.BlockEntityTypeMixin",
 	"farmersdelight.FlintAndSteelMixin",
 	"farmersdelight.StoveBlockMixin",
-	"naturalist.GlowGoopItemMixin",
 	"sullysmod.SMPlayerEventsMixin",
 	"upgrade_aquatic.PikeMixin",
 	"upgrade_aquatic.ThrasherMixin",
