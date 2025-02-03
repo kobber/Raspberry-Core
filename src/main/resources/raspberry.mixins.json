@@ -19,6 +19,7 @@
 	"caverns_and_chasms.BrazierBlockMixin",
 	"create.AllFluidsMixin",
 	"create.MountedStorageMixin",
+	"dynamiccrosshair.VanillaBlockHandlerMixin",
 	"environmental.AbstractSkeletonMixin",
 	"environmental.ArmorItemMixin",
 	"environmental.WitherSkeletonMixin",

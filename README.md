@@ -17,14 +17,16 @@ Raspberry Core is a client and server mod for Forge 1.19.2. While it was created
 - [Twigs](https://modrinth.com/mod/twigs) is recommended.
 - [Supplementaries](https://modrinth.com/mod/supplementaries) is recommended.
 - [Oreganized](https://modrinth.com/mod/oreganized) is recommended.
-- [Caverns and Chasms](https://modrinth.com/mod/caverns-and-chasms) is optional.
 - [Aquaculture 2](https://modrinth.com/mod/aquaculture) is optional.
-- [Brewing and Chewin](https://www.curseforge.com/minecraft/mc-mods/brewin-and-chewin) is optional.
-- [Sully's Mod](https://modrinth.com/mod/sullysmod) is optional.
-- [Create](https://modrinth.com/mod/create) is optional.
-- [Upgrade Aquatic](https://modrinth.com/mod/upgrade-aquatic) is optional.
-- [Neapolitan](https://modrinth.com/mod/neapolitan) is optional.
 - [Another Furniture](https://modrinth.com/mod/another-furniture) is optional.
+- [Brewing and Chewin](https://www.curseforge.com/minecraft/mc-mods/brewin-and-chewin) is optional.
+- [Caverns and Chasms](https://modrinth.com/mod/caverns-and-chasms) is optional.
+- [Create](https://modrinth.com/mod/create) is optional.
+- [Dynamic Crosshair](https://modrinth.com/mod/dynamiccrosshair) is optional.
+- [Neapolitan](https://modrinth.com/mod/neapolitan) is optional.
+- [Quark](https://modrinth.com/mod/quark) is optional.
+- [Sully's Mod](https://modrinth.com/mod/sullysmod) is optional.
+- [Upgrade Aquatic](https://modrinth.com/mod/upgrade-aquatic) is optional.
 - [Cloth Config](https://modrinth.com/mod/cloth-config) is recommended to configure the mod.
 
 
@@ -67,6 +69,7 @@ Raspberry Core is a client and server mod for Forge 1.19.2. While it was created
 ### Compatibility Changes
 - Twigs (Twigs) can now light Stoves (Farmer's Delight).
 - Cabinets (Farmer's Delight), Drawers (Another Furniture), Sacks and Safes (Supplementaries) can be used as Mounted Storage (Create).
+- Golden Tools will show their harvest level correctly in Dynamic Crosshair when it has been change by Quark.
 
 ## License
 [![Asset license (Unlicensed)](https://img.shields.io/badge/assets%20license-All%20Rights%20Reserved-red.svg?style=flat-square)](https://en.wikipedia.org/wiki/All_rights_reserved)

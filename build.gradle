@@ -109,6 +109,10 @@ dependencies {
     modImplementation "maven.modrinth:spelunkery:$spelunkery_version-forge"
     modImplementation "maven.modrinth:sullysmod:$sullys_version"
     modImplementation "maven.modrinth:twigs:$twigs_version"
+    modImplementation "maven.modrinth:quark:$quark_version"
+    modImplementation "maven.modrinth:autoreglib:$autoreglib_version"
+    modImplementation "maven.modrinth:dynamiccrosshair:$dynamic_crosshair_version-forge"
+
 
     // beacons
     modImplementation "curse.maven:just-enough-beacons-reforged-912266:$jeb_reforged_version"
