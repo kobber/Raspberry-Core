@@ -2,7 +2,7 @@
 
 <a href='https://files.minecraftforge.net'><img alt="forge" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/forge_vector.svg"></a>
 
-This is a collection of minor tweaks for the [Raspberry Flavoured](https://www.curseforge.com/minecraft/modpacks/raspberry-flavoured) modpack, focusing on compatibility and fixes for issues in older mods.
+This is a collection of minor tweaks for the [Raspberry Flavoured](https://www.curseforge.com/minecraft/modpacks/raspberry-flavoured) modpack, focusing on compatibility and fixes for issues in older mods, as well as a few minor features that work best in a full mod.
 
 ## Installation
 
