@@ -23,7 +23,8 @@ public class VanillaBlockHandlerMixin {
     )
     private static boolean bypassExpensiveCalculationIfNecessary(Item instance, BlockState block, Operation<Boolean> original) {
         if (ModList.get().isLoaded("quark") && instance instanceof DiggerItem diggerItem && diggerItem.getTier().equals(Tiers.GOLD)) {
-            return QuarkCompat.checkGold(diggerItem, block);
+            if (QuarkCompat.checkGold(diggerItem, block))
+                return true;
         }
         return original.call(instance, block);
     }
