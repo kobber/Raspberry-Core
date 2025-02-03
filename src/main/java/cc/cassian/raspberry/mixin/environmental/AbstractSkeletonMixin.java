@@ -21,8 +21,8 @@ public class AbstractSkeletonMixin extends Monster {
         super(entityType, level);
     }
 
-    @Inject(method = "populateDefaultEquipmentSlots", at = @At(value = "TAIL", target = "Lnet/example/Dummy;dummy()V"))
-    private void mixin(RandomSource random, DifficultyInstance difficulty, CallbackInfo ci) {
+    @Inject(method = "populateDefaultEquipmentSlots", at = @At(value = "TAIL"))
+    private void removedDisabledArmour(RandomSource random, DifficultyInstance difficulty, CallbackInfo ci) {
         Iterable<ItemStack> armorSlots = this.getArmorSlots();
         for (ItemStack stack : armorSlots) {
             if (stack.is(RaspberryTags.DISABLED)) {
