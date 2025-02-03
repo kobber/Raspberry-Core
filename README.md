@@ -76,7 +76,7 @@ Raspberry Core is a client and server mod for Forge 1.19.2. While it was created
 ### Compatibility Changes
 - Twigs (Twigs) can now light Stoves (Farmer's Delight).
 - Cabinets (Farmer's Delight), Drawers (Another Furniture), Sacks and Safes (Supplementaries) can be used as Mounted Storage (Create).
-- Golden Tools will show their harvest level correctly in Dynamic Crosshair when it has been change by Quark.
+- Golden Tools will show their harvest level correctly in Dynamic Crosshair when it has been changed by Quark.
 
 ## License
 [![Asset license (Unlicensed)](https://img.shields.io/badge/assets%20license-All%20Rights%20Reserved-red.svg?style=flat-square)](https://en.wikipedia.org/wiki/All_rights_reserved)
