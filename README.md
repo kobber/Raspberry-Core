@@ -13,6 +13,8 @@ Raspberry Core is a client and server mod for Forge 1.19.2. While it was created
 - [Copper and Tuff Backport](https://www.curseforge.com/minecraft/mc-mods/copper-tuff-backport-fabric) is required.
 
 #### Optional Dependencies
+- [Copperized](https://www.curseforge.com/minecraft/mc-mods/copperized) is recommended.
+- [CoFH Core](https://www.curseforge.com/minecraft/mc-mods/cofh-core) is recommended.
 - [Environmental](https://modrinth.com/mod/environmental) is recommended.
 - [Twigs](https://modrinth.com/mod/twigs) is recommended.
 - [Supplementaries](https://modrinth.com/mod/supplementaries) is recommended.
@@ -36,6 +38,10 @@ Raspberry Core is a client and server mod for Forge 1.19.2. While it was created
 - Ash Ovens, crafted from Ash Bricks (Supplementaries).
 - Silt Ovens, crafted from Silt Bricks (Twigs).
 - Lead Grate, crafted from Lead Blocks (Oreganized)
+
+### Features
+- Copper Armour (Copperized) will grant the new Aftershock effect when struck by lightning. This effect increases attack speed and movement speed.
+- Copper Armour (Copperized) will grant Lightning Resistance (CoFH Core) effect.
 
 ### Fixes
 - Jerky (Brewin and Chewin) and other items without a fluid no longer cause a ticking block entity crash.

@@ -112,6 +112,8 @@ dependencies {
     modImplementation "maven.modrinth:quark:$quark_version"
     modImplementation "maven.modrinth:autoreglib:$autoreglib_version"
     modImplementation "maven.modrinth:dynamiccrosshair:$dynamic_crosshair_version-forge"
+    modImplementation "maven.modrinth:cofh-core:$cofh_core_version-forge"
+
 
 
     // beacons
