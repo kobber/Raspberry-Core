@@ -27,6 +27,7 @@
 	"environmental.ArmorItemMixin",
 	"environmental.WitherSkeletonMixin",
 	"environmental.YakPantsItemMixin",
+	"farmersdelight.BambooBlockMixin",
 	"farmersdelight.BlockEntityTypeMixin",
 	"farmersdelight.FlintAndSteelMixin",
 	"farmersdelight.StoveBlockMixin",
