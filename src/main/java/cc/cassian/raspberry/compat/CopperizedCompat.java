@@ -48,7 +48,7 @@ public class CopperizedCompat {
             }
             copperCount--;
             if (copperCount >= 0) {
-                player.addEffect(new MobEffectInstance(CoreMobEffects.LIGHTNING_RESISTANCE.get(), 200, copperCount, false, false, true));
+                player.addEffect(new MobEffectInstance(CoreMobEffects.LIGHTNING_RESISTANCE.get(), 200, 0, false, false, true));
             }
         }
 
