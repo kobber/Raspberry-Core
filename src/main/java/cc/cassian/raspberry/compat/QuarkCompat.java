@@ -11,7 +11,7 @@ import java.util.Locale;
 
 public class QuarkCompat {
     public static boolean checkGold(Item diggerItem, BlockState block) {
-        if (GoldToolsHaveFortuneModule.harvestLevel != 2) {
+        if (GoldToolsHaveFortuneModule.harvestLevel != 0) {
             Tiers[] values = Tiers.values();
             for (Tiers value : values) {
                 if (value.getLevel() == GoldToolsHaveFortuneModule.harvestLevel) {
