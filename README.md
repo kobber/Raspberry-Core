@@ -54,6 +54,7 @@ Raspberry Core is a client and server mod for Forge 1.19.2. While it was created
 
 ### Configurable Tweaks
 - Stoves (Farmer's Delight) start unlit.
+- Nether Stoves (My Nether's Delight) start unlit.
 - Campfires start unlit.
 - Braziers (Caverns and Chasms) start unlit.
 - World version is hidden.
