@@ -64,7 +64,7 @@ Raspberry Core is a client and server mod for Forge 1.19.2. While it was created
 - Thief Hoods (Environmental) no longer generate on skeletons.
   - Disable by overwriting `data/raspberry/tags/items/disabled.json`
 - Healer Pouches (Environmental) no longer generate.
-    - Disable by overwriting `data/environmental/tags/worldgen/structure/has_healer_pouch.json`
+  - Disable by overwriting `data/environmental/tags/worldgen/structure/has_healer_pouch.json`
 
 ### Tweaks
 - Fishing Rods (Aquaculture 2) show their bait as a tooltip, and can hold up to a stack. Bait items can also be moved freely in and out of rods.
