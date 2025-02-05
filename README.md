@@ -10,9 +10,9 @@ Raspberry Core is a client and server mod for Forge 1.19.2. While it was created
 
 #### Required Dependencies
 - [Farmer's Delight](https://modrinth.com/mod/farmers-delight) is required.
-- [Copper and Tuff Backport](https://www.curseforge.com/minecraft/mc-mods/copper-tuff-backport-fabric) is required.
 
 #### Optional Dependencies
+- [Copper and Tuff Backport](https://www.curseforge.com/minecraft/mc-mods/copper-tuff-backport-fabric) is recommended.
 - [Copperized](https://www.curseforge.com/minecraft/mc-mods/copperized) is recommended.
 - [CoFH Core](https://www.curseforge.com/minecraft/mc-mods/cofh-core) is recommended.
 - [Environmental](https://modrinth.com/mod/environmental) is recommended.

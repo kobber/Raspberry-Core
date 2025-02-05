@@ -1,7 +1,7 @@
 package cc.cassian.raspberry.registry;
 
+import cc.cassian.raspberry.compat.CopperBackportCompat;
 import cc.cassian.raspberry.compat.EnvironmentalCompat;
-import com.teamabnormals.environmental.core.other.EnvironmentalProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -19,7 +19,6 @@ import oshi.util.tuples.Pair;
 import vectorwing.farmersdelight.FarmersDelight;
 import vectorwing.farmersdelight.common.block.StoveBlock;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
-import xanthian.copperandtuffbackport.blocks.custom.GrateBlock;
 
 import java.util.function.Supplier;
 
@@ -37,8 +36,7 @@ public class RaspberryBlocks {
             ()-> new StoveBlock(BlockBehaviour.Properties.copy(ModBlocks.STOVE.get())), FarmersDelight.CREATIVE_TAB);
 
     public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
-            LEAD_GRATE = registerBlock("lead_grate",
-            ()-> new GrateBlock(BlockBehaviour.Properties.of(Material.HEAVY_METAL).noOcclusion().strength(5.0F, 6.0F).requiresCorrectToolForDrops().sound(SoundType.METAL)), CreativeModeTab.TAB_BUILDING_BLOCKS);
+            LEAD_GRATE = registerLeadGrate();
 
     public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
             WORMY_DIRT = registerBlock("wormy_dirt",
@@ -48,6 +46,15 @@ public class RaspberryBlocks {
         if (ModList.get().isLoaded("environmental"))
             return EnvironmentalCompat.getTruffleProperties();
         else return BlockBehaviour.Properties.copy(Blocks.DIRT);
+    }
+
+    public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>> registerLeadGrate() {
+        BlockBehaviour.Properties properties = BlockBehaviour.Properties.of(Material.HEAVY_METAL).noOcclusion().strength(5.0F, 6.0F).requiresCorrectToolForDrops().sound(SoundType.METAL);
+        if (ModList.get().isLoaded("copperandtuffbackport")) {
+            return CopperBackportCompat.registerGrateBlock(properties);
+        }
+        else return registerBlock("lead_grate",
+                ()-> new Block(properties), CreativeModeTab.TAB_BUILDING_BLOCKS);
     }
 
     public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>> registerBlock(String blockID, Supplier<Block> blockSupplier, CreativeModeTab tab) {
