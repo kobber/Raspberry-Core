@@ -4,6 +4,7 @@ import cc.cassian.raspberry.client.config.ModConfigFactory;
 import cc.cassian.raspberry.compat.AquacultureCompat;
 import cc.cassian.raspberry.compat.CopperizedCompat;
 import cc.cassian.raspberry.compat.NeapolitanCompat;
+import cc.cassian.raspberry.compat.QuarkCompat;
 import cc.cassian.raspberry.config.ModConfig;
 import cc.cassian.raspberry.registry.RaspberryBlocks;
 import cc.cassian.raspberry.registry.RaspberryItems;
@@ -51,6 +52,9 @@ public final class RaspberryMod {
     public static void commonSetup(FMLCommonSetupEvent event) {
         if (ModList.get().isLoaded("neapolitan"))
             NeapolitanCompat.boostAgility();
+        if (ModList.get().isLoaded("quark")) {
+            QuarkCompat.register();
+        }
     }
 
     @SubscribeEvent
