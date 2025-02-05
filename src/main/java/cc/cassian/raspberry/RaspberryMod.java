@@ -1,11 +1,11 @@
 package cc.cassian.raspberry;
 
 import cc.cassian.raspberry.client.config.ModConfigFactory;
-import cc.cassian.raspberry.compat.AquacultureCompat;
-import cc.cassian.raspberry.compat.CopperizedCompat;
-import cc.cassian.raspberry.compat.NeapolitanCompat;
-import cc.cassian.raspberry.compat.QuarkCompat;
+import cc.cassian.raspberry.compat.*;
+import cc.cassian.raspberry.compat.oreganized.OreganizedEvents;
+import cc.cassian.raspberry.compat.oreganized.network.RaspberryOreganizedNetwork;
 import cc.cassian.raspberry.config.ModConfig;
+import cc.cassian.raspberry.registry.RaspberryAttributes;
 import cc.cassian.raspberry.registry.RaspberryBlocks;
 import cc.cassian.raspberry.registry.RaspberryItems;
 import cc.cassian.raspberry.registry.RasperryMobEffects;
@@ -13,9 +13,7 @@ import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
-import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -46,6 +44,11 @@ public final class RaspberryMod {
         eventBus.addListener(RaspberryMod::commonSetup);
         MinecraftForge.EVENT_BUS.addListener(RaspberryMod::copperTick);
         MinecraftForge.EVENT_BUS.addListener(RaspberryMod::lightningTick);
+        if (ModList.get().isLoaded("oreganized")) {
+            RaspberryAttributes.ATTRIBUTES.register(eventBus);
+            RaspberryOreganizedNetwork.register();
+            MinecraftForge.EVENT_BUS.addListener(OreganizedEvents::onItemAttributes);
+        }
     }
 
     @SubscribeEvent

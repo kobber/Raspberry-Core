@@ -13,6 +13,7 @@ public class RaspberryTags {
     public static final TagKey<Item> BAD_BAIT = createItemTag("bad_bait");
     public static final TagKey<Item> MID_BAIT = createItemTag("mid_bait");
     public static final TagKey<Item> GOOD_BAIT = createItemTag("good_bait");
+    public static final TagKey<Item> HAS_KINETIC_DAMAGE = createItemTag( "has_kinetic_damage");
 
     public static TagKey<Item> createItemTag(String id) {
         return TagKey.create(ForgeRegistries.ITEMS.getRegistryKey(), new ResourceLocation(MOD_ID, id));

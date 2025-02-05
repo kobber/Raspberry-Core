@@ -33,6 +33,8 @@
 	"farmersdelight.FlintAndSteelMixin",
 	"farmersdelight.NetherStoveBlockMixin",
 	"farmersdelight.StoveBlockMixin",
+	"oreganized.EnchantmentHelperMixin",
+	"oreganized.EntityMixin",
 	"sullysmod.SMPlayerEventsMixin",
 	"upgrade_aquatic.PikeMixin",
 	"upgrade_aquatic.ThrasherMixin",
