@@ -38,7 +38,7 @@ public class AllFluidsMixin {
         ));
     }
 
-    @Inject(method = "getLavaInteraction", at = @At(value = "RETURN"), remap = false, cancellable = true)
+    @Inject(method = "getLavaInteraction", at = @At("RETURN"), cancellable = true, remap = false)
     private static void whatDoesThisMethodDoExactly(FluidState fluidState, CallbackInfoReturnable<BlockState> cir) {
         Fluid fluid = fluidState.getType();
         if (fluid.isSame(HONEY.get()))
