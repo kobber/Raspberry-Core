@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "aquaculture:worm",
-    "farmersdelight:dog_food"
+    "aquaculture:worm"
   ]
 }
