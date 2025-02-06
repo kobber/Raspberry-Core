@@ -27,6 +27,7 @@ Raspberry Core is a client and server mod for Forge 1.19.2. While it was created
 - [Clash](https://www.curseforge.com/minecraft/mc-mods/clash) is optional.
 - [Create](https://modrinth.com/mod/create) is optional.
 - [Dynamic Crosshair](https://modrinth.com/mod/dynamiccrosshair) is optional.
+- [Gliders](https://modrinth.com/mod/gliders) is optional.
 - [Neapolitan](https://modrinth.com/mod/neapolitan) is optional.
 - [Quark](https://modrinth.com/mod/quark) is optional.
 - [Sully's Mod](https://modrinth.com/mod/sullysmod) is optional.
@@ -62,6 +63,7 @@ Raspberry Core is a client and server mod for Forge 1.19.2. While it was created
 - Braziers (Caverns and Chasms) start unlit.
 - World version is hidden.
 - Glow Goop (Naturalist) has its tooltip hidden.
+- Gliders (Gliders) no longer attract lightning.
 
 ### Datapackable Tweaks
 - Thief Hoods (Environmental) no longer generate on skeletons.

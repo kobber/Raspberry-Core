@@ -34,6 +34,7 @@
     "farmersdelight.FlintAndSteelMixin",
     "farmersdelight.NetherStoveBlockMixin",
     "farmersdelight.StoveBlockMixin",
+    "vc_gliders.GliderUtilMixin",
     "oreganized.EnchantmentHelperMixin",
     "oreganized.EntityMixin",
     "sullysmod.SMPlayerEventsMixin",

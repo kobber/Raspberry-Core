@@ -14,8 +14,11 @@
  "config.raspberry.config.braziersStartLit": "Light braziers by default",
  "config.raspberry.config.hideWorldVersion": "Hide world version",
  "config.raspberry.config.hideTooltips": "Hide some modded tooltips",
- "config.raspberry.config.badBaitLureBonus": "Lure bonus gained from bad-tier bait",
- "config.raspberry.config.midBaitLureBonus": "Lure bonus gained from mid-tier bait",
- "config.raspberry.config.goodBaitLureBonus": "Lure bonus gained from good-tier bait",
- "config.raspberry.config.wormDiscoveryRange": "Maximum distance at which a wormy dirt block may be generated upon feeding a worm seeker a worm food"
+ "config.raspberry.gliders": "Gliders",
+ "config.raspberry.config.gliders_disableLightning": "Disable Lightning Strikes to Gliders",
+ "config.raspberry.aquaculture": "Aquaculture",
+ "config.raspberry.config.aquaculture_badBaitLureBonus": "Lure bonus gained from bad-tier bait",
+ "config.raspberry.config.aquaculture_midBaitLureBonus": "Lure bonus gained from mid-tier bait",
+ "config.raspberry.config.aquaculture_goodBaitLureBonus": "Lure bonus gained from good-tier bait",
+ "config.raspberry.config.aquaculture_wormDiscoveryRange": "Maximum distance at which a wormy dirt block may be generated upon feeding a worm seeker a worm food"
 }

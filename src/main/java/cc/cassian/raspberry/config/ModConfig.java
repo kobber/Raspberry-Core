@@ -23,10 +23,11 @@ public class ModConfig {
     public boolean braziersStartLit = false;
     public boolean hideWorldVersion = true;
     public boolean hideTooltips = true;
-    public int badBaitLureBonus = 1;
-    public int midBaitLureBonus = 2;
-    public int goodBaitLureBonus = 3;
-    public int wormDiscoveryRange = 80;
+    public boolean gliders_disableLightning = true;
+    public int aquaculture_badBaitLureBonus = 1;
+    public int aquaculture_midBaitLureBonus = 2;
+    public int aquaculture_goodBaitLureBonus = 3;
+    public int aquaculture_wormDiscoveryRange = 80;
 
     public static void load() {
         if (!Files.exists(configPath())) {

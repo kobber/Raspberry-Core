@@ -96,7 +96,7 @@ public class HuntWormGoal extends Goal {
         if (!this.seeker.level.dimensionType().natural())
             return false;
 
-        int range = ModConfig.get().wormDiscoveryRange;
+        int range = ModConfig.get().aquaculture_wormDiscoveryRange;
         int height = 16;
         BlockPos blockpos = this.seeker.blockPosition();
         BlockPos.MutableBlockPos blockpos$mutable = new BlockPos.MutableBlockPos();

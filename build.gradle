@@ -54,13 +54,24 @@ repositories {
         url = "https://maven.tterrag.com/"
         name = "Create"
     }
+    // GeckoLib
     maven {
         name = 'GeckoLib'
         url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
     }
+    // Parchment Mappings
     maven {
         name = 'ParchmentMC'
         url = 'https://maven.parchmentmc.org'
+    }
+    // Player Animator
+    maven {
+        name = "KosmX's maven"
+        url = 'https://maven.kosmx.dev/'
+    }
+    // PalladiumCore
+    maven {
+        url 'https://repo.repsy.io/mvn/lucraft/threetag'
     }
 }
 
@@ -117,7 +128,9 @@ dependencies {
     modImplementation "maven.modrinth:cofh-core:$cofh_core_version-forge"
     modImplementation "maven.modrinth:mmmmmmmmmmmm:1.7.2-forge"
     modImplementation "curse.maven:clash-468706:$clash_version"
-
+    modImplementation "maven.modrinth:gliders:$gliders_version"
+    modRuntimeOnly("dev.kosmx.player-anim:player-animation-lib-forge:${player_anim_version}")
+    modRuntimeOnly "net.threetag:PalladiumCore-forge:${palladiumcore_version}"
 
 
     // beacons
