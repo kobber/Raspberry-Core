@@ -116,6 +116,7 @@ dependencies {
     modImplementation "maven.modrinth:dynamiccrosshair:$dynamic_crosshair_version-forge"
     modImplementation "maven.modrinth:cofh-core:$cofh_core_version-forge"
     modImplementation "maven.modrinth:mmmmmmmmmmmm:1.7.2-forge"
+    modImplementation "curse.maven:clash-468706:$clash_version"
 
 
 

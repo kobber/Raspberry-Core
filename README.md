@@ -10,6 +10,7 @@ Raspberry Core is a client and server mod for Forge 1.19.2. While it was created
 
 #### Required Dependencies
 - [Farmer's Delight](https://modrinth.com/mod/farmers-delight) is required.
+- [Blueprint](https://modrinth.com/mod/blueprint) is required.
 
 #### Optional Dependencies
 - [Copper and Tuff Backport](https://www.curseforge.com/minecraft/mc-mods/copper-tuff-backport-fabric) is recommended.
@@ -21,8 +22,9 @@ Raspberry Core is a client and server mod for Forge 1.19.2. While it was created
 - [Oreganized](https://modrinth.com/mod/oreganized) is recommended.
 - [Aquaculture 2](https://modrinth.com/mod/aquaculture) is optional.
 - [Another Furniture](https://modrinth.com/mod/another-furniture) is optional.
-- [Brewing and Chewin](https://www.curseforge.com/minecraft/mc-mods/brewin-and-chewin) is optional.
+- [Brewin and Chewin](https://www.curseforge.com/minecraft/mc-mods/brewin-and-chewin) is optional.
 - [Caverns and Chasms](https://modrinth.com/mod/caverns-and-chasms) is optional.
+- [Clash](https://www.curseforge.com/minecraft/mc-mods/clash) is optional.
 - [Create](https://modrinth.com/mod/create) is optional.
 - [Dynamic Crosshair](https://modrinth.com/mod/dynamiccrosshair) is optional.
 - [Neapolitan](https://modrinth.com/mod/neapolitan) is optional.
@@ -50,6 +52,7 @@ Raspberry Core is a client and server mod for Forge 1.19.2. While it was created
 - Grindstones no longer display missing item textures when the last item in a stack is polished (Sully's Mod).
 - Pigs no longer follow players with an empty hand.
 - Items with empty NBT will now combine with items without NBT.
+- Greatblades (Clash!) now take one durability damage on any successful charged attack.
 - Dimensional Tears (Spelunkery) will now stack correctly.
 
 ### Configurable Tweaks
