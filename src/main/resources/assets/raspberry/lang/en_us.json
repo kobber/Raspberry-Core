@@ -16,5 +16,6 @@
  "config.raspberry.config.hideTooltips": "Hide some modded tooltips",
  "config.raspberry.config.badBaitLureBonus": "Lure bonus gained from bad-tier bait",
  "config.raspberry.config.midBaitLureBonus": "Lure bonus gained from mid-tier bait",
- "config.raspberry.config.goodBaitLureBonus": "Lure bonus gained from good-tier bait"
+ "config.raspberry.config.goodBaitLureBonus": "Lure bonus gained from good-tier bait",
+ "config.raspberry.config.wormDiscoveryRange": "Maximum distance at which a wormy dirt block may be generated upon feeding a worm seeker a worm food"
 }

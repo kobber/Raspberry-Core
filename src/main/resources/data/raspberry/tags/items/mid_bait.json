@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "aquaculture:leech"
+    {
+      "id": "aquaculture:leech",
+      "required": false
+    }
   ]
 }

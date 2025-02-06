@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "aquaculture:worm"
+    {
+      "id": "aquaculture:worm",
+      "required": false
+    }
   ]
 }

@@ -26,6 +26,7 @@ public class ModConfig {
     public int badBaitLureBonus = 1;
     public int midBaitLureBonus = 2;
     public int goodBaitLureBonus = 3;
+    public int wormDiscoveryRange = 80;
 
     public static void load() {
         if (!Files.exists(configPath())) {
