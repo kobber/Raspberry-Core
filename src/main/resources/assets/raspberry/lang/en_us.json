@@ -16,6 +16,7 @@
  "config.raspberry.config.hideTooltips": "Hide some modded tooltips",
  "config.raspberry.gliders": "Gliders",
  "config.raspberry.config.gliders_disableLightning": "Disable Lightning Strikes to Gliders",
+ "config.raspberry.config.gliders_disableNetherDamage": "Disable Nether Damage to Gliders",
  "config.raspberry.aquaculture": "Aquaculture",
  "config.raspberry.config.aquaculture_badBaitLureBonus": "Lure bonus gained from bad-tier bait",
  "config.raspberry.config.aquaculture_midBaitLureBonus": "Lure bonus gained from mid-tier bait",

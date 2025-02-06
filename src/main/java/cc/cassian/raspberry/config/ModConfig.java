@@ -24,6 +24,7 @@ public class ModConfig {
     public boolean hideWorldVersion = true;
     public boolean hideTooltips = true;
     public boolean gliders_disableLightning = true;
+    public boolean gliders_disableNetherDamage = true;
     public int aquaculture_badBaitLureBonus = 1;
     public int aquaculture_midBaitLureBonus = 2;
     public int aquaculture_goodBaitLureBonus = 3;
