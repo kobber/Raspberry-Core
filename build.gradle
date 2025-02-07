@@ -131,6 +131,8 @@ dependencies {
     modImplementation "maven.modrinth:gliders:$gliders_version"
     modRuntimeOnly("dev.kosmx.player-anim:player-animation-lib-forge:${player_anim_version}")
     modRuntimeOnly "net.threetag:PalladiumCore-forge:${palladiumcore_version}"
+    modImplementation "maven.modrinth:survivality:${survivality_version}"
+
 
 
     // beacons

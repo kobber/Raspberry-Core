@@ -41,6 +41,7 @@
     "upgrade_aquatic.PikeMixin",
     "upgrade_aquatic.ThrasherMixin",
     "upgrade_aquatic.ThrasherThrashGoalMixin",
+    "vc_gliders.GliderItemMixin",
     "vc_gliders.GliderUtilMixin"
   ],
   "plugin": "cc.cassian.raspberry.mixin.RaspberryMixinPlugin",
