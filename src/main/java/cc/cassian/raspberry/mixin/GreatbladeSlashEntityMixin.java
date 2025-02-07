@@ -26,7 +26,7 @@ public abstract class GreatbladeSlashEntityMixin extends Entity {
         super(entityType, level);
     }
 
-    @WrapOperation(method = "tick", at = @At(value = "INVOKE", target = "Lcom/jsburg/clash/weapons/GreatbladeItem;onSlashHit(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/Entity;)V"), remap = false)
+    @WrapOperation(method = "tick", at = @At(value = "INVOKE", target = "Lcom/jsburg/clash/weapons/GreatbladeItem;onSlashHit(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/Entity;)V"))
     private void hurtStack(GreatbladeItem instance, ItemStack stack, LivingEntity target, Entity user, Operation<Void> original) {
         original.call(instance, stack, target, user);
         if (!raspberryCore$swordDamaged && user instanceof LivingEntity living) {

@@ -85,7 +85,7 @@ public final class RaspberryMod {
     @SubscribeEvent
     public static void lightningTick(EntityStruckByLightningEvent event) {
         var modlist = ModList.get();
-        if (modlist.isLoaded("copperized") && !modlist.isLoaded("cofh_core"))
+        if (modlist.isLoaded("copperized") && !modlist.isLoaded("cofh_core") && ModConfig.get().aftershock)
             CopperizedCompat.electrify(event);
     }
 
