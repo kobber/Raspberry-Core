@@ -81,6 +81,7 @@ Raspberry Core is a client and server mod for Forge 1.19.2. While it was created
 - Knives (Farmers Delight) now mine Bamboo instantly like in 1.20+.
 - Torch Arrows (Quark) can now be fired out of Dispensers like in 1.20+.
 - Electrum Weapons (Oreganized) now deal kinetic damage like in 1.20+.
+- Gliders (Gliders) make a noise when they are equipped.
 
 ### Compatibility Changes
 - Twigs (Twigs) can now light Stoves (Farmer's Delight).
