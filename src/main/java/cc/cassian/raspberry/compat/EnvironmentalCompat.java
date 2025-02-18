@@ -2,20 +2,24 @@ package cc.cassian.raspberry.compat;
 
 import cc.cassian.raspberry.RaspberryMod;
 import cc.cassian.raspberry.entity.ai.goal.HuntWormGoal;
+import cc.cassian.raspberry.registry.RaspberryBlocks;
 import cc.cassian.raspberry.registry.RaspberryTags;
 import com.teamabnormals.blueprint.common.world.storage.tracking.IDataManager;
 import com.teamabnormals.environmental.core.other.EnvironmentalProperties;
 import com.teamabnormals.environmental.core.registry.EnvironmentalParticleTypes;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.goal.WrappedGoal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 
 import java.util.Set;
@@ -71,6 +75,42 @@ public class EnvironmentalCompat {
             Set<WrappedGoal> goals = seeker.goalSelector.getAvailableGoals();
             if (goals.stream().noneMatch((goal) -> goal.getGoal() instanceof HuntWormGoal))
                 seeker.goalSelector.addGoal(2, new HuntWormGoal(seeker));
+        }
+    }
+
+    public static void onLivingUpdate(LivingEvent.LivingTickEvent event) {
+        Entity entity = event.getEntity();
+        Level level = entity.getCommandSenderWorld();
+        RandomSource random = level.getRandom();
+
+        if (entity.getType().is(RaspberryTags.WORM_SEEKERS) && entity.isAlive()) {
+            IDataManager data = ((IDataManager) entity);
+            int huntingtime = data.getValue(RaspberryMod.WORM_HUNTING_TIME);
+            BlockPos wormpos = data.getValue(RaspberryMod.WORM_POS);
+
+            if (huntingtime == 0 || (data.getValue(RaspberryMod.HAS_WORM_TARGET) && level.getBlockState(wormpos).getBlock() != RaspberryBlocks.WORMY_DIRT.getA().get())) {
+                data.setValue(RaspberryMod.HAS_WORM_TARGET, false);
+                if (huntingtime > 0) data.setValue(RaspberryMod.WORM_HUNTING_TIME, Math.max(-400, -huntingtime));
+            } else {
+                if (huntingtime > 0) {
+                    data.setValue(RaspberryMod.WORM_HUNTING_TIME, huntingtime - 1);
+                } else {
+                    data.setValue(RaspberryMod.WORM_HUNTING_TIME, huntingtime + 1);
+                    if (level.isClientSide() && data.getValue(RaspberryMod.HAS_WORM_TARGET) && huntingtime % 10 == 0) {
+                        double d0 = random.nextGaussian() * 0.02D;
+                        double d1 = random.nextGaussian() * 0.02D;
+                        double d2 = random.nextGaussian() * 0.02D;
+                        level.addParticle(EnvironmentalParticleTypes.PIG_FINDS_TRUFFLE.get(), entity.getRandomX(1.0D), entity.getRandomY() + 0.5D, entity.getRandomZ(1.0D), d0, d1, d2);
+                    }
+                }
+            }
+
+            int sniffsoundtime = data.getValue(RaspberryMod.SNIFF_SOUND_TIME);
+            data.setValue(RaspberryMod.SNIFF_SOUND_TIME, sniffsoundtime + 1);
+            if (!level.isClientSide() && data.getValue(RaspberryMod.LOOKING_FOR_WORM) && random.nextInt(90) < sniffsoundtime) {
+                ((Mob)entity).playAmbientSound();
+                data.setValue(RaspberryMod.SNIFF_SOUND_TIME, -90);
+            }
         }
     }
 

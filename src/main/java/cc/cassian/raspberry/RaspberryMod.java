@@ -12,7 +12,6 @@ import cc.cassian.raspberry.registry.RasperryMobEffects;
 import com.teamabnormals.blueprint.common.world.storage.tracking.DataProcessors;
 import com.teamabnormals.blueprint.common.world.storage.tracking.TrackedData;
 import com.teamabnormals.blueprint.common.world.storage.tracking.TrackedDataManager;
-import com.teamabnormals.environmental.common.entity.ai.goal.HuntTruffleGoal;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.ConfigScreenHandler;
@@ -20,6 +19,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -57,6 +57,7 @@ public final class RaspberryMod {
         MinecraftForge.EVENT_BUS.addListener(this::onItemTooltipEvent);
         MinecraftForge.EVENT_BUS.addListener(this::onEntityInteract);
         MinecraftForge.EVENT_BUS.addListener(this::onEntityJoinLevel);
+        MinecraftForge.EVENT_BUS.addListener(this::onLivingUpdate);
         eventBus.addListener(RaspberryMod::commonSetup);
         MinecraftForge.EVENT_BUS.addListener(RaspberryMod::copperTick);
         MinecraftForge.EVENT_BUS.addListener(RaspberryMod::lightningTick);
@@ -120,5 +121,11 @@ public final class RaspberryMod {
     public void onEntityJoinLevel(EntityJoinLevelEvent event) {
         if (ModList.get().isLoaded("environmental"))
             EnvironmentalCompat.onEntityJoinWorld(event);
+    }
+
+    @SubscribeEvent
+    public void onLivingUpdate(LivingEvent.LivingTickEvent event) {
+        if (ModList.get().isLoaded("environmental"))
+            EnvironmentalCompat.onLivingUpdate(event);
     }
 }
