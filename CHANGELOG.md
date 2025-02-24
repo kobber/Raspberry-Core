@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Dynamic Crosshair can now show what shears should be able to mine.
+
 ### Fixed
 - Further fixes for Thrashers.
 - Yak Pants should no longer cause a game crash with newer versions of Environmental.

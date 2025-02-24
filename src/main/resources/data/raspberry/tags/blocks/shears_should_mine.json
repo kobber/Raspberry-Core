@@ -1,0 +1,30 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:leaves",
+    "minecraft:grass",
+    "minecraft:tall_grass",
+    "minecraft:fern",
+    "minecraft:dead_bush",
+    "minecraft:hanging_roots",
+    "minecraft:vine",
+    "minecraft:tripwire",
+    "#minecraft:wool",
+    {
+      "id": "environmental:giant_tall_grass",
+      "required": false
+    },
+    {
+      "id": "upgrade_aquatic:beachgrass",
+      "required": false
+    },
+    {
+      "id": "upgrade_aquatic:tall_beachgrass",
+      "required": false
+    },
+    {
+      "id": "environmental:tall_dead_bush",
+      "required": false
+    }
+  ]
+}
