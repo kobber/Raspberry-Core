@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Dynamic Crosshair can now show what shears should be able to mine.
+- Dynamic Crosshair can now show what shears can be used on and what they can mine.
 
 ### Fixed
 - Further fixes for Thrashers.

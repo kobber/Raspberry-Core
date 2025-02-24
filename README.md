@@ -72,6 +72,8 @@ Raspberry Core is a client and server mod for Forge 1.19.2. While it was created
   - Disable by overwriting `data/environmental/tags/worldgen/structure/has_healer_pouch.json`
 - Dynamic Crosshair can now show what Shears should be able to mine.
   - Edit this list by changing `data/raspberry/tags/blocks/shears_should_mine`
+- Dynamic Crosshair can now show what Shears should be able to be used on.
+  - Edit this list by changing `data/raspberry/tags/blocks/shears_should_use`
 
 ### Tweaks
 - Fishing Rods (Aquaculture 2) show their bait as a tooltip, and can hold up to a stack. Bait items can also be moved freely in and out of rods.

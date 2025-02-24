@@ -8,10 +8,30 @@
     "minecraft:dead_bush",
     "minecraft:hanging_roots",
     "minecraft:vine",
+    "minecraft:twisting_vines",
+    "minecraft:weeping_vines",
     "minecraft:tripwire",
     "#minecraft:wool",
+    "minecraft:glow_lichen",
+    "minecraft:nether_sprouts",
     {
       "id": "environmental:giant_tall_grass",
+      "required": false
+    },
+    {
+      "id": "environmental:tall_dead_bush",
+      "required": false
+    },
+    {
+      "id": "mynethersdelight:warped_fungus_colony",
+      "required": false
+    },
+    {
+      "id": "naturalist:cattail",
+      "required": false
+    },
+    {
+      "id": "naturalist:duckweed",
       "required": false
     },
     {
@@ -20,10 +40,6 @@
     },
     {
       "id": "upgrade_aquatic:tall_beachgrass",
-      "required": false
-    },
-    {
-      "id": "environmental:tall_dead_bush",
       "required": false
     }
   ]

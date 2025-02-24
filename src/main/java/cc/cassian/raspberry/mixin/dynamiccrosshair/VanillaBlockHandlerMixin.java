@@ -34,8 +34,12 @@ public class VanillaBlockHandlerMixin {
 
     @Inject(method = "checkToolWithBlock", at = @At(value = "HEAD"), cancellable = true, remap = false)
     private static void checkShearsTag(CrosshairContext context, CallbackInfoReturnable<Crosshair> cir) {
-        if (context.getItem() instanceof ShearsItem && context.getBlockState().is(RaspberryTags.SHEARS_SHOULD_MINE)) {
-            cir.setReturnValue(Crosshair.CORRECT_TOOL);
+        if (context.getItem() instanceof ShearsItem) {
+            if (context.getBlockState().is(RaspberryTags.SHEARS_SHOULD_MINE))
+                cir.setReturnValue(Crosshair.CORRECT_TOOL);
+            if (context.getBlockState().is(RaspberryTags.SHEARS_SHOULD_USE))
+                cir.setReturnValue(Crosshair.INTERACTABLE);
         }
+
     }
 }
