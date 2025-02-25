@@ -1,6 +1,7 @@
 package cc.cassian.raspberry.blocks;
 
 import cc.cassian.raspberry.registry.RaspberryBlocks;
+import net.mehvahdjukaar.supplementaries.common.block.blocks.RakedGravelBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -35,7 +36,7 @@ public class RaspberryGravelBlock extends GravelBlock {
         Block block;
         if (player.getItemInHand(hand).is(Tags.Items.TOOLS_HOES)) {
             if (state.is(RaspberryBlocks.getBlock(RaspberryBlocks.DEEPSLATE_GRAVEL))) {
-                level.setBlock(pos, RaspberryBlocks.getBlock(RaspberryBlocks.RAKED_DEEPSLATE_GRAVEL).defaultBlockState(), 0);
+                level.setBlock(pos, RakedGravelBlock.getConnectedState(RaspberryBlocks.getBlock(RaspberryBlocks.RAKED_DEEPSLATE_GRAVEL).defaultBlockState(), level, pos, player.getDirection()), 0);
                 if (!level.isClientSide) {
                     ServerPlayer serverPlayer = (ServerPlayer) player;
                     serverPlayer.getItemInHand(hand).hurtAndBreak(1, player, item ->
@@ -45,7 +46,7 @@ public class RaspberryGravelBlock extends GravelBlock {
                 return InteractionResult.SUCCESS;
             }
             if (state.is(RaspberryBlocks.getBlock(RaspberryBlocks.BLACKSTONE_GRAVEL))) {
-                level.setBlock(pos, RaspberryBlocks.getBlock(RaspberryBlocks.RAKED_BLACKSTONE_GRAVEL).defaultBlockState(), 0);
+                level.setBlock(pos, RakedGravelBlock.getConnectedState(RaspberryBlocks.getBlock(RaspberryBlocks.RAKED_BLACKSTONE_GRAVEL).defaultBlockState(), level, pos, player.getDirection()), 0);
                 if (!level.isClientSide) {
                     ServerPlayer serverPlayer = (ServerPlayer) player;
                     serverPlayer.getItemInHand(hand).hurtAndBreak(1, player, item ->
