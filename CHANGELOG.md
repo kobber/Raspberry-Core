@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Deepslate Gravel and Raked Deepslate Gravel (textures by raspmary)
 - Blackstone Gravel and Raked Blackstone Gravel (textures by raspmary)
 - Copper Doors (Copper and Tuff Backport) can now be opened as double doors (Quark)
+- Common seeds found in Raspberry Flavoured (Farmer's Delight, Cultural Delights, etc.) can now be used to breed chickens.
 
 ### Fixed
 - Further fixes for Thrashers.
