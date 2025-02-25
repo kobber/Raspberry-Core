@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Dynamic Crosshair can now show what shears can be used on and what they can mine.
 - Dynamic Crosshair can now show what knives can be used on and what they can mine.
+- Dynamic Crosshair can now show what axes can be used on.
+- Wormy Dirt texture by raspmary.
 
 ### Fixed
 - Further fixes for Thrashers.
