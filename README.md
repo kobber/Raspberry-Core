@@ -102,6 +102,7 @@ Raspberry Core is a client and server mod for Forge 1.19.2. While it was created
 - Golden Tools will show their harvest level correctly in Dynamic Crosshair when it has been changed by Quark.
 - Gliders (Gliders) can be right-clicked in the inventory to equip them (Quark).
 - Gliders (Gliders) can be right-clicked to swap them with armour (Survivality).
+- Copper Doors (Copper and Tuff Backport) can now be opened as double doors (Quark)
 
 ## License
 [![Asset license (Unlicensed)](https://img.shields.io/badge/assets%20license-All%20Rights%20Reserved-red.svg?style=flat-square)](https://en.wikipedia.org/wiki/All_rights_reserved)
