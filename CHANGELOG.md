@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Dynamic Crosshair can now show what knives can be used on and what they can mine.
 - Dynamic Crosshair can now show what axes can be used on.
 - Wormy Dirt texture by raspmary.
+- Deepslate Gravel and Raked Deepslate Gravel (textures by raspmary)
+- Blackstone Gravel and Raked Blackstone Gravel (textures by raspmary)
 
 ### Fixed
 - Further fixes for Thrashers.

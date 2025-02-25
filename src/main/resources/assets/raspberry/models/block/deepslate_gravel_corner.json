@@ -2,6 +2,6 @@
   "parent": "minecraft:block/template_farmland",
   "textures": {
 	"dirt": "raspberry:block/deepslate_gravel",
-	"top": "raspberry:block/raked_deepslate_gravel"
+	"top": "raspberry:block/raked_deepslate_gravel_curved"
   }
 }

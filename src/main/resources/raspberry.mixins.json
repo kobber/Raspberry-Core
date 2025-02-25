@@ -38,6 +38,7 @@
     "oreganized.EntityMixin",
     "quark.ExpandedItemInteractionsModuleMixin",
     "sullysmod.SMPlayerEventsMixin",
+    "supplementaries.RakedGravelBlockMixin",
     "upgrade_aquatic.PikeMixin",
     "upgrade_aquatic.ThrasherMixin",
     "upgrade_aquatic.ThrasherThrashGoalMixin",

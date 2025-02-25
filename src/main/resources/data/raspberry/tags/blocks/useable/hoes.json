@@ -2,11 +2,11 @@
   "replace": false,
   "values": [
 	{
-	  "id": "kubejs:blackstone_gravel",
+	  "id": "raspberry:blackstone_gravel",
 	  "required": false
 	},
 	{
-	  "id": "kubejs:deepslate_gravel",
+	  "id": "raspberry:deepslate_gravel",
 	  "required": false
 	},
 	"minecraft:gravel"

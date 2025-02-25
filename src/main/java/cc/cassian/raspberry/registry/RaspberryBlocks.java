@@ -1,5 +1,6 @@
 package cc.cassian.raspberry.registry;
 
+import cc.cassian.raspberry.blocks.RaspberryGravelBlock;
 import cc.cassian.raspberry.compat.CopperBackportCompat;
 import cc.cassian.raspberry.compat.EnvironmentalCompat;
 import net.mehvahdjukaar.supplementaries.common.block.blocks.RakedGravelBlock;
@@ -50,6 +51,14 @@ public class RaspberryBlocks {
     public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
             RAKED_DEEPSLATE_GRAVEL = registerBlock("raked_deepslate_gravel",
             ()-> new RakedGravelBlock(BlockBehaviour.Properties.copy(Blocks.GRAVEL)), CreativeModeTab.TAB_BUILDING_BLOCKS);
+
+    public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
+            BLACKSTONE_GRAVEL = registerBlock("blackstone_gravel",
+            ()-> new RaspberryGravelBlock(BlockBehaviour.Properties.copy(Blocks.GRAVEL), 986379), CreativeModeTab.TAB_BUILDING_BLOCKS);
+
+    public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
+            DEEPSLATE_GRAVEL = registerBlock("deepslate_gravel",
+            ()-> new RaspberryGravelBlock(BlockBehaviour.Properties.copy(Blocks.GRAVEL), 2039584), CreativeModeTab.TAB_BUILDING_BLOCKS);
 
     public static BlockBehaviour.Properties getTruffleProperties() {
         if (ModList.get().isLoaded("environmental"))

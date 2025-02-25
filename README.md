@@ -11,6 +11,7 @@ Raspberry Core is a client and server mod for Forge 1.19.2. While it was created
 #### Required Dependencies
 - [Farmer's Delight](https://modrinth.com/mod/farmers-delight) is required.
 - [Blueprint](https://modrinth.com/mod/blueprint) is required.
+- [Supplementaries](https://modrinth.com/mod/supplementaries) is required.
 
 #### Optional Dependencies
 - [Copper and Tuff Backport](https://www.curseforge.com/minecraft/mc-mods/copper-tuff-backport-fabric) is recommended.
@@ -18,7 +19,6 @@ Raspberry Core is a client and server mod for Forge 1.19.2. While it was created
 - [CoFH Core](https://www.curseforge.com/minecraft/mc-mods/cofh-core) is recommended.
 - [Environmental](https://modrinth.com/mod/environmental) is recommended.
 - [Twigs](https://modrinth.com/mod/twigs) is recommended.
-- [Supplementaries](https://modrinth.com/mod/supplementaries) is recommended.
 - [Oreganized](https://modrinth.com/mod/oreganized) is recommended.
 - [Aquaculture 2](https://modrinth.com/mod/aquaculture) is optional.
 - [Another Furniture](https://modrinth.com/mod/another-furniture) is optional.
@@ -41,6 +41,8 @@ Raspberry Core is a client and server mod for Forge 1.19.2. While it was created
 - Ash Ovens, crafted from Ash Bricks (Supplementaries).
 - Silt Ovens, crafted from Silt Bricks (Twigs).
 - Lead Grate, crafted from Lead Blocks (Oreganized)
+- Deepslate Gravel, which can be raked.
+- Blackstone Gravel, which can be raked.
 
 ### Features
 - Copper Armour (Copperized) will grant the new Aftershock effect when struck by lightning. This effect increases attack speed and movement speed.
@@ -71,9 +73,16 @@ Raspberry Core is a client and server mod for Forge 1.19.2. While it was created
 - Healer Pouches (Environmental) no longer generate.
   - Disable by overwriting `data/environmental/tags/worldgen/structure/has_healer_pouch.json`
 - Dynamic Crosshair can now show what Shears should be able to mine.
-  - Edit this list by changing `data/raspberry/tags/blocks/shears_should_mine`
+  - Edit this list by changing `data/raspberry/tags/blocks/mineable/shears`
 - Dynamic Crosshair can now show what Shears should be able to be used on.
-  - Edit this list by changing `data/raspberry/tags/blocks/shears_should_use`
+  - Edit this list by changing `data/raspberry/tags/blocks/useable/shearss`
+- Dynamic Crosshair can now show what Knives should be able to mine.
+  - Edit this list by changing `data/farmersdelight/tags/blocks/mineable/knives`
+- Dynamic Crosshair can now show what Knives should be able to be used on.
+  - Edit this list by changing `data/raspberry/tags/blocks/useable/knives`
+- Dynamic Crosshair can now show what Hoes should be able to be used on.
+  - Edit this list by changing `data/raspberry/tags/blocks/useable/hoes`
+
 
 ### Tweaks
 - Fishing Rods (Aquaculture 2) show their bait as a tooltip, and can hold up to a stack. Bait items can also be moved freely in and out of rods.
