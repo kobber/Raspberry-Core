@@ -40,9 +40,8 @@ public class RaspberryGravelBlock extends GravelBlock {
                     ServerPlayer serverPlayer = (ServerPlayer) player;
                     serverPlayer.getItemInHand(hand).hurtAndBreak(1, player, item ->
                             player.broadcastBreakEvent(hand));
-                    player.playSound(SoundEvents.HOE_TILL);
                 }
-
+                player.playSound(SoundEvents.HOE_TILL);
                 return InteractionResult.SUCCESS;
             }
             if (state.is(RaspberryBlocks.getBlock(RaspberryBlocks.BLACKSTONE_GRAVEL))) {
@@ -51,8 +50,8 @@ public class RaspberryGravelBlock extends GravelBlock {
                     ServerPlayer serverPlayer = (ServerPlayer) player;
                     serverPlayer.getItemInHand(hand).hurtAndBreak(1, player, item ->
                             player.broadcastBreakEvent(hand));
-                    player.playSound(SoundEvents.HOE_TILL);
                 }
+                player.playSound(SoundEvents.HOE_TILL);
                 return InteractionResult.SUCCESS;
             }
         }
