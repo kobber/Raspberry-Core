@@ -4,6 +4,9 @@
  "block.raspberry.silt_stove": "Silt Stove",
  "block.raspberry.lead_grate": "Lead Grate",
  "block.raspberry.wormy_dirt": "Wormy Dirt",
+ "block.raspberry.raked_deepslate_gravel": "Raked Deepslate Gravel",
+ "block.raspberry.raked_blackstone_gravel": "Raked Blackstone Gravel",
+
 
  "effect.raspberry.aftershock": "Aftershock",
  "effect.raspberry.aftershock.description": "Increases movement & attack speed. Gained from getting struck by lightning while wearing copper armour.",

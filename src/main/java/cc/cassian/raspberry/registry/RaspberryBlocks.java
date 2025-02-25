@@ -2,6 +2,7 @@ package cc.cassian.raspberry.registry;
 
 import cc.cassian.raspberry.compat.CopperBackportCompat;
 import cc.cassian.raspberry.compat.EnvironmentalCompat;
+import net.mehvahdjukaar.supplementaries.common.block.blocks.RakedGravelBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -41,6 +42,14 @@ public class RaspberryBlocks {
     public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
             WORMY_DIRT = registerBlock("wormy_dirt",
             ()-> new Block(getTruffleProperties()), CreativeModeTab.TAB_BUILDING_BLOCKS);
+
+    public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
+            RAKED_BLACKSTONE_GRAVEL = registerBlock("raked_blackstone_gravel",
+            ()-> new RakedGravelBlock(BlockBehaviour.Properties.copy(Blocks.GRAVEL)), CreativeModeTab.TAB_BUILDING_BLOCKS);
+
+    public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
+            RAKED_DEEPSLATE_GRAVEL = registerBlock("raked_deepslate_gravel",
+            ()-> new RakedGravelBlock(BlockBehaviour.Properties.copy(Blocks.GRAVEL)), CreativeModeTab.TAB_BUILDING_BLOCKS);
 
     public static BlockBehaviour.Properties getTruffleProperties() {
         if (ModList.get().isLoaded("environmental"))

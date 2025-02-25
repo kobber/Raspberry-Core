@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+	{
+	  "id": "kubejs:blackstone_gravel",
+	  "required": false
+	},
+	{
+	  "id": "kubejs:deepslate_gravel",
+	  "required": false
+	},
+	"minecraft:gravel"
+  ]
+}
