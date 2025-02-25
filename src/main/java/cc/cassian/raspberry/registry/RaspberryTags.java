@@ -19,8 +19,11 @@ public class RaspberryTags {
     public static final TagKey<Item> WORM_SEEKER_ITEMS = createItemTag( "worm_seeker_items");
     public static final TagKey<EntityType<?>> WORM_SEEKERS = createEntityTypeTag( "worm_seekers");
 
-    public static final TagKey<Block> SHEARS_SHOULD_MINE = createBlockTag("shears_should_mine");
-    public static final TagKey<Block> SHEARS_SHOULD_USE = createBlockTag("shears_should_use");
+    public static final TagKey<Block> SHEARS_SHOULD_MINE = createBlockTag("mineable/shears");
+    public static final TagKey<Block> SHEARS_SHOULD_USE = createBlockTag("useable/shears");
+    public static final TagKey<Block> KNIVES_SHOULD_USE = createBlockTag("useable/knives");
+    public static final TagKey<Block> AXES_SHOULD_USE = createBlockTag("useable/axes");
+    public static final TagKey<Block> HOES_SHOULD_USE = createBlockTag("useable/hoes");
 
     public static TagKey<Block> createBlockTag(String id) {
         return TagKey.create(ForgeRegistries.BLOCKS.getRegistryKey(), new ResourceLocation(MOD_ID, id));

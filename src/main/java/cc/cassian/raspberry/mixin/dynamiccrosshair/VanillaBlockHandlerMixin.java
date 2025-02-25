@@ -15,6 +15,8 @@ import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import vectorwing.farmersdelight.common.item.KnifeItem;
+import vectorwing.farmersdelight.common.tag.ModTags;
 
 @Pseudo
 @Mixin(VanillaBlockHandler.class)
@@ -37,9 +39,21 @@ public class VanillaBlockHandlerMixin {
         if (context.getItem() instanceof ShearsItem) {
             if (context.getBlockState().is(RaspberryTags.SHEARS_SHOULD_MINE))
                 cir.setReturnValue(Crosshair.CORRECT_TOOL);
-            if (context.getBlockState().is(RaspberryTags.SHEARS_SHOULD_USE))
-                cir.setReturnValue(Crosshair.INTERACTABLE);
+            else if (context.getBlockState().is(RaspberryTags.SHEARS_SHOULD_USE))
+                cir.setReturnValue(Crosshair.USABLE);
+        }
+        else if (context.getItem() instanceof KnifeItem) {
+            if (context.getBlockState().is(RaspberryTags.KNIVES_SHOULD_USE))
+                cir.setReturnValue(Crosshair.USABLE);
+            else if (context.getBlockState().is(ModTags.MINEABLE_WITH_KNIFE))
+                cir.setReturnValue(Crosshair.CORRECT_TOOL);
+        }
+        else if (context.getItem() instanceof AxeItem && context.getBlockState().is(RaspberryTags.AXES_SHOULD_USE)) {
+            cir.setReturnValue(Crosshair.USABLE);
+        }
+        else if (context.getItem() instanceof HoeItem && context.getBlockState().is(RaspberryTags.HOES_SHOULD_USE)) {
+            cir.setReturnValue(Crosshair.USABLE);
+        }
         }
 
-    }
 }
