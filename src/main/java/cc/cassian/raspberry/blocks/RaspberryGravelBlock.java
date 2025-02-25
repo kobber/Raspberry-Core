@@ -10,6 +10,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -34,7 +35,7 @@ public class RaspberryGravelBlock extends GravelBlock {
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         Block block;
-        if (player.getItemInHand(hand).is(Tags.Items.TOOLS_HOES)) {
+        if (player.getItemInHand(hand).getItem() instanceof HoeItem) {
             if (state.is(RaspberryBlocks.getBlock(RaspberryBlocks.DEEPSLATE_GRAVEL))) {
                 level.setBlock(pos, RakedGravelBlock.getConnectedState(RaspberryBlocks.getBlock(RaspberryBlocks.RAKED_DEEPSLATE_GRAVEL).defaultBlockState(), level, pos, player.getDirection()), 0);
                 if (!level.isClientSide) {
@@ -45,7 +46,7 @@ public class RaspberryGravelBlock extends GravelBlock {
                 player.playSound(SoundEvents.HOE_TILL);
                 return InteractionResult.SUCCESS;
             }
-            if (state.is(RaspberryBlocks.getBlock(RaspberryBlocks.BLACKSTONE_GRAVEL))) {
+            else if (state.is(RaspberryBlocks.getBlock(RaspberryBlocks.BLACKSTONE_GRAVEL))) {
                 level.setBlock(pos, RakedGravelBlock.getConnectedState(RaspberryBlocks.getBlock(RaspberryBlocks.RAKED_BLACKSTONE_GRAVEL).defaultBlockState(), level, pos, player.getDirection()), 0);
                 if (!level.isClientSide) {
                     ServerPlayer serverPlayer = (ServerPlayer) player;
