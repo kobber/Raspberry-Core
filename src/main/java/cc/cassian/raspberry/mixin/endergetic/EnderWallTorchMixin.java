@@ -1,4 +1,4 @@
-package cc.cassian.raspberry.mixin;
+package cc.cassian.raspberry.mixin.endergetic;
 
 import com.teamabnormals.endergetic.common.block.EnderWallTorchBlock;
 import com.teamabnormals.endergetic.core.registry.EEParticleTypes;

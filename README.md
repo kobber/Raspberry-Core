@@ -26,6 +26,7 @@ Raspberry Core is a client and server mod for Forge 1.19.2. While it was created
 - [Caverns and Chasms](https://modrinth.com/mod/caverns-and-chasms) is optional.
 - [Clash](https://www.curseforge.com/minecraft/mc-mods/clash) is optional.
 - [Create](https://modrinth.com/mod/create) is optional.
+- [The Endergetic Expansion](https://modrinth.com/mod/endergetic) is optional.
 - [Dynamic Crosshair](https://modrinth.com/mod/dynamiccrosshair) is optional.
 - [Gliders](https://modrinth.com/mod/gliders) is optional.
 - [Neapolitan](https://modrinth.com/mod/neapolitan) is optional.
