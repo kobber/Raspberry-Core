@@ -57,6 +57,7 @@ Raspberry Core is a client and server mod for Forge 1.19.2. While it was created
 - Items with empty NBT will now combine with items without NBT.
 - Greatblades (Clash!) now take one durability damage on any successful charged attack.
 - Dimensional Tears (Spelunkery) will now stack correctly.
+- Ender Torches (Endergetic Expansion) now give the correct particles.
 
 ### Configurable Tweaks
 - Stoves (Farmer's Delight) start unlit.

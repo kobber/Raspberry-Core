@@ -8,6 +8,7 @@
   ],
   "mixins": [
 	"CampfireBlockMixin",
+	"EnderWallTorchMixin",
 	"GreatbladeSlashEntityMixin",
 	"ItemStackMixin",
 	"LevelSummaryMixin",

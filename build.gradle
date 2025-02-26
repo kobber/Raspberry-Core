@@ -92,6 +92,8 @@ dependencies {
     modImplementation "maven.modrinth:upgrade-aquatic:$upgrade_aquatic_version"
     modImplementation "maven.modrinth:neapolitan:$neapolitan_version"
     modImplementation "com.teamabnormals:blueprint:$blueprint_version"
+    modImplementation "maven.modrinth:endergetic:$endergetic_version"
+
 
     // Recipe viewers
     modImplementation "maven.modrinth:emi:1.1.18+1.19.2+forge"
