@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Crashes from making item entities blastproof.
+
 ## [0.1.10] - 2024-02-27
 
 ### Added
