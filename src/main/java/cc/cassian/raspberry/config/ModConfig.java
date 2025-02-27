@@ -30,6 +30,7 @@ public class ModConfig {
     public int aquaculture_midBaitLureBonus = 2;
     public int aquaculture_goodBaitLureBonus = 3;
     public int aquaculture_wormDiscoveryRange = 80;
+    public boolean create_blastproofing = true;
 
     public static void load() {
         if (!Files.exists(configPath())) {

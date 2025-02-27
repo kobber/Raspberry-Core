@@ -14,6 +14,7 @@ Raspberry Core is a client and server mod for Forge 1.19.2. While it was created
 - [Supplementaries](https://modrinth.com/mod/supplementaries) is required.
 
 #### Optional Dependencies
+- [Cloth Config](https://modrinth.com/mod/cloth-config) is recommended to configure the mod.
 - [Copper and Tuff Backport](https://www.curseforge.com/minecraft/mc-mods/copper-tuff-backport-fabric) is recommended.
 - [Copperized](https://www.curseforge.com/minecraft/mc-mods/copperized) is recommended.
 - [CoFH Core](https://www.curseforge.com/minecraft/mc-mods/cofh-core) is recommended.
@@ -33,7 +34,6 @@ Raspberry Core is a client and server mod for Forge 1.19.2. While it was created
 - [Quark](https://modrinth.com/mod/quark) is optional.
 - [Sully's Mod](https://modrinth.com/mod/sullysmod) is optional.
 - [Upgrade Aquatic](https://modrinth.com/mod/upgrade-aquatic) is optional.
-- [Cloth Config](https://modrinth.com/mod/cloth-config) is recommended to configure the mod.
 
 
 ## Additions
@@ -68,6 +68,7 @@ Raspberry Core is a client and server mod for Forge 1.19.2. While it was created
 - World version is hidden.
 - Glow Goop (Naturalist) has its tooltip hidden.
 - Gliders (Gliders) no longer attract lightning.
+- Blasting an item with lava that has no blasting recipe will no longer destroy the item. (Create)
 
 ### Datapackable Tweaks
 - Thief Hoods (Environmental) no longer generate on skeletons.
