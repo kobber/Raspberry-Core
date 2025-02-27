@@ -1,6 +1,7 @@
 plugins {
     id 'dev.architectury.loom' version '1.7-SNAPSHOT'
     id 'maven-publish'
+    id 'org.moddedmc.wiki.toolkit' version '0.2.7'
 }
 
 group = project.maven_group
@@ -13,6 +14,14 @@ base {
 loom {
     forge {
         mixinConfig 'raspberry.mixins.json'
+    }
+}
+
+wiki {
+    // The name of the object (examplemod) should match the registered wiki project ID (if it exists).
+    docs.create("raspberry-core") {
+        // The path to the folder containing the documentation metadata file (sinytra-wiki.json)
+        root = file("docs/")
     }
 }
 
