@@ -42,6 +42,7 @@
 	"quark.DoubleDoorOpeningModuleMixin",
 	"quark.ExpandedItemInteractionsModuleMixin",
 	"sullysmod.SMPlayerEventsMixin",
+	"supplementaries.BombItemMixin",
 	"supplementaries.RakedGravelBlockMixin",
 	"upgrade_aquatic.PikeMixin",
 	"upgrade_aquatic.ThrasherMixin",

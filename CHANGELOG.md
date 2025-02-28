@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Bomb (Supplementaries) rarity has been changed - only blue bombs are considered rare.
+
+## [0.1.11] - 2024-02-27
+
 ### Fixed
 - Crashes from making item entities blastproof.
 
