@@ -29,6 +29,7 @@
 	"endergetic.EnderWallTorchMixin",
 	"environmental.AbstractSkeletonMixin",
 	"environmental.ArmorItemMixin",
+	"environmental.MobMixin",
 	"environmental.WitherSkeletonMixin",
 	"environmental.YakPantsItemMixin",
 	"farmersdelight.BambooBlockMixin",
