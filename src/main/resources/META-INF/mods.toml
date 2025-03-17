@@ -14,6 +14,16 @@ A collection of compatibility blocks, minor features, and fixes designed for the
 '''
 logoFile = "logo.png"
 
+[[mods]]
+modId = "farmersdelightemi"
+version = "${version}"
+displayName = "Farmer's Delight - EMI Integration"
+authors = "cassiancc, MerchantPug"
+credits = "Integration originally authored by MerchantPug for Farmer's Delight by vectorwing."
+description = '''
+Provides EMI integration to Farmer's Delight.
+'''
+
 [[dependencies.raspberry]]
 modId = "forge"
 mandatory = true

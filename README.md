@@ -37,12 +37,15 @@ Raspberry Core is a client and server mod for Forge 1.19.2. While it was created
 
 ## Features
 
-A full feature list is available on the Modded Minecraft Wiki.
+A full feature list is available on the [Modded Minecraft Wiki](https://moddedmc.wiki/en/project/raspberry-core/docs/core/additions).
 
 ## License
 [![Asset license (Unlicensed)](https://img.shields.io/badge/assets%20license-All%20Rights%20Reserved-red.svg?style=flat-square)](https://en.wikipedia.org/wiki/All_rights_reserved)
 [![Code license (MIT)](https://img.shields.io/badge/code%20license-MIT-green.svg?style=flat-square)](https://github.com/cassiancc/Raspberry-Core/blob/main/LICENSE.txt)
 
 
-
 If you are thinking about using the code or assets from Raspberry Core, please note the mod's licensing. **All assets of Raspberry Core are unlicensed and all rights are reserved to them by their respective authors.** The source code of Raspberry Core mod for Minecraft 1.19.2 is under the MIT license.
+
+## Credits
+- Contains code from the 1.20 version of [Oreganized](https://modrinth.com/mod/oreganized), used under its [MIT License](https://github.com/TeamGalena/oreganized/blob/1.20.x/LICENSE.md).
+- Contains code from [MerchantPug's fork](https://github.com/MehVahdJukaar/FarmersDelightRefabricated) of [Farmer's Delight](https://modrinth.com/mod/farmers-delight), used under its [MIT License](https://github.com/MehVahdJukaar/FarmersDelightRefabricated/blob/feat/1.20/emi/LICENSE).
