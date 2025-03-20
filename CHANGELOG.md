@@ -6,11 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## Added
+### Added
 - Direct compatibility between Farmer's Delight and EMI based off [the work of MerchantPug](https://github.com/vectorwing/FarmersDelight/pull/971).
 
 ### Changed
 - Bomb (Supplementaries) rarity has been changed - only blue bombs are considered rare.
+
+### Fixed
+- Additional null safety for unlit blocks.
+- Further safety fixes for Create blastproofing.
+- Further fixes for disabled items.
 
 ## [0.1.11] - 2024-02-27
 
