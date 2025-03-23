@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Alloyed encased blocks now tick correctly.
+
+## [0.1.12] - 2024-03-20
+
 ### Added
 - Direct compatibility between Farmer's Delight and EMI based off [the work of MerchantPug](https://github.com/vectorwing/FarmersDelight/pull/971).
 
