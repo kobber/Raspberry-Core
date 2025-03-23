@@ -1,5 +1,6 @@
 package cc.cassian.raspberry.registry;
 
+import cc.cassian.raspberry.ModCompat;
 import cc.cassian.raspberry.blocks.RaspberryGravelBlock;
 import cc.cassian.raspberry.compat.CopperBackportCompat;
 import cc.cassian.raspberry.compat.EnvironmentalCompat;
@@ -12,7 +13,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -61,14 +61,14 @@ public class RaspberryBlocks {
             ()-> new RaspberryGravelBlock(BlockBehaviour.Properties.copy(Blocks.GRAVEL), 2039584), CreativeModeTab.TAB_BUILDING_BLOCKS);
 
     public static BlockBehaviour.Properties getTruffleProperties() {
-        if (ModList.get().isLoaded("environmental"))
+        if (ModCompat.ENVIRONMENTAL)
             return EnvironmentalCompat.getTruffleProperties();
         else return BlockBehaviour.Properties.copy(Blocks.DIRT);
     }
 
     public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>> registerLeadGrate() {
         BlockBehaviour.Properties properties = BlockBehaviour.Properties.of(Material.HEAVY_METAL).noOcclusion().strength(5.0F, 6.0F).requiresCorrectToolForDrops().sound(SoundType.METAL);
-        if (ModList.get().isLoaded("copperandtuffbackport")) {
+        if (ModCompat.COPPER_BACKPORT) {
             return CopperBackportCompat.registerGrateBlock(properties);
         }
         else return registerBlock("lead_grate",

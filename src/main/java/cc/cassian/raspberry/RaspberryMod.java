@@ -23,7 +23,6 @@ import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -61,7 +60,7 @@ public final class RaspberryMod {
         eventBus.addListener(RaspberryMod::commonSetup);
         MinecraftForge.EVENT_BUS.addListener(RaspberryMod::copperTick);
         MinecraftForge.EVENT_BUS.addListener(RaspberryMod::lightningTick);
-        if (ModList.get().isLoaded("oreganized")) {
+        if (ModCompat.OREGANIZED) {
             RaspberryAttributes.ATTRIBUTES.register(eventBus);
             RaspberryOreganizedNetwork.register();
             MinecraftForge.EVENT_BUS.addListener(OreganizedEvents::onItemAttributes);
@@ -76,24 +75,22 @@ public final class RaspberryMod {
 
     @SubscribeEvent
     public static void commonSetup(FMLCommonSetupEvent event) {
-        if (ModList.get().isLoaded("neapolitan"))
+        if (ModCompat.NEAPOLITAN)
             NeapolitanCompat.boostAgility();
-        if (ModList.get().isLoaded("quark")) {
+        if (ModCompat.QUARK) {
             QuarkCompat.register();
         }
     }
 
     @SubscribeEvent
     public static void lightningTick(EntityStruckByLightningEvent event) {
-        var modlist = ModList.get();
-        if (modlist.isLoaded("copperized") && !modlist.isLoaded("cofh_core") && ModConfig.get().aftershock)
+        if (ModCompat.COPPERIZED && !ModCompat.COFH_CORE && ModConfig.get().aftershock)
             CopperizedCompat.electrify(event);
     }
 
     @SubscribeEvent
     public static void copperTick(TickEvent.PlayerTickEvent event) {
-        var modlist = ModList.get();
-        if (modlist.isLoaded("copperized") && modlist.isLoaded("cofh_core"))
+        if (ModCompat.COPPERIZED && ModCompat.COFH_CORE)
             CopperizedCompat.resist(event);
     }
 
@@ -101,31 +98,31 @@ public final class RaspberryMod {
 	 * Integrate Cloth Config screen (if mod present) with Forge mod menu.
 	 */
     public static void registerModsPage(FMLJavaModLoadingContext context) {
-        if (ModList.get().isLoaded("cloth_config"))
+        if (ModCompat.CLOTH_CONFIG)
             context.registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class, () -> new ConfigScreenHandler.ConfigScreenFactory(ModConfigFactory::createScreen));
     }
 
     @SubscribeEvent
     public void onItemTooltipEvent(ItemTooltipEvent event) {
-        if (ModList.get().isLoaded("aquaculture"))
+        if (ModCompat.AQUACULTURE)
             AquacultureCompat.checkAndAddTooltip(event);
     }
 
     @SubscribeEvent
     public void onEntityInteract(PlayerInteractEvent.EntityInteract event) {
-        if (ModList.get().isLoaded("environmental"))
+        if (ModCompat.ENVIRONMENTAL)
             EnvironmentalCompat.onEntityInteract(event);
     }
 
     @SubscribeEvent
     public void onEntityJoinLevel(EntityJoinLevelEvent event) {
-        if (ModList.get().isLoaded("environmental"))
+        if (ModCompat.ENVIRONMENTAL)
             EnvironmentalCompat.onEntityJoinWorld(event);
     }
 
     @SubscribeEvent
     public void onLivingUpdate(LivingEvent.LivingTickEvent event) {
-        if (ModList.get().isLoaded("environmental"))
+        if (ModCompat.ENVIRONMENTAL)
             EnvironmentalCompat.onLivingUpdate(event);
     }
 }
