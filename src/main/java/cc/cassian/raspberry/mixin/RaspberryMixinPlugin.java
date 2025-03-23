@@ -47,6 +47,9 @@ public class RaspberryMixinPlugin implements IMixinConfigPlugin {
         else if (checkMixin("endergetic", mixinClassName)){
             return false;
         }
+        else if (checkMixin("alloyed", mixinClassName)){
+            return false;
+        }
         return true;
     }
 

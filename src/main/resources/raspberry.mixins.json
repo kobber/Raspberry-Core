@@ -12,6 +12,7 @@
 	"ItemStackMixin",
 	"LevelSummaryMixin",
 	"PigMixin",
+	"alloyed.BlockEntityTypeMixin",
 	"aquaculture.AquaFishingBobberEntityMixin",
 	"aquaculture.AquaFishingRodItemMixin",
 	"aquaculture.BaitItemMixin",
