@@ -8,21 +8,11 @@ modId = "raspberry"
 version = "${version}"
 displayName = "Raspberry Core"
 authors = "cassiancc, DavigJ"
-credits = "Features textures by Derb, nöelle, and noodleman, ideas/textures from raspmary"
+credits = "Features textures by Derb, nöelle, and noodleman, ideas/textures from raspmary. Contains some code from MerchantPug and from the Oreganized mod under MIT License."
 description = '''
 A collection of compatibility blocks, minor features, and fixes designed for the Raspberry Flavoured modpack.
 '''
 logoFile = "logo.png"
-
-[[mods]]
-modId = "farmersdelightemi"
-version = "${version}"
-displayName = "Farmer's Delight - EMI Integration"
-authors = "cassiancc, MerchantPug"
-credits = "Integration originally authored by MerchantPug for Farmer's Delight by vectorwing."
-description = '''
-Provides EMI integration to Farmer's Delight.
-'''
 
 [[dependencies.raspberry]]
 modId = "forge"
