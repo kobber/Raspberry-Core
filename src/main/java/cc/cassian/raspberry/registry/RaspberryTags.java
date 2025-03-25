@@ -27,6 +27,8 @@ public class RaspberryTags {
 
     public static final TagKey<Block> INTERACTABLE_METAL_DOORS = createBlockTag("interactable_metal_doors");
 
+    public static final TagKey<Block> CONVERTS_TO_SALT = createBlockTag("converts_to_salt");
+
     public static TagKey<Block> createBlockTag(String id) {
         return TagKey.create(ForgeRegistries.BLOCKS.getRegistryKey(), new ResourceLocation(MOD_ID, id));
     }
