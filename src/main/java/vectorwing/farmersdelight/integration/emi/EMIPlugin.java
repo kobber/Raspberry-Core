@@ -23,9 +23,12 @@ SOFTWARE.
 */
 package vectorwing.farmersdelight.integration.emi;
 
+import cc.cassian.raspberry.registry.RaspberryBlocks;
 import dev.emi.emi.api.EmiEntrypoint;
 import dev.emi.emi.api.EmiPlugin;
 import dev.emi.emi.api.EmiRegistry;
+import dev.emi.emi.api.recipe.EmiRecipeCategory;
+import dev.emi.emi.api.recipe.VanillaEmiRecipeCategories;
 import dev.emi.emi.api.stack.EmiIngredient;
 import dev.emi.emi.api.stack.EmiStack;
 import vectorwing.farmersdelight.common.crafting.CookingPotRecipe;
@@ -45,6 +48,9 @@ public class EMIPlugin implements EmiPlugin {
         registry.addCategory(FDRecipeCategories.COOKING);
         registry.addCategory(FDRecipeCategories.CUTTING);
         registry.addCategory(FDRecipeCategories.DECOMPOSITION);
+
+        registry.addWorkstation(VanillaEmiRecipeCategories.CAMPFIRE_COOKING, EmiStack.of(RaspberryBlocks.ASH_STOVE.getB().get()));
+        registry.addWorkstation(VanillaEmiRecipeCategories.CAMPFIRE_COOKING, EmiStack.of(RaspberryBlocks.SILT_STOVE.getB().get()));
 
         registry.addWorkstation(FDRecipeCategories.COOKING, FDRecipeWorkstations.COOKING_POT);
         registry.addWorkstation(FDRecipeCategories.CUTTING, FDRecipeWorkstations.CUTTING_BOARD);

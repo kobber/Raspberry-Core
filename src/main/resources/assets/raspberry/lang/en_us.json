@@ -29,9 +29,9 @@
  "config.raspberry.aftershock": "Enable Aftershock effect from lightning strikes",
  "config.raspberry.create_blastproofing": "Disable Create blasting destroying items.",
 
- "emi.category.raspberry.cooking": "Cooking",
- "emi.category.raspberry.cutting": "Cutting Board",
- "emi.category.raspberry.decomposition": "Decomposition",
+ "emi.category.farmersdelight.cooking": "Cooking",
+ "emi.category.farmersdelight.cutting": "Cutting Board",
+ "emi.category.farmersdelight.decomposition": "Decomposition",
 
  "tag.item.c.crops.cabbage": "Cabbages",
  "tag.item.c.crops.onion": "Onions",

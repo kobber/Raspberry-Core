@@ -6,8 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Pointed Dripstone stalactites can now convert Dripstone blocks below into Rock Salt blocks.
+
 ### Fixed
 - Alloyed encased blocks now tick correctly.
+- Potential fix for dying when gliding causing a crash and softlock.
+- Farmer's Delight EMI integration is now translated correctly.
+- Raspberry Core Stoves are now valid workstations in EMI.
 
 ## [0.1.12] - 2024-03-20
 
