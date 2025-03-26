@@ -109,17 +109,17 @@ dependencies {
     modImplementation "maven.modrinth:jei:11.8.1.1034-forge"
 
     // Farmer's Delight and its addons
-    modImplementation "maven.modrinth:farmers-delight:$farmers_delight_version"
-    modImplementation "curse.maven:brewin-and-chewin-637808:$brewin_and_chewin_version"
-    modImplementation "maven.modrinth:cultural-delights:$cultural_delights_version"
-    modImplementation "maven.modrinth:my-nethers-delight:$nethers_delight_version"
+    modImplementation("maven.modrinth:farmers-delight:$farmers_delight_version")
+    modImplementation("curse.maven:brewin-and-chewin-637808:$brewin_and_chewin_version")
+    modImplementation("maven.modrinth:cultural-delights:$cultural_delights_version")
+    modImplementation("maven.modrinth:my-nethers-delight:$nethers_delight_version")
 
 
     // Create, its dependencies, and its dependents
-    modImplementation("com.simibubi.create:create-$minecraft_version:$create_forge_version:slim") { transitive = false }
-    modImplementation("com.tterrag.registrate:Registrate:$registrate_forge_version")
-    modImplementation("com.jozufozu.flywheel:flywheel-forge-$minecraft_version:$flywheel_forge_version")
-    modImplementation "curse.maven:create-alloyed-564792:$create_alloyed_version"
+    modCompileOnly("com.simibubi.create:create-$minecraft_version:$create_forge_version:slim") { transitive = false }
+    modCompileOnly("com.tterrag.registrate:Registrate:$registrate_forge_version")
+    modCompileOnly("com.jozufozu.flywheel:flywheel-forge-$minecraft_version:$flywheel_forge_version")
+    modCompileOnly("curse.maven:create-alloyed-564792:$create_alloyed_version")
 
     // Optional dependencies for mods with only mixin fixes
     modImplementation "curse.maven:aquaculture-60028:$aquaculture_version"

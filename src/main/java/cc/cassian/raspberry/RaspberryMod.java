@@ -12,20 +12,24 @@ import cc.cassian.raspberry.registry.RasperryMobEffects;
 import com.teamabnormals.blueprint.common.world.storage.tracking.DataProcessors;
 import com.teamabnormals.blueprint.common.world.storage.tracking.TrackedData;
 import com.teamabnormals.blueprint.common.world.storage.tracking.TrackedDataManager;
+import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
+import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.entity.player.*;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -50,8 +54,6 @@ public final class RaspberryMod {
         RaspberryBlocks.BLOCKS.register(eventBus);
         RaspberryItems.ITEMS.register(eventBus);
         RasperryMobEffects.MOB_EFFECTS.register(eventBus);
-        // Register config
-        registerModsPage(context);
         // Register event bus listeners.
         MinecraftForge.EVENT_BUS.addListener(this::onItemTooltipEvent);
         MinecraftForge.EVENT_BUS.addListener(this::onEntityInteract);
@@ -64,6 +66,14 @@ public final class RaspberryMod {
             RaspberryAttributes.ATTRIBUTES.register(eventBus);
             RaspberryOreganizedNetwork.register();
             MinecraftForge.EVENT_BUS.addListener(OreganizedEvents::onItemAttributes);
+        }
+        if (FMLEnvironment.dist.isClient()) {
+            // Register config
+            registerModsPage(context);
+            MinecraftForge.EVENT_BUS.addListener(CompassTracker::pickup);
+            MinecraftForge.EVENT_BUS.addListener(CompassTracker::join);
+            MinecraftForge.EVENT_BUS.addListener(CompassTracker::toss);
+            MinecraftForge.EVENT_BUS.addListener(CompassTracker::closeInventory);
         }
 
         TrackedDataManager.INSTANCE.registerData(new ResourceLocation(MOD_ID, "truffle_hunting_time"), WORM_HUNTING_TIME);
@@ -92,6 +102,8 @@ public final class RaspberryMod {
     public static void copperTick(TickEvent.PlayerTickEvent event) {
         if (ModCompat.COPPERIZED && ModCompat.COFH_CORE)
             CopperizedCompat.resist(event);
+        if (FMLEnvironment.dist.isClient())
+            System.out.println(CompassTracker.hasCompass);
     }
 
     /**
