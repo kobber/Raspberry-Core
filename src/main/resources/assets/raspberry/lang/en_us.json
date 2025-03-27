@@ -26,8 +26,13 @@
  "config.raspberry.config.aquaculture_midBaitLureBonus": "Lure bonus gained from mid-tier bait",
  "config.raspberry.config.aquaculture_goodBaitLureBonus": "Lure bonus gained from good-tier bait",
  "config.raspberry.config.aquaculture_wormDiscoveryRange": "Maximum distance at which a wormy dirt block may be generated upon feeding a worm seeker a worm food",
- "config.raspberry.aftershock": "Enable Aftershock effect from lightning strikes",
- "config.raspberry.create_blastproofing": "Disable Create blasting destroying items.",
+ "config.raspberry.config.aftershock": "Enable Aftershock effect from lightning strikes",
+ "config.raspberry.config.create_blastproofing": "Disable Create blasting destroying items.",
+
+ "config.raspberry.overlay": "Overlay",
+ "config.raspberry.config.overlay_enable": "Enable coordinate overlay",
+ "config.raspberry.config.overlay_searchContainers": "Allow compasses in bundles/containers",
+ "config.raspberry.config.overlay_requireItemInHand": "Require compasses in hand",
 
  "emi.category.farmersdelight.cooking": "Cooking",
  "emi.category.farmersdelight.cutting": "Cutting Board",
