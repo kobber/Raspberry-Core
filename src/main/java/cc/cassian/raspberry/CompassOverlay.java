@@ -19,6 +19,7 @@ import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.player.PlayerContainerEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 
@@ -88,12 +89,12 @@ public class CompassOverlay {
             for (ItemStack stack : inventory.items) {
                 if (stack.getTag() != null) {
                     var items = stack.getTag().get("Items");
-                    var be = stack.getTag().get("BlockEntityTag");
                     if (items != null) {
                         if (items.toString().contains(name)) {
                             return true;
                         }
                     }
+                    var be = stack.getTag().get("BlockEntityTag");
                     if (be != null) {
                         if (be.toString().contains(name)) {
                             return true;
@@ -134,23 +135,29 @@ public class CompassOverlay {
         ArrayList<String> coords = new ArrayList<>();
 
         BlockPos pos = mc.player.blockPosition();
-        int x = pos.getX();
-        int y = pos.getY();
-        int z = pos.getZ();
+        String x = String.format("%d", pos.getX());
+        String y = String.format("%d", pos.getY());
+        String z = String.format("%d", pos.getZ());
+        var width = Integer.max(x.length(), z.length());
+        width = Integer.max(width, y.length());
+        x = StringUtils.leftPad(x, width);
+        y = StringUtils.leftPad(y, width);
+        z = StringUtils.leftPad(z, width);
         int offset = 3;
         int top = 2;
         int textureSize = 256;
         int tooltipSize = 22;
+        int fontWidth = mc.font.width(StringUtils.repeat("a", width+2));
 
         if (hasCompass) {
-            coords.add(String.format("X: %d", x));
+            coords.add("§cX:§f "+ x);
             if (hasDepthGauge) {
-                coords.add(String.format("Y: %d", y));
+                coords.add("§aY:§f "+ y);
             }
-            coords.add(String.format("Z: %d", z));
+            coords.add("§9Z:§f "+ z);
         }
         else if (hasDepthGauge) {
-            coords.add(String.format("Y: %d", y));
+            coords.add("§aY:§f "+ y);
         }
 
         int textureOffset = 9; // only depth gague
@@ -165,13 +172,13 @@ public class CompassOverlay {
 
         if (ModCompat.MAP_ATLASES && MapAtlasesCompat.isInCorner())
             top = 90;
-        int placement = windowWidth-2-mc.font.width(coords.get(0));
+        int placement = windowWidth-2-fontWidth;
         var poseStack = event.getPoseStack();
         RenderSystem.setShaderTexture(0, RaspberryMod.locate("textures/gui/tooltip.png"));
         GuiComponent.blit(poseStack,
                 placement-offset-4, top-3,
                 0, 0,
-                textureOffset, mc.font.width(coords.get(0))+offset+4, tooltipSize,
+                textureOffset, fontWidth+offset+4, tooltipSize,
                 textureSize, textureSize);
         GuiComponent.blit(poseStack,
                 windowWidth-4, top-3,
