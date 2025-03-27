@@ -50,16 +50,18 @@ public class CompassTracker {
     }
 
     public static void checkInventoryForItems(Player player) {
-        var inventory = player.getInventory();
-        if (ModConfig.get().overlay_requireItemInHand) {
-            var main = player.getMainHandItem();
-            var offhand = player.getOffhandItem();
-            hasCompass = main.is(RaspberryTags.SHOWS_XZ) || offhand.is(RaspberryTags.SHOWS_XZ);
-            hasDepthGauge = main.is(RaspberryTags.SHOWS_Y) || offhand.is(RaspberryTags.SHOWS_Y);
-        }
-        else {
-            hasCompass = checkInventoryForItem(inventory, RaspberryTags.SHOWS_XZ, "minecraft:compass");
-            hasDepthGauge = checkInventoryForItem(inventory, RaspberryTags.SHOWS_Y, "spelunkery:depth_gauge");
+        if (ModConfig.get().overlay_enable) {
+            var inventory = player.getInventory();
+            if (ModConfig.get().overlay_requireItemInHand) {
+                var main = player.getMainHandItem();
+                var offhand = player.getOffhandItem();
+                hasCompass = main.is(RaspberryTags.SHOWS_XZ) || offhand.is(RaspberryTags.SHOWS_XZ);
+                hasDepthGauge = main.is(RaspberryTags.SHOWS_Y) || offhand.is(RaspberryTags.SHOWS_Y);
+            }
+            else {
+                hasCompass = checkInventoryForItem(inventory, RaspberryTags.SHOWS_XZ, "minecraft:compass");
+                hasDepthGauge = checkInventoryForItem(inventory, RaspberryTags.SHOWS_Y, "spelunkery:depth_gauge");
+            }
         }
     }
 
