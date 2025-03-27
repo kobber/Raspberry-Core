@@ -145,7 +145,7 @@ public class CompassOverlay {
         y = StringUtils.leftPad(y, width);
         z = StringUtils.leftPad(z, width);
         int offset = 3;
-        int top = 90;
+        int top = ModConfig.get().overlay_position_vertical;
         int textureSize = 256;
         int fontWidth = mc.font.width(StringUtils.repeat("a", width+2));
 

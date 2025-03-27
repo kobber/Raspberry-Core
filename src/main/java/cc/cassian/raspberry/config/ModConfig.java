@@ -37,6 +37,7 @@ public class ModConfig {
     public String overlay_x_colour = "Red";
     public String overlay_y_colour = "Green";
     public String overlay_z_colour = "Blue";
+    public int overlay_position_vertical = 90;
 
     public static void load() {
         if (!Files.exists(configPath())) {
