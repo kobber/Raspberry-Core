@@ -23,7 +23,6 @@ import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.*;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.IExtensionPoint;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -59,7 +58,7 @@ public final class RaspberryMod {
         MinecraftForge.EVENT_BUS.addListener(this::onEntityJoinLevel);
         MinecraftForge.EVENT_BUS.addListener(this::onLivingUpdate);
         eventBus.addListener(RaspberryMod::commonSetup);
-        MinecraftForge.EVENT_BUS.addListener(RaspberryMod::copperTick);
+        MinecraftForge.EVENT_BUS.addListener(RaspberryMod::playerTick);
         MinecraftForge.EVENT_BUS.addListener(RaspberryMod::lightningTick);
         if (ModCompat.OREGANIZED) {
             RaspberryAttributes.ATTRIBUTES.register(eventBus);
@@ -69,11 +68,11 @@ public final class RaspberryMod {
         if (FMLEnvironment.dist.isClient()) {
             // Register config
             registerModsPage(context);
-            MinecraftForge.EVENT_BUS.addListener(CompassTracker::pickup);
-            MinecraftForge.EVENT_BUS.addListener(CompassTracker::join);
-            MinecraftForge.EVENT_BUS.addListener(CompassTracker::toss);
-            MinecraftForge.EVENT_BUS.addListener(CompassTracker::closeInventory);
-            MinecraftForge.EVENT_BUS.addListener(CompassTracker::renderGameOverlayEvent);
+            MinecraftForge.EVENT_BUS.addListener(CompassOverlay::pickup);
+            MinecraftForge.EVENT_BUS.addListener(CompassOverlay::join);
+            MinecraftForge.EVENT_BUS.addListener(CompassOverlay::toss);
+            MinecraftForge.EVENT_BUS.addListener(CompassOverlay::closeInventory);
+            MinecraftForge.EVENT_BUS.addListener(CompassOverlay::renderGameOverlayEvent);
             context.registerExtensionPoint(IExtensionPoint.DisplayTest.class, () -> new IExtensionPoint.DisplayTest(() -> NetworkConstants.IGNORESERVERONLY, (remote, isServer) -> true));
         }
 
@@ -108,11 +107,14 @@ public final class RaspberryMod {
     }
 
     @SubscribeEvent
-    public static void copperTick(TickEvent.PlayerTickEvent event) {
+    public static void playerTick(TickEvent.PlayerTickEvent event) {
         if (ModCompat.COPPERIZED && ModCompat.COFH_CORE)
             CopperizedCompat.resist(event);
-        if (ModConfig.get().overlay_requireItemInHand)
-            CompassTracker.checkInventoryForItems(event.player);
+        // TODO remove if possible
+        // I'd really rather not check the player's inventory every tick like this,
+        // but the events I'm using aren't working well enough on servers.
+        if (ModConfig.get().overlay_enable)
+            CompassOverlay.checkInventoryForItems(event.player);
     }
 
     /**

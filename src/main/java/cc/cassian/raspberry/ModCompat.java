@@ -19,11 +19,13 @@ public final class ModCompat {
     public static final boolean SURVIVALITY;
     public static final boolean SUPPLEMENTARIES;
     public static final boolean SPELUNKERY;
+    public static final boolean CAVERNS_AND_CHASMS;
 
     static {
         var mods = ModList.get();
         ANOTHER_FURNITURE = mods.isLoaded("another_furniture");
         AQUACULTURE = mods.isLoaded("aquaculture");
+        CAVERNS_AND_CHASMS = mods.isLoaded("caverns_and_chasms");
         CLOTH_CONFIG = mods.isLoaded("cloth_config");
         COFH_CORE = mods.isLoaded("cofh_core");
         COPPERIZED = mods.isLoaded("copperized");

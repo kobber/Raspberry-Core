@@ -5,7 +5,7 @@ plugins {
 }
 
 group = project.maven_group
-version = project.mod_version
+version = project.mod_version + "+" + minecraft_version
 
 base {
     archivesName = project.archives_name
@@ -93,27 +93,25 @@ dependencies {
     forge "net.minecraftforge:forge:$project.forge_version"
 
     // Cloth Config
-    modApi "me.shedaniel.cloth:cloth-config-forge:$cloth_config_version"
+    modApi("me.shedaniel.cloth:cloth-config-forge:$cloth_config_version")
 
     // Abnormals
-    modImplementation "maven.modrinth:environmental:$environmental_version"
-    modImplementation "maven.modrinth:caverns-and-chasms:$caverns_and_chasms_version"
-    modImplementation "maven.modrinth:upgrade-aquatic:$upgrade_aquatic_version"
-    modImplementation "maven.modrinth:neapolitan:$neapolitan_version"
-    modImplementation "com.teamabnormals:blueprint:$blueprint_version"
-    modCompileOnly "maven.modrinth:endergetic:$endergetic_version"
-
+    modImplementation("maven.modrinth:environmental:$environmental_version")
+    modImplementation("maven.modrinth:caverns-and-chasms:$caverns_and_chasms_version")
+    modImplementation("maven.modrinth:upgrade-aquatic:$upgrade_aquatic_version")
+    modImplementation("maven.modrinth:neapolitan:$neapolitan_version")
+    modImplementation("com.teamabnormals:blueprint:$blueprint_version")
+    modCompileOnly("maven.modrinth:endergetic:$endergetic_version")
 
     // Recipe viewers
-    modImplementation "maven.modrinth:emi:1.1.18+1.19.2+forge"
-    modImplementation "maven.modrinth:jei:11.8.1.1034-forge"
+    modImplementation("maven.modrinth:emi:$emi_version+$minecraft_version+forge")
+    modImplementation("maven.modrinth:jei:$jei_version-forge")
 
     // Farmer's Delight and its addons
     modImplementation("maven.modrinth:farmers-delight:$farmers_delight_version")
     modImplementation("curse.maven:brewin-and-chewin-637808:$brewin_and_chewin_version")
     modImplementation("maven.modrinth:cultural-delights:$cultural_delights_version")
     modImplementation("maven.modrinth:my-nethers-delight:$nethers_delight_version")
-
 
     // Create, its dependencies, and its dependents
     modCompileOnly("com.simibubi.create:create-$minecraft_version:$create_forge_version:slim") { transitive = false }
@@ -122,8 +120,8 @@ dependencies {
     modCompileOnly("curse.maven:create-alloyed-564792:$create_alloyed_version")
 
     // Optional dependencies for mods with only mixin fixes
-    modImplementation "curse.maven:aquaculture-60028:$aquaculture_version"
-    modImplementation "curse.maven:copper-tuff-backport-fabric-950738:$copper_backport_version"
+    modImplementation("curse.maven:aquaculture-60028:$aquaculture_version")
+    modImplementation("curse.maven:copper-tuff-backport-fabric-950738:$copper_backport_version")
     modImplementation("curse.maven:copperized-567666:$copperized_version")
     modImplementation("software.bernie.geckolib:geckolib-forge-$geckolib_version")
     modImplementation("maven.modrinth:supplementaries:$supplementaries_version-forge")
@@ -148,10 +146,9 @@ dependencies {
     modImplementation("curse.maven:map-atlases-forge-519759:5138314")
     modImplementation("maven.modrinth:mmmmmmmmmmmm:1.7.2-forge")
 
-
     // beacons
-    modImplementation "curse.maven:just-enough-beacons-reforged-912266:$jeb_reforged_version"
-    modImplementation "curse.maven:cerbons-better-beacons-921066:$better_beacons_version"
+    modImplementation("curse.maven:just-enough-beacons-reforged-912266:$jeb_reforged_version")
+    modImplementation("curse.maven:cerbons-better-beacons-921066:$better_beacons_version")
 
     // MixinExtras
     compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:0.4.1"))

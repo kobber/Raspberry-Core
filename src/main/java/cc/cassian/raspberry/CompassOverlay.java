@@ -1,32 +1,30 @@
 package cc.cassian.raspberry;
 
+import cc.cassian.raspberry.compat.CavernsAndChasmsCompat;
 import cc.cassian.raspberry.compat.MapAtlasesCompat;
+import cc.cassian.raspberry.compat.SpelunkeryCompat;
 import cc.cassian.raspberry.config.ModConfig;
-import cc.cassian.raspberry.registry.RaspberryTags;
 import com.mojang.blaze3d.systems.RenderSystem;
+import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiComponent;
 import net.minecraft.core.BlockPos;
-import net.minecraft.data.BuiltinRegistries;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.ReloadableServerResources;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.client.event.CustomizeGuiOverlayEvent;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
-import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.event.entity.player.PlayerContainerEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import java.util.ArrayList;
 
-public class CompassTracker {
+public class CompassOverlay {
     public static boolean hasCompass = false;
-    public static boolean hasDepthGauge = true;
+    public static boolean hasDepthGauge = false;
 
 
     @SubscribeEvent
@@ -50,31 +48,54 @@ public class CompassTracker {
     }
 
     public static void checkInventoryForItems(Player player) {
+        var xz = Items.COMPASS;
+        var y = Items.COMPASS;
+        if (ModCompat.SPELUNKERY)
+            y = SpelunkeryCompat.getDepthGauge();
         if (ModConfig.get().overlay_enable) {
             var inventory = player.getInventory();
             if (ModConfig.get().overlay_requireItemInHand) {
                 var main = player.getMainHandItem();
                 var offhand = player.getOffhandItem();
-                hasCompass = main.is(RaspberryTags.SHOWS_XZ) || offhand.is(RaspberryTags.SHOWS_XZ);
-                hasDepthGauge = main.is(RaspberryTags.SHOWS_Y) || offhand.is(RaspberryTags.SHOWS_Y);
+                hasCompass = main.is(xz) || offhand.is(xz);
+                hasDepthGauge = main.is(y) || offhand.is(y);
+                if (!hasDepthGauge && ModCompat.CAVERNS_AND_CHASMS) {
+                    y = CavernsAndChasmsCompat.getDepthGauge();
+                    hasDepthGauge = main.is(y) || offhand.is(y);
+                }
+
             }
             else {
-                hasCompass = checkInventoryForItem(inventory, RaspberryTags.SHOWS_XZ, "minecraft:compass");
-                hasDepthGauge = checkInventoryForItem(inventory, RaspberryTags.SHOWS_Y, "spelunkery:depth_gauge");
+                hasCompass = checkInventoryForItem(inventory, xz, "minecraft:compass");
+                hasDepthGauge = checkInventoryForItem(inventory, y, "spelunkery:depth_gauge");
+                if (!hasDepthGauge && ModCompat.CAVERNS_AND_CHASMS) {
+                    y = CavernsAndChasmsCompat.getDepthGauge();
+                    hasDepthGauge = checkInventoryForItem(inventory, y, "caverns_and_chasms:depth_gauge");
+                }
             }
+        }
+        else {
+            hasCompass = false;
+            hasDepthGauge = false;
         }
     }
 
-    public static boolean checkInventoryForItem(Inventory inventory, TagKey<Item> item, String name) {
-        if (inventory.contains(item)) {
+    public static boolean checkInventoryForItem(Inventory inventory, Item item, String name) {
+        if (inventory.contains(item.getDefaultInstance())) {
             return true;
         }
-        if (ModConfig.get().overlay_searchContainers && (inventory.contains(RaspberryTags.CONTAINER))) {
+        if (ModConfig.get().overlay_searchContainers && hasContainer(inventory)) {
             for (ItemStack stack : inventory.items) {
                 if (stack.getTag() != null) {
                     var items = stack.getTag().get("Items");
+                    var be = stack.getTag().get("BlockEntityTag");
                     if (items != null) {
                         if (items.toString().contains(name)) {
+                            return true;
+                        }
+                    }
+                    if (be != null) {
+                        if (be.toString().contains(name)) {
                             return true;
                         }
                     }
@@ -82,6 +103,18 @@ public class CompassTracker {
             }
         }
 
+        return false;
+    }
+
+    private static boolean hasContainer(Inventory inventory) {
+        if (inventory.contains(Items.BUNDLE.getDefaultInstance()))
+            return true;
+        else if (inventory.contains(ModRegistry.SACK.get().asItem().getDefaultInstance()))
+            return true;
+        else if (inventory.contains(ModRegistry.SAFE.get().asItem().getDefaultInstance()))
+            return true;
+        else if (inventory.contains(Items.SHULKER_BOX.getDefaultInstance()))
+            return true;
         return false;
     }
 
