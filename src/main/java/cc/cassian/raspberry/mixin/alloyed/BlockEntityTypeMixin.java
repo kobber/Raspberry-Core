@@ -11,11 +11,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Objects;
 
+import static cc.cassian.raspberry.RaspberryMod.identifier;
+
 @Mixin(BlockEntityType.class)
 public class BlockEntityTypeMixin {
     @Inject(method = "isValid", at = @At(value = "RETURN"), cancellable = true)
     private void forceAllowAlloyed(BlockState arg, CallbackInfoReturnable<Boolean> cir) {
-        if (Objects.requireNonNullElse(ForgeRegistries.BLOCKS.getKey(arg.getBlock()), ResourceLocation.fromNamespaceAndPath("minecraft", "air")).getNamespace().equals("alloyed"))
+        if (Objects.requireNonNullElse(ForgeRegistries.BLOCKS.getKey(arg.getBlock()), identifier("minecraft", "air")).getNamespace().equals("alloyed"))
             cir.setReturnValue(true);
     }
 }

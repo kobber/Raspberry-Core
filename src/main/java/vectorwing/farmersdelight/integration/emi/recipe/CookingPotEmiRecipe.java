@@ -39,8 +39,10 @@ import vectorwing.farmersdelight.integration.emi.FDRecipeCategories;
 import java.util.ArrayList;
 import java.util.List;
 
+import static cc.cassian.raspberry.RaspberryMod.identifier;
+
 public class CookingPotEmiRecipe implements EmiRecipe {
-    private static final ResourceLocation BACKGROUND = new ResourceLocation("farmersdelight", "textures/gui/cooking_pot.png");
+    private static final ResourceLocation BACKGROUND = identifier("farmersdelight", "textures/gui/cooking_pot.png");
 
     private final ResourceLocation id;
     private final List<EmiIngredient> inputs;

@@ -35,8 +35,10 @@ import vectorwing.farmersdelight.integration.emi.FDRecipeCategories;
 
 import java.util.List;
 
+import static cc.cassian.raspberry.RaspberryMod.identifier;
+
 public class CuttingEmiRecipe implements EmiRecipe {
-    private static final ResourceLocation BACKGROUND = new ResourceLocation(FarmersDelight.MODID, "textures/gui/jei/cutting_board.png");
+    private static final ResourceLocation BACKGROUND = identifier(FarmersDelight.MODID, "textures/gui/jei/cutting_board.png");
     public static final int OUTPUT_GRID_X = 69;
     public static final int OUTPUT_GRID_Y = 3;
 

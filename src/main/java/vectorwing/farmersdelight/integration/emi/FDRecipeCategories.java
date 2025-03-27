@@ -30,12 +30,14 @@ import net.minecraft.client.gui.GuiComponent;
 import net.minecraft.resources.ResourceLocation;
 import vectorwing.farmersdelight.FarmersDelight;
 
-public class FDRecipeCategories {
-    private static final ResourceLocation SIMPLIFIED_TEXTURES = new ResourceLocation(FarmersDelight.MODID, "textures/gui/emi/simplified.png");
+import static cc.cassian.raspberry.RaspberryMod.identifier;
 
-    public static final EmiRecipeCategory COOKING = new EmiRecipeCategory(new ResourceLocation(FarmersDelight.MODID, "cooking"), FDRecipeWorkstations.COOKING_POT, simplifiedRenderer(0, 0));
-    public static final EmiRecipeCategory CUTTING = new EmiRecipeCategory(new ResourceLocation(FarmersDelight.MODID, "cutting"), FDRecipeWorkstations.CUTTING_BOARD, simplifiedRenderer(16, 0));
-    public static final EmiRecipeCategory DECOMPOSITION = new EmiRecipeCategory(new ResourceLocation(FarmersDelight.MODID, "decomposition"), FDRecipeWorkstations.ORGANIC_COMPOST, simplifiedRenderer(32, 0));
+public class FDRecipeCategories {
+    private static final ResourceLocation SIMPLIFIED_TEXTURES = identifier(FarmersDelight.MODID, "textures/gui/emi/simplified.png");
+
+    public static final EmiRecipeCategory COOKING = new EmiRecipeCategory(identifier(FarmersDelight.MODID, "cooking"), FDRecipeWorkstations.COOKING_POT, simplifiedRenderer(0, 0));
+    public static final EmiRecipeCategory CUTTING = new EmiRecipeCategory(identifier(FarmersDelight.MODID, "cutting"), FDRecipeWorkstations.CUTTING_BOARD, simplifiedRenderer(16, 0));
+    public static final EmiRecipeCategory DECOMPOSITION = new EmiRecipeCategory(identifier(FarmersDelight.MODID, "decomposition"), FDRecipeWorkstations.ORGANIC_COMPOST, simplifiedRenderer(32, 0));
 
     private static EmiRenderable simplifiedRenderer(int u, int v) {
         return (draw, x, y, delta) -> {

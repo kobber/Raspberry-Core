@@ -124,27 +124,29 @@ dependencies {
     // Optional dependencies for mods with only mixin fixes
     modImplementation "curse.maven:aquaculture-60028:$aquaculture_version"
     modImplementation "curse.maven:copper-tuff-backport-fabric-950738:$copper_backport_version"
-    modImplementation "curse.maven:copperized-567666:$copperized_version"
-    modImplementation "software.bernie.geckolib:geckolib-forge-$geckolib_version"
-    modImplementation "maven.modrinth:supplementaries:$supplementaries_version-forge"
-    modImplementation "maven.modrinth:moonlight:$moonlight_lib_version-forge"
-    modImplementation "maven.modrinth:naturalist:$naturalist_version"
-    modImplementation "maven.modrinth:another-furniture:$another_furniture_version"
-    modImplementation "maven.modrinth:oreganized:$oreganized_version"
-    modImplementation "maven.modrinth:spelunkery:$spelunkery_version-forge"
-    modImplementation "maven.modrinth:sullysmod:$sullys_version"
-    modImplementation "maven.modrinth:twigs:$twigs_version"
-    modImplementation "maven.modrinth:quark:$quark_version"
-    modImplementation "maven.modrinth:autoreglib:$autoreglib_version"
-    modImplementation "maven.modrinth:dynamiccrosshair:$dynamic_crosshair_version-forge"
-    modImplementation "maven.modrinth:cofh-core:$cofh_core_version-forge"
-    modImplementation "maven.modrinth:mmmmmmmmmmmm:1.7.2-forge"
-    modImplementation "curse.maven:clash-468706:$clash_version"
-    modImplementation "maven.modrinth:gliders:$gliders_version"
+    modImplementation("curse.maven:copperized-567666:$copperized_version")
+    modImplementation("software.bernie.geckolib:geckolib-forge-$geckolib_version")
+    modImplementation("maven.modrinth:supplementaries:$supplementaries_version-forge")
+    modImplementation("maven.modrinth:moonlight:$moonlight_lib_version-forge")
+    modImplementation("maven.modrinth:naturalist:$naturalist_version")
+    modImplementation("maven.modrinth:another-furniture:$another_furniture_version")
+    modImplementation("maven.modrinth:oreganized:$oreganized_version")
+    modImplementation("maven.modrinth:spelunkery:$spelunkery_version-forge")
+    modImplementation("maven.modrinth:sullysmod:$sullys_version")
+    modImplementation("maven.modrinth:twigs:$twigs_version")
+    modImplementation("maven.modrinth:quark:$quark_version")
+    modImplementation("maven.modrinth:autoreglib:$autoreglib_version")
+    modImplementation("maven.modrinth:dynamiccrosshair:$dynamic_crosshair_version-forge")
+    modImplementation("maven.modrinth:cofh-core:$cofh_core_version-forge")
+    modImplementation("curse.maven:clash-468706:$clash_version")
+    modImplementation("maven.modrinth:gliders:$gliders_version")
     modRuntimeOnly("dev.kosmx.player-anim:player-animation-lib-forge:${player_anim_version}")
-    modRuntimeOnly "net.threetag:PalladiumCore-forge:${palladiumcore_version}"
-    modImplementation "maven.modrinth:survivality:${survivality_version}"
+    modRuntimeOnly("net.threetag:PalladiumCore-forge:${palladiumcore_version}")
+    modImplementation("maven.modrinth:survivality:${survivality_version}")
 
+    // mods for testing purposes
+    modImplementation("curse.maven:map-atlases-forge-519759:5138314")
+    modImplementation("maven.modrinth:mmmmmmmmmmmm:1.7.2-forge")
 
 
     // beacons

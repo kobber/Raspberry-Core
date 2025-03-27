@@ -12,24 +12,23 @@ import cc.cassian.raspberry.registry.RasperryMobEffects;
 import com.teamabnormals.blueprint.common.world.storage.tracking.DataProcessors;
 import com.teamabnormals.blueprint.common.world.storage.tracking.TrackedData;
 import com.teamabnormals.blueprint.common.world.storage.tracking.TrackedDataManager;
-import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
-import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.*;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.IExtensionPoint;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLEnvironment;
+import net.minecraftforge.network.NetworkConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -74,13 +73,23 @@ public final class RaspberryMod {
             MinecraftForge.EVENT_BUS.addListener(CompassTracker::join);
             MinecraftForge.EVENT_BUS.addListener(CompassTracker::toss);
             MinecraftForge.EVENT_BUS.addListener(CompassTracker::closeInventory);
+            MinecraftForge.EVENT_BUS.addListener(CompassTracker::renderGameOverlayEvent);
+            context.registerExtensionPoint(IExtensionPoint.DisplayTest.class, () -> new IExtensionPoint.DisplayTest(() -> NetworkConstants.IGNORESERVERONLY, (remote, isServer) -> true));
         }
 
-        TrackedDataManager.INSTANCE.registerData(new ResourceLocation(MOD_ID, "truffle_hunting_time"), WORM_HUNTING_TIME);
-        TrackedDataManager.INSTANCE.registerData(new ResourceLocation(MOD_ID, "sniff_sound_time"), SNIFF_SOUND_TIME);
-        TrackedDataManager.INSTANCE.registerData(new ResourceLocation(MOD_ID, "truffle_pos"), WORM_POS);
-        TrackedDataManager.INSTANCE.registerData(new ResourceLocation(MOD_ID, "has_truffle_target"), HAS_WORM_TARGET);
-        TrackedDataManager.INSTANCE.registerData(new ResourceLocation(MOD_ID, "looking_for_truffle"), LOOKING_FOR_WORM);
+        TrackedDataManager.INSTANCE.registerData(locate("truffle_hunting_time"), WORM_HUNTING_TIME);
+        TrackedDataManager.INSTANCE.registerData(locate("sniff_sound_time"), SNIFF_SOUND_TIME);
+        TrackedDataManager.INSTANCE.registerData(locate( "truffle_pos"), WORM_POS);
+        TrackedDataManager.INSTANCE.registerData(locate( "has_truffle_target"), HAS_WORM_TARGET);
+        TrackedDataManager.INSTANCE.registerData(locate("looking_for_truffle"), LOOKING_FOR_WORM);
+    }
+
+    public static ResourceLocation locate(String id) {
+        return identifier(MOD_ID, id);
+    }
+
+    public static ResourceLocation identifier(String namespace, String id) {
+        return new ResourceLocation(namespace, id);
     }
 
     @SubscribeEvent
