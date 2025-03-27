@@ -1,17 +1,23 @@
 package cc.cassian.raspberry;
 
 import cc.cassian.raspberry.compat.MapAtlasesCompat;
+import cc.cassian.raspberry.config.ModConfig;
+import cc.cassian.raspberry.registry.RaspberryTags;
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.ordana.spelunkery.reg.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiComponent;
 import net.minecraft.core.BlockPos;
+import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.ReloadableServerResources;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraftforge.client.event.CustomizeGuiOverlayEvent;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
+import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.event.entity.player.PlayerContainerEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -25,34 +31,43 @@ public class CompassTracker {
 
     @SubscribeEvent
     public static void pickup(PlayerEvent.ItemPickupEvent event) {
-        checkInventoryForItems(event.getEntity().getInventory());
+        checkInventoryForItems(event.getEntity());
     }
 
     @SubscribeEvent
     public static void join(PlayerEvent.PlayerLoggedInEvent event) {
-        checkInventoryForItems(event.getEntity().getInventory());
+        checkInventoryForItems(event.getEntity());
     }
 
     @SubscribeEvent
     public static void toss(ItemTossEvent event) {
-        checkInventoryForItems(event.getPlayer().getInventory());
+        checkInventoryForItems(event.getPlayer());
     }
 
     @SubscribeEvent
     public static void closeInventory(PlayerContainerEvent.Close event) {
-        checkInventoryForItems(event.getEntity().getInventory());
+        checkInventoryForItems(event.getEntity());
     }
 
-    public static void checkInventoryForItems(Inventory inventory) {
-        hasCompass = checkInventoryForItem(inventory, Items.COMPASS, "minecraft:compass");
-        hasDepthGauge = checkInventoryForItem(inventory, ModItems.DEPTH_GAUGE.get(), "spelunkery:depth_gauge");
+    public static void checkInventoryForItems(Player player) {
+        var inventory = player.getInventory();
+        if (ModConfig.get().overlay_requireItemInHand) {
+            var main = player.getMainHandItem();
+            var offhand = player.getOffhandItem();
+            hasCompass = main.is(RaspberryTags.SHOWS_XZ) || offhand.is(RaspberryTags.SHOWS_XZ);
+            hasDepthGauge = main.is(RaspberryTags.SHOWS_Y) || offhand.is(RaspberryTags.SHOWS_Y);
+        }
+        else {
+            hasCompass = checkInventoryForItem(inventory, RaspberryTags.SHOWS_XZ, "minecraft:compass");
+            hasDepthGauge = checkInventoryForItem(inventory, RaspberryTags.SHOWS_Y, "spelunkery:depth_gauge");
+        }
     }
 
-    public static boolean checkInventoryForItem(Inventory inventory, Item item, String name) {
-        if (inventory.contains(item.getDefaultInstance())) {
+    public static boolean checkInventoryForItem(Inventory inventory, TagKey<Item> item, String name) {
+        if (inventory.contains(item)) {
             return true;
         }
-        if (inventory.contains(Items.BUNDLE.getDefaultInstance())) {
+        if (ModConfig.get().overlay_searchContainers && (inventory.contains(RaspberryTags.CONTAINER))) {
             for (ItemStack stack : inventory.items) {
                 if (stack.getTag() != null) {
                     var items = stack.getTag().get("Items");
@@ -64,17 +79,19 @@ public class CompassTracker {
                 }
             }
         }
+
         return false;
     }
 
 
     @SubscribeEvent
     public static void renderGameOverlayEvent(CustomizeGuiOverlayEvent.DebugText event) {
+        if (!hasCompass && !hasDepthGauge)
+            return;
+        if (ModCompat.MAP_ATLASES && MapAtlasesCompat.showingCoords())
+            return;
         var mc = Minecraft.getInstance();
         if (mc.options.renderDebug && !mc.options.reducedDebugInfo().get())
-            return;
-
-        if (ModCompat.MAP_ATLASES && MapAtlasesCompat.showingCoords())
             return;
 
         int windowWidth = mc.getWindow().getGuiScaledWidth();
@@ -101,7 +118,7 @@ public class CompassTracker {
             coords.add(String.format("Y: %d", y));
         }
 
-        int textureOffset = 2; // only depth gague
+        int textureOffset = 9; // only depth gague
         if (hasCompass & hasDepthGauge) { // depth gauge and compass
             textureOffset = 51;
             tooltipSize = 33;
@@ -109,6 +126,7 @@ public class CompassTracker {
         else if (hasCompass) { // only compass
             textureOffset = 27;
         }
+        else tooltipSize = 14;
 
         if (ModCompat.MAP_ATLASES && MapAtlasesCompat.isInCorner())
             top = 90;

@@ -111,8 +111,8 @@ public final class RaspberryMod {
     public static void copperTick(TickEvent.PlayerTickEvent event) {
         if (ModCompat.COPPERIZED && ModCompat.COFH_CORE)
             CopperizedCompat.resist(event);
-        if (FMLEnvironment.dist.isClient())
-            System.out.println(CompassTracker.hasCompass);
+        if (ModConfig.get().overlay_requireItemInHand)
+            CompassTracker.checkInventoryForItems(event.player);
     }
 
     /**

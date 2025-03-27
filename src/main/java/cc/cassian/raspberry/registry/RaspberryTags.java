@@ -14,7 +14,13 @@ public class RaspberryTags {
     public static final TagKey<Item> BAD_BAIT = createItemTag("bad_bait");
     public static final TagKey<Item> MID_BAIT = createItemTag("mid_bait");
     public static final TagKey<Item> GOOD_BAIT = createItemTag("good_bait");
+
     public static final TagKey<Item> HAS_KINETIC_DAMAGE = createItemTag( "has_kinetic_damage");
+
+    public static final TagKey<Item> CONTAINER = createItemTag( "container");
+    public static final TagKey<Item> SHOWS_XZ = createItemTag( "shows_xz");
+    public static final TagKey<Item> SHOWS_Y = createItemTag( "shows_y");
+
     public static final TagKey<Item> WORM_SEEKER_ITEMS = createItemTag( "worm_seeker_items");
     public static final TagKey<EntityType<?>> WORM_SEEKERS = createEntityTypeTag( "worm_seekers");
 
