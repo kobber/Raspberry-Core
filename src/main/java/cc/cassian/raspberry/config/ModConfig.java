@@ -34,6 +34,9 @@ public class ModConfig {
     public boolean overlay_enable = true;
     public boolean overlay_searchContainers = true;
     public boolean overlay_requireItemInHand = false;
+    public String overlay_x_colour = "Red";
+    public String overlay_y_colour = "Green";
+    public String overlay_z_colour = "Blue";
 
     public static void load() {
         if (!Files.exists(configPath())) {

@@ -130,11 +130,12 @@ public class CompassOverlay {
         if (mc.options.renderDebug && !mc.options.reducedDebugInfo().get())
             return;
 
-        int windowWidth = mc.getWindow().getGuiScaledWidth();
-
         ArrayList<String> coords = new ArrayList<>();
 
-        BlockPos pos = mc.player.blockPosition();
+        BlockPos pos;
+        if (mc.player != null) pos = mc.player.blockPosition();
+        else return;
+
         String x = String.format("%d", pos.getX());
         String y = String.format("%d", pos.getY());
         String z = String.format("%d", pos.getZ());
@@ -144,23 +145,23 @@ public class CompassOverlay {
         y = StringUtils.leftPad(y, width);
         z = StringUtils.leftPad(z, width);
         int offset = 3;
-        int top = 2;
+        int top = 90;
         int textureSize = 256;
-        int tooltipSize = 22;
         int fontWidth = mc.font.width(StringUtils.repeat("a", width+2));
 
         if (hasCompass) {
-            coords.add("§cX:§f "+ x);
+            coords.add("§%sX:§f %s".formatted(ModHelpers.getColour(ModConfig.get().overlay_x_colour), x));
             if (hasDepthGauge) {
-                coords.add("§aY:§f "+ y);
+                coords.add("§%sY:§f %s".formatted(ModHelpers.getColour(ModConfig.get().overlay_y_colour), y));
             }
-            coords.add("§9Z:§f "+ z);
+            coords.add("§%sZ:§f %s".formatted(ModHelpers.getColour(ModConfig.get().overlay_z_colour), z));
         }
         else if (hasDepthGauge) {
-            coords.add("§aY:§f "+ y);
+            coords.add("§%sY:§f %s".formatted(ModHelpers.getColour(ModConfig.get().overlay_y_colour), y));
         }
 
-        int textureOffset = 9; // only depth gague
+        int textureOffset = 9;  // only depth gauge
+        int tooltipSize = 14;  // only depth gauge
         if (hasCompass & hasDepthGauge) { // depth gauge and compass
             textureOffset = 51;
             tooltipSize = 33;
@@ -168,10 +169,8 @@ public class CompassOverlay {
         else if (hasCompass) { // only compass
             textureOffset = 27;
         }
-        else tooltipSize = 14;
 
-        if (ModCompat.MAP_ATLASES && MapAtlasesCompat.isInCorner())
-            top = 90;
+        int windowWidth = mc.getWindow().getGuiScaledWidth();
         int placement = windowWidth-2-fontWidth;
         var poseStack = event.getPoseStack();
         RenderSystem.setShaderTexture(0, RaspberryMod.locate("textures/gui/tooltip.png"));
