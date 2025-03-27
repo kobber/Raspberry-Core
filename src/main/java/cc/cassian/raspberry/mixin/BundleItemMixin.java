@@ -13,6 +13,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class BundleItemMixin {
     @Inject(method = "dropContents", at = @At(value = "RETURN"))
     private static void mixin(ItemStack stack, Player player, CallbackInfoReturnable<Boolean> cir) {
-        CompassTracker.checkInventoryForCompasses(player.getInventory());
+        CompassTracker.checkInventoryForItems(player.getInventory());
     }
 }
