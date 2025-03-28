@@ -168,6 +168,7 @@ public class CompassOverlay {
         }
         else if (hasCompass) { // only compass
             textureOffset = 27;
+            tooltipSize = 23;
         }
 
         int windowWidth = mc.getWindow().getGuiScaledWidth();
