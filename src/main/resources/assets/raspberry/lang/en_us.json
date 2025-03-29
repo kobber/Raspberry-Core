@@ -31,8 +31,14 @@
 
  "config.raspberry.overlay": "Overlay",
  "config.raspberry.config.overlay_enable": "Enable coordinate overlay",
- "config.raspberry.config.overlay_searchContainers": "Allow compasses in bundles/containers",
- "config.raspberry.config.overlay_requireItemInHand": "Require compasses in hand",
+ "config.raspberry.config.overlay_searchContainers": "Allow items in bundles/containers",
+ "config.raspberry.config.overlay_requireItemInHand": "Require item in hand",
+ "config.raspberry.config.overlay_x_colour": "X Color",
+ "config.raspberry.config.overlay_y_colour": "Y Color",
+ "config.raspberry.config.overlay_z_colour": "Z Color",
+ "config.raspberry.config.overlay_position": "Overlay position",
+ "config.raspberry.config.overlay_leftalign": "Align overlay to the left edge",
+
 
  "emi.category.farmersdelight.cooking": "Cooking",
  "emi.category.farmersdelight.cutting": "Cutting Board",

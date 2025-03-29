@@ -123,4 +123,20 @@ public class OverlayHelpers {
     public static void closeInventory(PlayerContainerEvent.Close event) {
         checkInventoryForItems(event.getEntity());
     }
+
+    public static int getPlacement(int windowWidth, int fontWidth) {
+        if (ModConfig.get().overlay_leftalign) {
+            return 9;
+        } else {
+            return windowWidth-2-fontWidth;
+        }
+    }
+
+    public static int getEndCapPlacement(int windowWidth, int fontWidth) {
+        if (ModConfig.get().overlay_leftalign) {
+            return fontWidth+8;
+        } else {
+            return windowWidth-4;
+        }
+    }
 }

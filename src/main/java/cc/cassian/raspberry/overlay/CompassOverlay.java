@@ -10,15 +10,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiComponent;
 import net.minecraft.core.BlockPos;
 import net.minecraftforge.client.event.CustomizeGuiOverlayEvent;
-import net.minecraftforge.event.entity.item.ItemTossEvent;
-import net.minecraftforge.event.entity.player.PlayerContainerEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
-
-import static cc.cassian.raspberry.overlay.OverlayHelpers.checkInventoryForItems;
 
 public class CompassOverlay {
     public static boolean hasCompass = false;
@@ -76,19 +71,24 @@ public class CompassOverlay {
         }
 
         int windowWidth = mc.getWindow().getGuiScaledWidth();
-        int placement = windowWidth-2-fontWidth;
+        int placement = OverlayHelpers.getPlacement(windowWidth, fontWidth);
+        int endCapPlacement = OverlayHelpers.getEndCapPlacement(windowWidth, fontWidth);
+        int endCapOffset = 197;
         var poseStack = event.getPoseStack();
         RenderSystem.setShaderTexture(0, RaspberryMod.locate("textures/gui/tooltip.png"));
+        // render background
         GuiComponent.blit(poseStack,
                 placement-offset-4, top-3,
                 0, 0,
                 textureOffset, fontWidth+offset+4, tooltipSize,
                 textureSize, textureSize);
+        // render endcap
         GuiComponent.blit(poseStack,
-                windowWidth-4, top-3,
-                0, 197,
-                textureOffset, offset, tooltipSize,
+                endCapPlacement, top-3,
+                0, endCapOffset,
+                textureOffset, 3, tooltipSize,
                 textureSize, textureSize);
+        // render text
         for (String text : coords) {
             GuiComponent.drawString(poseStack, mc.font, text, placement-offset, top, 14737632);
             top += mc.font.lineHeight;

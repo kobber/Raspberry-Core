@@ -18,6 +18,7 @@ public class ModConfig {
 
     private static ModConfig INSTANCE = new ModConfig();
     //General settings
+    public int endcap = 6;
     public boolean aftershock = true;
     public boolean stovesStartLit = false;
     public boolean campfiresStartLit = false;
@@ -38,6 +39,8 @@ public class ModConfig {
     public String overlay_y_colour = "Green";
     public String overlay_z_colour = "Blue";
     public int overlay_position_vertical = 90;
+    public boolean overlay_leftalign = false;
+
 
     public static void load() {
         if (!Files.exists(configPath())) {
