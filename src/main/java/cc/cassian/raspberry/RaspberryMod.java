@@ -31,6 +31,8 @@ import net.minecraftforge.network.NetworkConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.time.Clock;
+
 @Mod(RaspberryMod.MOD_ID)
 public final class RaspberryMod {
     public static final String MOD_ID = "raspberry";
@@ -73,6 +75,7 @@ public final class RaspberryMod {
             MinecraftForge.EVENT_BUS.addListener(CompassOverlay::toss);
             MinecraftForge.EVENT_BUS.addListener(CompassOverlay::closeInventory);
             MinecraftForge.EVENT_BUS.addListener(CompassOverlay::renderGameOverlayEvent);
+            MinecraftForge.EVENT_BUS.addListener(ClockOverlay::renderGameOverlayEvent);
             context.registerExtensionPoint(IExtensionPoint.DisplayTest.class, () -> new IExtensionPoint.DisplayTest(() -> NetworkConstants.IGNORESERVERONLY, (remote, isServer) -> true));
         }
 
@@ -115,6 +118,7 @@ public final class RaspberryMod {
         // but the events I'm using aren't working well enough on servers.
         if (ModConfig.get().overlay_enable)
             CompassOverlay.checkInventoryForItems(event.player);
+        ClockOverlay.checkInventoryForItems(event.player);
     }
 
     /**
