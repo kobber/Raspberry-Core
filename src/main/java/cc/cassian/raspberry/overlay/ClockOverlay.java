@@ -1,65 +1,17 @@
-package cc.cassian.raspberry;
+package cc.cassian.raspberry.overlay;
 
-import cc.cassian.raspberry.compat.CavernsAndChasmsCompat;
-import cc.cassian.raspberry.compat.MapAtlasesCompat;
-import cc.cassian.raspberry.compat.SpelunkeryCompat;
+import cc.cassian.raspberry.RaspberryMod;
 import cc.cassian.raspberry.config.ModConfig;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.mehvahdjukaar.supplementaries.configs.ClientConfigs;
-import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiComponent;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraftforge.client.event.CustomizeGuiOverlayEvent;
-import net.minecraftforge.event.entity.item.ItemTossEvent;
-import net.minecraftforge.event.entity.player.PlayerContainerEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import org.apache.commons.lang3.StringUtils;
-
-import java.util.ArrayList;
-
-import static cc.cassian.raspberry.CompassOverlay.checkInventoryForItem;
 
 public class ClockOverlay {
     public static boolean hasClock = false;
     public static boolean hasBarometer = false;
-
-    public static void checkInventoryForItems(Player player) {
-        var clock = Items.CLOCK;
-        var barometer = Items.CLOCK;
-        if (ModCompat.CAVERNS_AND_CHASMS)
-            barometer = CavernsAndChasmsCompat.getBarometer();
-        if (ModConfig.get().overlay_enable) {
-            var inventory = player.getInventory();
-            if (ModConfig.get().overlay_requireItemInHand) {
-                var main = player.getMainHandItem();
-                var offhand = player.getOffhandItem();
-                hasClock = main.is(clock) || offhand.is(clock);
-                hasBarometer = main.is(barometer) || offhand.is(barometer);
-                if (ModCompat.CAVERNS_AND_CHASMS) {
-                    hasBarometer = checkInventoryForItem(inventory, barometer, "caverns_and_chasms:barometer");
-                }
-                else {
-                    hasBarometer = hasClock;
-                }
-            }
-            else {
-                hasClock = checkInventoryForItem(inventory, clock, "minecraft:clock");
-                if (ModCompat.CAVERNS_AND_CHASMS) {
-                    hasBarometer = checkInventoryForItem(inventory, barometer, "caverns_and_chasms:barometer");
-                }
-                else {
-                    hasBarometer = hasClock;
-                }
-            }
-        }
-    }
 
     @SubscribeEvent
     public static void renderGameOverlayEvent(CustomizeGuiOverlayEvent.DebugText event) {

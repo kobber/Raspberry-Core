@@ -5,6 +5,9 @@ import cc.cassian.raspberry.compat.*;
 import cc.cassian.raspberry.compat.oreganized.OreganizedEvents;
 import cc.cassian.raspberry.compat.oreganized.network.RaspberryOreganizedNetwork;
 import cc.cassian.raspberry.config.ModConfig;
+import cc.cassian.raspberry.overlay.ClockOverlay;
+import cc.cassian.raspberry.overlay.CompassOverlay;
+import cc.cassian.raspberry.overlay.OverlayHelpers;
 import cc.cassian.raspberry.registry.RaspberryAttributes;
 import cc.cassian.raspberry.registry.RaspberryBlocks;
 import cc.cassian.raspberry.registry.RaspberryItems;
@@ -30,8 +33,6 @@ import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.network.NetworkConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.time.Clock;
 
 @Mod(RaspberryMod.MOD_ID)
 public final class RaspberryMod {
@@ -70,13 +71,12 @@ public final class RaspberryMod {
         if (FMLEnvironment.dist.isClient()) {
             // Register config
             registerModsPage(context);
-            MinecraftForge.EVENT_BUS.addListener(CompassOverlay::pickup);
-            MinecraftForge.EVENT_BUS.addListener(CompassOverlay::join);
-            MinecraftForge.EVENT_BUS.addListener(CompassOverlay::toss);
-            MinecraftForge.EVENT_BUS.addListener(CompassOverlay::closeInventory);
+            MinecraftForge.EVENT_BUS.addListener(OverlayHelpers::pickup);
+            MinecraftForge.EVENT_BUS.addListener(OverlayHelpers::join);
+            MinecraftForge.EVENT_BUS.addListener(OverlayHelpers::toss);
+            MinecraftForge.EVENT_BUS.addListener(OverlayHelpers::closeInventory);
             MinecraftForge.EVENT_BUS.addListener(CompassOverlay::renderGameOverlayEvent);
             MinecraftForge.EVENT_BUS.addListener(ClockOverlay::renderGameOverlayEvent);
-            context.registerExtensionPoint(IExtensionPoint.DisplayTest.class, () -> new IExtensionPoint.DisplayTest(() -> NetworkConstants.IGNORESERVERONLY, (remote, isServer) -> true));
         }
 
         TrackedDataManager.INSTANCE.registerData(locate("truffle_hunting_time"), WORM_HUNTING_TIME);
@@ -117,8 +117,7 @@ public final class RaspberryMod {
         // I'd really rather not check the player's inventory every tick like this,
         // but the events I'm using aren't working well enough on servers.
         if (ModConfig.get().overlay_enable)
-            CompassOverlay.checkInventoryForItems(event.player);
-        ClockOverlay.checkInventoryForItems(event.player);
+            OverlayHelpers.checkInventoryForItems(event.player);
     }
 
     /**
