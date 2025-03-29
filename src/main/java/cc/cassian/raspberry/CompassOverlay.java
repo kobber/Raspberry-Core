@@ -5,10 +5,12 @@ import cc.cassian.raspberry.compat.MapAtlasesCompat;
 import cc.cassian.raspberry.compat.SpelunkeryCompat;
 import cc.cassian.raspberry.config.ModConfig;
 import com.mojang.blaze3d.systems.RenderSystem;
+import net.mehvahdjukaar.supplementaries.configs.ClientConfigs;
 import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiComponent;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -26,6 +28,9 @@ import java.util.ArrayList;
 public class CompassOverlay {
     public static boolean hasCompass = false;
     public static boolean hasDepthGauge = false;
+    public static boolean hasClock = false;
+    public static boolean hasBarometer = false;
+
 
 
     @SubscribeEvent
@@ -51,8 +56,14 @@ public class CompassOverlay {
     public static void checkInventoryForItems(Player player) {
         var xz = Items.COMPASS;
         var y = Items.COMPASS;
+        var clock = Items.CLOCK;
+        var barometer = Items.CLOCK;
         if (ModCompat.SPELUNKERY)
             y = SpelunkeryCompat.getDepthGauge();
+        else if (ModCompat.CAVERNS_AND_CHASMS)
+            y = CavernsAndChasmsCompat.getDepthGauge();
+        if (ModCompat.CAVERNS_AND_CHASMS)
+            barometer = CavernsAndChasmsCompat.getBarometer();
         if (ModConfig.get().overlay_enable) {
             var inventory = player.getInventory();
             if (ModConfig.get().overlay_requireItemInHand) {
@@ -60,18 +71,33 @@ public class CompassOverlay {
                 var offhand = player.getOffhandItem();
                 hasCompass = main.is(xz) || offhand.is(xz);
                 hasDepthGauge = main.is(y) || offhand.is(y);
-                if (!hasDepthGauge && ModCompat.CAVERNS_AND_CHASMS) {
-                    y = CavernsAndChasmsCompat.getDepthGauge();
-                    hasDepthGauge = main.is(y) || offhand.is(y);
+                hasClock = main.is(clock) || offhand.is(clock);
+                hasBarometer = main.is(barometer) || offhand.is(barometer);
+                if (ModCompat.CAVERNS_AND_CHASMS) {
+                    hasBarometer = checkInventoryForItem(inventory, y, "caverns_and_chasms:barometer");
+                    if (!hasDepthGauge) {
+                        y = CavernsAndChasmsCompat.getDepthGauge();
+                        hasDepthGauge = main.is(y) || offhand.is(y);
+                    }
+                }
+                else {
+                    hasBarometer = hasClock;
                 }
 
             }
             else {
                 hasCompass = checkInventoryForItem(inventory, xz, "minecraft:compass");
                 hasDepthGauge = checkInventoryForItem(inventory, y, "spelunkery:depth_gauge");
-                if (!hasDepthGauge && ModCompat.CAVERNS_AND_CHASMS) {
-                    y = CavernsAndChasmsCompat.getDepthGauge();
-                    hasDepthGauge = checkInventoryForItem(inventory, y, "caverns_and_chasms:depth_gauge");
+                hasClock = checkInventoryForItem(inventory, clock, "minecraft:clock");
+                if (ModCompat.CAVERNS_AND_CHASMS) {
+                    hasBarometer = checkInventoryForItem(inventory, y, "caverns_and_chasms:barometer");
+                    if (!hasDepthGauge) {
+                        y = CavernsAndChasmsCompat.getDepthGauge();
+                        hasDepthGauge = checkInventoryForItem(inventory, y, "caverns_and_chasms:depth_gauge");
+                    }
+                }
+                else {
+                    hasBarometer = hasClock;
                 }
             }
         }
@@ -122,13 +148,17 @@ public class CompassOverlay {
 
     @SubscribeEvent
     public static void renderGameOverlayEvent(CustomizeGuiOverlayEvent.DebugText event) {
-        if (!hasCompass && !hasDepthGauge)
+        if (!hasCompass && !hasDepthGauge && !hasBarometer && !hasClock)
             return;
-        if (ModCompat.MAP_ATLASES && MapAtlasesCompat.showingCoords())
-            return;
+        if (ModCompat.MAP_ATLASES && MapAtlasesCompat.showingCoords()) {
+            hasCompass = false;
+            hasDepthGauge = false;
+        }
         var mc = Minecraft.getInstance();
-        if (mc.options.renderDebug && !mc.options.reducedDebugInfo().get())
-            return;
+        if (mc.options.renderDebug && !mc.options.reducedDebugInfo().get()) {
+            hasCompass = false;
+            hasDepthGauge = false;
+        }
 
         ArrayList<String> coords = new ArrayList<>();
 
@@ -161,33 +191,69 @@ public class CompassOverlay {
         }
 
         int textureOffset = 9;  // only depth gauge
-        int tooltipSize = 14;  // only depth gauge
+        int overlayHeight = 14;  // only depth gauge
         if (hasCompass & hasDepthGauge) { // depth gauge and compass
             textureOffset = 51;
-            tooltipSize = 33;
+            overlayHeight = 33;
         }
         else if (hasCompass) { // only compass
             textureOffset = 27;
-            tooltipSize = 23;
+            overlayHeight = 23;
         }
+
 
         int windowWidth = mc.getWindow().getGuiScaledWidth();
         int placement = windowWidth-2-fontWidth;
         var poseStack = event.getPoseStack();
         RenderSystem.setShaderTexture(0, RaspberryMod.locate("textures/gui/tooltip.png"));
-        GuiComponent.blit(poseStack,
-                placement-offset-4, top-3,
-                0, 0,
-                textureOffset, fontWidth+offset+4, tooltipSize,
-                textureSize, textureSize);
-        GuiComponent.blit(poseStack,
-                windowWidth-4, top-3,
-                0, 197,
-                textureOffset, offset, tooltipSize,
-                textureSize, textureSize);
-        for (String text : coords) {
-            GuiComponent.drawString(poseStack, mc.font, text, placement-offset, top, 14737632);
-            top += mc.font.lineHeight;
+        if (hasCompass | hasDepthGauge) {
+            GuiComponent.blit(poseStack,
+                    placement-offset-4, top-3,
+                    0, 0,
+                    textureOffset, fontWidth+offset+4, overlayHeight,
+                    textureSize, textureSize);
+            GuiComponent.blit(poseStack,
+                    windowWidth-4, top-3,
+                    0, 197,
+                    textureOffset, offset, overlayHeight,
+                    textureSize, textureSize);
+            for (String text : coords) {
+                GuiComponent.drawString(poseStack, mc.font, text, placement-offset, top, 14737632);
+                top += mc.font.lineHeight;
+            }
         }
+        if (hasClock) {
+            var time = getTime(mc.level.getDayTime());
+            if (time.length() == 4) {
+                time = " " + time;
+            }
+            GuiComponent.blit(poseStack,
+                    placement-offset, top-23,
+                    0, 0,
+                    9, mc.font.width(time)+offset+4, 14,
+                    textureSize, textureSize);
+            GuiComponent.blit(poseStack,
+                    windowWidth-4, top-23,
+                    0, 197,
+                    9, offset, 14,
+                    textureSize, textureSize);
+            GuiComponent.drawString(poseStack, mc.font, time, placement-offset+4, top-20, 14737632);
+        }
+    }
+
+    // CODE COPY - Supplementaries ClockBlock
+    public static String getTime(float dayTime) {
+        int time = (int)(dayTime + 6000L) % 24000;
+        int m = (int)((float)time % 1000.0F / 1000.0F * 60.0F);
+        int h = time / 1000;
+        String a = "";
+        if (!(Boolean) ClientConfigs.Blocks.CLOCK_24H.get()) {
+            a = time < 12000 ? " AM" : " PM";
+            h %= 12;
+            if (h == 0) {
+                h = 12;
+            }
+        }
+        return (h + ":" + (m < 10 ? "0" : "") + m + a);
     }
 }

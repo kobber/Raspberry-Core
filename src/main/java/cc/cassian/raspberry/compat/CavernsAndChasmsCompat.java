@@ -7,4 +7,8 @@ public class CavernsAndChasmsCompat {
     public static Item getDepthGauge() {
         return CCItems.DEPTH_GAUGE.get();
     }
+
+    public static Item getBarometer() {
+        return CCItems.BAROMETER.get();
+    }
 }
