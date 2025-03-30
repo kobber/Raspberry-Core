@@ -71,6 +71,10 @@ public class RaspberryBlocks {
             PINK_PETALS = registerBlock("pink_petals",
             ()-> new FlowerBedBlock(BlockBehaviour.Properties.copy(Blocks.DANDELION)), CreativeModeTab.TAB_DECORATIONS);
 
+    public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
+            CLOVERS = registerBlock("clovers",
+            ()-> new FlowerBedBlock(BlockBehaviour.Properties.copy(Blocks.DANDELION)), CreativeModeTab.TAB_DECORATIONS);
+
 
 
     public static final ArrayList<Pair<RegistryObject<Block>, RegistryObject<BlockItem>>> FOLIAGE_BLOCKS = new ArrayList<Pair<RegistryObject<Block>, RegistryObject<BlockItem>>>();
@@ -79,6 +83,7 @@ public class RaspberryBlocks {
         RaspberryBlocks.BLOCKS.register(eventBus);
         FOLIAGE_BLOCKS.add(WILDFLOWERS);
         FOLIAGE_BLOCKS.add(PINK_PETALS);
+        FOLIAGE_BLOCKS.add(CLOVERS);
     }
 
     public static BlockBehaviour.Properties getTruffleProperties() {
