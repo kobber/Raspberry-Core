@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -65,17 +66,20 @@ public class RaspberryBlocks {
 
     public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
             WILDFLOWERS = registerBlock("wildflowers",
-            ()-> new FlowerBedBlock(BlockBehaviour.Properties.copy(Blocks.DANDELION)), CreativeModeTab.TAB_DECORATIONS);
+            ()-> new FlowerBedBlock(flowerBedProperties()), CreativeModeTab.TAB_DECORATIONS);
 
     public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
             PINK_PETALS = registerBlock("pink_petals",
-            ()-> new FlowerBedBlock(BlockBehaviour.Properties.copy(Blocks.DANDELION)), CreativeModeTab.TAB_DECORATIONS);
+            ()-> new FlowerBedBlock(flowerBedProperties()), CreativeModeTab.TAB_DECORATIONS);
 
     public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
             CLOVERS = registerBlock("clovers",
-            ()-> new FlowerBedBlock(BlockBehaviour.Properties.copy(Blocks.DANDELION)), CreativeModeTab.TAB_DECORATIONS);
+            ()-> new FlowerBedBlock(flowerBedProperties()), CreativeModeTab.TAB_DECORATIONS);
 
 
+    private static BlockBehaviour.Properties flowerBedProperties() {
+        return BlockBehaviour.Properties.of(Material.PLANT).noCollission().sound(SoundType.FLOWERING_AZALEA);
+    }
 
     public static final ArrayList<Pair<RegistryObject<Block>, RegistryObject<BlockItem>>> FOLIAGE_BLOCKS = new ArrayList<Pair<RegistryObject<Block>, RegistryObject<BlockItem>>>();
 
