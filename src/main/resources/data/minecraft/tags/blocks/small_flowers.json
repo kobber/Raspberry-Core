@@ -1,0 +1,13 @@
+{
+    "replace": false,
+    "values": [
+        {
+            "id": "raspberry:wildflowers",
+            "required": false
+        },
+        {
+            "id": "raspberry:pink_petals",
+            "required": false
+        }
+    ]
+}

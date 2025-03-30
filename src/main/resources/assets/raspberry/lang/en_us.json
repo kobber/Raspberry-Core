@@ -8,6 +8,8 @@
  "block.raspberry.raked_blackstone_gravel": "Raked Blackstone Gravel",
  "block.raspberry.deepslate_gravel": "Deepslate Gravel",
  "block.raspberry.blackstone_gravel": "Blackstone Gravel",
+ "block.raspberry.wildflowers": "Wildflowers",
+ "block.raspberry.pink_petals": "Pink Petals",
 
  "effect.raspberry.aftershock": "Aftershock",
  "effect.raspberry.aftershock.description": "Increases movement & attack speed. Gained from getting struck by lightning while wearing copper armour.",

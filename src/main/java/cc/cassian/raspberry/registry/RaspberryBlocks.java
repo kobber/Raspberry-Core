@@ -1,6 +1,7 @@
 package cc.cassian.raspberry.registry;
 
 import cc.cassian.raspberry.ModCompat;
+import cc.cassian.raspberry.blocks.FlowerBedBlock;
 import cc.cassian.raspberry.blocks.RaspberryGravelBlock;
 import cc.cassian.raspberry.compat.CopperBackportCompat;
 import cc.cassian.raspberry.compat.EnvironmentalCompat;
@@ -13,6 +14,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -22,6 +24,7 @@ import vectorwing.farmersdelight.FarmersDelight;
 import vectorwing.farmersdelight.common.block.StoveBlock;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
 
+import java.util.ArrayList;
 import java.util.function.Supplier;
 
 import static cc.cassian.raspberry.RaspberryMod.MOD_ID;
@@ -59,6 +62,24 @@ public class RaspberryBlocks {
     public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
             DEEPSLATE_GRAVEL = registerBlock("deepslate_gravel",
             ()-> new RaspberryGravelBlock(BlockBehaviour.Properties.copy(Blocks.GRAVEL), 2039584), CreativeModeTab.TAB_BUILDING_BLOCKS);
+
+    public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
+            WILDFLOWERS = registerBlock("wildflowers",
+            ()-> new FlowerBedBlock(BlockBehaviour.Properties.copy(Blocks.DANDELION)), CreativeModeTab.TAB_DECORATIONS);
+
+    public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
+            PINK_PETALS = registerBlock("pink_petals",
+            ()-> new FlowerBedBlock(BlockBehaviour.Properties.copy(Blocks.DANDELION)), CreativeModeTab.TAB_DECORATIONS);
+
+
+
+    public static final ArrayList<Pair<RegistryObject<Block>, RegistryObject<BlockItem>>> FOLIAGE_BLOCKS = new ArrayList<Pair<RegistryObject<Block>, RegistryObject<BlockItem>>>();
+
+    public static void register(IEventBus eventBus) {
+        RaspberryBlocks.BLOCKS.register(eventBus);
+        FOLIAGE_BLOCKS.add(WILDFLOWERS);
+        FOLIAGE_BLOCKS.add(PINK_PETALS);
+    }
 
     public static BlockBehaviour.Properties getTruffleProperties() {
         if (ModCompat.ENVIRONMENTAL)

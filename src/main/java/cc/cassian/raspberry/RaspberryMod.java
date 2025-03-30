@@ -52,7 +52,7 @@ public final class RaspberryMod {
         // Proceed with mild caution.
         ModConfig.load();
         // Register deferred registers.
-        RaspberryBlocks.BLOCKS.register(eventBus);
+        RaspberryBlocks.register(eventBus);
         RaspberryItems.ITEMS.register(eventBus);
         RasperryMobEffects.MOB_EFFECTS.register(eventBus);
         // Register event bus listeners.
