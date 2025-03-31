@@ -41,6 +41,7 @@
 	"farmersdelight.FlintAndSteelMixin",
 	"farmersdelight.NetherStoveBlockMixin",
 	"farmersdelight.StoveBlockMixin",
+	"naturalist.SnakeMixin",
 	"oreganized.EnchantmentHelperMixin",
 	"oreganized.EntityMixin",
 	"quark.DoubleDoorOpeningModuleMixin",
