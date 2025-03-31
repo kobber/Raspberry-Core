@@ -87,7 +87,6 @@ public class RaspberryBlocks {
         RaspberryBlocks.BLOCKS.register(eventBus);
         FOLIAGE_BLOCKS.add(WILDFLOWERS);
         FOLIAGE_BLOCKS.add(PINK_PETALS);
-        FOLIAGE_BLOCKS.add(CLOVERS);
     }
 
     public static BlockBehaviour.Properties getTruffleProperties() {

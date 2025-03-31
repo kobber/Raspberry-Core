@@ -41,6 +41,10 @@
     {
       "id": "upgrade_aquatic:tall_beachgrass",
       "required": false
+    },
+    {
+      "id": "raspberry:clovers",
+      "required": false
     }
   ]
 }
