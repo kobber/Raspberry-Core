@@ -17,6 +17,9 @@ import com.teamabnormals.blueprint.common.world.storage.tracking.TrackedData;
 import com.teamabnormals.blueprint.common.world.storage.tracking.TrackedDataManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
@@ -31,8 +34,12 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.network.NetworkConstants;
+import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import oshi.util.tuples.Pair;
+
+import static cc.cassian.raspberry.registry.RaspberryBlocks.FOLIAGE_BLOCKS;
 
 @Mod(RaspberryMod.MOD_ID)
 public final class RaspberryMod {
@@ -100,6 +107,9 @@ public final class RaspberryMod {
             NeapolitanCompat.boostAgility();
         if (ModCompat.QUARK) {
             QuarkCompat.register();
+        }
+        for (Pair<RegistryObject<Block>, RegistryObject<BlockItem>> foliageBlock : FOLIAGE_BLOCKS) {
+            ComposterBlock.COMPOSTABLES.put(foliageBlock.getB().get(), 0.3f);
         }
     }
 
