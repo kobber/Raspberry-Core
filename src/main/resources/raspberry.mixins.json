@@ -14,6 +14,7 @@
 	"LevelSummaryMixin",
 	"PigMixin",
 	"PointedDripstoneBlockMixin",
+	"ScreenshotViewerMixin",
 	"alloyed.BlockEntityTypeMixin",
 	"aquaculture.AquaFishingBobberEntityMixin",
 	"aquaculture.AquaFishingRodItemMixin",

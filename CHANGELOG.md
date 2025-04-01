@@ -19,6 +19,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Snakes (Naturalist) can no longer drop a Rabbit's Foot.
 
+### Fixed
+- Screenshot Viewer no longer causes a crash when paused via F3-Esc.
+
 ## [0.1.13] - 2024-03-26
 
 ### Added
