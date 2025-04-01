@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - This applies to the items from Spelunkery and Caverns and Chasms. When neither mod is present, a compass can be used instead.
 - Clocks now show a time overlay when in a player's inventory.
 - Added EMI integration to enchanting tablets from Raspberry Flavoured.
+- Added EMI integration to runes from Quark.
 
 ### Changed
 - Snakes (Naturalist) can no longer drop a Rabbit's Foot.
