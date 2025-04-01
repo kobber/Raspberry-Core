@@ -1,5 +1,6 @@
 package cc.cassian.raspberry.compat;
 
+import cc.cassian.raspberry.ModCompat;
 import cc.cassian.raspberry.RaspberryMod;
 import cofh.ensorcellation.init.EnsorcEnchantments;
 import com.brokenkeyboard.usefulspyglass.UsefulSpyglass;
@@ -18,6 +19,7 @@ import dev.emi.emi.api.render.EmiTexture;
 import dev.emi.emi.api.stack.EmiIngredient;
 import dev.emi.emi.api.stack.EmiStack;
 import dev.emi.emi.api.widget.WidgetHolder;
+import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
@@ -29,6 +31,11 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.registries.ForgeRegistries;
+import org.infernalstudios.miningmaster.init.MMEnchantments;
+import vectorwing.farmersdelight.common.registry.ModEnchantments;
+import vectorwing.farmersdelight.common.registry.ModItems;
+import vectorwing.farmersdelight.common.tag.ForgeTags;
 
 import java.util.List;
 
@@ -95,23 +102,23 @@ public class EmiCompat implements EmiPlugin {
     }
 
     private static Item getLeggings() {
-        return Items.IRON_LEGGINGS;
+        return Items.DIAMOND_LEGGINGS;
     }
 
     private static Item getBoots() {
-        return Items.IRON_BOOTS;
+        return Items.DIAMOND_BOOTS;
     }
 
     private static Item getSword() {
-        return Items.IRON_SWORD;
+        return Items.DIAMOND_SWORD;
     }
 
     private static Item getArmour() {
-        return Items.IRON_CHESTPLATE;
+        return Items.DIAMOND_CHESTPLATE;
     }
 
     private static Item getTools() {
-        return Items.IRON_PICKAXE;
+        return Items.DIAMOND_PICKAXE;
     }
 
     public static void addRecipe(EmiRegistry emiRegistry, Item item, TagKey<Item> tag, Enchantment enchantment, Item tablet, String id) {
@@ -138,6 +145,12 @@ public class EmiCompat implements EmiPlugin {
 
     @Override
     public void register(EmiRegistry emiRegistry) {
+        if (ModCompat.CREATE && ModCompat.ENSORCELLATION && ModCompat.SUPPLEMENTARIES && ModCompat.ALLUREMENT) {
+            addEnchantments(emiRegistry);
+        }
+    }
+
+    public void addEnchantments(EmiRegistry emiRegistry) {
         final var EVERLASTING = get("everlasting");
         final var AQUATIC = get("aquatic");
         final var BEASTLY = get("beastly");
@@ -151,8 +164,10 @@ public class EmiCompat implements EmiPlugin {
         final var INFESTED = get("infested");
         final var OTHERWORLDLY = get("otherworldly");
         final var PIERCING = get("piercing");
+        final var PULLING = get("pulling");
         final var SILENT = get("silent");
         final var SWIFT = get("swift");
+        final Enchantment GUARD_BREAK = ForgeRegistries.ENCHANTMENTS.getValue(ResourceLocation.tryBuild("kubejs", "guard_break"));
 
        // EVERLASTING - UNRBEAKING
         addRecipe(emiRegistry, // ARMOUR
@@ -181,35 +196,47 @@ public class EmiCompat implements EmiPlugin {
                 getSword(), Tags.Items.TOOLS_SWORDS,
                 EnsorcEnchantments.CAVALIER.get(), BEASTLY,
                 "cavalier_sword");
+        addRecipe(emiRegistry,
+                Items.DIAMOND_AXE, Tags.Items.TOOLS_AXES,
+                EnsorcEnchantments.CAVALIER.get(), BEASTLY,
+                "cavalier_axe");
         // BEASTLY - MULTI-LEAP
-//        addRecipe(emiRegistry,
-//                getLeggings(), Tags.Items.ARMORS_LEGGINGS,
-//                MINING_MASTER_KNIGHT, BEASTLY,
-//                "beastly_legs");
+        addRecipe(emiRegistry,
+                getLeggings(), Tags.Items.ARMORS_LEGGINGS,
+                MMEnchantments.KNIGHT_JUMP.get(), BEASTLY,
+                "multi_leap");
 
         // CYCLIC - SWEEPING EDGE
         addRecipe(emiRegistry,
                 getSword(), Tags.Items.TOOLS_SWORDS,
-                Enchantments.SWEEPING_EDGE, HALLOWED,
+                Enchantments.SWEEPING_EDGE, CYCLIC,
                 "sweeping_edge");
         // CYCLIC - RIPTIDE
         addRecipe(emiRegistry,
                 Items.TRIDENT, Tags.Items.TOOLS_TRIDENTS,
-                Enchantments.RIPTIDE, HALLOWED,
+                Enchantments.RIPTIDE, CYCLIC,
                 "riptide");
         // CYCLIC - VENGEANCE
+        addRecipe(emiRegistry,
+                getArmour(), Tags.Items.ARMORS,
+                AllurementEnchantments.VENGEANCE.get(), CYCLIC,
+                "vengeance");
 
         // ENDURING - VITALITY
         addRecipe(emiRegistry,
                 getArmour(), Tags.Items.ARMORS,
-                EnsorcEnchantments.VITALITY.get(), FROST,
+                EnsorcEnchantments.VITALITY.get(), ENDURING,
                 "vitality");
 
         // FLINGING - LAUNCH
         addRecipe(emiRegistry,
                 getSword(), Tags.Items.TOOLS_SWORDS,
                 AllurementEnchantments.LAUNCH.get(), FLINGING,
-                "launch");
+                "launch_sword");
+        addRecipe(emiRegistry,
+                Items.DIAMOND_AXE, Tags.Items.TOOLS_AXES,
+                AllurementEnchantments.LAUNCH.get(), FLINGING,
+                "launch_axe");
         // FLINGING - VOLLEY
         addRecipe(emiRegistry,
                 Items.BOW, Tags.Items.TOOLS_BOWS,
@@ -233,7 +260,11 @@ public class EmiCompat implements EmiPlugin {
         addRecipe(emiRegistry,
                 getSword(), Tags.Items.TOOLS_SWORDS,
                 Enchantments.SMITE, HALLOWED,
-                "smite");
+                "smite_sword");
+        addRecipe(emiRegistry,
+                Items.DIAMOND_AXE, Tags.Items.TOOLS_AXES,
+                Enchantments.SMITE, HALLOWED,
+                "smite_axe");
         // HALLOWED - CHANNELING
         addRecipe(emiRegistry,
                 Items.TRIDENT, Tags.Items.TOOLS_TRIDENTS,
@@ -261,18 +292,58 @@ public class EmiCompat implements EmiPlugin {
                 "soul_speed");
 
         // HEAVY - GUARD BREAK
+        addRecipe(emiRegistry,
+                getSword(), Tags.Items.TOOLS_SWORDS,
+                GUARD_BREAK, HEAVY,
+                "guard_break_sword");
+        addRecipe(emiRegistry,
+                Items.DIAMOND_AXE, Tags.Items.TOOLS_AXES,
+                GUARD_BREAK, HEAVY,
+                "guard_break_axe");
         // HEAVY - BRACEWALK
+        addRecipe(emiRegistry,
+                getLeggings(), Tags.Items.ARMORS_LEGGINGS,
+                AEEnchantments.BRACEWALK.get(), HEAVY,
+                "bracewalk");
         // HEAVY - SHOCKWAVE
+        addRecipe(emiRegistry,
+                getBoots(), Tags.Items.ARMORS_BOOTS,
+                AllurementEnchantments.SHOCKWAVE.get(), HEAVY,
+                "shockwave");
 
         // INFESTED - BANE OF ARTHROPODS
         addRecipe(emiRegistry,
                 getSword(), Tags.Items.TOOLS_SWORDS,
                 Enchantments.BANE_OF_ARTHROPODS, INFESTED,
-                "bane");
+                "bane_sword");
+        addRecipe(emiRegistry,
+                Items.DIAMOND_AXE, Tags.Items.TOOLS_AXES,
+                Enchantments.BANE_OF_ARTHROPODS, INFESTED,
+                "bane_axe");
         // INFESTED - SPREAD OF AILMENTS
+        addRecipe(emiRegistry,
+                Items.CROSSBOW, Tags.Items.TOOLS_CROSSBOWS,
+                AllurementEnchantments.SPREAD_OF_AILMENTS.get(), INFESTED,
+                "spread_of_ailments");
 
         // OTHERWORLDLY - STASIS
+        addRecipe(emiRegistry,
+                Items.BOW, Items.BOW,
+                ModRegistry.STASIS_ENCHANTMENT.get(), OTHERWORLDLY,
+                "bracewalk_bow");
+        addRecipe(emiRegistry,
+                Items.CROSSBOW, Items.CROSSBOW,
+                ModRegistry.STASIS_ENCHANTMENT.get(), OTHERWORLDLY,
+                "bracewalk_crossbow");
+        addRecipe(emiRegistry,
+                ModRegistry.BUBBLE_BLOWER.get(), ModRegistry.BUBBLE_BLOWER.get(),
+                ModRegistry.STASIS_ENCHANTMENT.get(), OTHERWORLDLY,
+                "bracewalk_bubble");
         // OTHERWORLDLY - DISPLACEMENT
+        addRecipe(emiRegistry,
+                Items.DIAMOND_CHESTPLATE, Tags.Items.ARMORS_CHESTPLATES,
+                EnsorcEnchantments.DISPLACEMENT.get(), OTHERWORLDLY,
+                "displacement");
 
         // PIERCING - TRUESHOT
         addRecipe(emiRegistry,
@@ -290,9 +361,21 @@ public class EmiCompat implements EmiPlugin {
                 "impaling");
 
         // PULLING - REELING
+        addRecipe(emiRegistry,
+                Items.CROSSBOW, Tags.Items.TOOLS_CROSSBOWS,
+                AllurementEnchantments.REELING.get(), PULLING,
+                "reeling");
         // PULLING - REACH
+        addRecipe(emiRegistry,
+                Items.DIAMOND_CHESTPLATE, Tags.Items.ARMORS_CHESTPLATES,
+                EnsorcEnchantments.REACH.get(), PULLING,
+                "reach");
 
         // SILENT - BACKSTABBING
+        addRecipe(emiRegistry,
+                ModItems.DIAMOND_KNIFE.get(), ForgeTags.TOOLS_KNIVES,
+                ModEnchantments.BACKSTABBING.get(), SILENT,
+                "backstabbing");
         // SILENT - SWIFT SNEAK
         addRecipe(emiRegistry,
                 getBoots(), Tags.Items.ARMORS_BOOTS,
@@ -300,7 +383,23 @@ public class EmiCompat implements EmiPlugin {
                 "swift_sneak");
 
         // SWIFT - SWIFTSTRIKE
+        addRecipe(emiRegistry,
+                getSword(), Tags.Items.TOOLS_SWORDS,
+                AEEnchantments.FASTER_ATTACKS.get(), SWIFT,
+                "swift_sword");
+        addRecipe(emiRegistry,
+                Items.DIAMOND_AXE, Tags.Items.TOOLS_AXES,
+                AEEnchantments.FASTER_ATTACKS.get(), SWIFT,
+                "swift_axe");
         // SWIFT - QUICK DRAW
+        addRecipe(emiRegistry,
+                Items.BOW, Tags.Items.TOOLS_BOWS,
+                EnsorcEnchantments.QUICK_DRAW.get(), SWIFT,
+                "swift_bow");
+        addRecipe(emiRegistry,
+                Items.CROSSBOW, Tags.Items.TOOLS_CROSSBOWS,
+                EnsorcEnchantments.QUICK_DRAW.get(), SWIFT,
+                "swift_crossbow");
 
     }
 

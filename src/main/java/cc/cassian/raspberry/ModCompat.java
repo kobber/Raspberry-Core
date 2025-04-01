@@ -20,9 +20,14 @@ public final class ModCompat {
     public static final boolean SUPPLEMENTARIES;
     public static final boolean SPELUNKERY;
     public static final boolean CAVERNS_AND_CHASMS;
+    public static final boolean CREATE;
+    public static final boolean ENSORCELLATION;
+    public static final boolean ALLUREMENT;
+    public static final boolean MINING_MASTER;
 
     static {
         var mods = ModList.get();
+        ALLUREMENT = mods.isLoaded("allurement");
         ANOTHER_FURNITURE = mods.isLoaded("another_furniture");
         AQUACULTURE = mods.isLoaded("aquaculture");
         CAVERNS_AND_CHASMS = mods.isLoaded("caverns_and_chasms");
@@ -30,10 +35,13 @@ public final class ModCompat {
         COFH_CORE = mods.isLoaded("cofh_core");
         COPPERIZED = mods.isLoaded("copperized");
         COPPER_BACKPORT = mods.isLoaded("copperandtuffbackport");
+        CREATE = mods.isLoaded("create");
+        ENSORCELLATION = mods.isLoaded("ensorcellation");
         ENVIRONMENTAL = mods.isLoaded("environmental");
         FARMERS_DELIGHT = mods.isLoaded("farmersdelight");
         GLIDERS = mods.isLoaded("gliders");
         MAP_ATLASES = mods.isLoaded("map_atlases");
+        MINING_MASTER = mods.isLoaded("miningmaster");
         NEAPOLITAN = mods.isLoaded("neapolitan");
         OREGANIZED = mods.isLoaded("oreganized");
         QUARK = mods.isLoaded("quark");
