@@ -82,6 +82,20 @@ repositories {
     maven {
         url 'https://repo.repsy.io/mvn/lucraft/threetag'
     }
+    maven {
+        url "https://maven.latvian.dev/releases"
+        content {
+            includeGroup "dev.latvian.mods"
+            includeGroup "dev.latvian.apps"
+        }
+    }
+
+    maven {
+        url 'https://jitpack.io'
+        content {
+            includeGroup "com.github.rtyley"
+        }
+    }
 }
 
 dependencies {
@@ -114,10 +128,10 @@ dependencies {
     modImplementation("maven.modrinth:my-nethers-delight:$nethers_delight_version")
 
     // Create, its dependencies, and its dependents
-    modCompileOnly("com.simibubi.create:create-$minecraft_version:$create_forge_version:slim") { transitive = false }
-    modCompileOnly("com.tterrag.registrate:Registrate:$registrate_forge_version")
-    modCompileOnly("com.jozufozu.flywheel:flywheel-forge-$minecraft_version:$flywheel_forge_version")
-    modCompileOnly("curse.maven:create-alloyed-564792:$create_alloyed_version")
+    modImplementation("com.simibubi.create:create-$minecraft_version:$create_forge_version:slim") { transitive = false }
+    modImplementation("com.tterrag.registrate:Registrate:$registrate_forge_version")
+    modImplementation("com.jozufozu.flywheel:flywheel-forge-$minecraft_version:$flywheel_forge_version")
+    modImplementation("curse.maven:create-alloyed-564792:$create_alloyed_version")
 
     // Optional dependencies for mods with only mixin fixes
     modImplementation("curse.maven:aquaculture-60028:$aquaculture_version")
@@ -145,6 +159,16 @@ dependencies {
     // mods for testing purposes
     modImplementation("curse.maven:map-atlases-forge-519759:5138314")
     modImplementation("maven.modrinth:mmmmmmmmmmmm:1.7.2-forge")
+
+    // EMI Compat for Enchantments
+    modRuntimeOnly("dev.latvian.mods:kubejs-forge:$kubejs_version")
+    modImplementation("maven.modrinth:ensorcellation:4.3.1")
+    modImplementation("curse.maven:allurement-438003:4781076")
+    modImplementation("maven.modrinth:mining-master:1.19.2-4.1.4")
+    modImplementation("maven.modrinth:useful-spyglass:0.4.0-1.19.2")
+    modImplementation("maven.modrinth:additional-enchantments:1.1.5")
+
+
 
     // beacons
     modImplementation("curse.maven:just-enough-beacons-reforged-912266:$jeb_reforged_version")
