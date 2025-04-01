@@ -1,7 +1,0 @@
-{
-  "parent": "raspberry:block/flowerbed_4",
-  "textures": {
-    "flowerbed": "raspberry:block/wildflowers",
-    "stem": "raspberry:block/wildflowers_stem"
-  }
-}

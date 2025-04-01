@@ -14,7 +14,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -65,7 +64,7 @@ public class RaspberryBlocks {
             ()-> new RaspberryGravelBlock(BlockBehaviour.Properties.copy(Blocks.GRAVEL), 2039584), CreativeModeTab.TAB_BUILDING_BLOCKS);
 
     public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
-            WILDFLOWERS = registerBlock("wildflowers",
+            CHEERFUL_WILDFLOWERS = registerBlock("cheery_wildflowers",
             ()-> new FlowerBedBlock(flowerBedProperties()), CreativeModeTab.TAB_DECORATIONS);
 
     public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
@@ -76,6 +75,9 @@ public class RaspberryBlocks {
             CLOVERS = registerBlock("clovers",
             ()-> new FlowerBedBlock(flowerBedProperties()), CreativeModeTab.TAB_DECORATIONS);
 
+    public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
+            MOODY_WILDFLOWERS = registerBlock("moody_wildflowers",
+            ()-> new FlowerBedBlock(flowerBedProperties()), CreativeModeTab.TAB_DECORATIONS);
 
     private static BlockBehaviour.Properties flowerBedProperties() {
         return BlockBehaviour.Properties.of(Material.PLANT).noCollission().sound(SoundType.FLOWERING_AZALEA);
@@ -85,8 +87,9 @@ public class RaspberryBlocks {
 
     public static void register(IEventBus eventBus) {
         RaspberryBlocks.BLOCKS.register(eventBus);
-        FOLIAGE_BLOCKS.add(WILDFLOWERS);
+        FOLIAGE_BLOCKS.add(CHEERFUL_WILDFLOWERS);
         FOLIAGE_BLOCKS.add(PINK_PETALS);
+        FOLIAGE_BLOCKS.add(MOODY_WILDFLOWERS);
     }
 
     public static BlockBehaviour.Properties getTruffleProperties() {

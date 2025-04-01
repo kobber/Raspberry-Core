@@ -7,8 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Backported Wildflowers from the Spring to Life drop.
-- Backported Pink Petals from the Trails and Tales update.
+- Added Cheery and Moody Wildflowers, new flowerbed blocks textured and modelled by ProbablyEkho and inspired by the Spring to Life drop.
+- Added Pink Petals, textured by ProbablyEkho and inspired by the Trails and Tales update.
 - Added Clovers, a new natural block textured and modelled by ProbablyEkho.
 - Compasses now show a coordinate overlay (X and Z) when in a player's inventory.
 - Depth Gauges now show a coordinate overlay (Y) when in a player's inventory.
