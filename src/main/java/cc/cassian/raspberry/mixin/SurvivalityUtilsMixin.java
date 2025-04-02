@@ -1,8 +1,8 @@
-package cc.cassian.raspberry.mixin.quark;
+package cc.cassian.raspberry.mixin;
 
 import cc.cassian.raspberry.ModCompat;
 import cc.cassian.raspberry.compat.CreateCompat;
-import cc.cassian.raspberry.compat.GlidersCompat;
+import com.github.creoii.survivality.util.SurvivalityUtils;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.world.item.Item;
@@ -11,24 +11,12 @@ import net.minecraft.world.item.Items;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
-import vazkii.quark.content.management.module.ExpandedItemInteractionsModule;
 
 @Pseudo
-@Mixin(ExpandedItemInteractionsModule.class)
-public class ExpandedItemInteractionsModuleMixin {
+@Mixin(SurvivalityUtils.class)
+public class SurvivalityUtilsMixin {
     @WrapOperation(
-            method = "armorOverride",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;getItem()Lnet/minecraft/world/item/Item;")
-    )
-    private static Item glidersAreElytrasBasically(ItemStack stack, Operation<Item> original) {
-        if (ModCompat.GLIDERS && GlidersCompat.isGlider(stack)) {
-            return Items.ELYTRA;
-        }
-        else return original.call(stack);
-    }
-
-    @WrapOperation(
-            method = "armorOverride",
+            method = "swapArmor",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;getItem()Lnet/minecraft/world/item/Item;")
     )
     private static Item gogglesAreHelmetsBasically(ItemStack stack, Operation<Item> original) {

@@ -39,7 +39,7 @@ public final class ModCompat {
         ENSORCELLATION = mods.isLoaded("ensorcellation");
         ENVIRONMENTAL = mods.isLoaded("environmental");
         FARMERS_DELIGHT = mods.isLoaded("farmersdelight");
-        GLIDERS = mods.isLoaded("gliders");
+        GLIDERS = mods.isLoaded("vc_gliders");
         MAP_ATLASES = mods.isLoaded("map_atlases");
         MINING_MASTER = mods.isLoaded("miningmaster");
         NEAPOLITAN = mods.isLoaded("neapolitan");

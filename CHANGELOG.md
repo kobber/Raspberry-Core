@@ -16,12 +16,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Clocks now show a time overlay when in a player's inventory.
 - Added EMI integration to enchanting tablets from Raspberry Flavoured.
 - Added EMI integration to runes from Quark.
+- Goggles (Create) can be right-clicked in the inventory to equip them (Quark).
+- Goggles (Create) can be right-clicked to swap them with armour (Survivality).
 
 ### Changed
 - Snakes (Naturalist) can no longer drop a Rabbit's Foot.
 
 ### Fixed
 - Screenshot Viewer no longer causes a crash when paused via F3-Esc.
+- Swapping gliders with armour functions again.
 
 ## [0.1.13] - 2024-03-26
 
