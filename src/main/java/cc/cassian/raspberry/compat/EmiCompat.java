@@ -167,6 +167,7 @@ public class EmiCompat implements EmiPlugin {
             emiRegistry.addWorkstation(EmiCompat.ANVIL, EmiStack.of(Items.ANVIL));
             emiRegistry.addWorkstation(EmiCompat.ANVIL, EmiStack.of(Items.CHIPPED_ANVIL));
             emiRegistry.addWorkstation(EmiCompat.ANVIL, EmiStack.of(Items.DAMAGED_ANVIL));
+            emiRegistry.addCategory(ANVIL);
             addRunes(emiRegistry);
         }
     }
