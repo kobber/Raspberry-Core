@@ -24,6 +24,7 @@ public final class ModCompat {
     public static final boolean ENSORCELLATION;
     public static final boolean ALLUREMENT;
     public static final boolean MINING_MASTER;
+    public static final boolean DOMESTICATION_INNOVATION;
 
     static {
         var mods = ModList.get();
@@ -36,6 +37,7 @@ public final class ModCompat {
         COPPERIZED = mods.isLoaded("copperized");
         COPPER_BACKPORT = mods.isLoaded("copperandtuffbackport");
         CREATE = mods.isLoaded("create");
+        DOMESTICATION_INNOVATION = mods.isLoaded("domesticationinnovation");
         ENSORCELLATION = mods.isLoaded("ensorcellation");
         ENVIRONMENTAL = mods.isLoaded("environmental");
         FARMERS_DELIGHT = mods.isLoaded("farmersdelight");

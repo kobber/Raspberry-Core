@@ -173,6 +173,8 @@ dependencies {
     modImplementation("maven.modrinth:mining-master:1.19.2-4.1.4")
     modImplementation("maven.modrinth:useful-spyglass:0.4.0-1.19.2")
     modImplementation("maven.modrinth:additional-enchantments:1.1.5")
+    modImplementation("maven.modrinth:domestication-innovation:1.6.1")
+    modImplementation("curse.maven:citadel-331936:4556677")
 
 
 

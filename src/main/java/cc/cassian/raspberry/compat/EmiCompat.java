@@ -4,6 +4,8 @@ import cc.cassian.raspberry.ModCompat;
 import cc.cassian.raspberry.RaspberryMod;
 import cofh.ensorcellation.init.EnsorcEnchantments;
 import com.brokenkeyboard.usefulspyglass.UsefulSpyglass;
+import com.github.alexthe668.domesticationinnovation.server.enchantment.DIEnchantmentRegistry;
+import com.github.alexthe668.domesticationinnovation.server.item.DIItemRegistry;
 import com.simibubi.create.AllItems;
 import com.teamabnormals.allurement.core.registry.AllurementEnchantments;
 import de.cadentem.additional_enchantments.registry.AEEnchantments;
@@ -158,7 +160,7 @@ public class EmiCompat implements EmiPlugin {
 
     @Override
     public void register(EmiRegistry emiRegistry) {
-        if (ModCompat.CREATE && ModCompat.ENSORCELLATION && ModCompat.SUPPLEMENTARIES && ModCompat.ALLUREMENT) {
+        if (ModCompat.CREATE && ModCompat.DOMESTICATION_INNOVATION && ModCompat.ENSORCELLATION && ModCompat.SUPPLEMENTARIES && ModCompat.ALLUREMENT) {
             addEnchantments(emiRegistry);
         }
         if (ModCompat.QUARK) {
@@ -169,7 +171,7 @@ public class EmiCompat implements EmiPlugin {
         }
     }
 
-    public final static String[] VANILLA_DYES = {
+    private final static String[] ALL_RUNES = {
             "white",
             "light_gray",
             "gray",
@@ -186,10 +188,11 @@ public class EmiCompat implements EmiPlugin {
             "purple",
             "magenta",
             "pink",
+            "rainbow"
     };
 
     private void addRunes(EmiRegistry emiRegistry) {
-        for (String dye : VANILLA_DYES) {
+        for (String dye : ALL_RUNES) {
             var enchantedGear = new ItemStack(Items.DIAMOND_CHESTPLATE);
             enchantedGear.enchant(Enchantments.PROJECTILE_PROTECTION, 1);
             var runedGear = enchantedGear.copy();
@@ -205,7 +208,7 @@ public class EmiCompat implements EmiPlugin {
                     EmiStack.of(enchantedGear),
                     EmiStack.of(new ItemStack(rune)),
                     EmiStack.of(runedGear),
-                    RaspberryMod.locate("/runes/"+dye)
+                    RaspberryMod.locate("/etching/"+dye)
             ));
         }
 
@@ -218,7 +221,7 @@ public class EmiCompat implements EmiPlugin {
         final var CYCLIC = get("cyclic");
         final var FLINGING = get("flinging");
         final var ENDURING = get("enduring");
-        final var FROST = get("frost");
+        final var FROST = get("glacial");
         final var HALLOWED = get("hallowed");
         final var HAUNTED = get("haunted");
         final var HEAVY = get("heavy");
@@ -251,6 +254,11 @@ public class EmiCompat implements EmiPlugin {
                 getBoots(), Tags.Items.ARMORS_BOOTS,
                 Enchantments.DEPTH_STRIDER, AQUATIC,
                 "depth_strider_boots");
+        // AQUATIC - AMPHIBIOUS
+        addRecipe(emiRegistry,
+                DIItemRegistry.COLLAR_TAG.get(), DIItemRegistry.COLLAR_TAG.get(),
+                DIEnchantmentRegistry.AMPHIBIOUS, AQUATIC,
+                "amphibious");
 
         // BEASTLY - CAVALIER
         addRecipe(emiRegistry,
@@ -266,6 +274,10 @@ public class EmiCompat implements EmiPlugin {
                 getLeggings(), Tags.Items.ARMORS_LEGGINGS,
                 MMEnchantments.KNIGHT_JUMP.get(), BEASTLY,
                 "multi_leap");
+        addRecipe(emiRegistry,
+                DIItemRegistry.COLLAR_TAG.get(), DIItemRegistry.COLLAR_TAG.get(),
+                DIEnchantmentRegistry.INTIMIDATION, BEASTLY,
+                "intimidation");
 
         // CYCLIC - SWEEPING EDGE
         addRecipe(emiRegistry,
@@ -288,6 +300,11 @@ public class EmiCompat implements EmiPlugin {
                 getArmour(), Tags.Items.ARMORS,
                 EnsorcEnchantments.VITALITY.get(), ENDURING,
                 "vitality");
+        // ENDURING - HEALTH BOOST
+        addRecipe(emiRegistry,
+                DIItemRegistry.COLLAR_TAG.get(), DIItemRegistry.COLLAR_TAG.get(),
+                DIEnchantmentRegistry.HEALTH_BOOST, ENDURING,
+                "health_boost");
 
         // FLINGING - LAUNCH
         addRecipe(emiRegistry,
@@ -307,6 +324,12 @@ public class EmiCompat implements EmiPlugin {
                 Items.CROSSBOW, Tags.Items.TOOLS_CROSSBOWS,
                 EnsorcEnchantments.VOLLEY.get(), FLINGING,
                 "volley_crossbow");
+        // FLINGING - DEFLECTION
+        addRecipe(emiRegistry,
+                DIItemRegistry.COLLAR_TAG.get(), DIItemRegistry.COLLAR_TAG.get(),
+                DIEnchantmentRegistry.DEFLECTION, FLINGING,
+                "deflection");
+
         // FROST - FROST WALKER
         addRecipe(emiRegistry, // BOOTS
                 getBoots(), Tags.Items.ARMORS_BOOTS,
@@ -316,6 +339,10 @@ public class EmiCompat implements EmiPlugin {
                 Items.DIAMOND_HORSE_ARMOR, Items.DIAMOND_HORSE_ARMOR,
                 Enchantments.FROST_WALKER, FROST,
                 "frost_walker_horse_armour");
+        addRecipe(emiRegistry,
+                DIItemRegistry.COLLAR_TAG.get(), DIItemRegistry.COLLAR_TAG.get(),
+                DIEnchantmentRegistry.FROST_FANG, FROST,
+                "frost_fang");
 
         // HALLOWED - SMITE
         addRecipe(emiRegistry,
@@ -351,6 +378,11 @@ public class EmiCompat implements EmiPlugin {
                 getBoots(), Tags.Items.ARMORS_BOOTS,
                 Enchantments.SOUL_SPEED, HAUNTED,
                 "soul_speed");
+        // HAUNTED - TOTAL RECALL
+        addRecipe(emiRegistry,
+                DIItemRegistry.COLLAR_TAG.get(), DIItemRegistry.COLLAR_TAG.get(),
+                DIEnchantmentRegistry.TOTAL_RECALL, HAUNTED,
+                "total_recall");
 
         // HEAVY - GUARD BREAK
         addRecipe(emiRegistry,
@@ -405,6 +437,11 @@ public class EmiCompat implements EmiPlugin {
                 Items.DIAMOND_CHESTPLATE, Tags.Items.ARMORS_CHESTPLATES,
                 EnsorcEnchantments.DISPLACEMENT.get(), OTHERWORLDLY,
                 "displacement");
+        // OTHERWORLDLY - TETHERED TELEPORT
+        addRecipe(emiRegistry,
+                DIItemRegistry.COLLAR_TAG.get(), DIItemRegistry.COLLAR_TAG.get(),
+                DIEnchantmentRegistry.TETHERED_TELEPORT, HAUNTED,
+                "tethered_teleport");
 
         // PIERCING - TRUESHOT
         addRecipe(emiRegistry,
@@ -442,6 +479,11 @@ public class EmiCompat implements EmiPlugin {
                 getBoots(), Tags.Items.ARMORS_BOOTS,
                 Enchantments.SWIFT_SNEAK, SILENT,
                 "swift_sneak");
+        // SILENT - MUFFLED
+        addRecipe(emiRegistry,
+                DIItemRegistry.COLLAR_TAG.get(), DIItemRegistry.COLLAR_TAG.get(),
+                DIEnchantmentRegistry.MUFFLED, SILENT,
+                "muffled");
 
         // SWIFT - SWIFTSTRIKE
         addRecipe(emiRegistry,
