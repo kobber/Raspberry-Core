@@ -28,12 +28,10 @@ import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.*;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.IExtensionPoint;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLEnvironment;
-import net.minecraftforge.network.NetworkConstants;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -126,7 +124,7 @@ public final class RaspberryMod {
         // TODO remove if possible
         // I'd really rather not check the player's inventory every tick like this,
         // but the events I'm using aren't working well enough on servers.
-        if (ModConfig.get().overlay_enable)
+        if (ModConfig.get().overlay_compass_enable || ModConfig.get().overlay_clock_enable)
             OverlayHelpers.checkInventoryForItems(event.player);
     }
 

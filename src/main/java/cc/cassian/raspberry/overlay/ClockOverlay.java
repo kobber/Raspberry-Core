@@ -17,6 +17,8 @@ public class ClockOverlay {
     public static void renderGameOverlayEvent(CustomizeGuiOverlayEvent.DebugText event) {
         if (!hasBarometer && !hasClock)
             return;
+        if (!ModConfig.get().overlay_clock_enable)
+            return;
         var mc = Minecraft.getInstance();
 
         var time = getTime(mc.level.getDayTime());
@@ -25,7 +27,7 @@ public class ClockOverlay {
         }
 
         int offset = 3;
-        int top = ModConfig.get().overlay_position_vertical;
+        int top = ModConfig.get().overlay_position_clock_vertical;
         int textureSize = 256;
         int fontWidth = mc.font.width(time);
 
@@ -43,18 +45,18 @@ public class ClockOverlay {
         if (hasClock) {
             // render background
             GuiComponent.blit(poseStack,
-                    placement-offset-4, top-23,
+                    placement-offset-4, top-3,
                     0, 0,
                     textureOffset, fontWidth+offset+4, tooltipSize,
                     textureSize, textureSize);
             // render endcap
             GuiComponent.blit(poseStack,
-                    endCapPlacement, top-23,
+                    endCapPlacement, top-3,
                     0, endCapOffset,
                     textureOffset, 3, tooltipSize,
                     textureSize, textureSize);
             // render text
-            GuiComponent.drawString(poseStack, mc.font, time, placement-offset, top-20, 14737632);
+            GuiComponent.drawString(poseStack, mc.font, time, placement-offset, top, 14737632);
         }
     }
 

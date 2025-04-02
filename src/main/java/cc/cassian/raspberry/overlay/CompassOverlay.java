@@ -23,6 +23,8 @@ public class CompassOverlay {
     public static void renderGameOverlayEvent(CustomizeGuiOverlayEvent.DebugText event) {
         if (!hasCompass && !hasDepthGauge)
             return;
+        if (!ModConfig.get().overlay_compass_enable)
+            return;
         if (ModCompat.MAP_ATLASES && MapAtlasesCompat.showingCoords())
             return;
         var mc = Minecraft.getInstance();
@@ -44,7 +46,7 @@ public class CompassOverlay {
         y = StringUtils.leftPad(y, width);
         z = StringUtils.leftPad(z, width);
         int offset = 3;
-        int top = ModConfig.get().overlay_position_vertical;
+        int top = ModConfig.get().overlay_position_compass_vertical;
         int textureSize = 256;
         int fontWidth = mc.font.width(StringUtils.repeat("a", width+2));
 
@@ -57,6 +59,9 @@ public class CompassOverlay {
         }
         else if (hasDepthGauge) {
             coords.add("§%sY:§f %s".formatted(ModHelpers.getColour(ModConfig.get().overlay_y_colour), y));
+        }
+        if (!ClockOverlay.hasClock || !ModConfig.get().overlay_clock_enable) {
+            top = top - 15;
         }
 
         int textureOffset = 9;  // only depth gauge

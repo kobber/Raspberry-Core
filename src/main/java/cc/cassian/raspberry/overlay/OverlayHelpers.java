@@ -27,7 +27,7 @@ public class OverlayHelpers {
             y = CavernsAndChasmsCompat.getDepthGauge();
         if (ModCompat.CAVERNS_AND_CHASMS)
             barometer = CavernsAndChasmsCompat.getBarometer();
-        if (ModConfig.get().overlay_enable) {
+        if (ModConfig.get().overlay_compass_enable || ModConfig.get().overlay_clock_enable) {
             var inventory = player.getInventory();
             if (ModConfig.get().overlay_requireItemInHand) {
                 var main = player.getMainHandItem();
