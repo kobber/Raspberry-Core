@@ -96,6 +96,9 @@ repositories {
             includeGroup "com.github.rtyley"
         }
     }
+    flatDir {
+        dirs 'libs'
+    }
 }
 
 dependencies {
@@ -156,6 +159,8 @@ dependencies {
     modRuntimeOnly("net.threetag:PalladiumCore-forge:${palladiumcore_version}")
     modImplementation("maven.modrinth:survivality:${survivality_version}")
     modImplementation("maven.modrinth:screenshot-viewer:${screenshot_viewer_version}")
+    modCompileOnly("local:ecologics-forge:1.19.2-2.1.11")
+
 
     // mods for testing purposes
     modImplementation("curse.maven:map-atlases-forge-519759:5138314")

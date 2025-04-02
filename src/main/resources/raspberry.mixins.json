@@ -9,6 +9,7 @@
   ],
   "mixins": [
 	"CampfireBlockMixin",
+	"CoconutSliceItemMixin",
 	"GreatbladeSlashEntityMixin",
 	"ItemStackMixin",
 	"LevelSummaryMixin",

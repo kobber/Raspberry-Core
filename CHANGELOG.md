@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Snakes (Naturalist) can no longer drop a Rabbit's Foot.
+- Coconut Slices (Ecologics) clear one effect, instead of all of them.
 
 ### Fixed
 - Screenshot Viewer no longer causes a crash when paused via F3-Esc.
