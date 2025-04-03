@@ -19,7 +19,9 @@ public class RaspberryModClient {
         BlockColors blockColors = event.getBlockColors();
         for (Pair<RegistryObject<Block>, RegistryObject<BlockItem>> block : RaspberryBlocks.FOLIAGE_BLOCKS) {
             event.register(((state, view, pos, tintIndex) -> {
-                assert view != null;
+                if (view == null || pos == null) {
+                    return 9551193;
+                }
                 return BiomeColors.getAverageFoliageColor(view, pos);
             }), block.getA().get());
         }
