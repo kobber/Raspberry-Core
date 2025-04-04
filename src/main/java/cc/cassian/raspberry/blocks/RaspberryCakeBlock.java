@@ -1,10 +1,9 @@
 package cc.cassian.raspberry.blocks;
 
+import cc.cassian.raspberry.compat.BuzzierBeesCompat;
+import cc.cassian.raspberry.compat.CavernsAndChasmsCompat;
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
-import com.teamabnormals.buzzier_bees.core.registry.BBBlocks;
-import com.teamabnormals.caverns_and_chasms.core.registry.CCBlocks;
-import com.teamabnormals.caverns_and_chasms.core.registry.CCParticleTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -66,33 +65,33 @@ public class RaspberryCakeBlock extends Block {
     }
 
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-        if ((Boolean)state.getValue(LIT)) {
-            this.getParticleOffsets(state).forEach((arg4) -> addParticlesAndSound(state, level, arg4.add((double)pos.getX(), (double)pos.getY(), (double)pos.getZ()), random));
+        if (state.getValue(LIT)) {
+            this.getParticleOffsets(state).forEach((arg4) -> addParticlesAndSound(state, level, arg4.add(pos.getX(), pos.getY(), pos.getZ()), random));
         }
     }
 
     private static void addParticlesAndSound(BlockState state, Level level, Vec3 offset, RandomSource random) {
-        int candleType = (Integer)state.getValue(CANDLE_TYPE);
+        int candleType = state.getValue(CANDLE_TYPE);
         float f = random.nextFloat();
         if (f < 0.3F) {
-            level.addParticle(ParticleTypes.SMOKE, offset.x, offset.y, offset.z, (double)0.0F, (double)0.0F, (double)0.0F);
+            level.addParticle(ParticleTypes.SMOKE, offset.x, offset.y, offset.z, 0.0F, 0.0F, 0.0F);
             if (f < 0.17F) {
                 level.playLocalSound(offset.x + (double)0.5F, offset.y + (double)0.5F, offset.z + (double)0.5F, SoundEvents.CANDLE_AMBIENT, SoundSource.BLOCKS, 1.0F + random.nextFloat(), random.nextFloat() * 0.7F + 0.3F, false);
             }
         }
         if (candleType == 18) {
-            level.addParticle(ParticleTypes.SOUL_FIRE_FLAME, offset.x, offset.y, offset.z, (double)0.0F, (double)0.0F, (double)0.0F);
+            level.addParticle(ParticleTypes.SOUL_FIRE_FLAME, offset.x, offset.y, offset.z, 0.0F, 0.0F, 0.0F);
         }
         else if (candleType == 19) {
-            level.addParticle(CCParticleTypes.CUPRIC_FIRE_FLAME.get(), offset.x, offset.y, offset.z, (double)0.0F, (double)0.0F, (double)0.0F);
+            level.addParticle(CavernsAndChasmsCompat.getCupricCandleFlame(), offset.x, offset.y, offset.z, 0.0F, 0.0F, 0.0F);
         }
         else {
-            level.addParticle(ParticleTypes.SMALL_FLAME, offset.x, offset.y, offset.z, (double) 0.0F, (double) 0.0F, (double) 0.0F);
+            level.addParticle(ParticleTypes.SMALL_FLAME, offset.x, offset.y, offset.z, 0.0F, 0.0F, 0.0F);
         }
     }
 
     public ItemStack getCakeSliceItem() {
-        return new ItemStack((ItemLike)this.cakeSlice.get());
+        return new ItemStack(this.cakeSlice.get());
     }
 
     public int getMaxBites() {
@@ -100,7 +99,7 @@ public class RaspberryCakeBlock extends Block {
     }
 
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return SHAPE_BY_BITE[(Integer)state.getValue(BITES)];
+        return SHAPE_BY_BITE[state.getValue(BITES)];
     }
 
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
@@ -134,7 +133,7 @@ public class RaspberryCakeBlock extends Block {
     }
 
     protected InteractionResult consumeBite(Level level, BlockPos pos, BlockState state, Player playerIn) {
-        int candleType = (Integer)state.getValue(CANDLE_TYPE);
+        int candleType = state.getValue(CANDLE_TYPE);
         if (candleType > 0) {
             popCandle(level, pos, state, candleType, true);
             return InteractionResult.SUCCESS;
@@ -147,40 +146,40 @@ public class RaspberryCakeBlock extends Block {
             playerIn.getFoodData().eat(sliceStack.getItem(), sliceStack);
             if (this.getCakeSliceItem().getItem().isEdible() && sliceFood != null) {
                 for(Pair<MobEffectInstance, Float> pair : sliceFood.getEffects()) {
-                    if (!level.isClientSide && pair.getFirst() != null && level.random.nextFloat() < (Float)pair.getSecond()) {
-                        playerIn.addEffect(new MobEffectInstance((MobEffectInstance)pair.getFirst()));
+                    if (!level.isClientSide && pair.getFirst() != null && level.random.nextFloat() < pair.getSecond()) {
+                        playerIn.addEffect(new MobEffectInstance(pair.getFirst()));
                     }
                 }
             }
 
-            int bites = (Integer)state.getValue(BITES);
+            int bites = state.getValue(BITES);
             if (bites < this.getMaxBites() - 1) {
-                level.setBlock(pos, (BlockState)state.setValue(BITES, bites + 1), 3);
+                level.setBlock(pos, state.setValue(BITES, bites + 1), 3);
             } else {
                 level.removeBlock(pos, false);
             }
 
-            level.playSound((Player)null, pos, SoundEvents.GENERIC_EAT, SoundSource.PLAYERS, 0.8F, 0.8F);
+            level.playSound(null, pos, SoundEvents.GENERIC_EAT, SoundSource.PLAYERS, 0.8F, 0.8F);
             return InteractionResult.SUCCESS;
         }
     }
 
     protected InteractionResult cutSlice(Level level, BlockPos pos, BlockState state, Player player) {
-        int bites = (Integer)state.getValue(BITES);
-        int candleType = (Integer)state.getValue(CANDLE_TYPE);
+        int bites = state.getValue(BITES);
+        int candleType = state.getValue(CANDLE_TYPE);
         if (candleType > 0) {
             popCandle(level, pos, state, candleType, true);
             return InteractionResult.SUCCESS;
         }
         if (bites < this.getMaxBites() - 1) {
-            level.setBlock(pos, (BlockState)state.setValue(BITES, bites + 1), 3);
+            level.setBlock(pos, state.setValue(BITES, bites + 1), 3);
         } else {
             level.removeBlock(pos, false);
         }
 
         Direction direction = player.getDirection().getOpposite();
         ItemUtils.spawnItemEntity(level, this.getCakeSliceItem(), (double)pos.getX() + (double)0.5F, (double)pos.getY() + 0.3, (double)pos.getZ() + (double)0.5F, (double)direction.getStepX() * 0.15, 0.05, (double)direction.getStepZ() * 0.15);
-        level.playSound((Player)null, pos, SoundEvents.WOOL_BREAK, SoundSource.PLAYERS, 0.8F, 0.8F);
+        level.playSound(null, pos, SoundEvents.WOOL_BREAK, SoundSource.PLAYERS, 0.8F, 0.8F);
         return InteractionResult.SUCCESS;
     }
 
@@ -200,10 +199,10 @@ public class RaspberryCakeBlock extends Block {
     }
 
     protected InteractionResult placeCandle(Level level, BlockPos pos, BlockState state, Player player, ItemStack heldStack) {
-        int bites = (Integer)state.getValue(BITES);
-        int candleType = (Integer)state.getValue(CANDLE_TYPE);
+        int bites = state.getValue(BITES);
+        int candleType = state.getValue(CANDLE_TYPE);
         if (bites == 0 && candleType == 0) {
-            level.setBlock(pos, (BlockState)state.setValue(CANDLE_TYPE, getCandleNum(heldStack)), 3);
+            level.setBlock(pos, state.setValue(CANDLE_TYPE, getCandleNum(heldStack)), 3);
             useItem(player, heldStack);
         } else if (candleType > 0) {
             popCandle(level, pos, state, candleType, true);
@@ -212,7 +211,7 @@ public class RaspberryCakeBlock extends Block {
             return InteractionResult.PASS;
         }
 
-        level.playSound((Player)null, pos, SoundEvents.WOOL_BREAK, SoundSource.PLAYERS, 0.8F, 0.8F);
+        level.playSound(null, pos, SoundEvents.WOOL_BREAK, SoundSource.PLAYERS, 0.8F, 0.8F);
         return InteractionResult.SUCCESS;
     }
 
@@ -244,13 +243,13 @@ public class RaspberryCakeBlock extends Block {
 
 
     protected InteractionResult lightCandle(Level level, BlockPos pos, BlockState state, Player player, ItemStack heldStack) {
-        int candleType = (Integer)state.getValue(CANDLE_TYPE);
+        int candleType = state.getValue(CANDLE_TYPE);
         Boolean lit = state.getValue(LIT);
         if (candleType > 0 && !lit) {
-            level.setBlock(pos, (BlockState)state.setValue(LIT, true), 3);
+            level.setBlock(pos, state.setValue(LIT, true), 3);
             useItem(player, heldStack);
 
-            level.playSound((Player)null, pos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
+            level.playSound(null, pos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
             return InteractionResult.SUCCESS;
         }
         else {
@@ -261,12 +260,12 @@ public class RaspberryCakeBlock extends Block {
     @Override
     public void onProjectileHit(Level level, BlockState state, BlockHitResult hit, Projectile projectile) {
         if (!level.isClientSide && projectile.isOnFire()) {
-            int candleType = (Integer)state.getValue(CANDLE_TYPE);
+            int candleType = state.getValue(CANDLE_TYPE);
             Boolean lit = state.getValue(LIT);
             if (candleType > 0 && !lit) {
-                level.setBlock(hit.getBlockPos(), (BlockState)state.setValue(LIT, true), 3);
+                level.setBlock(hit.getBlockPos(), state.setValue(LIT, true), 3);
 
-                level.playSound((Player)null, hit.getBlockPos(), SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
+                level.playSound(null, hit.getBlockPos(), SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
             }
         }
     }
@@ -324,10 +323,10 @@ public class RaspberryCakeBlock extends Block {
             return new ItemStack(Items.PINK_CANDLE);
         }
         else if (candleType == 18) {
-            return new ItemStack(BBBlocks.SOUL_CANDLE.get());
+            return new ItemStack(BuzzierBeesCompat.getSoulCandle());
         }
         else if (candleType == 19) {
-            return new ItemStack(CCBlocks.CUPRIC_CANDLE.get());
+            return new ItemStack(CavernsAndChasmsCompat.getCupricCandle());
         }
         else {
             return new ItemStack(Items.CANDLE);
@@ -386,10 +385,10 @@ public class RaspberryCakeBlock extends Block {
         else if (heldStack.is(Items.PINK_CANDLE)) {
             return 17;
         }
-        else if (heldStack.is(BBBlocks.SOUL_CANDLE.get().asItem())) {
+        else if (heldStack.is(BuzzierBeesCompat.getSoulCandle().asItem())) {
             return 18;
         }
-        else if (heldStack.is(CCBlocks.CUPRIC_CANDLE.get().asItem())) {
+        else if (heldStack.is(CavernsAndChasmsCompat.getCupricCandle().asItem())) {
             return 19;
         }
         else {
@@ -410,7 +409,7 @@ public class RaspberryCakeBlock extends Block {
     }
 
     public int getAnalogOutputSignal(BlockState blockState, Level level, BlockPos pos) {
-        return this.getMaxBites() - (Integer)blockState.getValue(BITES);
+        return this.getMaxBites() - blockState.getValue(BITES);
     }
 
     public boolean hasAnalogOutputSignal(BlockState state) {
@@ -425,7 +424,7 @@ public class RaspberryCakeBlock extends Block {
         BITES = IntegerProperty.create("bites", 0, 6);
         CANDLE_TYPE = IntegerProperty.create("candle_type", 0, 19);
         LIT = AbstractCandleBlock.LIT;
-        SHAPE_BY_BITE = new VoxelShape[]{Block.box((double)1.0F, (double)0.0F, (double)1.0F, (double)15.0F, (double)8.0F, (double)15.0F), Block.box((double)3.0F, (double)0.0F, (double)1.0F, (double)15.0F, (double)8.0F, (double)15.0F), Block.box((double)5.0F, (double)0.0F, (double)1.0F, (double)15.0F, (double)8.0F, (double)15.0F), Block.box((double)7.0F, (double)0.0F, (double)1.0F, (double)15.0F, (double)8.0F, (double)15.0F), Block.box((double)9.0F, (double)0.0F, (double)1.0F, (double)15.0F, (double)8.0F, (double)15.0F), Block.box((double)11.0F, (double)0.0F, (double)1.0F, (double)15.0F, (double)8.0F, (double)15.0F), Block.box((double)13.0F, (double)0.0F, (double)1.0F, (double)15.0F, (double)8.0F, (double)15.0F)};
-        PARTICLE_OFFSETS = ImmutableList.of(new Vec3((double)0.5F, (double)1.0F, (double)0.5F));
+        SHAPE_BY_BITE = new VoxelShape[]{Block.box(1.0F, 0.0F, 1.0F, 15.0F, 8.0F, 15.0F), Block.box(3.0F, 0.0F, 1.0F, 15.0F, 8.0F, 15.0F), Block.box(5.0F, 0.0F, 1.0F, 15.0F, 8.0F, 15.0F), Block.box(7.0F, 0.0F, 1.0F, 15.0F, 8.0F, 15.0F), Block.box(9.0F, 0.0F, 1.0F, 15.0F, 8.0F, 15.0F), Block.box(11.0F, 0.0F, 1.0F, 15.0F, 8.0F, 15.0F), Block.box(13.0F, 0.0F, 1.0F, 15.0F, 8.0F, 15.0F)};
+        PARTICLE_OFFSETS = ImmutableList.of(new Vec3(0.5F, 1.0F, 0.5F));
     }
 }

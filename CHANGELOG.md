@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Added a snow layer block that obeys gravity.
+
+## [1.2] - 2024-04-04
+
 ### Fixed
 - Magnetic and Recovery compasses can now display a coordinate overlay.
 - Lit Ash and Silt stoves now have correct textures by Kayla_the_Bee and ProbablyEkho.
