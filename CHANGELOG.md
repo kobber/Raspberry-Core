@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Crash when viewing flowerbeds.
+- Swift Sneak being applied to boots instead of leggings.
+
+## [1.0] - 2024-04-03
+
 ### Added
 - Added Cheery and Moody Wildflowers, new flowerbed blocks textured and modelled by ProbablyEkho and inspired by the Spring to Life drop.
 - Added Pink Petals, textured by ProbablyEkho and inspired by the Trails and Tales update.

@@ -477,7 +477,7 @@ public class EmiCompat implements EmiPlugin {
                 "backstabbing");
         // SILENT - SWIFT SNEAK
         addRecipe(emiRegistry,
-                getBoots(), Tags.Items.ARMORS_BOOTS,
+                getLeggings(), Tags.Items.ARMORS_LEGGINGS,
                 Enchantments.SWIFT_SNEAK, SILENT,
                 "swift_sneak");
         // SILENT - MUFFLED
