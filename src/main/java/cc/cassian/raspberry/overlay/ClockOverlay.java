@@ -27,7 +27,7 @@ public class ClockOverlay {
         }
 
         int offset = 3;
-        int top = ModConfig.get().overlay_position_clock_vertical;
+        int yPlacement = ModConfig.get().overlay_position_clock_vertical;
         int textureSize = 256;
         int fontWidth = mc.font.width(time);
 
@@ -35,9 +35,13 @@ public class ClockOverlay {
         int textureOffset = 9;  // only clock
         int tooltipSize = 14;  // only clock
 
+        if (mc.player == null) return;
+        if (OverlayHelpers.playerHasPotions(mc.player)) {
+            yPlacement = yPlacement + 16;
+        }
 
         int windowWidth = mc.getWindow().getGuiScaledWidth();
-        int placement = OverlayHelpers.getPlacement(windowWidth, fontWidth);
+        int xPlacement = OverlayHelpers.getPlacement(windowWidth, fontWidth);
         int endCapPlacement = OverlayHelpers.getEndCapPlacement(windowWidth, fontWidth);
         int endCapOffset = 197;
         var poseStack = event.getPoseStack();
@@ -45,18 +49,18 @@ public class ClockOverlay {
         if (hasClock) {
             // render background
             GuiComponent.blit(poseStack,
-                    placement-offset-4, top-3,
+                    xPlacement-offset-4, yPlacement-3,
                     0, 0,
                     textureOffset, fontWidth+offset+4, tooltipSize,
                     textureSize, textureSize);
             // render endcap
             GuiComponent.blit(poseStack,
-                    endCapPlacement, top-3,
+                    endCapPlacement, yPlacement-3,
                     0, endCapOffset,
                     textureOffset, 3, tooltipSize,
                     textureSize, textureSize);
             // render text
-            GuiComponent.drawString(poseStack, mc.font, time, placement-offset, top, 14737632);
+            GuiComponent.drawString(poseStack, mc.font, time, xPlacement-offset, yPlacement, 14737632);
         }
     }
 

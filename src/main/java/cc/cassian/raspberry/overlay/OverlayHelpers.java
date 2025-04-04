@@ -16,6 +16,11 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class OverlayHelpers {
+    public static boolean playerHasPotions(Player player) {
+        // Technically, we should check whether these are ambient, but Map Atlases doesn't and still covers our overlay.
+        return !player.getActiveEffects().isEmpty();
+    }
+
     public static void checkInventoryForItems(Player player) {
         var xz = Items.COMPASS;
         var recoveryCompass = Items.RECOVERY_COMPASS;

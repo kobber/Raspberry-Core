@@ -46,7 +46,7 @@ public class CompassOverlay {
         y = StringUtils.leftPad(y, width);
         z = StringUtils.leftPad(z, width);
         int offset = 3;
-        int top = ModConfig.get().overlay_position_compass_vertical;
+        int yPlacement = ModConfig.get().overlay_position_compass_vertical;
         int textureSize = 256;
         int fontWidth = mc.font.width(StringUtils.repeat("a", width+2));
 
@@ -61,7 +61,10 @@ public class CompassOverlay {
             coords.add("§%sY:§f %s".formatted(ModHelpers.getColour(ModConfig.get().overlay_y_colour), y));
         }
         if (!ClockOverlay.hasClock || !ModConfig.get().overlay_clock_enable) {
-            top = top - 15;
+            yPlacement = yPlacement - 15;
+        }
+        if (OverlayHelpers.playerHasPotions(mc.player)) {
+            yPlacement = yPlacement + 16;
         }
 
         int textureOffset = 9;  // only depth gauge
@@ -76,27 +79,27 @@ public class CompassOverlay {
         }
 
         int windowWidth = mc.getWindow().getGuiScaledWidth();
-        int placement = OverlayHelpers.getPlacement(windowWidth, fontWidth);
+        int xPlacement = OverlayHelpers.getPlacement(windowWidth, fontWidth);
         int endCapPlacement = OverlayHelpers.getEndCapPlacement(windowWidth, fontWidth);
         int endCapOffset = 197;
         var poseStack = event.getPoseStack();
         RenderSystem.setShaderTexture(0, RaspberryMod.locate("textures/gui/tooltip.png"));
         // render background
         GuiComponent.blit(poseStack,
-                placement-offset-4, top-3,
+                xPlacement-offset-4, yPlacement-3,
                 0, 0,
                 textureOffset, fontWidth+offset+4, tooltipSize,
                 textureSize, textureSize);
         // render endcap
         GuiComponent.blit(poseStack,
-                endCapPlacement, top-3,
+                endCapPlacement, yPlacement-3,
                 0, endCapOffset,
                 textureOffset, 3, tooltipSize,
                 textureSize, textureSize);
         // render text
         for (String text : coords) {
-            GuiComponent.drawString(poseStack, mc.font, text, placement-offset, top, 14737632);
-            top += mc.font.lineHeight;
+            GuiComponent.drawString(poseStack, mc.font, text, xPlacement-offset, yPlacement, 14737632);
+            yPlacement += mc.font.lineHeight;
         }
     }
 }
