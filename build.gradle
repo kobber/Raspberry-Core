@@ -119,6 +119,7 @@ dependencies {
     modImplementation("maven.modrinth:neapolitan:$neapolitan_version")
     modImplementation("com.teamabnormals:blueprint:$blueprint_version")
     modCompileOnly("maven.modrinth:endergetic:$endergetic_version")
+    modImplementation("maven.modrinth:buzzier-bees:$buzzier_bees_version")
 
     // Recipe viewers
     modImplementation("maven.modrinth:emi:$emi_version+$minecraft_version+forge")
@@ -129,6 +130,10 @@ dependencies {
     modImplementation("curse.maven:brewin-and-chewin-637808:$brewin_and_chewin_version")
     modImplementation("maven.modrinth:cultural-delights:$cultural_delights_version")
     modImplementation("maven.modrinth:my-nethers-delight:$nethers_delight_version")
+    modImplementation("curse.maven:brewin-and-chewin-637808:$brewin_and_chewin_version")
+    modImplementation("curse.maven:farmers-respite-551453:$farmers_respite_version")
+    modImplementation("curse.maven:respiteful-836471:$respiteful_version")
+    modImplementation("curse.maven:abnormals-delight-442719:$abnormals_delight_version")
 
     // Create, its dependencies, and its dependents
     modImplementation("com.simibubi.create:create-$minecraft_version:$create_forge_version:slim") { transitive = false }
