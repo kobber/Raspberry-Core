@@ -3,6 +3,7 @@ package cc.cassian.raspberry.registry;
 import cc.cassian.raspberry.ModCompat;
 import cc.cassian.raspberry.blocks.FlowerBedBlock;
 import cc.cassian.raspberry.blocks.RaspberryCakeBlock;
+import cc.cassian.raspberry.blocks.GravitationalSnowLayerBlock;
 import cc.cassian.raspberry.blocks.RaspberryGravelBlock;
 import cc.cassian.raspberry.compat.CopperBackportCompat;
 import cc.cassian.raspberry.compat.EnvironmentalCompat;
@@ -132,6 +133,10 @@ public class RaspberryBlocks {
     public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
             COFFEE_CAKE = registerBlock("coffee_cake",
             ()-> new RaspberryCakeBlock(BlockBehaviour.Properties.copy(Blocks.CAKE), FRItems.COFFEE_CAKE_SLICE), CreativeModeTab.TAB_DECORATIONS);
+            
+    public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
+            SNOW_LAYER = registerBlock("snow",
+            ()-> new GravitationalSnowLayerBlock(BlockBehaviour.Properties.copy(Blocks.SNOW)), CreativeModeTab.TAB_DECORATIONS);
 
     private static BlockBehaviour.Properties flowerBedProperties() {
         return BlockBehaviour.Properties.of(Material.PLANT).noCollission().sound(SoundType.FLOWERING_AZALEA);

@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Fixed
+- Magnetic and Recovery compasses can now display a coordinate overlay.
+- Lit Ash and Silt stoves now have correct textures by Kayla_the_Bee and ProbablyEkho.
+- Tether warp now shows the correct tablet in EMI.
+
+## [1.1] - 2024-04-03
+
+### Fixed
 - Crash when viewing flowerbeds.
 - Swift Sneak being applied to boots instead of leggings.
 

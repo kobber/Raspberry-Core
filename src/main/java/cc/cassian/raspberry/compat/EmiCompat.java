@@ -441,7 +441,7 @@ public class EmiCompat implements EmiPlugin {
         // OTHERWORLDLY - TETHERED TELEPORT
         addRecipe(emiRegistry,
                 DIItemRegistry.COLLAR_TAG.get(), DIItemRegistry.COLLAR_TAG.get(),
-                DIEnchantmentRegistry.TETHERED_TELEPORT, HAUNTED,
+                DIEnchantmentRegistry.TETHERED_TELEPORT, OTHERWORLDLY,
                 "tethered_teleport");
 
         // PIERCING - TRUESHOT
