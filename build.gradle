@@ -164,6 +164,8 @@ dependencies {
     modImplementation("maven.modrinth:survivality:${survivality_version}")
     modImplementation("maven.modrinth:screenshot-viewer:${screenshot_viewer_version}")
     modCompileOnly("local:ecologics-forge:1.19.2-2.1.11")
+    modImplementation("maven.modrinth:easy-shulker-boxes:${easy_shulker_boxes_version}")
+
 
 
     // mods for testing purposes

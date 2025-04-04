@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "cavernsandchasms:clock",
+      "required": false
+    }
+  ]
+}

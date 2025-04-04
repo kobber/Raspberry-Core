@@ -26,19 +26,24 @@ public class RaspberryTags {
     public static final TagKey<Block> AXES_SHOULD_USE = createBlockTag("useable/axes");
     public static final TagKey<Block> HOES_SHOULD_USE = createBlockTag("useable/hoes");
 
+    public static final TagKey<Item> SHOWS_XZ = createItemTag("shows_xz");
+    public static final TagKey<Item> SHOWS_Y = createItemTag("shows_y");
+    public static final TagKey<Item> SHOWS_WEATHER = createItemTag("shows_weather");
+    public static final TagKey<Item> SHOWS_TIME = createItemTag("shows_time");
+
     public static final TagKey<Block> INTERACTABLE_METAL_DOORS = createBlockTag("interactable_metal_doors");
 
     public static final TagKey<Block> CONVERTS_TO_SALT = createBlockTag("converts_to_salt");
 
-    public static TagKey<Block> createBlockTag(String id) {
+    private static TagKey<Block> createBlockTag(String id) {
         return TagKey.create(ForgeRegistries.BLOCKS.getRegistryKey(), locate(id));
     }
 
-    public static TagKey<Item> createItemTag(String id) {
+    private static TagKey<Item> createItemTag(String id) {
         return TagKey.create(ForgeRegistries.ITEMS.getRegistryKey(), locate(id));
     }
 
-    public static TagKey<EntityType<?>> createEntityTypeTag(String id) {
+    private static TagKey<EntityType<?>> createEntityTypeTag(String id) {
         return TagKey.create(ForgeRegistries.ENTITY_TYPES.getRegistryKey(), locate(id));
     }
 }
