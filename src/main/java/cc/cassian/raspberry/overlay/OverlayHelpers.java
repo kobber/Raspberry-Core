@@ -18,12 +18,16 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 public class OverlayHelpers {
     public static void checkInventoryForItems(Player player) {
         var xz = Items.COMPASS;
+        var recoveryCompass = Items.RECOVERY_COMPASS;
+        Item magneticCompass = Items.COMPASS;
         var y = Items.COMPASS;
         var clock = Items.CLOCK;
         var barometer = Items.CLOCK;
-        if (ModCompat.SPELUNKERY)
+
+        if (ModCompat.SPELUNKERY) {
             y = SpelunkeryCompat.getDepthGauge();
-        else if (ModCompat.CAVERNS_AND_CHASMS)
+            magneticCompass = SpelunkeryCompat.getMagneticCompass();
+        } else if (ModCompat.CAVERNS_AND_CHASMS)
             y = CavernsAndChasmsCompat.getDepthGauge();
         if (ModCompat.CAVERNS_AND_CHASMS)
             barometer = CavernsAndChasmsCompat.getBarometer();
@@ -33,6 +37,10 @@ public class OverlayHelpers {
                 var main = player.getMainHandItem();
                 var offhand = player.getOffhandItem();
                 CompassOverlay.hasCompass = main.is(xz) || offhand.is(xz);
+                if (!CompassOverlay.hasCompass)
+                    CompassOverlay.hasCompass = main.is(recoveryCompass) || offhand.is(recoveryCompass);
+                if (!CompassOverlay.hasCompass && ModCompat.SPELUNKERY)
+                    CompassOverlay.hasCompass = checkInventoryForItem(inventory, xz, "spelunkery:magentic_compass");
                 CompassOverlay.hasDepthGauge = main.is(y) || offhand.is(y);
                 ClockOverlay.hasClock = main.is(clock) || offhand.is(clock);
                 ClockOverlay.hasBarometer = main.is(barometer) || offhand.is(barometer);
@@ -48,6 +56,10 @@ public class OverlayHelpers {
 
             } else {
                 CompassOverlay.hasCompass = checkInventoryForItem(inventory, xz, "minecraft:compass");
+                if (!CompassOverlay.hasCompass)
+                    CompassOverlay.hasCompass = checkInventoryForItem(inventory, recoveryCompass, "minecraft:recovery_compass");
+                if (!CompassOverlay.hasCompass && ModCompat.SPELUNKERY)
+                    CompassOverlay.hasCompass = checkInventoryForItem(inventory, magneticCompass, "spelunkery:magentic_compass");
                 CompassOverlay.hasDepthGauge = checkInventoryForItem(inventory, y, "spelunkery:depth_gauge");
                 ClockOverlay.hasClock = checkInventoryForItem(inventory, clock, "minecraft:clock");
                 if (ModCompat.CAVERNS_AND_CHASMS) {
