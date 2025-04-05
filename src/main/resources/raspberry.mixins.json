@@ -5,16 +5,15 @@
   "minVersion": "0.8",
   "client": [
 	"BundleItemMixin",
-	"naturalist.GlowGoopItemMixin"
+	"naturalist.GlowGoopItemMixin",
+	"spyglass_improvements.MinecraftMixin"
   ],
   "mixins": [
 	"CampfireBlockMixin",
 	"CoconutSliceItemMixin",
 	"GreatbladeSlashEntityMixin",
-	"map_atlases.IMapCollectionImplMixin",
 	"ItemStackMixin",
 	"LevelSummaryMixin",
-	"map_atlases.MapAtlasAccessUtilsMixin",
 	"PigMixin",
 	"PointedDripstoneBlockMixin",
 	"ScreenshotViewerMixin",
@@ -47,6 +46,8 @@
 	"farmersdelight.FlintAndSteelMixin",
 	"farmersdelight.NetherStoveBlockMixin",
 	"farmersdelight.StoveBlockMixin",
+	"map_atlases.IMapCollectionImplMixin",
+	"map_atlases.MapAtlasAccessUtilsMixin",
 	"naturalist.SnakeMixin",
 	"oreganized.EnchantmentHelperMixin",
 	"oreganized.EntityMixin",

@@ -55,7 +55,6 @@ public class OverlayHelpers {
                 CompassOverlay.hasDepthGauge = main.is(RaspberryTags.SHOWS_Y) || offhand.is(RaspberryTags.SHOWS_Y);
                 ClockOverlay.hasClock = main.is(RaspberryTags.SHOWS_TIME) || offhand.is(RaspberryTags.SHOWS_TIME);
                 ClockOverlay.hasBarometer = main.is(barometer) || offhand.is(barometer);
-
             } else {
                 CompassOverlay.hasCompass = checkInventoryForItem(inventory, RaspberryTags.SHOWS_XZ);
                 CompassOverlay.hasDepthGauge = checkInventoryForItem(inventory, y);

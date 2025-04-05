@@ -1,16 +1,12 @@
 package cc.cassian.raspberry;
 
-import cc.cassian.raspberry.config.ModConfig;
-import cc.cassian.raspberry.overlay.OverlayHelpers;
 import cc.cassian.raspberry.registry.RaspberryBlocks;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
-import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;

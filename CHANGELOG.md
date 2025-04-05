@@ -9,10 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Snow layer block that obeys gravity.
 - Tags to control what items can be used for coordinate overlays.
-- Atlases can now be used in bundles (assuming their config allows them to be used in the inventory)
+- Atlases can now be used in bundles (disabled in RF, requires config to allow use in inventory)
 
 ### Fixed
 - Compass overlays now work in multiplayer.
+- Replaced redirect in Spyglass Improvements to fix compatibility with Controllable.
 
 
 ## [1.2] - 2024-04-04

@@ -99,6 +99,12 @@ repositories {
     flatDir {
         dirs 'libs'
     }
+    maven { url = "https://maven.bawnorton.com/releases" } // MixinSquared
+    maven { url = "https://maven.enjarai.dev/mirrors" } // MixinSquared Mirror
+    maven { // Curios
+        name = "Illusive Soulworks maven"
+        url = "https://maven.theillusivec4.top/"
+    }
 }
 
 dependencies {
@@ -132,13 +138,13 @@ dependencies {
     modImplementation("maven.modrinth:my-nethers-delight:$nethers_delight_version")
     modImplementation("curse.maven:farmers-respite-551453:$farmers_respite_version")
 //    modImplementation("maven.modrinth:respiteful:$respiteful_version") // For reasons unknown to me, this causes mapping errors
-    modImplementation("curse.maven:abnormals-delight-442719:$abnormals_delight_version")
+    modImplementation("curse.maven:abnormals-delight-442719:$abnormals_delight_version") // depends on farmer's delight
 
     // Create, its dependencies, and its dependents
     modImplementation("com.simibubi.create:create-$minecraft_version:$create_forge_version:slim") { transitive = false }
-    modImplementation("com.tterrag.registrate:Registrate:$registrate_forge_version")
-    modImplementation("com.jozufozu.flywheel:flywheel-forge-$minecraft_version:$flywheel_forge_version")
-    modImplementation("curse.maven:create-alloyed-564792:$create_alloyed_version")
+    modImplementation("com.tterrag.registrate:Registrate:$registrate_forge_version") // dependency of create
+    modImplementation("com.jozufozu.flywheel:flywheel-forge-$minecraft_version:$flywheel_forge_version") // dependency of create
+    modImplementation("curse.maven:create-alloyed-564792:$create_alloyed_version") // depends on create
 
     // Optional dependencies for mods with only mixin fixes
     modImplementation("curse.maven:aquaculture-60028:$aquaculture_version")
@@ -154,18 +160,18 @@ dependencies {
     modImplementation("maven.modrinth:sullysmod:$sullys_version")
     modImplementation("maven.modrinth:twigs:$twigs_version")
     modImplementation("maven.modrinth:quark:$quark_version")
-    modImplementation("maven.modrinth:autoreglib:$autoreglib_version")
+    modImplementation("maven.modrinth:autoreglib:$autoreglib_version") // dependency of quark
     modImplementation("maven.modrinth:dynamiccrosshair:$dynamic_crosshair_version-forge")
     modImplementation("maven.modrinth:cofh-core:$cofh_core_version-forge")
     modImplementation("curse.maven:clash-468706:$clash_version")
     modImplementation("maven.modrinth:gliders:$gliders_version")
-    modRuntimeOnly("dev.kosmx.player-anim:player-animation-lib-forge:${player_anim_version}")
-    modRuntimeOnly("net.threetag:PalladiumCore-forge:${palladiumcore_version}")
+    modRuntimeOnly("dev.kosmx.player-anim:player-animation-lib-forge:${player_anim_version}") // dependency of gliders
+    modRuntimeOnly("net.threetag:PalladiumCore-forge:${palladiumcore_version}") // dependency of gliders
     modImplementation("maven.modrinth:survivality:${survivality_version}")
     modImplementation("maven.modrinth:screenshot-viewer:${screenshot_viewer_version}")
-    modCompileOnly("local:ecologics-forge:1.19.2-2.1.11")
-
-
+    modCompileOnly("local:ecologics-forge:1.19.2-2.1.11") // jar built locally to avoid errors when importing the project
+    modImplementation("maven.modrinth:spyglass-improvements:${spyglass_improvements_version}")
+    modRuntimeOnly("top.theillusivec4.curios:curios-forge:${curios_version}") // dependency of sypyglass improvements
 
     // mods for testing purposes
     modImplementation("curse.maven:map-atlases-forge-519759:5138314")
@@ -179,7 +185,7 @@ dependencies {
     modImplementation("maven.modrinth:useful-spyglass:0.4.0-1.19.2")
     modImplementation("maven.modrinth:additional-enchantments:1.1.5")
     modImplementation("maven.modrinth:domestication-innovation:1.6.1")
-    modImplementation("curse.maven:citadel-331936:4556677")
+    modImplementation("curse.maven:citadel-331936:4556677") // dependency of domestication innovation
 
 
 
@@ -187,6 +193,9 @@ dependencies {
     modImplementation("curse.maven:just-enough-beacons-reforged-912266:$jeb_reforged_version")
     modImplementation("curse.maven:cerbons-better-beacons-921066:$better_beacons_version")
 
+    // MixinSquared
+    compileOnly(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-common:0.2.0"))
+    implementation(include("com.github.bawnorton.mixinsquared:mixinsquared-forge:0.2.0"))
     // MixinExtras
     compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:0.4.1"))
     implementation(include("io.github.llamalad7:mixinextras-forge:0.4.1"))
