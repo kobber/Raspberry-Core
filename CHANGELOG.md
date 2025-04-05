@@ -6,7 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- Added a snow layer block that obeys gravity.
+### Added
+- Snow layer block that obeys gravity.
+- Tags to control what items can be used for coordinate overlays.
+- Atlases can now be used in bundles (assuming their config allows them to be used in the inventory)
+
+### Fixed
+- Compass overlays now work in multiplayer.
+
 
 ## [1.2] - 2024-04-04
 
