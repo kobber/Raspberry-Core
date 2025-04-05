@@ -39,8 +39,9 @@ public class OverlayHelpers {
             var y = RaspberryTags.SHOWS_Y;
             var barometer = RaspberryTags.SHOWS_WEATHER;
 
-            if (!ModCompat.SPELUNKERY && !ModCompat.CAVERNS_AND_CHASMS)
-                y = RaspberryTags.SHOWS_XZ;
+            // Altimeters exist. Might put this back if we drop supplementaries.
+            //if (!ModCompat.SPELUNKERY && !ModCompat.CAVERNS_AND_CHASMS && !ModCompat.SUPPLEMENTARIES)
+            //    y = RaspberryTags.SHOWS_XZ;
             if (!ModCompat.CAVERNS_AND_CHASMS) {
                 barometer = RaspberryTags.SHOWS_TIME;
             }
@@ -69,9 +70,17 @@ public class OverlayHelpers {
         if (compoundtag == null) {
             return Stream.empty();
         } else {
-            ListTag listtag = compoundtag.getList("Items", 10);
-            return listtag.stream().map(CompoundTag.class::cast).map(ItemStack::of);
+            if (compoundtag.contains("Items")) {
+                ListTag listtag = compoundtag.getList("Items", 10);
+                return listtag.stream().map(CompoundTag.class::cast).map(ItemStack::of);
+            }
+            else if (compoundtag.contains("BlockEntityTag")) {
+                var compound = compoundtag.getCompound("BlockEntityTag");
+                ListTag listtag = compound.getList("Items", 10);
+                return listtag.stream().map(CompoundTag.class::cast).map(ItemStack::of);
+            }
         }
+        return Stream.empty();
     }
 
 
@@ -81,16 +90,8 @@ public class OverlayHelpers {
         }
         if (ModConfig.get().overlay_searchContainers && hasContainer(inventory)) {
             for (ItemStack stack : inventory.items) {
-                if (stack.getItem() instanceof BundleItem) {
+                if (stack.is(RaspberryTags.CONTAINERS)) {
                     List<ItemStack> contents = getContents(stack).toList();
-                    for (ItemStack content : contents) {
-                        if (content.is(item))
-                            return true;
-                    }
-                }
-                else if (stack.getItem() instanceof SackItem) {
-                    ItemContainerProvider itemContainerProvider = ContainerItemHelper.INSTANCE.getItemContainerProvider(stack);
-                    NonNullList<ItemStack> contents = ContainerItemHelper.INSTANCE.convertContainerToList(itemContainerProvider.getItemContainer(stack, inventory.player, false));
                     for (ItemStack content : contents) {
                         if (content.is(item))
                             return true;

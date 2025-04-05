@@ -8,6 +8,10 @@
     {
       "id": "cavernsandchasms:depth_gauge",
       "required": false
+    },
+    {
+      "id": "supplementaries:altimeter",
+      "required": false
     }
   ]
 }

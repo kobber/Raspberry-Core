@@ -76,12 +76,12 @@ public final class RaspberryMod {
         if (FMLEnvironment.dist.isClient()) {
             // Register config
             registerModsPage(context);
-            MinecraftForge.EVENT_BUS.addListener(OverlayHelpers::pickup);
-            MinecraftForge.EVENT_BUS.addListener(OverlayHelpers::join);
-            MinecraftForge.EVENT_BUS.addListener(OverlayHelpers::toss);
-            MinecraftForge.EVENT_BUS.addListener(OverlayHelpers::closeInventory);
-            MinecraftForge.EVENT_BUS.addListener(CompassOverlay::renderGameOverlayEvent);
-            MinecraftForge.EVENT_BUS.addListener(ClockOverlay::renderGameOverlayEvent);
+//            MinecraftForge.EVENT_BUS.addListener(OverlayHelpers::pickup);
+//            MinecraftForge.EVENT_BUS.addListener(OverlayHelpers::join);
+//            MinecraftForge.EVENT_BUS.addListener(OverlayHelpers::toss);
+//            MinecraftForge.EVENT_BUS.addListener(OverlayHelpers::closeInventory);
+//            MinecraftForge.EVENT_BUS.addListener(CompassOverlay::renderGameOverlayEvent);
+//            MinecraftForge.EVENT_BUS.addListener(ClockOverlay::renderGameOverlayEvent);
         }
 
         TrackedDataManager.INSTANCE.registerData(locate("truffle_hunting_time"), WORM_HUNTING_TIME);
@@ -124,7 +124,7 @@ public final class RaspberryMod {
         // TODO remove if possible
         // I'd really rather not check the player's inventory every tick like this,
         // but the events I'm using aren't working well enough on servers.
-        if (ModConfig.get().overlay_compass_enable || ModConfig.get().overlay_clock_enable)
+        if ((ModConfig.get().overlay_compass_enable || ModConfig.get().overlay_clock_enable) && FMLEnvironment.dist.isClient())
             OverlayHelpers.checkInventoryForItems(event.player);
     }
 

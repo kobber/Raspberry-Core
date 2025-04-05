@@ -30,6 +30,7 @@ public class RaspberryTags {
     public static final TagKey<Item> SHOWS_Y = createItemTag("shows_y");
     public static final TagKey<Item> SHOWS_WEATHER = createItemTag("shows_weather");
     public static final TagKey<Item> SHOWS_TIME = createItemTag("shows_time");
+    public static final TagKey<Item> CONTAINERS = createItemTag("container");
 
     public static final TagKey<Block> INTERACTABLE_METAL_DOORS = createBlockTag("interactable_metal_doors");
 
