@@ -7,6 +7,7 @@ import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.ItemTags;
@@ -34,6 +35,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.registries.ForgeRegistries;
 import vectorwing.farmersdelight.common.tag.ModTags;
 import vectorwing.farmersdelight.common.utility.ItemUtils;
 
@@ -45,13 +47,21 @@ public class RaspberryCakeBlock extends Block {
     public static final BooleanProperty LIT;
     protected static final VoxelShape[] SHAPE_BY_BITE;
     public final Supplier<Item> cakeSlice;
+    public final String cakeSliceItemID;
     private static final Iterable<Vec3> PARTICLE_OFFSETS;
 
     public RaspberryCakeBlock(BlockBehaviour.Properties properties, Supplier<Item> cakeSlice) {
         super(properties);
         this.cakeSlice = cakeSlice;
+        this.cakeSliceItemID = cakeSlice.toString();
         this.registerDefaultState(this.stateDefinition.any().setValue(BITES, 0).setValue(CANDLE_TYPE, 0).setValue(LIT, false));
 
+    }
+
+    public RaspberryCakeBlock(Properties properties, String cakeSlice) {
+        super(properties);
+        this.cakeSliceItemID = cakeSlice;
+        this.cakeSlice = null;
     }
 
     @Override
@@ -91,7 +101,12 @@ public class RaspberryCakeBlock extends Block {
     }
 
     public ItemStack getCakeSliceItem() {
-        return new ItemStack(this.cakeSlice.get());
+        if (this.cakeSlice != null) {
+            return new ItemStack(this.cakeSlice.get());
+        }
+        else {
+            return ForgeRegistries.ITEMS.getValue(new ResourceLocation(this.cakeSliceItemID)).getDefaultInstance();
+        }
     }
 
     public int getMaxBites() {

@@ -24,7 +24,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 import oshi.util.tuples.Pair;
-import plus.dragons.respiteful.entries.RespitefulItems;
 import umpaz.farmersrespite.common.registry.FRItems;
 import vectorwing.farmersdelight.FarmersDelight;
 import vectorwing.farmersdelight.common.block.StoveBlock;
@@ -120,15 +119,15 @@ public class RaspberryBlocks {
 
     public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
             GREEN_TEA_CAKE = registerBlock("green_tea_cake",
-            ()-> new RaspberryCakeBlock(BlockBehaviour.Properties.copy(Blocks.CAKE), RespitefulItems.GREEN_TEA_CAKE_SLICE), CreativeModeTab.TAB_DECORATIONS);
+            ()-> new RaspberryCakeBlock(BlockBehaviour.Properties.copy(Blocks.CAKE), "respiteful:green_tea_cake_slice"), CreativeModeTab.TAB_DECORATIONS);
 
     public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
             YELLOW_TEA_CAKE = registerBlock("yellow_tea_cake",
-            ()-> new RaspberryCakeBlock(BlockBehaviour.Properties.copy(Blocks.CAKE), RespitefulItems.YELLOW_TEA_CAKE_SLICE), CreativeModeTab.TAB_DECORATIONS);
+            ()-> new RaspberryCakeBlock(BlockBehaviour.Properties.copy(Blocks.CAKE), "respiteful:yellow_tea_cake_slice"), CreativeModeTab.TAB_DECORATIONS);
 
     public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
             BLACK_TEA_CAKE = registerBlock("black_tea_cake",
-            ()-> new RaspberryCakeBlock(BlockBehaviour.Properties.copy(Blocks.CAKE), RespitefulItems.BLACK_TEA_CAKE_SLICE), CreativeModeTab.TAB_DECORATIONS);
+            ()-> new RaspberryCakeBlock(BlockBehaviour.Properties.copy(Blocks.CAKE), "respiteful:black_tea_cake_slice"), CreativeModeTab.TAB_DECORATIONS);
 
     public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
             COFFEE_CAKE = registerBlock("coffee_cake",
