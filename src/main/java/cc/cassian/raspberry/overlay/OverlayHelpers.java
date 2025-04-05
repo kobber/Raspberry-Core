@@ -4,6 +4,7 @@ import cc.cassian.raspberry.ModCompat;
 import cc.cassian.raspberry.config.ModConfig;
 import cc.cassian.raspberry.registry.RaspberryTags;
 import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
+import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.tags.TagKey;
@@ -12,6 +13,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.player.PlayerContainerEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -21,6 +23,13 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class OverlayHelpers {
+    @SubscribeEvent
+    public static void checkInventoryForOverlays(TickEvent.ClientTickEvent event){
+        if ((ModConfig.get().overlay_compass_enable || ModConfig.get().overlay_clock_enable) && Minecraft.getInstance().level != null) {
+            OverlayHelpers.checkInventoryForItems(Minecraft.getInstance().player);
+        }
+    }
+
     public static boolean playerHasPotions(Player player) {
         // Technically, we should check whether these are ambient,
         // but Map Atlases doesn't and still covers our overlay.
@@ -85,7 +94,7 @@ public class OverlayHelpers {
     }
 
     public static ItemStack checkInventoryForStack(Inventory inventory, TagKey<Item> key, Item item) {
-        if (ModConfig.get().overlay_searchContainers && hasContainer(inventory)) {
+        if (ModConfig.get().overlay_searchContainers && inventory.contains(RaspberryTags.CONTAINERS)) {
             for (ItemStack stack : inventory.items) {
                 if (stack.is(RaspberryTags.CONTAINERS)) {
                     List<ItemStack> contents = getContents(stack).toList();
@@ -99,18 +108,6 @@ public class OverlayHelpers {
             }
         }
         return ItemStack.EMPTY;
-    }
-
-    private static boolean hasContainer(Inventory inventory) {
-        if (inventory.contains(Items.BUNDLE.getDefaultInstance()))
-            return true;
-        else if (inventory.contains(ModRegistry.SACK.get().asItem().getDefaultInstance()))
-            return true;
-        else if (inventory.contains(ModRegistry.SAFE.get().asItem().getDefaultInstance()))
-            return true;
-        else if (inventory.contains(Items.SHULKER_BOX.getDefaultInstance()))
-            return true;
-        return false;
     }
 
     @SubscribeEvent

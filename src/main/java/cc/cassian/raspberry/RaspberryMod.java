@@ -15,7 +15,6 @@ import cc.cassian.raspberry.registry.RasperryMobEffects;
 import com.teamabnormals.blueprint.common.world.storage.tracking.DataProcessors;
 import com.teamabnormals.blueprint.common.world.storage.tracking.TrackedData;
 import com.teamabnormals.blueprint.common.world.storage.tracking.TrackedDataManager;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
@@ -76,8 +75,9 @@ public final class RaspberryMod {
         }
         if (FMLEnvironment.dist.isClient()) {
             // Register config
-            MinecraftForge.EVENT_BUS.addListener(RaspberryMod::checkInventoryForOverlays);
-            registerModsPage(context);/*
+            registerModsPage(context);
+            MinecraftForge.EVENT_BUS.addListener(OverlayHelpers::checkInventoryForOverlays);
+            /* TODO, use these events instead of clienttick.
             MinecraftForge.EVENT_BUS.addListener(OverlayHelpers::pickup);
             MinecraftForge.EVENT_BUS.addListener(OverlayHelpers::join);
             MinecraftForge.EVENT_BUS.addListener(OverlayHelpers::toss);
@@ -91,13 +91,6 @@ public final class RaspberryMod {
         TrackedDataManager.INSTANCE.registerData(locate( "truffle_pos"), WORM_POS);
         TrackedDataManager.INSTANCE.registerData(locate( "has_truffle_target"), HAS_WORM_TARGET);
         TrackedDataManager.INSTANCE.registerData(locate("looking_for_truffle"), LOOKING_FOR_WORM);
-    }
-
-    @SubscribeEvent
-    public static void checkInventoryForOverlays(TickEvent.ClientTickEvent event){
-        if ((ModConfig.get().overlay_compass_enable || ModConfig.get().overlay_clock_enable) && Minecraft.getInstance().level != null) {
-            OverlayHelpers.checkInventoryForItems(Minecraft.getInstance().player);
-        }
     }
 
     public static ResourceLocation locate(String id) {
