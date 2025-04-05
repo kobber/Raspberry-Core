@@ -89,7 +89,7 @@ public class OverlayHelpers {
         if (inventory.contains(item)) {
             return true;
         }
-        else return checkInventoryForStack(inventory, item, null) != null;
+        else return checkInventoryForStack(inventory, item, null) != ItemStack.EMPTY;
     }
 
     public static ItemStack checkInventoryForStack(Inventory inventory, TagKey<Item> key, Item item) {
