@@ -1,10 +1,12 @@
 package cc.cassian.raspberry.overlay;
 
 import cc.cassian.raspberry.ModCompat;
-import cc.cassian.raspberry.compat.CavernsAndChasmsCompat;
-import cc.cassian.raspberry.compat.SpelunkeryCompat;
 import cc.cassian.raspberry.config.ModConfig;
+import cc.cassian.raspberry.registry.RaspberryTags;
 import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -15,67 +17,40 @@ import net.minecraftforge.event.entity.player.PlayerContainerEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
+import java.util.List;
+import java.util.stream.Stream;
+
 public class OverlayHelpers {
     public static boolean playerHasPotions(Player player) {
-        // Technically, we should check whether these are ambient, but Map Atlases doesn't and still covers our overlay.
+        // Technically, we should check whether these are ambient,
+        // but Map Atlases doesn't and still covers our overlay.
         return !player.getActiveEffects().isEmpty();
     }
 
     public static void checkInventoryForItems(Player player) {
-        var xz = Items.COMPASS;
-        var recoveryCompass = Items.RECOVERY_COMPASS;
-        Item magneticCompass = Items.COMPASS;
-        var y = Items.COMPASS;
-        var clock = Items.CLOCK;
-        var barometer = Items.CLOCK;
-
-        if (ModCompat.SPELUNKERY) {
-            y = SpelunkeryCompat.getDepthGauge();
-            magneticCompass = SpelunkeryCompat.getMagneticCompass();
-        } else if (ModCompat.CAVERNS_AND_CHASMS)
-            y = CavernsAndChasmsCompat.getDepthGauge();
-        if (ModCompat.CAVERNS_AND_CHASMS)
-            barometer = CavernsAndChasmsCompat.getBarometer();
         if (ModConfig.get().overlay_compass_enable || ModConfig.get().overlay_clock_enable) {
+            var y = RaspberryTags.SHOWS_Y;
+            var barometer = RaspberryTags.SHOWS_WEATHER;
+
+            // Altimeters exist. Might put this back if we drop supplementaries.
+            //if (!ModCompat.SPELUNKERY && !ModCompat.CAVERNS_AND_CHASMS && !ModCompat.SUPPLEMENTARIES)
+            //    y = RaspberryTags.SHOWS_XZ;
+            if (!ModCompat.CAVERNS_AND_CHASMS) {
+                barometer = RaspberryTags.SHOWS_TIME;
+            }
             var inventory = player.getInventory();
             if (ModConfig.get().overlay_requireItemInHand) {
                 var main = player.getMainHandItem();
                 var offhand = player.getOffhandItem();
-                CompassOverlay.hasCompass = main.is(xz) || offhand.is(xz);
-                if (!CompassOverlay.hasCompass)
-                    CompassOverlay.hasCompass = main.is(recoveryCompass) || offhand.is(recoveryCompass);
-                if (!CompassOverlay.hasCompass && ModCompat.SPELUNKERY)
-                    CompassOverlay.hasCompass = checkInventoryForItem(inventory, xz, "spelunkery:magentic_compass");
-                CompassOverlay.hasDepthGauge = main.is(y) || offhand.is(y);
-                ClockOverlay.hasClock = main.is(clock) || offhand.is(clock);
+                CompassOverlay.hasCompass = main.is(RaspberryTags.SHOWS_XZ) || offhand.is(RaspberryTags.SHOWS_XZ);
+                CompassOverlay.hasDepthGauge = main.is(RaspberryTags.SHOWS_Y) || offhand.is(RaspberryTags.SHOWS_Y);
+                ClockOverlay.hasClock = main.is(RaspberryTags.SHOWS_TIME) || offhand.is(RaspberryTags.SHOWS_TIME);
                 ClockOverlay.hasBarometer = main.is(barometer) || offhand.is(barometer);
-                if (ModCompat.CAVERNS_AND_CHASMS) {
-                    ClockOverlay.hasBarometer = checkInventoryForItem(inventory, barometer, "caverns_and_chasms:barometer");
-                    if (!CompassOverlay.hasDepthGauge) {
-                        y = CavernsAndChasmsCompat.getDepthGauge();
-                        CompassOverlay.hasDepthGauge = main.is(y) || offhand.is(y);
-                    }
-                } else {
-                    ClockOverlay.hasBarometer = ClockOverlay.hasClock;
-                }
 
             } else {
-                CompassOverlay.hasCompass = checkInventoryForItem(inventory, xz, "minecraft:compass");
-                if (!CompassOverlay.hasCompass)
-                    CompassOverlay.hasCompass = checkInventoryForItem(inventory, recoveryCompass, "minecraft:recovery_compass");
-                if (!CompassOverlay.hasCompass && ModCompat.SPELUNKERY)
-                    CompassOverlay.hasCompass = checkInventoryForItem(inventory, magneticCompass, "spelunkery:magentic_compass");
-                CompassOverlay.hasDepthGauge = checkInventoryForItem(inventory, y, "spelunkery:depth_gauge");
-                ClockOverlay.hasClock = checkInventoryForItem(inventory, clock, "minecraft:clock");
-                if (ModCompat.CAVERNS_AND_CHASMS) {
-                    ClockOverlay.hasBarometer = checkInventoryForItem(inventory, y, "caverns_and_chasms:barometer");
-                    if (!CompassOverlay.hasDepthGauge) {
-                        y = CavernsAndChasmsCompat.getDepthGauge();
-                        CompassOverlay.hasDepthGauge = checkInventoryForItem(inventory, y, "caverns_and_chasms:depth_gauge");
-                    }
-                } else {
-                    ClockOverlay.hasBarometer = ClockOverlay.hasClock;
-                }
+                CompassOverlay.hasCompass = checkInventoryForItem(inventory, RaspberryTags.SHOWS_XZ);
+                CompassOverlay.hasDepthGauge = checkInventoryForItem(inventory, y);
+                ClockOverlay.hasClock = checkInventoryForItem(inventory, RaspberryTags.SHOWS_TIME);
             }
         } else {
             CompassOverlay.hasCompass = false;
@@ -83,30 +58,47 @@ public class OverlayHelpers {
         }
     }
 
-    public static boolean checkInventoryForItem(Inventory inventory, Item item, String name) {
-        if (inventory.contains(item.getDefaultInstance())) {
+    public static Stream<ItemStack> getContents(ItemStack stack) {
+        CompoundTag compoundtag = stack.getTag();
+        if (compoundtag == null) {
+            return Stream.empty();
+        } else {
+            if (compoundtag.contains("Items")) {
+                ListTag listtag = compoundtag.getList("Items", 10);
+                return listtag.stream().map(CompoundTag.class::cast).map(ItemStack::of);
+            }
+            else if (compoundtag.contains("BlockEntityTag")) {
+                var compound = compoundtag.getCompound("BlockEntityTag");
+                ListTag listtag = compound.getList("Items", 10);
+                return listtag.stream().map(CompoundTag.class::cast).map(ItemStack::of);
+            }
+        }
+        return Stream.empty();
+    }
+
+
+    public static boolean checkInventoryForItem(Inventory inventory, TagKey<Item> item) {
+        if (inventory.contains(item)) {
             return true;
         }
+        else return checkInventoryForStack(inventory, item, null) != null;
+    }
+
+    public static ItemStack checkInventoryForStack(Inventory inventory, TagKey<Item> key, Item item) {
         if (ModConfig.get().overlay_searchContainers && hasContainer(inventory)) {
             for (ItemStack stack : inventory.items) {
-                if (stack.getTag() != null) {
-                    var items = stack.getTag().get("Items");
-                    if (items != null) {
-                        if (items.toString().contains(name)) {
-                            return true;
-                        }
-                    }
-                    var be = stack.getTag().get("BlockEntityTag");
-                    if (be != null) {
-                        if (be.toString().contains(name)) {
-                            return true;
-                        }
+                if (stack.is(RaspberryTags.CONTAINERS)) {
+                    List<ItemStack> contents = getContents(stack).toList();
+                    for (ItemStack content : contents) {
+                        if (key != null && content.is(key))
+                            return stack;
+                        else if (item != null && content.is(item))
+                            return stack;
                     }
                 }
             }
         }
-
-        return false;
+        return ItemStack.EMPTY;
     }
 
     private static boolean hasContainer(Inventory inventory) {

@@ -4,6 +4,14 @@
     {
       "id": "spelunkery:depth_gauge",
       "required": false
+    },
+    {
+      "id": "cavernsandchasms:depth_gauge",
+      "required": false
+    },
+    {
+      "id": "supplementaries:altimeter",
+      "required": false
     }
   ]
 }

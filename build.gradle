@@ -166,6 +166,7 @@ dependencies {
     modCompileOnly("local:ecologics-forge:1.19.2-2.1.11")
 
 
+
     // mods for testing purposes
     modImplementation("curse.maven:map-atlases-forge-519759:5138314")
     modImplementation("maven.modrinth:mmmmmmmmmmmm:1.7.2-forge")
