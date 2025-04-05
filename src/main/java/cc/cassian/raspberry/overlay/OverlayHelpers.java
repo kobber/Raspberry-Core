@@ -1,21 +1,14 @@
 package cc.cassian.raspberry.overlay;
 
 import cc.cassian.raspberry.ModCompat;
-import cc.cassian.raspberry.compat.CavernsAndChasmsCompat;
-import cc.cassian.raspberry.compat.SpelunkeryCompat;
 import cc.cassian.raspberry.config.ModConfig;
 import cc.cassian.raspberry.registry.RaspberryTags;
-import fuzs.easyshulkerboxes.api.container.v1.ContainerItemHelper;
-import fuzs.easyshulkerboxes.api.container.v1.provider.ItemContainerProvider;
-import net.mehvahdjukaar.supplementaries.common.items.SackItem;
 import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
-import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.BundleItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
