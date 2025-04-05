@@ -58,7 +58,7 @@ public class OverlayHelpers {
         }
     }
 
-    private static Stream<ItemStack> getContents(ItemStack stack) {
+    public static Stream<ItemStack> getContents(ItemStack stack) {
         CompoundTag compoundtag = stack.getTag();
         if (compoundtag == null) {
             return Stream.empty();
@@ -81,33 +81,24 @@ public class OverlayHelpers {
         if (inventory.contains(item)) {
             return true;
         }
+        else return checkInventoryForStack(inventory, item, null) != null;
+    }
+
+    public static ItemStack checkInventoryForStack(Inventory inventory, TagKey<Item> key, Item item) {
         if (ModConfig.get().overlay_searchContainers && hasContainer(inventory)) {
             for (ItemStack stack : inventory.items) {
                 if (stack.is(RaspberryTags.CONTAINERS)) {
                     List<ItemStack> contents = getContents(stack).toList();
                     for (ItemStack content : contents) {
-                        if (content.is(item))
-                            return true;
+                        if (key != null && content.is(key))
+                            return stack;
+                        else if (item != null && content.is(item))
+                            return stack;
                     }
                 }
-//                else if (stack.getTag() != null) {
-//                    var items = stack.getTag().get("Items");
-//                    if (items != null) {
-//                        if (items.toString().contains(name)) {
-//                            return true;
-//                        }
-//                    }
-//                    var be = stack.getTag().get("BlockEntityTag");
-//                    if (be != null) {
-//                        if (be.toString().contains(name)) {
-//                            return true;
-//                        }
-//                    }
-//                }
             }
         }
-
-        return false;
+        return ItemStack.EMPTY;
     }
 
     private static boolean hasContainer(Inventory inventory) {
