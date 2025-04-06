@@ -26,14 +26,9 @@ public class ClockOverlay {
             time = " " + time;
         }
 
-        int offset = 3;
+        int xOffset = 3;
         int yPlacement = ModConfig.get().overlay_position_clock_vertical;
-        int textureSize = 256;
         int fontWidth = mc.font.width(time);
-
-
-        int textureOffset = 9;  // only clock
-        int tooltipSize = 14;  // only clock
 
         if (mc.player == null) return;
         if (OverlayHelpers.playerHasPotions(mc.player)) {
@@ -42,25 +37,12 @@ public class ClockOverlay {
 
         int windowWidth = mc.getWindow().getGuiScaledWidth();
         int xPlacement = OverlayHelpers.getPlacement(windowWidth, fontWidth);
-        int endCapPlacement = OverlayHelpers.getEndCapPlacement(windowWidth, fontWidth);
-        int endCapOffset = 197;
         var poseStack = event.getPoseStack();
         RenderSystem.setShaderTexture(0, RaspberryMod.locate("textures/gui/tooltip.png"));
         if (hasClock) {
-            // render background
-            GuiComponent.blit(poseStack,
-                    xPlacement-offset-4, yPlacement-3,
-                    0, 0,
-                    textureOffset, fontWidth+offset+4, tooltipSize,
-                    textureSize, textureSize);
-            // render endcap
-            GuiComponent.blit(poseStack,
-                    endCapPlacement, yPlacement-3,
-                    0, endCapOffset,
-                    textureOffset, 3, tooltipSize,
-                    textureSize, textureSize);
+            OverlayHelpers.renderBackground(poseStack, windowWidth, fontWidth, xPlacement, xOffset, yPlacement, 7, 16);
             // render text
-            GuiComponent.drawString(poseStack, mc.font, time, xPlacement-offset, yPlacement, 14737632);
+            GuiComponent.drawString(poseStack, mc.font, time, xPlacement-xOffset, yPlacement, 14737632);
         }
     }
 

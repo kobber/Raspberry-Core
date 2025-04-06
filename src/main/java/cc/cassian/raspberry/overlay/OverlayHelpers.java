@@ -3,8 +3,9 @@ package cc.cassian.raspberry.overlay;
 import cc.cassian.raspberry.ModCompat;
 import cc.cassian.raspberry.config.ModConfig;
 import cc.cassian.raspberry.registry.RaspberryTags;
-import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
+import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiComponent;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.tags.TagKey;
@@ -12,7 +13,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.player.PlayerContainerEvent;
@@ -23,6 +23,27 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class OverlayHelpers {
+    public static final int textureSize = 256;
+
+    public static void renderBackground(PoseStack poseStack, int windowWidth, int fontWidth, int xPlacement, int offset, int yPlacement, int textureOffset, int tooltipSize) {
+        if (ModConfig.get().overlay_renderBackground) {
+            final int yPlacementWithOffset = yPlacement-4;
+            final int endCapOffset = 197;
+            // render background
+            GuiComponent.blit(poseStack,
+                    xPlacement-offset-4, yPlacementWithOffset,
+                    0, 0,
+                    textureOffset, fontWidth+offset+4, tooltipSize,
+                    OverlayHelpers.textureSize, OverlayHelpers.textureSize);
+            // render endcap
+            GuiComponent.blit(poseStack,
+                    OverlayHelpers.getEndCapPlacement(windowWidth, fontWidth), yPlacementWithOffset,
+                    0, endCapOffset,
+                    textureOffset, 3, tooltipSize,
+                    OverlayHelpers.textureSize, OverlayHelpers.textureSize);
+        }
+    }
+
     @SubscribeEvent
     public static void checkInventoryForOverlays(TickEvent.ClientTickEvent event){
         if ((ModConfig.get().overlay_compass_enable || ModConfig.get().overlay_clock_enable) && Minecraft.getInstance().level != null) {
@@ -33,6 +54,7 @@ public class OverlayHelpers {
     public static boolean playerHasPotions(Player player) {
         // Technically, we should check whether these are ambient,
         // but Map Atlases doesn't and still covers our overlay.
+        // return Player.areAllEffectsAmbient(player.getActiveEffects());
         return !player.getActiveEffects().isEmpty();
     }
 

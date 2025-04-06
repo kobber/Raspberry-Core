@@ -59,6 +59,7 @@
  "config.raspberry.config.overlay_position_compass_vertical": "Compass overlay position",
  "config.raspberry.config.overlay_position_clock_vertical": "Clock overlay position",
  "config.raspberry.config.overlay_leftalign": "Align overlay to the left edge",
+ "config.raspberry.config.overlay_renderBackground": "Show background",
 
  "emi.category.raspberry.anvil": "Runic Etching",
  "emi.category.farmersdelight.cooking": "Cooking",
