@@ -37,7 +37,9 @@ public class ClockOverlay {
         int yPlacement = ModConfig.get().overlay_position_clock_vertical;
         int textYPlacement = yPlacement;
         if (hasBarometer) {
-            iconOffset = 20;
+            if (hasClock) {
+                iconOffset = 20;
+            }
             textureOffset = 27;
             tooltipSize = 23;
             textYPlacement += 3;
@@ -54,8 +56,8 @@ public class ClockOverlay {
         int xPlacement = OverlayHelpers.getPlacement(windowWidth, fontWidth);
         var poseStack = event.getPoseStack();
         RenderSystem.setShaderTexture(0, OverlayHelpers.TEXTURE);
+        OverlayHelpers.renderBackground(poseStack, windowWidth, fontWidth, xPlacement, xOffset, yPlacement, textureOffset, tooltipSize);
         if (hasClock) {
-            OverlayHelpers.renderBackground(poseStack, windowWidth, fontWidth, xPlacement, xOffset, yPlacement, textureOffset, tooltipSize);
             // render text
             GuiComponent.drawString(poseStack, mc.font, time, xPlacement-xOffset+iconOffset, textYPlacement, 14737632);
         }
@@ -63,7 +65,7 @@ public class ClockOverlay {
             var spriteOffset = getWeather(mc.player);
             RenderSystem.setShaderTexture(0, OverlayHelpers.TEXTURE);
             GuiComponent.blit(poseStack,
-                    xPlacement-xOffset-2, yPlacement,
+                    xPlacement-xOffset-1, yPlacement,
                     0, spriteOffset,
                     95, 16, 16,
                     OverlayHelpers.textureSize, OverlayHelpers.textureSize);
