@@ -12,6 +12,7 @@ public final class ModCompat {
     public static final boolean ENVIRONMENTAL;
     public static final boolean FARMERS_DELIGHT;
     public static final boolean GLIDERS;
+    public static final boolean IMMERSIVE_OVERLAYS;
     public static final boolean OREGANIZED;
     public static final boolean MAP_ATLASES;
     public static final boolean NEAPOLITAN;
@@ -42,6 +43,7 @@ public final class ModCompat {
         ENVIRONMENTAL = mods.isLoaded("environmental");
         FARMERS_DELIGHT = mods.isLoaded("farmersdelight");
         GLIDERS = mods.isLoaded("vc_gliders");
+        IMMERSIVE_OVERLAYS = mods.isLoaded("immersiveoverlays");
         MAP_ATLASES = mods.isLoaded("map_atlases");
         MINING_MASTER = mods.isLoaded("miningmaster");
         NEAPOLITAN = mods.isLoaded("neapolitan");

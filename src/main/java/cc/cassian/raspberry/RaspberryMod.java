@@ -76,16 +76,17 @@ public final class RaspberryMod {
         if (FMLEnvironment.dist.isClient()) {
             // Register config
             registerModsPage(context);
-            MinecraftForge.EVENT_BUS.addListener(OverlayHelpers::checkInventoryForOverlays);
-            /* TODO, use these events instead of clienttick.
-            MinecraftForge.EVENT_BUS.addListener(OverlayHelpers::pickup);
-            MinecraftForge.EVENT_BUS.addListener(OverlayHelpers::join);
-            MinecraftForge.EVENT_BUS.addListener(OverlayHelpers::toss);
-            MinecraftForge.EVENT_BUS.addListener(OverlayHelpers::closeInventory);*/
-            MinecraftForge.EVENT_BUS.addListener(CompassOverlay::renderGameOverlayEvent);
-            MinecraftForge.EVENT_BUS.addListener(ClockOverlay::renderGameOverlayEvent);
+            if (!ModCompat.IMMERSIVE_OVERLAYS) {
+                MinecraftForge.EVENT_BUS.addListener(OverlayHelpers::checkInventoryForOverlays);
+                /* TODO, use these events instead of clienttick.
+                MinecraftForge.EVENT_BUS.addListener(OverlayHelpers::pickup);
+                MinecraftForge.EVENT_BUS.addListener(OverlayHelpers::join);
+                MinecraftForge.EVENT_BUS.addListener(OverlayHelpers::toss);
+                MinecraftForge.EVENT_BUS.addListener(OverlayHelpers::closeInventory);*/
+                MinecraftForge.EVENT_BUS.addListener(CompassOverlay::renderGameOverlayEvent);
+                MinecraftForge.EVENT_BUS.addListener(ClockOverlay::renderGameOverlayEvent);
+            }
         }
-
         TrackedDataManager.INSTANCE.registerData(locate("truffle_hunting_time"), WORM_HUNTING_TIME);
         TrackedDataManager.INSTANCE.registerData(locate("sniff_sound_time"), SNIFF_SOUND_TIME);
         TrackedDataManager.INSTANCE.registerData(locate( "truffle_pos"), WORM_POS);
