@@ -6,6 +6,9 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import net.mehvahdjukaar.supplementaries.configs.ClientConfigs;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiComponent;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.client.event.CustomizeGuiOverlayEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -27,8 +30,12 @@ public class ClockOverlay {
         }
 
         int xOffset = 3;
+        // The amount of offset needed to display the barometer icons, if visible.
+        int iconOffset = 0;
+        if (hasBarometer)
+            iconOffset = 20;
         int yPlacement = ModConfig.get().overlay_position_clock_vertical;
-        int fontWidth = mc.font.width(time);
+        int fontWidth = mc.font.width(time)+iconOffset;
 
         if (mc.player == null) return;
         if (OverlayHelpers.playerHasPotions(mc.player)) {
@@ -38,12 +45,37 @@ public class ClockOverlay {
         int windowWidth = mc.getWindow().getGuiScaledWidth();
         int xPlacement = OverlayHelpers.getPlacement(windowWidth, fontWidth);
         var poseStack = event.getPoseStack();
-        RenderSystem.setShaderTexture(0, RaspberryMod.locate("textures/gui/tooltip.png"));
+        RenderSystem.setShaderTexture(0, OverlayHelpers.TEXTURE);
         if (hasClock) {
             OverlayHelpers.renderBackground(poseStack, windowWidth, fontWidth, xPlacement, xOffset, yPlacement, 7, 16);
             // render text
-            GuiComponent.drawString(poseStack, mc.font, time, xPlacement-xOffset, yPlacement, 14737632);
+            GuiComponent.drawString(poseStack, mc.font, time, xPlacement-xOffset+iconOffset, yPlacement, 14737632);
         }
+        if (hasBarometer) {
+            var spriteOffset = getWeather(mc.player);
+            RenderSystem.setShaderTexture(0, OverlayHelpers.TEXTURE);
+            GuiComponent.blit(poseStack,
+                    xPlacement-xOffset-3, yPlacement-1,
+                    0, spriteOffset,
+                    95, 16, 16,
+                    OverlayHelpers.textureSize, OverlayHelpers.textureSize);
+        }
+    }
+
+    public static int getWeather(Player player) {
+        var level = player.level;
+        var biome = level.getBiome(player.blockPosition()).get();
+        if (!level.dimensionType().natural()) return 124; // Netherlike
+        else if (level.getLevelData().isThundering()) {
+            if (biome.coldEnoughToSnow(player.blockPosition())) return 96; // Snowing
+            if (biome.isHumid()) return 104; // Sandstorming
+            return 80; // Thundering
+        } else if (level.isRaining()) {
+            if (biome.coldEnoughToSnow(player.blockPosition())) return 96; // Snowing
+            if (biome.isHumid()) return 104; // Sandstorming
+            return 60; // Raining
+        }
+        return 0; // SUNNY
     }
 
     // CODE COPY - Supplementaries ClockBlock

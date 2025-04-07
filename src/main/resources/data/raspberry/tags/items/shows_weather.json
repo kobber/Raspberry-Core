@@ -2,7 +2,7 @@
   "replace": false,
   "values": [
     {
-      "id": "cavernsandchasms:clock",
+      "id": "caverns_and_chasms:barometer",
       "required": false
     }
   ]

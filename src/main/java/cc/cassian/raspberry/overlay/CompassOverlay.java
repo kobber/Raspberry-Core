@@ -80,7 +80,7 @@ public class CompassOverlay {
         int windowWidth = mc.getWindow().getGuiScaledWidth();
         int xPlacement = OverlayHelpers.getPlacement(windowWidth, fontWidth);
         var poseStack = event.getPoseStack();
-        RenderSystem.setShaderTexture(0, RaspberryMod.locate("textures/gui/tooltip.png"));
+        RenderSystem.setShaderTexture(0, OverlayHelpers.TEXTURE);
         // render background
         OverlayHelpers.renderBackground(poseStack, windowWidth, fontWidth, xPlacement, xOffset, yPlacement, textureOffset, tooltipSize);
         // render text
