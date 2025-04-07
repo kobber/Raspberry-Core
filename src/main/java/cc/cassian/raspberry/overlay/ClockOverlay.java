@@ -9,6 +9,7 @@ import net.minecraft.client.gui.GuiComponent;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.client.event.CustomizeGuiOverlayEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -76,16 +77,16 @@ public class ClockOverlay {
         var level = player.level;
         var biome = level.getBiome(player.blockPosition()).get();
         if (!level.dimensionType().natural()) return 124; // Netherlike
-        else if (level.getLevelData().isThundering()) {
-            if (biome.coldEnoughToSnow(player.blockPosition())) return 96; // Snowing
-            if (biome.isHumid()) return 104; // Sandstorming
-            return 80; // Thundering
+        else if (level.isThundering()) {
+            if (biome.coldEnoughToSnow(player.blockPosition())) return 92; // Snowing
+            if (biome.getPrecipitation().equals(Biome.Precipitation.NONE)) return 108; // Sandstorming
+            return 76; // Thundering
         } else if (level.isRaining()) {
-            if (biome.coldEnoughToSnow(player.blockPosition())) return 96; // Snowing
-            if (biome.isHumid()) return 104; // Sandstorming
+            if (biome.coldEnoughToSnow(player.blockPosition())) return 92; // Snowing
+            if (biome.getPrecipitation().equals(Biome.Precipitation.NONE)) return 108; // Sandstorming
             return 60; // Raining
         }
-        return 0; // SUNNY
+        return 0; // Sunny
     }
 
     // CODE COPY - Supplementaries ClockBlock
