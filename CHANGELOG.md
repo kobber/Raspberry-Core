@@ -11,9 +11,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Tags to control what items can be used for coordinate overlays.
 - Atlases can now be used in bundles (disabled in RF, requires config to allow use in inventory)
 
+### Changed
+- Tweaked Ash Stove Side texture (Kayla_the_Bee)
+
 ### Fixed
 - Compass overlays now work in multiplayer.
 - Replaced redirect in Spyglass Improvements to fix compatibility with Controllable.
+- Universal Bone Meal no longer breaks bone mealing flower blocks.
 
 
 ## [1.2] - 2024-04-04
