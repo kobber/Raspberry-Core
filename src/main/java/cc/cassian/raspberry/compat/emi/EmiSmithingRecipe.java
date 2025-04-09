@@ -1,6 +1,5 @@
-package cc.cassian.raspberry.compat;
+package cc.cassian.raspberry.compat.emi;
 
-import cc.cassian.raspberry.ModCompat;
 import cc.cassian.raspberry.RaspberryMod;
 import cofh.ensorcellation.init.EnsorcEnchantments;
 import com.brokenkeyboard.usefulspyglass.UsefulSpyglass;
@@ -10,8 +9,6 @@ import com.simibubi.create.AllItems;
 import com.teamabnormals.allurement.core.registry.AllurementEnchantments;
 import de.cadentem.additional_enchantments.registry.AEEnchantments;
 import dev.emi.emi.EmiUtil;
-import dev.emi.emi.api.EmiEntrypoint;
-import dev.emi.emi.api.EmiPlugin;
 import dev.emi.emi.api.EmiRegistry;
 import dev.emi.emi.api.recipe.EmiRecipe;
 import dev.emi.emi.api.recipe.EmiRecipeCategory;
@@ -22,7 +19,6 @@ import dev.emi.emi.api.stack.EmiStack;
 import dev.emi.emi.api.widget.WidgetHolder;
 import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
 import net.minecraft.core.Registry;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -40,182 +36,58 @@ import vectorwing.farmersdelight.common.tag.ForgeTags;
 
 import java.util.List;
 
-@EmiEntrypoint
-public class EmiCompat implements EmiPlugin {
-    public static EmiRecipeCategory ANVIL = new EmiRecipeCategory(RaspberryMod.locate("anvil"), EmiStack.of(Items.ANVIL));
+public class EmiSmithingRecipe implements EmiRecipe {
+    private final EmiIngredient input1;
+    private final EmiStack input2;
+    private final EmiStack output;
+    private final ResourceLocation id;
+    private final int uniq;
 
-    public static class EmiSmithingRecipe implements EmiRecipe {
-        private final EmiIngredient input1;
-        private final EmiStack input2;
-        private final EmiStack output;
-        private final ResourceLocation id;
-        private final int uniq;
-
-        public EmiSmithingRecipe(EmiIngredient input1, EmiStack input2, EmiStack output, ResourceLocation id) {
-            this.uniq = EmiUtil.RANDOM.nextInt();
-            this.input1 = input1;
-            this.input2 = input2;
-            this.output = output;
-            this.id = id;
-        }
-
-        public EmiRecipeCategory getCategory() {
-            return VanillaEmiRecipeCategories.SMITHING;
-        }
-
-        public ResourceLocation getId() {
-            return this.id;
-        }
-
-        public List<EmiIngredient> getInputs() {
-            return List.of(this.input1, this.input2);
-        }
-
-        public List<EmiStack> getOutputs() {
-            return List.of(this.output);
-        }
-
-        public boolean supportsRecipeTree() {
-            return false;
-        }
-
-        public int getDisplayWidth() {
-            return 125;
-        }
-
-        public int getDisplayHeight() {
-            return 18;
-        }
-
-        public void addWidgets(WidgetHolder widgets) {
-            widgets.addTexture(EmiTexture.PLUS, 27, 3);
-            widgets.addTexture(EmiTexture.EMPTY_ARROW, 75, 1);
-            widgets.addGeneratedSlot((r) -> this.input1, this.uniq, 0, 0);
-            widgets.addSlot(this.input2, 49, 0);
-            widgets.addGeneratedSlot((r) -> this.output, this.uniq, 107, 0).recipeContext(this);
-        }
+    public EmiSmithingRecipe(EmiIngredient input1, EmiStack input2, EmiStack output, ResourceLocation id) {
+        this.uniq = EmiUtil.RANDOM.nextInt();
+        this.input1 = input1;
+        this.input2 = input2;
+        this.output = output;
+        this.id = id;
     }
 
-    public static class EmiAnvilRecipe extends EmiSmithingRecipe {
-
-        public EmiAnvilRecipe(EmiIngredient input1, EmiStack input2, EmiStack output, ResourceLocation id) {
-            super(input1, input2, output, id);
-        }
-
-        @Override
-        public EmiRecipeCategory getCategory() {
-            return EmiCompat.ANVIL;
-        }
+    public EmiRecipeCategory getCategory() {
+        return VanillaEmiRecipeCategories.SMITHING;
     }
 
-    public static ResourceLocation tablet(String id) {
-        return new ResourceLocation("kubejs", id+"_tablet");
+    public ResourceLocation getId() {
+        return this.id;
     }
 
-    public static Item get(String id) {
-        return Registry.ITEM.get(tablet(id));
+    public List<EmiIngredient> getInputs() {
+        return List.of(this.input1, this.input2);
     }
 
-    private static Item getLeggings() {
-        return Items.DIAMOND_LEGGINGS;
+    public List<EmiStack> getOutputs() {
+        return List.of(this.output);
     }
 
-    private static Item getBoots() {
-        return Items.DIAMOND_BOOTS;
+    public boolean supportsRecipeTree() {
+        return false;
     }
 
-    private static Item getSword() {
-        return Items.DIAMOND_SWORD;
+    public int getDisplayWidth() {
+        return 125;
     }
 
-    private static Item getArmour() {
-        return Items.DIAMOND_CHESTPLATE;
+    public int getDisplayHeight() {
+        return 18;
     }
 
-    private static Item getTools() {
-        return Items.DIAMOND_PICKAXE;
+    public void addWidgets(WidgetHolder widgets) {
+        widgets.addTexture(EmiTexture.PLUS, 27, 3);
+        widgets.addTexture(EmiTexture.EMPTY_ARROW, 75, 1);
+        widgets.addGeneratedSlot((r) -> this.input1, this.uniq, 0, 0);
+        widgets.addSlot(this.input2, 49, 0);
+        widgets.addGeneratedSlot((r) -> this.output, this.uniq, 107, 0).recipeContext(this);
     }
 
-    public static void addRecipe(EmiRegistry emiRegistry, Item item, TagKey<Item> tag, Enchantment enchantment, Item tablet, String id) {
-        var enchantedGear = new ItemStack(item);
-        enchantedGear.enchant(enchantment, 1);
-        emiRegistry.addRecipe(new EmiSmithingRecipe(
-                EmiIngredient.of(tag),
-                EmiStack.of(new ItemStack(tablet)),
-                EmiStack.of(enchantedGear),
-                RaspberryMod.locate("/smithing/"+id)
-        ));
-    }
-
-    public static void addRecipe(EmiRegistry emiRegistry, Item item, Item tag, Enchantment enchantment, Item tablet, String id) {
-        var enchantedGear = new ItemStack(item);
-        enchantedGear.enchant(enchantment, 1);
-        emiRegistry.addRecipe(new EmiSmithingRecipe(
-                EmiIngredient.of(Ingredient.of(tag)),
-                EmiStack.of(new ItemStack(tablet)),
-                EmiStack.of(enchantedGear),
-                RaspberryMod.locate("/smithing/"+id)
-        ));
-    }
-
-    @Override
-    public void register(EmiRegistry emiRegistry) {
-        if (ModCompat.CREATE && ModCompat.DOMESTICATION_INNOVATION && ModCompat.ENSORCELLATION && ModCompat.SUPPLEMENTARIES && ModCompat.ALLUREMENT) {
-            addEnchantments(emiRegistry);
-        }
-        if (ModCompat.QUARK) {
-            emiRegistry.addWorkstation(EmiCompat.ANVIL, EmiStack.of(Items.ANVIL));
-            emiRegistry.addWorkstation(EmiCompat.ANVIL, EmiStack.of(Items.CHIPPED_ANVIL));
-            emiRegistry.addWorkstation(EmiCompat.ANVIL, EmiStack.of(Items.DAMAGED_ANVIL));
-            emiRegistry.addCategory(ANVIL);
-            addRunes(emiRegistry);
-        }
-    }
-
-    private final static String[] ALL_RUNES = {
-            "white",
-            "light_gray",
-            "gray",
-            "black",
-            "brown",
-            "red",
-            "orange",
-            "yellow",
-            "lime",
-            "green",
-            "cyan",
-            "light_blue",
-            "blue",
-            "purple",
-            "magenta",
-            "pink",
-            "rainbow"
-    };
-
-    private void addRunes(EmiRegistry emiRegistry) {
-        for (String dye : ALL_RUNES) {
-            var enchantedGear = new ItemStack(Items.DIAMOND_CHESTPLATE);
-            enchantedGear.enchant(Enchantments.PROJECTILE_PROTECTION, 1);
-            var runedGear = enchantedGear.copy();
-            var compound = runedGear.getOrCreateTag();
-            var quark = new CompoundTag();
-            var rune = Registry.ITEM.get(new ResourceLocation("quark", "%s_rune".formatted(dye)));
-            quark.putString("id", "quark:%s_rune".formatted(dye));
-            quark.putByte("Count", Byte.parseByte("64"));
-            compound.put("quark:RuneColor", quark);
-            compound.putByte("quark:RuneAttached", Byte.parseByte("1"));
-            runedGear.setTag(compound);
-            emiRegistry.addRecipe(new EmiAnvilRecipe(
-                    EmiStack.of(enchantedGear),
-                    EmiStack.of(new ItemStack(rune)),
-                    EmiStack.of(runedGear),
-                    RaspberryMod.locate("/etching/"+dye)
-            ));
-        }
-
-    }
-
-    public void addEnchantments(EmiRegistry emiRegistry) {
+    public static void addEnchantments(EmiRegistry emiRegistry) {
         final var EVERLASTING = get("everlasting");
         final var AQUATIC = get("aquatic");
         final var BEASTLY = get("beastly");
@@ -234,7 +106,7 @@ public class EmiCompat implements EmiPlugin {
         final var SWIFT = get("swift");
         final Enchantment GUARD_BREAK = ForgeRegistries.ENCHANTMENTS.getValue(ResourceLocation.tryBuild("kubejs", "guard_break"));
 
-       // EVERLASTING - UNRBEAKING
+        // EVERLASTING - UNRBEAKING
         addRecipe(emiRegistry, // ARMOUR
                 getArmour(), Tags.Items.ARMORS, Enchantments.UNBREAKING, EVERLASTING, "everlasting_armour");
         // EVERLASTING - UNBREAKING
@@ -507,5 +379,53 @@ public class EmiCompat implements EmiPlugin {
 
     }
 
+    private static Item getLeggings() {
+        return Items.DIAMOND_LEGGINGS;
+    }
 
+    private static Item getBoots() {
+        return Items.DIAMOND_BOOTS;
+    }
+
+    private static Item getSword() {
+        return Items.DIAMOND_SWORD;
+    }
+
+    private static Item getArmour() {
+        return Items.DIAMOND_CHESTPLATE;
+    }
+
+    private static Item getTools() {
+        return Items.DIAMOND_PICKAXE;
+    }
+
+    public static void addRecipe(EmiRegistry emiRegistry, Item item, TagKey<Item> tag, Enchantment enchantment, Item tablet, String id) {
+        var enchantedGear = new ItemStack(item);
+        enchantedGear.enchant(enchantment, 1);
+        emiRegistry.addRecipe(new EmiSmithingRecipe(
+                EmiIngredient.of(tag),
+                EmiStack.of(new ItemStack(tablet)),
+                EmiStack.of(enchantedGear),
+                RaspberryMod.locate("/smithing/"+id)
+        ));
+    }
+
+    public static void addRecipe(EmiRegistry emiRegistry, Item item, Item tag, Enchantment enchantment, Item tablet, String id) {
+        var enchantedGear = new ItemStack(item);
+        enchantedGear.enchant(enchantment, 1);
+        emiRegistry.addRecipe(new EmiSmithingRecipe(
+                EmiIngredient.of(Ingredient.of(tag)),
+                EmiStack.of(new ItemStack(tablet)),
+                EmiStack.of(enchantedGear),
+                RaspberryMod.locate("/smithing/"+id)
+        ));
+    }
+
+    public static ResourceLocation tablet(String id) {
+        return new ResourceLocation("kubejs", id+"_tablet");
+    }
+
+    public static Item get(String id) {
+        return Registry.ITEM.get(tablet(id));
+    }
 }

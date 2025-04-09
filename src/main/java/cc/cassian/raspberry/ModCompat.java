@@ -26,12 +26,14 @@ public final class ModCompat {
     public static final boolean ALLUREMENT;
     public static final boolean MINING_MASTER;
     public static final boolean DOMESTICATION_INNOVATION;
+    public static final boolean BETTER_BEACONS;
 
     static {
         var mods = ModList.get();
         ALLUREMENT = mods.isLoaded("allurement");
         ANOTHER_FURNITURE = mods.isLoaded("another_furniture");
         AQUACULTURE = mods.isLoaded("aquaculture");
+        BETTER_BEACONS = mods.isLoaded("better_beacons");
         CAVERNS_AND_CHASMS = mods.isLoaded("caverns_and_chasms");
         CLOTH_CONFIG = mods.isLoaded("cloth_config");
         COFH_CORE = mods.isLoaded("cofh_core");
