@@ -14,11 +14,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Tweaked Ash Stove Side texture (Kayla_the_Bee)
 - Overlays are now automatically disabled when Immersive Overlays is present.
+- Tweaked Moody Wildflower texture (ProbablyEkho)
 
 ### Fixed
 - Compass overlays now work in multiplayer.
 - Replaced redirect in Spyglass Improvements to fix compatibility with Controllable.
-
 
 ## [1.2] - 2024-04-04
 
