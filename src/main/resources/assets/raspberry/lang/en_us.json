@@ -62,9 +62,12 @@
  "config.raspberry.config.overlay_renderBackground": "Show background",
 
  "emi.category.raspberry.anvil": "Runic Etching",
+ "emi.category.raspberry.beacon_base": "Beacon Base Blocks",
  "emi.category.farmersdelight.cooking": "Cooking",
  "emi.category.farmersdelight.cutting": "Cutting Board",
  "emi.category.farmersdelight.decomposition": "Decomposition",
+
+ "emi.raspberry.beacon_base.amplifier": "Increases the amplifier of the primary effects to %s when used to construct the beacon.",
 
  "tag.item.c.crops.cabbage": "Cabbages",
  "tag.item.c.crops.onion": "Onions",

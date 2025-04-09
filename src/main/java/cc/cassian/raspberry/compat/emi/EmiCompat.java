@@ -2,40 +2,18 @@ package cc.cassian.raspberry.compat.emi;
 
 import cc.cassian.raspberry.ModCompat;
 import cc.cassian.raspberry.RaspberryMod;
-import cofh.ensorcellation.init.EnsorcEnchantments;
-import com.brokenkeyboard.usefulspyglass.UsefulSpyglass;
-import com.github.alexthe668.domesticationinnovation.server.enchantment.DIEnchantmentRegistry;
-import com.github.alexthe668.domesticationinnovation.server.item.DIItemRegistry;
-import com.simibubi.create.AllItems;
-import com.teamabnormals.allurement.core.registry.AllurementEnchantments;
-import de.cadentem.additional_enchantments.registry.AEEnchantments;
 import dev.emi.emi.api.EmiEntrypoint;
 import dev.emi.emi.api.EmiPlugin;
 import dev.emi.emi.api.EmiRegistry;
 import dev.emi.emi.api.recipe.EmiRecipeCategory;
-import dev.emi.emi.api.stack.EmiIngredient;
 import dev.emi.emi.api.stack.EmiStack;
-import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
-import net.minecraft.core.Registry;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.Enchantments;
-import net.minecraftforge.common.Tags;
-import net.minecraftforge.registries.ForgeRegistries;
-import org.infernalstudios.miningmaster.init.MMEnchantments;
-import vectorwing.farmersdelight.common.registry.ModEnchantments;
-import vectorwing.farmersdelight.common.registry.ModItems;
-import vectorwing.farmersdelight.common.tag.ForgeTags;
 
 @EmiEntrypoint
 public class EmiCompat implements EmiPlugin {
     public static EmiRecipeCategory ANVIL = new EmiRecipeCategory(RaspberryMod.locate("anvil"), EmiStack.of(Items.ANVIL));
+    public static EmiRecipeCategory BEACON_BASE = new EmiRecipeCategory(RaspberryMod.locate("beacon_base"), EmiStack.of(Items.BEACON));
+
 
     @Override
     public void register(EmiRegistry emiRegistry) {
@@ -48,6 +26,11 @@ public class EmiCompat implements EmiPlugin {
             emiRegistry.addWorkstation(EmiCompat.ANVIL, EmiStack.of(Items.DAMAGED_ANVIL));
             emiRegistry.addCategory(ANVIL);
             EmiEtchingRecipe.addRunes(emiRegistry);
+        }
+        if (ModCompat.BETTER_BEACONS) {
+            emiRegistry.addWorkstation(EmiCompat.BEACON_BASE, EmiStack.of(Items.BEACON));
+            emiRegistry.addCategory(BEACON_BASE);
+            EmiBeaconBaseRecipe.addBeaconRecipe(emiRegistry);
         }
     }
 
