@@ -52,9 +52,6 @@ public class RaspberryMixinPlugin implements IMixinConfigPlugin {
         else if (checkMixin("alloyed", mixinClassName)){
             return false;
         }
-        else if (checkMixin("map_atlases", mixinClassName)){
-            return false;
-        }
         else if (checkMixin("spyglass_improvements", mixinClassName)){
             return false;
         }

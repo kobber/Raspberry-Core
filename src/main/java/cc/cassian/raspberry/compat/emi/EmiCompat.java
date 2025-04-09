@@ -13,6 +13,7 @@ import net.minecraft.world.item.Items;
 public class EmiCompat implements EmiPlugin {
     public static EmiRecipeCategory ANVIL = new EmiRecipeCategory(RaspberryMod.locate("anvil"), EmiStack.of(Items.ANVIL));
     public static EmiRecipeCategory BEACON_BASE = new EmiRecipeCategory(RaspberryMod.locate("beacon_base"), EmiStack.of(Items.BEACON));
+    public static EmiRecipeCategory BEACON_PAYMENT = new EmiRecipeCategory(RaspberryMod.locate("beacon_payment"), EmiStack.of(Items.BEACON));
 
 
     @Override
@@ -31,6 +32,9 @@ public class EmiCompat implements EmiPlugin {
             emiRegistry.addWorkstation(EmiCompat.BEACON_BASE, EmiStack.of(Items.BEACON));
             emiRegistry.addCategory(BEACON_BASE);
             EmiBeaconBaseRecipe.addBeaconRecipe(emiRegistry);
+            emiRegistry.addWorkstation(EmiCompat.BEACON_PAYMENT, EmiStack.of(Items.BEACON));
+            emiRegistry.addCategory(BEACON_PAYMENT);
+            EmiBeaconPaymentRecipe.addBeaconRecipe(emiRegistry);
         }
     }
 

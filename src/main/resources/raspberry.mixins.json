@@ -46,8 +46,6 @@
 	"farmersdelight.FlintAndSteelMixin",
 	"farmersdelight.NetherStoveBlockMixin",
 	"farmersdelight.StoveBlockMixin",
-	"map_atlases.IMapCollectionImplMixin",
-	"map_atlases.MapAtlasAccessUtilsMixin",
 	"naturalist.SnakeMixin",
 	"oreganized.EnchantmentHelperMixin",
 	"oreganized.EntityMixin",
