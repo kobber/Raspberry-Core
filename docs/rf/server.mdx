@@ -3,11 +3,11 @@ title: Raspberry Flavoured - Server Pack Installation
 hide_meta: true
 ---
 
-The server pack will stay updated to the latest version of Raspberry Flavoured. Currently, the server pack is for 3.0-pre4.
+The server pack will stay updated to the latest version of Raspberry Flavoured. Currently, the server pack is for 3.0-pre4. This guide expects that you already know how to set up a vanilla server. If not, try the [tutorial on the Minecraft Wiki](https://minecraft.wiki/w/Tutorial:Setting_up_a_Java_Edition_server), or one of the many, many YouTube tutorials.
 
 ## Running a server with console access (packwiz-installer) (recommended)
 
-If you are not using a hosting service and are able to use a system terminal to run `.bat` and `.sh` scripts, this is the best option for you.
+If you are not using a hosting service and are able to use a system terminal to run `.bat` or `.sh` scripts, this is the best option for you.
 
 1. Create a directory for your server. This should be different than your Minecraft folder.
 1. Download my [server pack](https://asphodel.cc/resources/cf/Raspberry-Flavoured-3.0-pre2-Server-Pack.zip) and extract it to this server directory.
@@ -48,6 +48,10 @@ Both the server update scripts and the update command do the same thing, so its 
 
 ## Where's my run script?
 If `run.bat` and `run.sh` are not generated automatically by the update script, you'll need to download and run the [MinecraftForge](https://maven.minecraftforge.net/net/minecraftforge/forge/1.19.2-43.4.12/forge-1.19.2-43.4.12-installer.jar) server installer. I'd recommend pointing the installer at an empty folder, and then copy and pasting the files it downloads into your existing Raspberry Flavoured server directory.
+
+## Why can't it find user_jvm_args.txt?
+
+This error is usually only seen when the server does not have Java 17 or above installed. Minecraft 1.18 and above require Java 17, so you'll need to install an [updated version of Java](https://adoptium.net/) to be able to run the server. The latest release will work, currently this is Java 21. Make sure you check the box to update the JAVA_HOME environment variable when you install, or it might default to an older version of Java.
 
 ## I'm using a hosting provider, but the command fails saying it can't find Java?
 
