@@ -51,6 +51,7 @@
 	"oreganized.EntityMixin",
 	"quark.DoubleDoorOpeningModuleMixin",
 	"quark.ExpandedItemInteractionsModuleMixin",
+	"spyglass_improvements.EventsHandlerMixin",
 	"sullysmod.SMPlayerEventsMixin",
 	"supplementaries.BombItemMixin",
 	"supplementaries.RakedGravelBlockMixin",
