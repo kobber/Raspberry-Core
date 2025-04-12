@@ -1,67 +1,43 @@
-{{DISPLAYTITLE:Raspberry Flavoured - Unofficial Shader Guide}}
-{{Hide Metadata|true}}
+---
+title: Raspberry Flavoured - Unofficial Shader Guide
+hide_meta: true
+---
 
-{{Notice
-|type=warning
-|text=If something breaks while using this setup, '''do not''' report it in <code>#rf-support</code>. Contact <code>@nöelle</code> in the [https://discord.gg/jxNe26WNYh Raspberry Flavoured Discord] with logs/screenshots.
-}}
+This unofficial guide by nöelle covers how to set up your Raspberry Flavoured instance with shaders. Please note that if something breaks while you are using this setup DO NOT report it in #rf-support. Send \@nöelle a message in the [Raspberry Flavoured Discord](https://discord.gg/jxNe26WNYh) about the issue, with a log/screenshots if possible
 
-== Required Mods & Shaders ==
-Install these mods via Modrinth or your preferred mod manager:
+<hr />
 
-=== Core Mods ===
-* {{Mod|Oculus}} ([https://modrinth.com/mod/oculus/version/1.19.2-1.6.9a 1.19.2-1.6.9a])
-  * '''Important''': Uncheck "Rubidium" dependency during installation
-* {{Mod|Oculus Flywheel Compat}} ([https://modrinth.com/mod/iris-flw-compat/version/k5wcEnhS Required for Create mod performance])
+## Additional Installations
+### ‣ [Oculus](https://modrinth.com/mod/oculus/version/1.19.2-1.6.9a)
+    - (Uncheck "Rubidium" dependency before installing)
 
-=== Recommended Shaders ===
-* {{Shader|Complementary Reimagined}} ([https://modrinth.com/shader/complementary-reimagined/version/r5.4 r5.4])
-  * Considered the most stable option for Raspberry Flavoured
-  * Alternative: {{Shader|Complementary Unbound}} ([https://modrinth.com/shader/complementary-unbound Similar performance/features])
+### ‣ [Oculus Flywheel Compat](https://modrinth.com/mod/iris-flw-compat/version/k5wcEnhS)
+    - (This is needed otherwise create contraptions will tank your fps lol)
 
-=== Optional Configuration ===
-* [https://asphodel.cc/resources/cf/ComplementaryReimagined_r5.4.zip.txt nöelle's Shader Config]
-  * Pre-tuned to match RF's aesthetic
-  * Balanced performance/visual quality
+### ‣ [Complementary Shaders Reimagined](https://modrinth.com/shader/complementary-reimagined/version/r5.4)
+    - (nöelle deemed this to be the most stable shader, with [CS: Unbound](https://modrinth.com/shader/complementary-unbound) also worth considering since they're pretty similar)
 
-== Installation Guide ==
-{{TOC right}}
+### ‣ [Shader Config (Optional)](https://asphodel.cc/resources/cf/ComplementaryReimagined_r5.4.zip.txt)
+    - (nöelle's recommended config with tweaks to match the aesthetic of RF more, while not being too demanding graphically :3)
 
-=== Enabling Shaders ===
-1. Launch Raspberry Flavoured
-2. Open any world
-3. Navigate to: <code>Settings > Video Settings</code>
-4. Click <code>Shader Packs...</code> (top-right)
-5. Double-click your preferred shader to activate
+## Tutorial
+After installing the required files, open RF on any world, then open `Settings > Video Settings` you should now see the button `Shader Packs...` on the top right of the menu, click it and double click the shader in the list to enable it.
 
-=== Applying Custom Config ===
-1. In <code>Shader Packs...</code> menu, click <code>Shader Pack Settings...</code>
-2. Use the import button (top-right) to load the <code>.txt</code> config file
+If you want to use nöelle's Complementary Shaders config made for RF, on the `Shader Packs...` screen click `Shader Pack Settings...` and import the .txt using the button on the top right, next to the pack name.
 
-=== Troubleshooting ===
-'''Problem''': Visual glitches (dark polygons)
-* '''Solution''': Run command: <code>/flywheel backend instancing</code>
-* If issues persist with hotbar items:
-  1. Open any container (chest/inventory)
-  2. If unresolved, restart the game
+If the visuals are all messed up with a bunch of dark polygons invading your screen, try changing your flywheel rendering mode. Open the chat and type `/flywheel backend instancing` and press enter, the issue should be resolved, if some items in your hotbar persist bugged out try opening a container like a chest or your inventory and it should go back to normal, if not restart your game and you should be good.
 
-== Known Issues & Fixes ==
-{| class="wikitable"
-! Issue !! Solution
-|-
-| '''Sun/Moon missing''' || 
-1. Disable <code>Fog Looks Good Now</code> mod<br>
-2. ''or'' Navigate to <code>Settings > More Settings... > Mods & Configurations</code><br>
-3. Search for the mod > <code>Config > Modify > Client</code><br>
-4. Disable <code>Usecavefog</code>
-|-
-| '''Recipe book items appear darkened''' || 
-1. Open inventory > Click gear icon (bottom-left)<br>
-2. Search for <code>Use Batch Renderer</code><br>
-3. Set to <code>False</code>
-|}
+**IMPORTANT: If something breaks while using this setup DO NOT report it in #rf-support. Send \@nöelle a message in the Raspberry Flavoured Discord about the issue, with a log/screenshots if possible.**
 
-{{Gallery
-|image1=https://asphodel.cc/resources/cf/core/shaders.avif
-|caption1=Shader preview with Complementary Reimagined
-}}
+<hr />
+
+## KNOWN BUGS
+
+### Sun and Moon missing
+How to fix: Disable/Remove `Fog Looks Good Now`. Either do that from the mod list in your launcher, or in-game open `Settings > More Settings... > Mods & Configurations` search for the mod name, then click `Config > Modify > Client`  and then turn off `Usecavefog` at the bottom of the list.
+
+### Recipe book items appear darkened
+
+How to fix: Disable EMI's Batch Rendering. Open your inventory, and click the gear icon on the bottom left,  then in the search bar on the bottom of the screen search for `Use Batch Renderer` and set it to `False`.
+
+![](https://asphodel.cc/resources/cf/core/shaders.avif)
