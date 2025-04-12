@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Tags to control what items can be used for coordinate overlays.
 - Hardcoded EMI integration for Better Beacons, as running it through JEMI causes visual errors, especially on dedicated servers.
 - Spyglasses can now be used from a bundle when Spyglass Improvements is installed.
+- Horses with Leather Horse Armour can ride across Powder Snow.
 
 ### Changed
 - Tweaked Ash Stove Side texture (Kayla_the_Bee)

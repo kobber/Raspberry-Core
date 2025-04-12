@@ -16,6 +16,7 @@
 	"LevelSummaryMixin",
 	"PigMixin",
 	"PointedDripstoneBlockMixin",
+	"PowderSnowMixin",
 	"ScreenshotViewerMixin",
 	"SurvivalityUtilsMixin",
 	"alloyed.BlockEntityTypeMixin",
