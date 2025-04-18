@@ -18,7 +18,6 @@ public class ModConfig {
 
     private static ModConfig INSTANCE = new ModConfig();
     //General settings
-    public int endcap = 6;
     public boolean aftershock = true;
     public boolean stovesStartLit = false;
     public boolean campfiresStartLit = false;
@@ -32,17 +31,7 @@ public class ModConfig {
     public int aquaculture_goodBaitLureBonus = 3;
     public int aquaculture_wormDiscoveryRange = 80;
     public boolean create_blastproofing = true;
-    public boolean overlay_compass_enable = true;
-    public boolean overlay_clock_enable = true;
-    public int overlay_position_compass_vertical = 105;
-    public int overlay_position_clock_vertical = 90;
-    public boolean overlay_requireItemInHand = false;
-    public boolean overlay_searchContainers = true;
-    public String overlay_x_colour = "Red";
-    public String overlay_y_colour = "Green";
-    public String overlay_z_colour = "Blue";
-    public boolean overlay_leftalign = false;
-    public boolean overlay_renderBackground = true;
+    public boolean searchContainers = true;
 
 
     public static void load() {
