@@ -8,18 +8,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Snow layer block that obeys gravity.
-- Tags to control what items can be used for coordinate overlays.
 - Hardcoded EMI integration for Better Beacons, as running it through JEMI causes visual errors, especially on dedicated servers.
 - Spyglasses can now be used from a bundle when Spyglass Improvements is installed.
+- Backported trowel blacklist from Quark 1.20.
 
 ### Changed
 - Tweaked Ash Stove Side texture (Kayla_the_Bee)
-- Overlays are now automatically disabled when Immersive Overlays is present.
 - Tweaked Moody Wildflower texture (ProbablyEkho)
 
 ### Fixed
-- Compass overlays now work in multiplayer.
 - Replaced redirect in Spyglass Improvements to fix compatibility with Controllable.
+
+### Removed
+- Overlay functionality, as it is now part of Immersive Overlays.
 
 ## [1.2] - 2024-04-04
 

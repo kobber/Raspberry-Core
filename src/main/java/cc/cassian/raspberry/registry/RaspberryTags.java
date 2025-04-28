@@ -32,6 +32,7 @@ public class RaspberryTags {
 
     public static final TagKey<Item> HORSE_FOOD = createItemTag("horse_food");
     public static final TagKey<Item> CONTAINERS = createItemTag("container");
+    public static final TagKey<Item> TROWEL_BLACKLIST = createItemTag("trowel_blacklist");
 
     private static TagKey<Block> createBlockTag(String id) {
         return TagKey.create(ForgeRegistries.BLOCKS.getRegistryKey(), locate(id));
