@@ -47,7 +47,7 @@ repositories {
         name = "shedaniel - cloth config"
     }
     maven {
-        url = "https://maven.jaackson.me"
+        url = "https://maven.teamabnormals.com/"
     }
     exclusiveContent {
         forRepository {
