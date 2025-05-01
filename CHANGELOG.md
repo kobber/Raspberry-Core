@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Replaced redirect in Spyglass Improvements to fix compatibility with Controllable.
+- Rich Soil Farmland no longer converts to Dirt when trampled. (@SarahIsWeird)
 
 ### Removed
 - Overlay functionality, as it is now part of Immersive Overlays.
