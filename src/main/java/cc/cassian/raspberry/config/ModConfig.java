@@ -32,6 +32,7 @@ public class ModConfig {
     public int aquaculture_wormDiscoveryRange = 80;
     public boolean create_blastproofing = true;
     public boolean searchContainers = true;
+    public boolean horses_noWander = false;
 
 
     public static void load() {
