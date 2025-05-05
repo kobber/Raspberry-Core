@@ -10,9 +10,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyArg;
+import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(AbstractHorse.class)
@@ -39,5 +37,13 @@ public abstract class AbstractHorseMixin extends Mob {
         if (ModConfig.get().horses_noWander && isSaddled() && this.getLeashHolder() == null && !this.isVehicle())
             return(Vec3.ZERO);
         return input;
+    }
+
+    @ModifyConstant(method = "<init>", constant = @Constant(floatValue = 1.0f))
+    private float horseHigherStepHeight(float value){
+        if (ModConfig.get().horses_stepHeight) {
+            return 1.1f;
+        }
+        return value;
     }
 }
