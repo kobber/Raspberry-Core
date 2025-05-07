@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 public class MinecraftMixin {
     @WrapOperation(
             method = "handleKeybinds",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/client/KeyMapping;isDown()Z")
+            at = @At(value = "INVOKE", target = "Lnet/minecraft/client/KeyMapping;isDown()Z", ordinal=2)
     )
     private boolean handleSpyglassInput(KeyMapping instance, Operation<Boolean> original) {
         if (instance.isDown() || SpyglassImprovementsClient.useSpyglass.isDown()) {

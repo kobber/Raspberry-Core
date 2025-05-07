@@ -6,7 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.3] - 2024-04-04
+## [1.4] - 2024-05-07
+
+### Fixed
+- Issue with Useful Spyglass's keybind.
+
+## [1.3] - 2024-05-07
 
 ### Added
 - Snow layer block that obeys gravity.
