@@ -15,7 +15,7 @@ public class MinecraftMixin {
             at = @At(value = "INVOKE", target = "Lnet/minecraft/client/KeyMapping;isDown()Z")
     )
     private boolean handleSpyglassInput(KeyMapping instance, Operation<Boolean> original) {
-        if (SpyglassImprovementsClient.useSpyglass.isDown()) {
+        if (instance.isDown() || SpyglassImprovementsClient.useSpyglass.isDown()) {
             return true;
         } else {
             return original.call(instance);
