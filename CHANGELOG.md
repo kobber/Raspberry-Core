@@ -6,11 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3] - 2024-04-04
+
 ### Added
 - Snow layer block that obeys gravity.
 - Hardcoded EMI integration for Better Beacons, as running it through JEMI causes visual errors, especially on dedicated servers.
 - Spyglasses can now be used from a bundle when Spyglass Improvements is installed.
 - Backported trowel blacklist from Quark 1.20.
+- Saddled horses no longer wander.
+- Horses can now step up path blocks.
 
 ### Changed
 - Tweaked Ash Stove Side texture (Kayla_the_Bee)
@@ -19,6 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Replaced redirect in Spyglass Improvements to fix compatibility with Controllable.
 - Rich Soil Farmland no longer converts to Dirt when trampled. (@SarahIsWeird)
+- Rich Soil Farmland no longer prevents fall damage. (@SarahIsWeird)
 
 ### Removed
 - Overlay functionality, as it is now part of Immersive Overlays.
