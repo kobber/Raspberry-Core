@@ -45,6 +45,10 @@
     {
       "id": "raspberry:clovers",
       "required": false
+    },
+    {
+      "id": "spelunkery:tangle_roots",
+      "required": false
     }
   ]
 }
