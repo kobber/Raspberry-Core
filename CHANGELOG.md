@@ -11,7 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Foxes no longer drop Rabbit's Feet.
-- Launching no longer shows as an option for axes in EMI.
+- Launching no longer shows as an option for axes (RF/EMI).
+- Tangle roots show that they're shearable. (Dynamic Crosshair)
 
 ## [1.4] - 2024-05-07
 
