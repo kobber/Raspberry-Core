@@ -184,10 +184,6 @@ public class EmiSmithingRecipe implements EmiRecipe {
                 getSword(), Tags.Items.TOOLS_SWORDS,
                 AllurementEnchantments.LAUNCH.get(), FLINGING,
                 "launch_sword");
-        addRecipe(emiRegistry,
-                Items.DIAMOND_AXE, Tags.Items.TOOLS_AXES,
-                AllurementEnchantments.LAUNCH.get(), FLINGING,
-                "launch_axe");
         // FLINGING - VOLLEY
         addRecipe(emiRegistry,
                 Items.BOW, Tags.Items.TOOLS_BOWS,
