@@ -21,6 +21,7 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.AbstractCandleBlock;
 import net.minecraft.world.level.block.Block;
@@ -56,6 +57,11 @@ public class RaspberryCakeBlock extends Block {
         this.cakeSliceItemID = cakeSlice.toString();
         this.registerDefaultState(this.stateDefinition.any().setValue(BITES, 0).setValue(CANDLE_TYPE, 0).setValue(LIT, false));
 
+    }
+
+    @Override
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
+        return this.defaultBlockState().setValue(LIT, false);
     }
 
     public RaspberryCakeBlock(Properties properties, String cakeSlice) {
