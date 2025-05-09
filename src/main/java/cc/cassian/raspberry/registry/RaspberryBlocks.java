@@ -1,13 +1,12 @@
 package cc.cassian.raspberry.registry;
 
 import cc.cassian.raspberry.ModCompat;
-import cc.cassian.raspberry.blocks.FlowerBedBlock;
-import cc.cassian.raspberry.blocks.RaspberryCakeBlock;
-import cc.cassian.raspberry.blocks.GravitationalSnowLayerBlock;
-import cc.cassian.raspberry.blocks.RaspberryGravelBlock;
+import cc.cassian.raspberry.blocks.*;
 import cc.cassian.raspberry.compat.CopperBackportCompat;
 import cc.cassian.raspberry.compat.EnvironmentalCompat;
+import net.mehvahdjukaar.supplementaries.common.block.blocks.AshLayerBlock;
 import net.mehvahdjukaar.supplementaries.common.block.blocks.RakedGravelBlock;
+import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -133,6 +132,11 @@ public class RaspberryBlocks {
     public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
             SNOW_LAYER = registerBlock("snow",
             ()-> new GravitationalSnowLayerBlock(BlockBehaviour.Properties.copy(Blocks.SNOW)), CreativeModeTab.TAB_DECORATIONS);
+
+    public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
+            ASH_BLOCK = registerBlock("ash_block",
+            ()-> new AshBlock(BlockBehaviour.Properties.copy(ModRegistry.ASH_BLOCK.get())), CreativeModeTab.TAB_BUILDING_BLOCKS);
+
 
     private static BlockBehaviour.Properties flowerBedProperties() {
         return BlockBehaviour.Properties.of(Material.PLANT).noCollission().sound(SoundType.FLOWERING_AZALEA);

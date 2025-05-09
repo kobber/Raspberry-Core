@@ -57,7 +57,7 @@ public class GravitationalSnowLayerBlock extends SnowLayerBlock implements Falla
 
     public static boolean isFree(BlockState state) {
         Material material = state.getMaterial();
-        if (state.is(RaspberryBlocks.getBlock(RaspberryBlocks.SNOW_LAYER))) return false;
+        if (state.getBlock() instanceof AshBlock || state.getBlock() instanceof GravitationalSnowLayerBlock) return false;
         return state.isAir() || state.is(BlockTags.FIRE) || material.isLiquid() || material.isReplaceable();
     }
 
