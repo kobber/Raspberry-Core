@@ -30,6 +30,7 @@
     "brewinandchewin.KegBlockEntityMixin",
     "caverns_and_chasms.BrazierBlockMixin",
     "cofh_core.EffectEventsMixin",
+    "cofh_core.SnowballMixin",
     "create.AllFluidsMixin",
     "create.BlastingTypeMixin",
     "create.FanProcessingMixin",
