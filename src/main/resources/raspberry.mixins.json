@@ -33,6 +33,7 @@
     "cofh_core.SnowballMixin",
     "create.AllFluidsMixin",
     "create.BlastingTypeMixin",
+    "create.DeployerHandlerMixin",
     "create.FanProcessingMixin",
     "create.GogglesItemMixin",
     "create.MountedStorageMixin",
