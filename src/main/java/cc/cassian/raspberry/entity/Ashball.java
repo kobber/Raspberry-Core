@@ -57,9 +57,10 @@ public class Ashball extends ThrowableItemProjectile {
         Entity entity = result.getEntity();
         if (entity instanceof LivingEntity livingEntity) {
             if (livingEntity.isAffectedByPotions()) {
-                livingEntity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 600));
+                livingEntity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 100));
             }
         }
+        entity.hurt(DamageSource.thrown(this, this.getOwner()), 0);
     }
 
     @Override
