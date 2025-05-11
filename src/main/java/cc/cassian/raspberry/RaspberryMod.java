@@ -5,10 +5,7 @@ import cc.cassian.raspberry.compat.*;
 import cc.cassian.raspberry.compat.oreganized.OreganizedEvents;
 import cc.cassian.raspberry.compat.oreganized.network.RaspberryOreganizedNetwork;
 import cc.cassian.raspberry.config.ModConfig;
-import cc.cassian.raspberry.registry.RaspberryAttributes;
-import cc.cassian.raspberry.registry.RaspberryBlocks;
-import cc.cassian.raspberry.registry.RaspberryItems;
-import cc.cassian.raspberry.registry.RasperryMobEffects;
+import cc.cassian.raspberry.registry.*;
 import com.teamabnormals.blueprint.common.world.storage.tracking.DataProcessors;
 import com.teamabnormals.blueprint.common.world.storage.tracking.TrackedData;
 import com.teamabnormals.blueprint.common.world.storage.tracking.TrackedDataManager;
@@ -18,6 +15,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.client.ConfigScreenHandler;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
@@ -57,6 +55,7 @@ public final class RaspberryMod {
         RaspberryBlocks.register(eventBus);
         RaspberryItems.ITEMS.register(eventBus);
         RasperryMobEffects.MOB_EFFECTS.register(eventBus);
+        RaspberryEntityTypes.ENTITIES.register(eventBus);
         // Register event bus listeners.
         MinecraftForge.EVENT_BUS.addListener(this::onItemTooltipEvent);
         MinecraftForge.EVENT_BUS.addListener(this::onEntityInteract);
