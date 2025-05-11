@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Storage block for Ash (Supplementaries).
 
+### Changed
+- Moved Blueprint to an optional dependency.
+
 ### Fixed
 - Backported fix for players deploying gliders in boats (Gliders).  
 - Foxes no longer spawn with Rabbit's Feet.
