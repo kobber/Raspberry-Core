@@ -20,6 +20,7 @@
     "PointedDripstoneBlockMixin",
     "ScreenshotViewerMixin",
     "SurvivalityUtilsMixin",
+    "ThrowableProjectileMixin",
     "alloyed.BlockEntityTypeMixin",
     "aquaculture.AquaFishingBobberEntityMixin",
     "aquaculture.AquaFishingRodItemMixin",
