@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Modded melee weapons can now be enchanted with weapon enchantments. (Clash, Raspberry Flavoured)
+- Tom's Simple Storage can now be searched in a way that should be more familiar to EMI users. (@SarahIsWeird)
 
 ### Fixed
 - Backported Soap recipe fix from 1.20 (Supplementaries)
