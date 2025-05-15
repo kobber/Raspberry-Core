@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Tom's Simple Storage can now be searched in a way that should be more familiar to EMI users. (@SarahIsWeird)
 
 ### Fixed
+- Unintentional dep on CoFH Core
 - Backported Soap recipe fix from 1.20 (Supplementaries)
 
 ## [1.5] - 2025-05-13
