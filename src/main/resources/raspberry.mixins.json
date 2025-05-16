@@ -9,6 +9,7 @@
   ],
   "mixins": [
     "AbstractHorseMixin",
+    "ArmorStandMixin",
     "CampfireBlockMixin",
     "CoconutSliceItemMixin",
     "EnchantmentMixin",
@@ -61,6 +62,7 @@
     "oreganized.EntityMixin",
     "quark.DoubleDoorOpeningModuleMixin",
     "quark.ExpandedItemInteractionsModuleMixin",
+    "quark.QuickArmorSwappingModuleMixin",
     "quark.TrowelItemMixin",
     "spyglass_improvements.EventsHandlerMixin",
     "sullysmod.SMPlayerEventsMixin",
