@@ -1,25 +1,22 @@
 package cc.cassian.raspberry.mixin;
 
 import cc.cassian.raspberry.compat.GlidersCompat;
-import net.minecraft.world.InteractionHand;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.decoration.ArmorStand;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.phys.Vec3;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ArmorStand.class)
 public class ArmorStandMixin {
-    @Inject(method = "interactAt", at = @At("HEAD"), cancellable = true)
-    public void doNotTakeGliders(Player player, Vec3 vec, InteractionHand hand, CallbackInfoReturnable<InteractionResult> cir) {
-        ItemStack stack = player.getItemInHand(hand);
+    @WrapOperation(method = "interactAt", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Mob;getEquipmentSlotForItem(Lnet/minecraft/world/item/ItemStack;)Lnet/minecraft/world/entity/EquipmentSlot;"))
+    public EquipmentSlot doNotTakeGliders(ItemStack stack, Operation<EquipmentSlot> original) {
         if (GlidersCompat.isGlider(stack)) {
-            cir.setReturnValue(InteractionResult.FAIL);
-            cir.cancel();
+            return EquipmentSlot.MAINHAND;
         }
+        return original.call(stack);
     }
 }
