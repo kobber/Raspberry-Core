@@ -35,7 +35,8 @@ public class ModConfig {
     public boolean searchContainers = true;
     public boolean horses_noWander = true;
     public boolean horses_stepHeight = true;
-
+    public boolean emi_tablets = true;
+    public boolean toms_hideBeacon = true;
 
     public static void load() {
         if (!Files.exists(configPath())) {

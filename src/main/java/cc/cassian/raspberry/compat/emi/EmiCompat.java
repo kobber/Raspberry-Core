@@ -2,6 +2,7 @@ package cc.cassian.raspberry.compat.emi;
 
 import cc.cassian.raspberry.ModCompat;
 import cc.cassian.raspberry.RaspberryMod;
+import cc.cassian.raspberry.config.ModConfig;
 import dev.emi.emi.api.EmiEntrypoint;
 import dev.emi.emi.api.EmiPlugin;
 import dev.emi.emi.api.EmiRegistry;
@@ -18,7 +19,7 @@ public class EmiCompat implements EmiPlugin {
 
     @Override
     public void register(EmiRegistry emiRegistry) {
-        if (ModCompat.CREATE && ModCompat.DOMESTICATION_INNOVATION && ModCompat.ENSORCELLATION && ModCompat.SUPPLEMENTARIES && ModCompat.ALLUREMENT) {
+        if (ModConfig.get().emi_tablets && ModCompat.CREATE && ModCompat.DOMESTICATION_INNOVATION && ModCompat.ENSORCELLATION && ModCompat.SUPPLEMENTARIES && ModCompat.ALLUREMENT) {
             EmiSmithingRecipe.addEnchantments(emiRegistry);
         }
         if (ModCompat.QUARK) {
