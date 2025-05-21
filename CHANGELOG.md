@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Knight Jump can no longer be used in water, preventing accidental durability loss. (Mining Master)
+
 ### Fixed
 - Cartographer's Quills not having names set correctly.
 

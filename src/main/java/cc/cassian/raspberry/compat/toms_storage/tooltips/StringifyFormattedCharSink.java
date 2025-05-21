@@ -1,4 +1,4 @@
-package cc.cassian.raspberry.misc.toms_storage.tooltips;
+package cc.cassian.raspberry.compat.toms_storage.tooltips;
 
 import net.minecraft.network.chat.Style;
 import net.minecraft.util.FormattedCharSink;

@@ -1,4 +1,4 @@
-package cc.cassian.raspberry.misc.toms_storage;
+package cc.cassian.raspberry.compat.toms_storage;
 
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 

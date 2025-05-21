@@ -1,4 +1,4 @@
-package cc.cassian.raspberry.misc.toms_storage.filters;
+package cc.cassian.raspberry.compat.toms_storage.filters;
 
 import com.tom.storagemod.util.StoredItemStack;
 import net.minecraft.world.item.BlockItem;

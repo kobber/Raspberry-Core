@@ -57,6 +57,7 @@
     "farmersdelight.RichSoilFarmlandBlockMixin",
     "farmersdelight.StoveBlockMixin",
     "minecraft.ScreenMixin",
+    "miningmaster.KnightJumpEnchantmentMixin",
     "naturalist.SnakeMixin",
     "oreganized.EnchantmentHelperMixin",
     "oreganized.EntityMixin",

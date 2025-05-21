@@ -1,4 +1,4 @@
-package cc.cassian.raspberry.misc.toms_storage.tooltips;
+package cc.cassian.raspberry.compat.toms_storage.tooltips;
 
 import com.google.common.cache.CacheLoader;
 import com.tom.storagemod.util.StoredItemStack;
