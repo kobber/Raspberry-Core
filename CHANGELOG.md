@@ -6,11 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Direct EMI integration for Brewin and Chewin.
+
 ### Changed
 - Knight Jump can no longer be used in water, preventing accidental durability loss. (Mining Master)
 
 ### Fixed
-- Cartographer's Quills not having names set correctly.
+- Cartographer's Quills not having names set correctly. (Supplementaries)
+- Respiration tablet recipe using Iron Helmets instead of the helmet tag (EMI, Raspberry Flavoured)
 
 ## [1.6] - 2025-05-19
 

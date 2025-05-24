@@ -115,7 +115,7 @@ public class EmiSmithingRecipe implements EmiRecipe {
 
         // AQUATIC - RESPIRATION
         addRecipe(emiRegistry, // HELMETS
-                Items.IRON_HELMET, Items.IRON_HELMET,
+                Items.IRON_HELMET, Tags.Items.ARMORS_HELMETS,
                 Enchantments.RESPIRATION, AQUATIC,
                 "respiration_helmet");
         addRecipe(emiRegistry, // BACKTANKS

@@ -69,10 +69,10 @@
  "emi.category.farmersdelight.decomposition": "Decomposition",
  "emi.category.brewinandchewin.fermenting": "Fermenting",
 
- "emi.brewinandchewin.fermenting.hot": "Requires at least two heat source blocks placed near the Keg.",
- "emi.brewinandchewin.fermenting.warm": "Requires at least one heat source block placed near the Keg.",
- "emi.brewinandchewin.fermenting.cold": "Requires at least one cold source block placed near the Keg.",
- "emi.brewinandchewin.fermenting.frigid": "Requires at least two cold source blocks placed near the Keg.",
+ "emi.brewinandchewin.fermenting.hot": "Requires at least two heat sources placed against the Keg.",
+ "emi.brewinandchewin.fermenting.warm": "Requires at least one heat source placed against the Keg.",
+ "emi.brewinandchewin.fermenting.cold": "Requires at least one cold source placed against the Keg.",
+ "emi.brewinandchewin.fermenting.frigid": "Requires at least two cold sources placed against the Keg.",
 
  "emi.raspberry.beacon_base.amplifier": "Increases the amplifier of the primary effects to %s when used to construct the beacon.",
  "emi.raspberry.beacon_payment.amplifier": "Extends Beacon range by %s blocks when used to activate the beacon.",
