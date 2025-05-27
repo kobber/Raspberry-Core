@@ -12,8 +12,13 @@ import static cc.cassian.raspberry.RaspberryMod.locate;
 public class RaspberrySoundEvents {
     public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, MOD_ID);
 
-
     public static final RegistryObject<SoundEvent> ASHBALL_THROW = register("entity.ashball.throw");
+    public static final RegistryObject<SoundEvent> CRUNCHY_FRUIT_SOUNDS = register("entity.crunchy_fruit.eat");
+    public static final RegistryObject<SoundEvent> SOFT_FRUIT_SOUNDS = register("entity.soft_fruit.eat");
+    public static final RegistryObject<SoundEvent> DRIED_KELP_SOUNDS = register("entity.dried_kelp.eat");
+    public static final RegistryObject<SoundEvent> STEW_SOUNDS = register("entity.stew.eat");
+    public static final RegistryObject<SoundEvent> VEGETABLE_SOUNDS = register("entity.vegetable.eat");
+
 
     private static RegistryObject<SoundEvent> register(String key) {
         return SOUNDS.register(key, ()-> new SoundEvent(locate(key)));

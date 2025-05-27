@@ -15,6 +15,7 @@
     "EnchantmentMixin",
     "FoxMixin",
     "GreatbladeSlashEntityMixin",
+    "ItemMixin",
     "ItemStackMixin",
     "LevelSummaryMixin",
     "MapCollectionMixin",

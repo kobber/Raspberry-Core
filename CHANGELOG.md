@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Direct EMI integration for Brewin and Chewin.
+- Backported Auditory Continued sounds for various eating sounds.
 
 ### Changed
 - Knight Jump can no longer be used in water, preventing accidental durability loss. (Mining Master)
