@@ -188,7 +188,8 @@ dependencies {
     modImplementation("maven.modrinth:domestication-innovation:1.6.1")
     modImplementation("curse.maven:citadel-331936:4556677") // dependency of domestication innovation
 
-
+    // Bundled mods
+    modImplementation(include("com.davigj.sage_brush:sage_brush-1.19.2-0.1.0-all"))
 
     // beacons
     modImplementation("curse.maven:just-enough-beacons-reforged-912266:$jeb_reforged_version")
