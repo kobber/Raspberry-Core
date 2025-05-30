@@ -62,6 +62,7 @@
     "naturalist.SnakeMixin",
     "oreganized.EnchantmentHelperMixin",
     "oreganized.EntityMixin",
+    "oreganized.SilverMirrorItemMixin",
     "quark.DoubleDoorOpeningModuleMixin",
     "quark.ExpandedItemInteractionsModuleMixin",
     "quark.QuickArmorSwappingModuleMixin",

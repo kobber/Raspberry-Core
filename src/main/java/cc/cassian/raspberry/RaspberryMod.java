@@ -58,6 +58,7 @@ public final class RaspberryMod {
             RaspberryAttributes.ATTRIBUTES.register(eventBus);
             RaspberryOreganizedNetwork.register();
             MinecraftForge.EVENT_BUS.addListener(OreganizedEvents::onItemAttributes);
+            MinecraftForge.EVENT_BUS.addListener(OreganizedEvents::onHurtEvent);
         }
         if (FMLEnvironment.dist.isClient()) {
             // Register config

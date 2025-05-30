@@ -27,6 +27,7 @@ public class RaspberryTags {
     public static final TagKey<Block> KNIVES_SHOULD_USE = createBlockTag("useable/knives");
     public static final TagKey<Block> AXES_SHOULD_USE = createBlockTag("useable/axes");
     public static final TagKey<Block> HOES_SHOULD_USE = createBlockTag("useable/hoes");
+    public static final TagKey<Block> MIRROR_DETECTABLES = createBlockTag("mirror_detectables");
 
     public static final TagKey<Block> INTERACTABLE_METAL_DOORS = createBlockTag("interactable_metal_doors");
 
