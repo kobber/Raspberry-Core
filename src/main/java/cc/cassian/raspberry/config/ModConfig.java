@@ -37,6 +37,10 @@ public class ModConfig {
     public boolean horses_stepHeight = true;
     public boolean emi_tablets = true;
     public boolean toms_hideBeacon = true;
+    public int mirrorSearchRadius = 24;
+    public int mirrorVerticalSearchRadius = 12;
+    public int mirrorParticleSearchRadius = 48;
+    public int mirrorVerticalParticleSearchRadius = 24;
 
     public static void load() {
         if (!Files.exists(configPath())) {

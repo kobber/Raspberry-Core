@@ -1,5 +1,6 @@
 package cc.cassian.raspberry.mixin.oreganized;
 
+import cc.cassian.raspberry.config.ModConfig;
 import cc.cassian.raspberry.registry.RaspberryTags;
 import galena.oreganized.content.ISilver;
 import galena.oreganized.content.item.SilverMirrorItem;
@@ -14,18 +15,18 @@ import javax.annotation.Nullable;
 @Pseudo
 @Mixin(SilverMirrorItem.class)
 public class SilverMirrorItemMixin implements ISilver {
-
     @Override
     public int getUndeadDistance(Level world, BlockPos origin, @Nullable Player player, int frames) {
-        final int radius = 24;
-        int closestCigar = frames;
-
+        // I'm gonna be honest I still don't really even know what frames means in this context, i assume it's like. the different possible blue textures ?
+        final int radius = ModConfig.get().mirrorSearchRadius;
         BlockPos.MutableBlockPos searchPos = new BlockPos.MutableBlockPos();
+        int radiusSq = radius * radius;
 
-        outer: // first time doing outerloop stuff thanks stackoverflow
         for (int dx = -radius; dx <= radius; dx++) {
-            for (int dy = -radius; dy <= radius; dy++) {
+            for (int dy = -ModConfig.get().mirrorVerticalSearchRadius; dy <= ModConfig.get().mirrorVerticalSearchRadius; dy++) {
                 for (int dz = -radius; dz <= radius; dz++) {
+                    if (dx * dx + dy * dy + dz * dz > radiusSq) continue;
+
                     searchPos.set(origin.getX() + dx, origin.getY() + dy, origin.getZ() + dz);
 
                     if (world.getBlockState(searchPos).is(RaspberryTags.MIRROR_DETECTABLES)) {
@@ -33,22 +34,14 @@ public class SilverMirrorItemMixin implements ISilver {
                                 ? Math.sqrt(searchPos.distToCenterSqr(player.position()))
                                 : Math.sqrt(searchPos.distSqr(origin));
 
-                        int closeness = (int) Math.ceil(dist / (radius / (double) frames));
+                        if (dist < 6.0) return 1;
 
-                        if (dist < 6.0) {
-                            closestCigar = 1;
-                            break outer;
-                        } else {
-                            closestCigar = Math.min(Math.max(closeness, 2), closestCigar);
-                        }
+                        int closeness = (int) Math.ceil(dist / (radius / (double) frames));
+                        return Math.min(Math.max(closeness, 2), frames);
                     }
                 }
             }
         }
-
-        return closestCigar;
+        return frames;
     }
-
-
-
 }

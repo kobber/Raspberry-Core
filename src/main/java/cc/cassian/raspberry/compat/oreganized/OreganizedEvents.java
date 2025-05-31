@@ -23,7 +23,9 @@
 package cc.cassian.raspberry.compat.oreganized;
 
 import cc.cassian.raspberry.compat.CavernsAndChasmsCompat;
+import cc.cassian.raspberry.config.ModConfig;
 import cc.cassian.raspberry.registry.RaspberryAttributes;
+import cc.cassian.raspberry.registry.RaspberryParticleTypes;
 import cc.cassian.raspberry.registry.RaspberryTags;
 import com.teamabnormals.caverns_and_chasms.core.registry.CCParticleTypes;
 import galena.oreganized.content.item.SilverMirrorItem;
@@ -71,40 +73,45 @@ public class OreganizedEvents {
     public static void onHurtEvent(LivingAttackEvent event) {
         LivingEntity victim = event.getEntity();
         if (!(event.getSource().getDirectEntity() instanceof Player perp)) return;
-        ItemStack held = perp.getMainHandItem();
-        if (!(held.getItem() instanceof SilverMirrorItem)) return;
+        if (!victim.isInvertedHealAndHarm()) return;
+        if (!(perp.getMainHandItem().getItem() instanceof SilverMirrorItem)) return;
 
         Level level = victim.level;
         BlockPos origin = victim.blockPosition();
-        BlockPos closestSilver = findNearestSilverBlock(level, origin, 24);
+        BlockPos closestSilver = findNearestSilverBlock(level, origin);
         if (closestSilver == null) return;
+        Vec3 targetPos = Vec3.atCenterOf(closestSilver);
+        Vec3 velocity = targetPos.subtract(victim.position()).normalize();
 
         for (int i = 0; i < 8; i++) {
             double offsetX = (victim.getRandom().nextDouble() - (0.5 * victim.getBbWidth())) * 1.5;
             double offsetY = victim.getRandom().nextDouble() * victim.getBbHeight();
             double offsetZ = (victim.getRandom().nextDouble() - (0.5 * victim.getBbWidth())) * 1.5;
+            Vec3 finalVelocity = velocity.scale(victim.getRandom().nextDouble() * 0.225);
 
             Vec3 spawnPos = victim.position().add(offsetX, offsetY, offsetZ);
-            Vec3 targetPos = Vec3.atCenterOf(closestSilver);
-            Vec3 velocity = targetPos.subtract(spawnPos).normalize().scale(victim.getRandom().nextDouble() * 0.15);
-            if (ModList.get().isLoaded("caverns_and_chasms")) {
-                level.addParticle(CavernsAndChasmsCompat.getSilverSpark(),
-                        spawnPos.x, spawnPos.y, spawnPos.z,
-                        velocity.x, velocity.y, velocity.z);
-            }
+            level.addParticle(RaspberryParticleTypes.MIRROR.get(),
+                    spawnPos.x, spawnPos.y, spawnPos.z,
+                    finalVelocity.x, finalVelocity.y, finalVelocity.z);
         }
-
     }
 
     @Nullable
-    private static BlockPos findNearestSilverBlock(Level level, BlockPos origin, int radius) {
+    private static BlockPos findNearestSilverBlock(Level level, BlockPos origin) {
         BlockPos.MutableBlockPos searchPos = new BlockPos.MutableBlockPos();
         BlockPos closest = null;
         double closestDistSq = Double.MAX_VALUE;
 
+        int radius = ModConfig.get().mirrorParticleSearchRadius;
+        int verticalRadius = ModConfig.get().mirrorVerticalParticleSearchRadius;
+
+        int radiusSq = radius * radius;
+
         for (int dx = -radius; dx <= radius; dx++) {
-            for (int dy = -radius; dy <= radius; dy++) {
+            for (int dy = -verticalRadius; dy <= verticalRadius; dy++) {
                 for (int dz = -radius; dz <= radius; dz++) {
+                    if (dx * dx + dy * dy + dz * dz > radiusSq) continue;
+
                     searchPos.set(origin.getX() + dx, origin.getY() + dy, origin.getZ() + dz);
                     if (!level.isLoaded(searchPos)) continue;
                     if (!level.getBlockState(searchPos).is(RaspberryTags.MIRROR_DETECTABLES)) continue;
@@ -117,7 +124,6 @@ public class OreganizedEvents {
                 }
             }
         }
-
         return closest;
     }
 
