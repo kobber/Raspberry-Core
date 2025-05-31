@@ -41,6 +41,7 @@ public class ModConfig {
     public int mirrorVerticalSearchRadius = 12;
     public int mirrorParticleSearchRadius = 48;
     public int mirrorVerticalParticleSearchRadius = 24;
+    public double mirrorVolumeModifier = 0.4;
 
     public static void load() {
         if (!Files.exists(configPath())) {

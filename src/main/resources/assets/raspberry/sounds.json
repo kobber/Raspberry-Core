@@ -44,5 +44,14 @@
       "raspberry:eat_vegetable3"
     ],
     "subtitle": "subtitles.entity.generic.eat"
+  },
+  "entity.player.attack.silver_hit": {
+    "sounds": [
+      "raspberry:silver_hit1",
+      "raspberry:silver_hit2",
+      "raspberry:silver_hit3",
+      "raspberry:silver_hit4"
+    ],
+    "subtitle": "raspberry.subtitles.player.attack.silver_hit"
   }
 }

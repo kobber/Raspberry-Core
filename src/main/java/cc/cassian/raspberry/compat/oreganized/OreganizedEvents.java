@@ -22,29 +22,26 @@
 
 package cc.cassian.raspberry.compat.oreganized;
 
-import cc.cassian.raspberry.compat.CavernsAndChasmsCompat;
 import cc.cassian.raspberry.config.ModConfig;
 import cc.cassian.raspberry.registry.RaspberryAttributes;
 import cc.cassian.raspberry.registry.RaspberryParticleTypes;
+import cc.cassian.raspberry.registry.RaspberrySoundEvents;
 import cc.cassian.raspberry.registry.RaspberryTags;
-import com.teamabnormals.caverns_and_chasms.core.registry.CCParticleTypes;
 import galena.oreganized.content.item.SilverMirrorItem;
-import galena.oreganized.index.OSoundEvents;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DiggerItem;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.ItemAttributeModifierEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
+import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
 
 import javax.annotation.Nullable;
 import java.util.UUID;
@@ -82,6 +79,8 @@ public class OreganizedEvents {
         if (closestSilver == null) return;
         Vec3 targetPos = Vec3.atCenterOf(closestSilver);
         Vec3 velocity = targetPos.subtract(victim.position()).normalize();
+        level.playSound((Player) null, perp.getX(), perp.getY(), perp.getZ(), RaspberrySoundEvents.SILVER_HIT.get(), perp.getSoundSource(),
+                (float) ModConfig.get().mirrorVolumeModifier, 1.0F + (float) (perp.getRandom().nextGaussian() * 0.2));
 
         for (int i = 0; i < 8; i++) {
             double offsetX = (victim.getRandom().nextDouble() - (0.5 * victim.getBbWidth())) * 1.5;
@@ -127,4 +126,30 @@ public class OreganizedEvents {
         return closest;
     }
 
+    @SubscribeEvent
+    public static void onAttackEvent(AttackEntityEvent event) {
+//        LivingEntity victim = event.getTarget();
+//        if (!(event.getSource().getDirectEntity() instanceof Player perp)) return;
+//        if (!victim.isInvertedHealAndHarm()) return;
+//        if (!(perp.getMainHandItem().getItem() instanceof SilverMirrorItem)) return;
+//
+//        Level level = victim.level;
+//        BlockPos origin = victim.blockPosition();
+//        BlockPos closestSilver = findNearestSilverBlock(level, origin);
+//        if (closestSilver == null) return;
+//        Vec3 targetPos = Vec3.atCenterOf(closestSilver);
+//        Vec3 velocity = targetPos.subtract(victim.position()).normalize();
+//
+//        for (int i = 0; i < 8; i++) {
+//            double offsetX = (victim.getRandom().nextDouble() - (0.5 * victim.getBbWidth())) * 1.5;
+//            double offsetY = victim.getRandom().nextDouble() * victim.getBbHeight();
+//            double offsetZ = (victim.getRandom().nextDouble() - (0.5 * victim.getBbWidth())) * 1.5;
+//            Vec3 finalVelocity = velocity.scale(victim.getRandom().nextDouble() * 0.225);
+//
+//            Vec3 spawnPos = victim.position().add(offsetX, offsetY, offsetZ);
+//            level.addParticle(RaspberryParticleTypes.MIRROR.get(),
+//                    spawnPos.x, spawnPos.y, spawnPos.z,
+//                    finalVelocity.x, finalVelocity.y, finalVelocity.z);
+//        }
+    }
 }

@@ -19,6 +19,7 @@
  "item.raspberry.ashball": "Ashball",
  "lore.raspberry.ashball": "An item that can be thrown to inflict Blidness. Dropped when digging Ash.",
  "raspberry.subtitles.entity.ashball.throw": "Ashball flies",
+ "raspberry.subtitles.player.attack.silver_hit": "Mirror connects",
 
  "block.raspberry.cake": "Cake",
  "block.raspberry.chocolate_cake": "Chocolate Cake",

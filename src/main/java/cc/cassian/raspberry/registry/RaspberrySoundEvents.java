@@ -2,6 +2,7 @@ package cc.cassian.raspberry.registry;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -19,6 +20,7 @@ public class RaspberrySoundEvents {
     public static final RegistryObject<SoundEvent> STEW_SOUNDS = register("entity.stew.eat");
     public static final RegistryObject<SoundEvent> VEGETABLE_SOUNDS = register("entity.vegetable.eat");
 
+    public static final RegistryObject<SoundEvent> SILVER_HIT = register("entity.player.attack.silver_hit");
 
     private static RegistryObject<SoundEvent> register(String key) {
         return SOUNDS.register(key, ()-> new SoundEvent(locate(key)));
