@@ -17,10 +17,11 @@ import javax.annotation.Nullable;
 public class SilverMirrorItemMixin implements ISilver {
     @Override
     public int getUndeadDistance(Level world, BlockPos origin, @Nullable Player player, int frames) {
-        // I'm gonna be honest I still don't really even know what frames means in this context, i assume it's like. the different possible blue textures ?
         final int radius = ModConfig.get().mirrorSearchRadius;
         BlockPos.MutableBlockPos searchPos = new BlockPos.MutableBlockPos();
         int radiusSq = radius * radius;
+
+        double closestDist = Double.MAX_VALUE;
 
         for (int dx = -radius; dx <= radius; dx++) {
             for (int dy = -ModConfig.get().mirrorVerticalSearchRadius; dy <= ModConfig.get().mirrorVerticalSearchRadius; dy++) {
@@ -34,14 +35,22 @@ public class SilverMirrorItemMixin implements ISilver {
                                 ? Math.sqrt(searchPos.distToCenterSqr(player.position()))
                                 : Math.sqrt(searchPos.distSqr(origin));
 
-                        if (dist < 6.0) return 1;
-
-                        int closeness = (int) Math.ceil(dist / (radius / (double) frames));
-                        return Math.min(Math.max(closeness, 2), frames);
+                        if (dist < closestDist) {
+                            closestDist = dist;
+                        }
                     }
                 }
             }
         }
-        return frames;
+
+        if (closestDist == Double.MAX_VALUE) {
+            return frames; // no detectable blocks found
+        }
+
+        if (closestDist < 6.0) return 1;
+
+        int closeness = (int) Math.ceil(closestDist / (radius / (double) frames));
+        return Math.min(Math.max(closeness, 2), frames);
     }
+
 }

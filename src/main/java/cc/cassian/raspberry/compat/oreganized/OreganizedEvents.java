@@ -80,7 +80,7 @@ public class OreganizedEvents {
         Vec3 targetPos = Vec3.atCenterOf(closestSilver);
         Vec3 velocity = targetPos.subtract(victim.position()).normalize();
         level.playSound((Player) null, perp.getX(), perp.getY(), perp.getZ(), RaspberrySoundEvents.SILVER_HIT.get(), perp.getSoundSource(),
-                (float) ModConfig.get().mirrorVolumeModifier, 1.0F + (float) (perp.getRandom().nextGaussian() * 0.2));
+                (float) ModConfig.get().mirrorVolumeModifier, 1.0F + (float) (perp.getRandom().nextGaussian() * 0.35));
 
         for (int i = 0; i < 8; i++) {
             double offsetX = (victim.getRandom().nextDouble() - (0.5 * victim.getBbWidth())) * 1.5;
@@ -126,30 +126,4 @@ public class OreganizedEvents {
         return closest;
     }
 
-    @SubscribeEvent
-    public static void onAttackEvent(AttackEntityEvent event) {
-//        LivingEntity victim = event.getTarget();
-//        if (!(event.getSource().getDirectEntity() instanceof Player perp)) return;
-//        if (!victim.isInvertedHealAndHarm()) return;
-//        if (!(perp.getMainHandItem().getItem() instanceof SilverMirrorItem)) return;
-//
-//        Level level = victim.level;
-//        BlockPos origin = victim.blockPosition();
-//        BlockPos closestSilver = findNearestSilverBlock(level, origin);
-//        if (closestSilver == null) return;
-//        Vec3 targetPos = Vec3.atCenterOf(closestSilver);
-//        Vec3 velocity = targetPos.subtract(victim.position()).normalize();
-//
-//        for (int i = 0; i < 8; i++) {
-//            double offsetX = (victim.getRandom().nextDouble() - (0.5 * victim.getBbWidth())) * 1.5;
-//            double offsetY = victim.getRandom().nextDouble() * victim.getBbHeight();
-//            double offsetZ = (victim.getRandom().nextDouble() - (0.5 * victim.getBbWidth())) * 1.5;
-//            Vec3 finalVelocity = velocity.scale(victim.getRandom().nextDouble() * 0.225);
-//
-//            Vec3 spawnPos = victim.position().add(offsetX, offsetY, offsetZ);
-//            level.addParticle(RaspberryParticleTypes.MIRROR.get(),
-//                    spawnPos.x, spawnPos.y, spawnPos.z,
-//                    finalVelocity.x, finalVelocity.y, finalVelocity.z);
-//        }
-    }
 }
