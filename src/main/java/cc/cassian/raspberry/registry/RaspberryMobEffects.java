@@ -10,7 +10,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 import static cc.cassian.raspberry.RaspberryMod.MOD_ID;
 
-public class RasperryMobEffects {
+public class RaspberryMobEffects {
     public static final DeferredRegister<MobEffect> MOB_EFFECTS = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, MOD_ID);
 
     public static final RegistryObject<MobEffect> AFTERSHOCK = MOB_EFFECTS.register("aftershock",
