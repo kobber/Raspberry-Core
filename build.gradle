@@ -191,15 +191,15 @@ dependencies {
     modImplementation("maven.modrinth:ferrite-core:CtXsUUz6")
 
     // Bundled mods
-    modImplementation(include("com.davigj.sage_brush:sage_brush-1.19.2-0.1.0-all"))
+//    modImplementation(include("com.davigj.sage_brush:sage_brush-1.19.2-0.1.0-all"))
 
     // beacons
     modImplementation("curse.maven:just-enough-beacons-reforged-912266:$jeb_reforged_version")
     modImplementation("curse.maven:cerbons-better-beacons-921066:$better_beacons_version")
 
     // MixinSquared
-    compileOnly(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-common:0.2.0"))
-    implementation(include("com.github.bawnorton.mixinsquared:mixinsquared-forge:0.2.0"))
+    compileOnly(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-common:0.3.2-beta.4"))
+    implementation(include("com.github.bawnorton.mixinsquared:mixinsquared-forge:0.3.2-beta.4"))
     // MixinExtras
     compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:0.4.1"))
     implementation(include("io.github.llamalad7:mixinextras-forge:0.4.1"))
