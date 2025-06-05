@@ -1,4 +1,4 @@
-package cc.cassian.raspberry.mixin;
+package cc.cassian.raspberry.mixin.clash;
 
 import com.jsburg.clash.entity.GreatbladeSlashEntity;
 import com.jsburg.clash.weapons.GreatbladeItem;

@@ -1,4 +1,4 @@
-package cc.cassian.raspberry.mixin;
+package cc.cassian.raspberry.mixin.map_atlases;
 
 import net.minecraft.nbt.CompoundTag;
 import org.spongepowered.asm.mixin.*;
@@ -8,7 +8,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import pepjebs.mapatlases.map_collection.MapCollection;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 @Pseudo

@@ -1,4 +1,4 @@
-package cc.cassian.raspberry.mixin;
+package cc.cassian.raspberry.mixin.minecraft;
 
 import cc.cassian.raspberry.registry.RaspberryTags;
 import net.minecraft.world.item.ItemStack;

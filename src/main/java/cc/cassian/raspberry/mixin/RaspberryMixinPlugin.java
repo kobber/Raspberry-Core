@@ -34,6 +34,9 @@ public class RaspberryMixinPlugin implements IMixinConfigPlugin {
         else if (checkMixin("caverns_and_chasms", mixinClassName)){
             return false;
         }
+        else if (checkMixin("clash", mixinClassName)){
+            return false;
+        }
         else if (checkMixin("cofh_core", mixinClassName)){
             return false;
         }
@@ -52,6 +55,9 @@ public class RaspberryMixinPlugin implements IMixinConfigPlugin {
         else if (checkMixin("farmersdelight", mixinClassName)){
             return false;
         }
+        else if (checkMixin("map_atlases", mixinClassName)){
+            return false;
+        }
         else if (checkMixin("miningmaster", mixinClassName)){
             return false;
         }
@@ -64,6 +70,12 @@ public class RaspberryMixinPlugin implements IMixinConfigPlugin {
         else if (checkMixin("quark", mixinClassName)){
             return false;
         }
+        else if (checkMixin("screenshot_viewer", mixinClassName)){
+            return false;
+        }
+        else if (checkMixin("spelunkery", mixinClassName)){
+            return false;
+        }
         else if (checkMixin("spyglass_improvements", mixinClassName)){
             return false;
         }
@@ -71,6 +83,9 @@ public class RaspberryMixinPlugin implements IMixinConfigPlugin {
             return false;
         }
         else if (checkMixin("supplementaries", mixinClassName)){
+            return false;
+        }
+        else if (checkMixin("survivality", mixinClassName)){
             return false;
         }
         else if (checkMixin("toms_storage", mixinClassName)){

@@ -1,4 +1,4 @@
-package cc.cassian.raspberry.mixin;
+package cc.cassian.raspberry.mixin.minecraft;
 
 import cc.cassian.raspberry.ModCompat;
 import cc.cassian.raspberry.compat.SpelunkeryCompat;

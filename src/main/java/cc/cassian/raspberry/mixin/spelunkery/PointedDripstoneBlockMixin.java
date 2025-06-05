@@ -1,4 +1,4 @@
-package cc.cassian.raspberry.mixin;
+package cc.cassian.raspberry.mixin.spelunkery;
 
 import cc.cassian.raspberry.compat.SpelunkeryCompat;
 import cc.cassian.raspberry.registry.RaspberryTags;

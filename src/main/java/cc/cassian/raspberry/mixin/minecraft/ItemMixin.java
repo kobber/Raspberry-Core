@@ -1,14 +1,11 @@
-package cc.cassian.raspberry.mixin;
+package cc.cassian.raspberry.mixin.minecraft;
 
 import cc.cassian.raspberry.ModHelpers;
-import cc.cassian.raspberry.config.ModConfig;
-import cc.cassian.raspberry.registry.RaspberryTags;
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.Item;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(Item.class)
 public class ItemMixin {

@@ -1,9 +1,8 @@
-package cc.cassian.raspberry.mixin;
+package cc.cassian.raspberry.mixin.vc_gliders;
 
 import cc.cassian.raspberry.compat.GlidersCompat;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.item.ItemStack;

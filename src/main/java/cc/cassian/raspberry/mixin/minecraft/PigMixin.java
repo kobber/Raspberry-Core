@@ -1,4 +1,4 @@
-package cc.cassian.raspberry.mixin;
+package cc.cassian.raspberry.mixin.minecraft;
 
 import net.minecraft.world.entity.animal.Pig;
 import net.minecraft.world.item.ItemStack;

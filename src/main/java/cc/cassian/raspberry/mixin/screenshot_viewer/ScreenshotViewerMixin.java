@@ -1,4 +1,4 @@
-package cc.cassian.raspberry.mixin;
+package cc.cassian.raspberry.mixin.screenshot_viewer;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import io.github.lgatodu47.screenshot_viewer.ScreenshotViewer;
@@ -11,7 +11,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
-import java.util.stream.Stream;
 
 @Pseudo
 @Mixin(ScreenshotViewer.class)
