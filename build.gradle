@@ -89,6 +89,9 @@ repositories {
             includeGroup "dev.latvian.apps"
         }
     }
+    maven {
+        url "https://maven.cassian.cc"
+    }
 
     maven {
         url 'https://jitpack.io'
@@ -96,9 +99,14 @@ repositories {
             includeGroup "com.github.rtyley"
         }
     }
+
     flatDir {
         dirs 'libs'
+        content {
+            includeGroup "local"
+        }
     }
+
     maven { url = "https://maven.bawnorton.com/releases" } // MixinSquared
     maven { url = "https://maven.enjarai.dev/mirrors" } // MixinSquared Mirror
     maven { // Curios
@@ -191,7 +199,7 @@ dependencies {
     modImplementation("maven.modrinth:ferrite-core:CtXsUUz6")
 
     // Bundled mods
-//    modImplementation(include("com.davigj.sage_brush:sage_brush-1.19.2-0.1.0-all"))
+    modImplementation(include("com.davigj:sagebrush:1.19.2-0.1.0")) { transitive = false }
 
     // beacons
     modImplementation("curse.maven:just-enough-beacons-reforged-912266:$jeb_reforged_version")
