@@ -89,6 +89,9 @@ public final class RaspberryMod {
         for (Pair<RegistryObject<Block>, RegistryObject<BlockItem>> foliageBlock : FOLIAGE_BLOCKS) {
             ComposterBlock.COMPOSTABLES.put(foliageBlock.getB().get(), 0.3f);
         }
+        if (ModCompat.SUPPLEMENTARIES) {
+            SupplementariesCompat.register();
+        }
     }
 
     @SubscribeEvent
