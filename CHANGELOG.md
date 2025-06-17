@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Knight Jump can no longer be used in water, preventing accidental durability loss. (Mining Master)
+- Useful Spyglass enchantments have been updated to support 0.6.1 instead of 0.4.0.
 
 ### Fixed
 - Cartographer's Quills not having names set correctly. (Supplementaries)

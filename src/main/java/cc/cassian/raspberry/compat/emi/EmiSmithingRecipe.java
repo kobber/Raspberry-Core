@@ -230,7 +230,7 @@ public class EmiSmithingRecipe implements EmiRecipe {
         // HALLOWED - SILVER EYE
         addRecipe(emiRegistry,
                 Items.SPYGLASS, Items.SPYGLASS,
-                UsefulSpyglass.MARKING.get(), HALLOWED,
+                com.brokenkeyboard.usefulspyglass.ModRegistry.MARKING, HALLOWED,
                 "silver_eye");
 
         // HAUNTED - SOUL CHASER
