@@ -54,6 +54,7 @@
     "minecraft.LevelSummaryMixin",
     "minecraft.PigMixin",
     "minecraft.ScreenMixin",
+    "minecraft.SpreadingSnowyDirtBlockMixin",
     "minecraft.ThrowableProjectileMixin",
     "miningmaster.KnightJumpEnchantmentMixin",
     "naturalist.SnakeMixin",
