@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Respiration tablet recipe using Iron Helmets instead of the helmet tag (EMI, Raspberry Flavoured)
 - Disabled Controllable JEI compatibility mixin when EMI is present.
 - Ashballs can now be dispensed.
+- Controllers can now be used to Knight Jump (Controllable, Mining Master).
 
 ## [1.6] - 2025-05-19
 
