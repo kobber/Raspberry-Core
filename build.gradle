@@ -137,7 +137,7 @@ dependencies {
 
     // Recipe viewers
     modImplementation("maven.modrinth:emi:$emi_version+$minecraft_version+forge")
-    modImplementation("maven.modrinth:jei:$jei_version-forge")
+    modCompileOnly("maven.modrinth:jei:$jei_version-forge")
 
     // Farmer's Delight and its addons
     modImplementation("maven.modrinth:farmers-delight:$farmers_delight_version")
@@ -199,10 +199,9 @@ dependencies {
     modImplementation("maven.modrinth:ferrite-core:CtXsUUz6")
 
     // Bundled mods
-//    modImplementation(include("com.davigj:sagebrush:1.19.2-0.1.0")) { transitive = false }
+    include("com.davigj:sagebrush:1.19.2-0.1.0") { transitive = false }
 
     // beacons
-    modImplementation("curse.maven:just-enough-beacons-reforged-912266:$jeb_reforged_version")
     modImplementation("curse.maven:cerbons-better-beacons-921066:$better_beacons_version")
 
     // MixinSquared

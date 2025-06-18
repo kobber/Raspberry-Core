@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Direct EMI integration for Brewin and Chewin.
+- Ported EMI integration from Create Fabric to Forge.
 - Backported Auditory Continued sounds for various eating sounds.
 - Backport of Sage Brush to 1.19.2.
 
