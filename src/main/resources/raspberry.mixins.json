@@ -8,6 +8,7 @@
     "spyglass_improvements.MinecraftMixin"
   ],
   "mixins": [
+    "minecraft.RaiderMixin",
     "alloyed.BlockEntityTypeMixin",
     "aquaculture.AquaFishingBobberEntityMixin",
     "aquaculture.AquaFishingRodItemMixin",

@@ -62,6 +62,16 @@
  "config.raspberry.config.emi_tablets": "Add EMI integration to RF tablets.",
  "config.raspberry.config.toms_hideBeacon": "Hide beacon info in Tom's Simple Storage.",
 
+ "config.raspberry.config.sunSensitiveRaiders": "Raider mobs burn in daylight",
+ "config.raspberry.config.mirrorSearchRadius": "Mirror search radius",
+ "config.raspberry.config.mirrorVerticalSearchRadius": "Mirror vertical search radius",
+ "config.raspberry.config.mirrorParticleSearchRadius": "Mirror particle search radius",
+ "config.raspberry.config.mirrorVerticalParticleSearchRadius": "Mirror vertical particle search radius",
+ "config.raspberry.config.mirrorVolumeModifier": "Mirror volume modifier",
+ "config.raspberry.horses": "Horses",
+ "config.raspberry.oreganized": "Oreganized",
+
+
  "emi.category.raspberry.anvil": "Runic Etching",
  "emi.category.raspberry.beacon_base": "Beacon Base Blocks",
  "emi.category.raspberry.beacon_payment": "Beacon Payments",
