@@ -60,7 +60,7 @@ repositories {
         }
     }
     maven {
-        url = "https://maven.tterrag.com/"
+        url = "https://modmaven.dev/"
         name = "Create"
     }
     // GeckoLib

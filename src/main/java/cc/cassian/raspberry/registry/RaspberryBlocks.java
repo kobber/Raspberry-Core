@@ -12,9 +12,11 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CarpetBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -136,6 +138,14 @@ public class RaspberryBlocks {
     public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
             ASH_BLOCK = registerBlock("ash_block",
             ()-> new AshBlock(BlockBehaviour.Properties.copy(ModRegistry.ASH_BLOCK.get())), CreativeModeTab.TAB_BUILDING_BLOCKS);
+
+    public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
+            RED_MOSS = registerBlock("red_moss_block",
+            ()-> new RedMossBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK).color(MaterialColor.COLOR_RED)), CreativeModeTab.TAB_BUILDING_BLOCKS);
+
+    public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
+            RED_MOSS_CARPET = registerBlock("red_moss_carpet",
+            ()-> new CarpetBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK).color(MaterialColor.COLOR_RED)), CreativeModeTab.TAB_BUILDING_BLOCKS);
 
 
     private static BlockBehaviour.Properties flowerBedProperties() {
