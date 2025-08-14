@@ -10,7 +10,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Direct EMI integration for Brewin and Chewin.
 - Ported EMI integration from Create Fabric to Forge.
 - Backported Auditory Continued sounds for various eating sounds.
-- Backport of Sage Brush to 1.19.2.
 - Raiders now burn in daylight. (disabled by default)
 - Maps now work in the inventory (disabled by default)
 

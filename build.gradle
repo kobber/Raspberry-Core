@@ -198,9 +198,6 @@ dependencies {
 
     modImplementation("maven.modrinth:ferrite-core:CtXsUUz6")
 
-    // Bundled mods
-    include("com.davigj:sagebrush:1.19.2-0.1.0") { transitive = false }
-
     // beacons
     modImplementation("curse.maven:cerbons-better-beacons-921066:$better_beacons_version")
 
