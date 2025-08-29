@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- EMI beacon base recipe page is now sorted.
+
+## [1.7]
+
 ### Added
 - Direct EMI integration for Brewin and Chewin.
 - Ported EMI integration from Create Fabric to Forge.
