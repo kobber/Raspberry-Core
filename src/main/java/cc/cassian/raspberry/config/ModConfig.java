@@ -45,6 +45,7 @@ public class ModConfig {
     public boolean sunSensitiveRaiders = false;
     public boolean mapsWorkInInventory = false;
     public boolean create_emi = false;
+    public boolean better_haste = true;
 
     public static void load() {
         if (!Files.exists(configPath())) {

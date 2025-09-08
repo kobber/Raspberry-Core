@@ -7,7 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+- Haste is now exponential.
+- Haste no longer causes the player's arm to stop moving at high levels.
 - EMI beacon base recipe page is now sorted.
+- EMI integration for Create is now disabled by default due to conflicts with RF.
 
 ## [1.7]
 

@@ -49,6 +49,8 @@
     "minecraft.CampfireBlockMixin",
     "minecraft.EnchantmentMixin",
     "minecraft.FoxMixin",
+    "minecraft.HasteHandMixin",
+    "minecraft.HasteIsGoodMixin",
     "minecraft.ItemMixin",
     "minecraft.ItemStackMixin",
     "minecraft.LevelSummaryMixin",
