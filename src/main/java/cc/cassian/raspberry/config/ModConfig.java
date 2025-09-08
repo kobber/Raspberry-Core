@@ -44,6 +44,7 @@ public class ModConfig {
     public double mirrorVolumeModifier = 0.4;
     public boolean sunSensitiveRaiders = false;
     public boolean mapsWorkInInventory = false;
+    public boolean create_emi = false;
 
     public static void load() {
         if (!Files.exists(configPath())) {

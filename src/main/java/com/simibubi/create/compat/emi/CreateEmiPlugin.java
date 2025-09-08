@@ -7,6 +7,8 @@ import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+import cc.cassian.raspberry.ModCompat;
+import cc.cassian.raspberry.config.ModConfig;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllFluids;
 import com.simibubi.create.AllItems;
@@ -139,6 +141,7 @@ public class CreateEmiPlugin implements EmiPlugin {
 	@SuppressWarnings({"rawtypes", "unchecked"})
 	@Override
 	public void register(EmiRegistry registry) {
+        if (!ModConfig.get().create_emi && ModCompat.CREATE) return;
 		registry.removeEmiStacks(s -> {
 			Object key = s.getKey();
 			Item item = s.getItemStack().getItem();

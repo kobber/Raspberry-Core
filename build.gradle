@@ -137,7 +137,7 @@ dependencies {
 
     // Recipe viewers
     modImplementation("maven.modrinth:emi:$emi_version+$minecraft_version+forge")
-    modCompileOnly("maven.modrinth:jei:$jei_version-forge")
+    modImplementation("maven.modrinth:jei:$jei_version-forge")
 
     // Farmer's Delight and its addons
     modImplementation("maven.modrinth:farmers-delight:$farmers_delight_version")

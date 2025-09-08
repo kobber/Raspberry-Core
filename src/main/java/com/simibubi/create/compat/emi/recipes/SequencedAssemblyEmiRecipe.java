@@ -5,6 +5,7 @@ import java.util.List;
 import com.simibubi.create.compat.emi.CreateEmiPlugin;
 import com.simibubi.create.compat.emi.EmiSequencedAssemblySubCategory;
 import com.simibubi.create.compat.jei.category.sequencedAssembly.SequencedAssemblySubCategory;
+import com.simibubi.create.content.processing.sequenced.IAssemblyRecipe;
 import com.simibubi.create.content.processing.sequenced.SequencedAssemblyRecipe;
 import com.simibubi.create.content.processing.sequenced.SequencedRecipe;
 import com.simibubi.create.foundation.gui.AllGuiTextures;
@@ -102,8 +103,7 @@ public class SequencedAssemblyEmiRecipe extends CreateEmiRecipe<SequencedAssembl
 	}
 
 	public static EmiSequencedAssemblySubCategory getSubCategory(SequencedRecipe<?> recipe) {
-		SequencedAssemblySubCategory sequencedAssemblySubCategory = recipe.getAsAssemblyRecipe()
-				.getJEISubCategory().get().get();
+		SequencedAssemblySubCategory sequencedAssemblySubCategory = recipe.getAsAssemblyRecipe().getJEISubCategory().get().get();
 		if (sequencedAssemblySubCategory instanceof SequencedAssemblySubCategory.AssemblyPressing assemblyPressing) {
 			return new EmiSequencedAssemblySubCategory.AssemblyPressing();
 		}
@@ -115,7 +115,10 @@ public class SequencedAssemblyEmiRecipe extends CreateEmiRecipe<SequencedAssembl
 		}
 		else if (sequencedAssemblySubCategory instanceof SequencedAssemblySubCategory.AssemblyCutting assemblyPressing) {
 			return new EmiSequencedAssemblySubCategory.AssemblyCutting();
-		}
+		} else {
+            System.out.println(recipe.getRecipe().getId() + "failed to match!");
+            System.out.println(recipe.toJson());
+        }
 		return null;
 	}
 }
