@@ -12,6 +12,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - EMI beacon base recipe page is now sorted.
 - EMI integration for Create is now disabled by default due to conflicts with RF.
 
+### Fixed
+- Players who manage to enter a boat while gliding will no longer be stuck in the boat.
+
 ## [1.7]
 
 ### Added
