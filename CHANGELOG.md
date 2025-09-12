@@ -11,9 +11,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Haste no longer causes the player's arm to stop moving at high levels.
 - EMI beacon base recipe page is now sorted.
 - EMI integration for Create is now disabled by default due to conflicts with RF.
+- Raiders with banners can now be disabled via the config.
 
 ### Fixed
 - Players who manage to enter a boat while gliding will no longer be stuck in the boat.
+- Witches no longer burn in daylight.
+- Raiders no longer tick twice as fast as they should.
 
 ## [1.7]
 

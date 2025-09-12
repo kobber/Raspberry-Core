@@ -70,6 +70,8 @@
  "config.raspberry.config.mirrorVolumeModifier": "Mirror volume modifier",
  "config.raspberry.horses": "Horses",
  "config.raspberry.oreganized": "Oreganized",
+  "config.raspberry.config.bannerlessRaiders": "Raiders no longer have banners",
+  "config.raspberry.config.better_haste": "Exponential Haste",
 
 
  "emi.category.raspberry.anvil": "Runic Etching",
