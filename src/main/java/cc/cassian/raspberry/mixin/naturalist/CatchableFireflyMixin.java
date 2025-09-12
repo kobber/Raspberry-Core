@@ -21,7 +21,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(Animal.class)
 public class CatchableFireflyMixin {
 
-    @Inject(method = "mobInteract", at = @At(value = "HEAD"), remap = false, cancellable = true)
+    @Inject(method = "mobInteract", at = @At(value = "HEAD"), cancellable = true)
     private void stackableButterflies(Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResult> cir) {
         var entity = (Animal) (Object) this;
         if (entity instanceof Firefly) {
