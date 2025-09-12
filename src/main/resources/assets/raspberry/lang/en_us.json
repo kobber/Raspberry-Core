@@ -18,7 +18,10 @@
  "lore.raspberry.ash_block": "A solid block of Ash.",
  "item.raspberry.ashball": "Ashball",
  "lore.raspberry.ashball": "An item that can be thrown to inflict Blindness. Dropped when digging Ash.",
- "raspberry.subtitles.entity.ashball.throw": "Ashball flies",
+  "item.raspberry.firefly": "Firefly",
+  "lore.raspberry.firefly": "A firefly, plucked from the sky with a Bug Net. Place it down to release it!",
+
+  "raspberry.subtitles.entity.ashball.throw": "Ashball flies",
  "raspberry.subtitles.player.attack.silver_hit": "Mirror connects",
 
  "block.raspberry.cake": "Cake",

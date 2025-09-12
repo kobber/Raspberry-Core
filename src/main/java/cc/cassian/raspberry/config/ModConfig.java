@@ -47,6 +47,7 @@ public class ModConfig {
     public boolean create_emi = false;
     public boolean better_haste = true;
     public boolean bannerlessRaiders = false;
+    public boolean naturalist_stackableItems = true;
 
     public static void load() {
         if (!Files.exists(configPath())) {

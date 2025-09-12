@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Fireflies from Naturalist can now be captured with Bug Nets.
+
 ### Changed
 - Haste is now exponential.
 - Haste no longer causes the player's arm to stop moving at high levels.
