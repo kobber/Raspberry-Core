@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Fireflies from Naturalist can now be captured with Bug Nets.
+- Rose Gold Bombs, which deal knockback without inflicting damage.
 
 ### Changed
 - Haste is now exponential.
