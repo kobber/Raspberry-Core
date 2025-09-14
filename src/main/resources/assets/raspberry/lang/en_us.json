@@ -21,6 +21,10 @@
   "item.raspberry.firefly": "Firefly",
   "lore.raspberry.firefly": "A firefly, plucked from the sky with a Bug Net. Place it down to release it!",
 
+  "item.raspberry.rose_gold_bomb": "Rose Gold Bomb",
+  "lore.raspberry.rose_gold_bomb": "A weak bomb that deals no damage, but knocks entities around.",
+
+
   "raspberry.subtitles.entity.ashball.throw": "Ashball flies",
  "raspberry.subtitles.player.attack.silver_hit": "Mirror connects",
 
