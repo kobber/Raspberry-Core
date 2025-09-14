@@ -48,6 +48,7 @@ public class ModConfig {
     public boolean better_haste = true;
     public boolean bannerlessRaiders = false;
     public boolean naturalist_stackableItems = true;
+    public double rose_gold_bomb_knockback = 1.5;
 
     public static void load() {
         if (!Files.exists(configPath())) {

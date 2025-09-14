@@ -1,5 +1,6 @@
 package cc.cassian.raspberry.compat.supplementaries;
 
+import cc.cassian.raspberry.config.ModConfig;
 import com.google.common.collect.Sets;
 import net.mehvahdjukaar.moonlight.api.platform.ForgeHelper;
 import net.mehvahdjukaar.supplementaries.common.entities.BombEntity;
@@ -96,28 +97,23 @@ public class RoseGoldBombExplosion extends BombExplosion {
                         dx /= distFromCenterSqr;
                         dy /= distFromCenterSqr;
                         dz /= distFromCenterSqr;
-                        double d14 = getSeenPercent(vector3d, entity);
-                        double d10 = ((double)1.0F - normalizedDist) * d14;
-                        double d11 = d10;
+                        double visiblePercent = getSeenPercent(vector3d, entity);
+                        double knockbackBeforeEnchantments = ((double)1.0F - normalizedDist) * visiblePercent* ModConfig.get().rose_gold_bomb_knockback;
+                        double knockback = knockbackBeforeEnchantments;
                         boolean isPlayer = entity instanceof Player;
                         Player playerEntity = null;
                         if (isPlayer) {
                             playerEntity = (Player)entity;
                             if (!playerEntity.isSpectator() && (!playerEntity.isCreative() || !playerEntity.getAbilities().flying)) {
-                                this.getHitPlayers().put(playerEntity, new Vec3(dx * d10, dy * d10, dz * d10));
+                                this.getHitPlayers().put(playerEntity, new Vec3(dx * knockbackBeforeEnchantments, dy * knockbackBeforeEnchantments, dz * knockbackBeforeEnchantments));
                             }
                         }
 
                         if (entity instanceof LivingEntity) {
-
-                            if (entity instanceof Creeper creeper) {
-                                creeper.ignite();
-                            }
-
-                            d11 = ProtectionEnchantment.getExplosionKnockbackAfterDampener((LivingEntity)entity, d10);
+                            knockback = ProtectionEnchantment.getExplosionKnockbackAfterDampener((LivingEntity)entity, knockbackBeforeEnchantments);
                         }
 
-                        entity.setDeltaMovement(entity.getDeltaMovement().add(dx * d11, dy * d11, dz * d11));
+                        entity.setDeltaMovement(entity.getDeltaMovement().add(dx * knockback, dy * knockback, dz * knockback));
                     }
                 }
             }
