@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Players who manage to enter a boat while gliding will no longer be stuck in the boat.
 - Witches no longer burn in daylight.
 - Raiders no longer tick twice as fast as they should.
+- Another fix for misbehaving Thrashers.
 
 ## [1.7]
 

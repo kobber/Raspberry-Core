@@ -5,6 +5,7 @@ import com.teamabnormals.upgrade_aquatic.common.entity.monster.Thrasher;
 import net.minecraft.world.entity.Entity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Pseudo;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
@@ -15,9 +16,13 @@ import java.util.List;
 @Mixin(ThrasherThrashGoal.class)
 public class ThrasherThrashGoalMixin {
 
-    @Redirect(method = "tick", at = @At(value = "INVOKE", target = "Lcom/teamabnormals/upgrade_aquatic/common/entity/monster/Thrasher;getPassengers()Ljava/util/List;", ordinal = 0))
-    public List<Entity> fixTick(Thrasher instance) {
-        return Collections.singletonList(instance.getFirstPassenger());
+    @Redirect(method = "tick", at = @At(value = "INVOKE", target = "Ljava/util/List;get(I)Ljava/lang/Object;"))
+    public <E> E fixTick(List<E> instance, int i) {
+        if (instance.isEmpty())
+            return null;
+        else {
+            return instance.get(0);
+        }
     }
 
     @Redirect(method = "canUse", at = @At(value = "INVOKE", target = "Lcom/teamabnormals/upgrade_aquatic/common/entity/monster/Thrasher;getPassengers()Ljava/util/List;", ordinal = 0))
