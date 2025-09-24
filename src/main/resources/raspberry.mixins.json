@@ -5,7 +5,8 @@
   "minVersion": "0.8",
   "client": [
     "naturalist.GlowGoopItemMixin",
-    "spyglass_improvements.MinecraftMixin"
+    "spyglass_improvements.MinecraftMixin",
+    "miningmaster.KnightJumpEnchantmentMixin"
   ],
   "mixins": [
     "alloyed.BlockEntityTypeMixin",
@@ -61,7 +62,6 @@
     "minecraft.ScreenMixin",
     "minecraft.SpreadingSnowyDirtBlockMixin",
     "minecraft.ThrowableProjectileMixin",
-    "miningmaster.KnightJumpEnchantmentMixin",
     "naturalist.CatchableFireflyMixin",
     "naturalist.CaterpillarMixin",
     "naturalist.CaughtMobItemMixin",
