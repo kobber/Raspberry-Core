@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Hopeful wildflowers, a new flower bed block.
+
+### Changed
+- Clovers are now replaceable.
+
+### Fixed
+- Missing translation keys and incorrect models on unfinished content.
+
+## [1.8.1] - 2025-09-24
+
+### Fixed
+- A crash on multiplayer servers.
+
+## [1.8] - 2025-09-22
+
+### Added
 - Fireflies from Naturalist can now be captured with Bug Nets.
 - Rose Gold Bombs, which deal knockback without inflicting damage.
 
@@ -23,7 +39,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Raiders no longer tick twice as fast as they should.
 - Another fix for misbehaving Thrashers.
 
-## [1.7]
+## [1.7] - 2025-08-14
 
 ### Added
 - Direct EMI integration for Brewin and Chewin.

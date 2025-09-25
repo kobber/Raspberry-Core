@@ -10,8 +10,9 @@
  "block.raspberry.blackstone_gravel": "Blackstone Gravel",
  "block.raspberry.cheery_wildflowers": "Cheery Wildflowers",
  "block.raspberry.moody_wildflowers": "Moody Wildflowers",
- "block.raspberry.pink_petals": "Pink Petals",
- "block.raspberry.clovers": "Clovers",
+ "block.raspberry.pink_petals": "Playful Wildflowers",
+  "block.raspberry.hopeful_wildflowers": "Hopeful Wildflowers",
+  "block.raspberry.clovers": "Clovers",
  "block.raspberry.snow": "Snow",
  "lore.raspberry.snow": "A block that drops Snowballs when broken with a shovel.",
  "block.raspberry.ash_block": "Ash Block",
@@ -23,6 +24,9 @@
 
   "item.raspberry.rose_gold_bomb": "Rose Gold Bomb",
   "lore.raspberry.rose_gold_bomb": "A weak bomb that deals no damage, but knocks entities around.",
+
+  "block.raspberry.red_moss_block": "Red Moss Block",
+  "block.raspberry.red_moss_carpet": "Red Moss Carpet",
 
 
   "raspberry.subtitles.entity.ashball.throw": "Ashball flies",

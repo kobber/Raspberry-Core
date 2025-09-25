@@ -69,19 +69,23 @@ public class RaspberryBlocks {
 
     public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
             CHEERFUL_WILDFLOWERS = registerBlock("cheery_wildflowers",
-            ()-> new FlowerBedBlock(flowerBedProperties()), CreativeModeTab.TAB_DECORATIONS);
+            ()-> new FlowerBedBlock(flowerBedProperties(false)), CreativeModeTab.TAB_DECORATIONS);
 
     public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
             PINK_PETALS = registerBlock("pink_petals",
-            ()-> new FlowerBedBlock(flowerBedProperties()), CreativeModeTab.TAB_DECORATIONS);
+            ()-> new FlowerBedBlock(flowerBedProperties(false)), CreativeModeTab.TAB_DECORATIONS);
 
     public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
             CLOVERS = registerBlock("clovers",
-            ()-> new FlowerBedBlock(flowerBedProperties()), CreativeModeTab.TAB_DECORATIONS);
+            ()-> new FlowerBedBlock(flowerBedProperties(true)), CreativeModeTab.TAB_DECORATIONS);
 
     public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
             MOODY_WILDFLOWERS = registerBlock("moody_wildflowers",
-            ()-> new FlowerBedBlock(flowerBedProperties()), CreativeModeTab.TAB_DECORATIONS);
+            ()-> new FlowerBedBlock(flowerBedProperties(false)), CreativeModeTab.TAB_DECORATIONS);
+
+    public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
+            HOPEFUL_WILDFLOWERS = registerBlock("hopeful_wildflowers",
+            ()-> new FlowerBedBlock(flowerBedProperties(false)), CreativeModeTab.TAB_DECORATIONS);
 
     public static Pair<RegistryObject<Block>, RegistryObject<BlockItem>>
             CAKE = registerBlock("cake",
@@ -147,9 +151,10 @@ public class RaspberryBlocks {
             RED_MOSS_CARPET = registerBlock("red_moss_carpet",
             ()-> new CarpetBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK).color(MaterialColor.COLOR_RED)), CreativeModeTab.TAB_BUILDING_BLOCKS);
 
-
-    private static BlockBehaviour.Properties flowerBedProperties() {
-        return BlockBehaviour.Properties.of(Material.PLANT).noCollission().sound(SoundType.FLOWERING_AZALEA);
+    private static BlockBehaviour.Properties flowerBedProperties(boolean replaceable) {
+        var material = Material.PLANT;
+        if (replaceable) material = Material.REPLACEABLE_PLANT;
+        return BlockBehaviour.Properties.of(material).noCollission().sound(SoundType.FLOWERING_AZALEA);
     }
 
     public static final ArrayList<Pair<RegistryObject<Block>, RegistryObject<BlockItem>>> FOLIAGE_BLOCKS = new ArrayList<Pair<RegistryObject<Block>, RegistryObject<BlockItem>>>();
@@ -159,6 +164,7 @@ public class RaspberryBlocks {
         FOLIAGE_BLOCKS.add(CHEERFUL_WILDFLOWERS);
         FOLIAGE_BLOCKS.add(PINK_PETALS);
         FOLIAGE_BLOCKS.add(MOODY_WILDFLOWERS);
+        FOLIAGE_BLOCKS.add(HOPEFUL_WILDFLOWERS);
     }
 
     public static BlockBehaviour.Properties getTruffleProperties() {
