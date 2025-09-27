@@ -1,39 +1,19 @@
 package cc.cassian.raspberry.compat.emi;
 
 import cc.cassian.raspberry.compat.BrewinAndChewinCompat;
-import com.mojang.blaze3d.vertex.PoseStack;
 import dev.emi.emi.api.recipe.EmiRecipe;
 import dev.emi.emi.api.recipe.EmiRecipeCategory;
 import dev.emi.emi.api.stack.EmiIngredient;
 import dev.emi.emi.api.stack.EmiStack;
-import dev.emi.emi.api.widget.SlotWidget;
 import dev.emi.emi.api.widget.WidgetHolder;
-import mezz.jei.api.constants.VanillaTypes;
-import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
-import mezz.jei.api.gui.drawable.IDrawable;
-import mezz.jei.api.gui.drawable.IDrawableAnimated;
-import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
-import mezz.jei.api.helpers.IGuiHelper;
-import mezz.jei.api.recipe.IFocusGroup;
-import mezz.jei.api.recipe.RecipeIngredientRole;
-import mezz.jei.api.recipe.RecipeType;
-import mezz.jei.api.recipe.category.IRecipeCategory;
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.ItemLike;
 import org.jetbrains.annotations.Nullable;
 import umpaz.brewinandchewin.client.recipebook.KegRecipeBookTab;
-import umpaz.brewinandchewin.common.crafting.KegRecipe;
-import umpaz.brewinandchewin.common.registry.BCItems;
-import umpaz.brewinandchewin.common.utility.BCTextUtils;
-import umpaz.brewinandchewin.integration.jei.BCJEIRecipeTypes;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.Arrays;
 import java.util.List;
 
 public class EmiFermentingRecipe implements EmiRecipe {
@@ -41,8 +21,7 @@ public class EmiFermentingRecipe implements EmiRecipe {
     private final ResourceLocation id;
     private final String group;
     private final KegRecipeBookTab tab;
-    private final NonNullList<Ingredient> inputItems;
-    private final NonNullList<EmiIngredient> inputItemsEmi;
+    private final NonNullList<EmiIngredient> inputItems;
     private final Ingredient fluidItem;
     private final ItemStack output;
     private final ItemStack container;
@@ -55,14 +34,16 @@ public class EmiFermentingRecipe implements EmiRecipe {
         this.id = id;
         this.group = group;
         this.tab = tab;
-        this.inputItems = inputItems;
-        NonNullList<EmiIngredient> emi = NonNullList.create();
+        NonNullList<EmiIngredient> ingredients = NonNullList.create();
         for (Ingredient inputItem : inputItems) {
-            emi.add(EmiIngredient.of(inputItem));
+            ingredients.add(EmiIngredient.of(inputItem));
         }
-        this.inputItemsEmi = emi;
+        this.inputItems = ingredients;
 
         this.fluidItem = fluidItem;
+        if (this.fluidItem != null) {
+            this.inputItems.remove(this.inputItems.size()-1);
+        }
         this.output = output;
         if (!container.isEmpty()) {
             this.container = container;
@@ -89,7 +70,7 @@ public class EmiFermentingRecipe implements EmiRecipe {
 
     @Override
     public List<EmiIngredient> getInputs() {
-        return inputItemsEmi;
+        return inputItems;
     }
 
     @Override
@@ -140,7 +121,8 @@ public class EmiFermentingRecipe implements EmiRecipe {
                 int inputIndex = row * 2 + column;
 
                 try {
-                    widgetHolder.addSlot(EmiIngredient.of((this.inputItems.get(inputIndex))), column * borderSlotSize + 3, row * borderSlotSize + 11);
+                    widgetHolder.addSlot((this.inputItems.get(inputIndex)), column * borderSlotSize + 3, row * borderSlotSize + 11);
+                    System.out.println(inputIndex);
                 } catch (Exception var13) {
                 }
             }
