@@ -116,8 +116,7 @@ public class SequencedAssemblyEmiRecipe extends CreateEmiRecipe<SequencedAssembl
 		else if (sequencedAssemblySubCategory instanceof SequencedAssemblySubCategory.AssemblyCutting assemblyPressing) {
 			return new EmiSequencedAssemblySubCategory.AssemblyCutting();
 		} else {
-            System.out.println(recipe.getRecipe().getId() + "failed to match!");
-            System.out.println(recipe.toJson());
+           
         }
 		return null;
 	}

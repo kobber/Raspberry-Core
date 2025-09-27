@@ -122,7 +122,6 @@ public class EmiFermentingRecipe implements EmiRecipe {
 
                 try {
                     widgetHolder.addSlot((this.inputItems.get(inputIndex)), column * borderSlotSize + 3, row * borderSlotSize + 11);
-                    System.out.println(inputIndex);
                 } catch (Exception var13) {
                 }
             }
