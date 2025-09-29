@@ -7,10 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Hopeful wildflowers, a new flower bed block.
+- Hopeful Wildflowers, a new flower bed block (textures by ProbablyEkho).
+- Create Wrench functionality has been added to the Supplementaries Wrench (disabled by default).
 
 ### Changed
 - Clovers are now replaceable.
+- Renamed Pink Petals to Playful Wildflowers.
 
 ### Fixed
 - Missing translation keys and incorrect models on unfinished content.

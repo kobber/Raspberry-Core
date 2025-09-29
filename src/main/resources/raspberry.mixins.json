@@ -4,9 +4,9 @@
   "compatibilityLevel": "JAVA_17",
   "minVersion": "0.8",
   "client": [
+    "miningmaster.KnightJumpEnchantmentMixin",
     "naturalist.GlowGoopItemMixin",
-    "spyglass_improvements.MinecraftMixin",
-    "miningmaster.KnightJumpEnchantmentMixin"
+    "spyglass_improvements.MinecraftMixin"
   ],
   "mixins": [
     "alloyed.BlockEntityTypeMixin",
@@ -82,6 +82,7 @@
     "supplementaries.CartographersQuillItemMixin",
     "supplementaries.RakedGravelBlockMixin",
     "supplementaries.SoapClearMixin",
+    "create.WrenchItemMixin",
     "survivality.SurvivalityUtilsMixin",
     "toms_storage.AbstractStorageTerminalScreenMixin",
     "toms_storage.StorageTerminalMenuMixin",
