@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Hopeful Wildflowers, a new flower bed block (textures by ProbablyEkho).
 - Create Wrench functionality has been added to the Supplementaries Wrench (disabled by default).
 - Brick counters, as well as Silt and Ash brick variations, a new type of block for decorating your kitchen (@Kobber, @Kayla_the_Bee)
+- Copper Armour now has unique sounds, backported from 1.21.9. (Copperized)
+- Fallback translations for RF advancements.
 
 ### Changed
 - Clovers are now replaceable.
