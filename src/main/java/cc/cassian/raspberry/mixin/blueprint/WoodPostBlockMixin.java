@@ -23,7 +23,7 @@ public class WoodPostBlockMixin {
             BlockState downState = world.getBlockState(pos.relative(Direction.DOWN));
             BooleanProperty chainDownProp = CHAINED[Direction.DOWN.ordinal()];
 
-            if (ModHelpers.ShouldWoodPostChainConnect(downState)) {
+            if (ModHelpers.shouldWoodPostChainConnect(downState)) {
                 cir.setReturnValue(cir.getReturnValue().setValue(chainDownProp, true));
             }
         }

@@ -101,17 +101,13 @@ public class ModHelpers {
         return original;
     }
 
-    public static Boolean ShouldWoodPostChainConnect(BlockState downState) {
+    public static boolean shouldWoodPostChainConnect(BlockState downState) {
         if(downState.getBlock() instanceof CookingPotBlock && downState.getValue(SUPPORT).equals(CookingPotSupport.HANDLE)) {
             return true;
         }
-        if (downState.getBlock() instanceof CandleHolderBlock && downState.getValue(BlockStateProperties.ATTACH_FACE).equals(AttachFace.CEILING)) {
+        else if (downState.getBlock() instanceof CandleHolderBlock && downState.getValue(BlockStateProperties.ATTACH_FACE).equals(AttachFace.CEILING)) {
             return true;
         }
-        if(downState.getBlock() instanceof PaperLanternBlock) {
-            return true;
-        } else {
-            return false;
-        }
+        else return downState.getBlock() instanceof PaperLanternBlock;
     }
 }
