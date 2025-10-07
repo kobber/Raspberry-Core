@@ -1,4 +1,4 @@
-package cc.cassian.raspberry.mixin.quark;
+package cc.cassian.raspberry.mixin.blueprint;
 
 import cc.cassian.raspberry.ModHelpers;
 import net.minecraft.core.BlockPos;
@@ -11,14 +11,13 @@ import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import vazkii.quark.content.building.block.WoodPostBlock;
 
 import static vazkii.quark.content.building.block.WoodPostBlock.CHAINED;
 
 @Pseudo
-@Mixin(WoodPostBlock.class)
+@Mixin(com.teamabnormals.blueprint.common.block.wood.WoodPostBlock.class)
 public class WoodPostBlockMixin {
-    @Inject(method = "getState", at = @At(value = "RETURN"), remap = false, cancellable = true)
+    @Inject(method = "getRelevantState", at = @At(value = "RETURN"), remap = false, cancellable = true)
     private void moreThingsCanHang(Level world, BlockPos pos, Direction.Axis axis, CallbackInfoReturnable<BlockState> cir) {
         if(axis != Direction.Axis.Y) {
             BlockState downState = world.getBlockState(pos.relative(Direction.DOWN));
