@@ -17,6 +17,7 @@
     "aquaculture.TackleBoxBlockEntityMixin",
     "aquaculture.TackleBoxContainerMixin",
     "brewinandchewin.KegBlockEntityMixin",
+    "blueprint.WoodPostBlockMixin",
     "caverns_and_chasms.BrazierBlockMixin",
     "clash.GreatbladeSlashEntityMixin",
     "cofh_core.CoreEnchantmentsMixin",
