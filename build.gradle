@@ -1,5 +1,5 @@
 plugins {
-    id 'dev.architectury.loom' version '1.11-SNAPSHOT'
+    id 'dev.architectury.loom' version '1.11.445'
     id 'maven-publish'
     id 'org.moddedmc.wiki.toolkit' version '0.2.7'
 }
