@@ -2,11 +2,18 @@ package cc.cassian.raspberry;
 
 
 import cc.cassian.raspberry.registry.RaspberrySoundEvents;
+import net.mehvahdjukaar.supplementaries.common.block.blocks.CandleHolderBlock;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.AttachFace;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import vazkii.quark.content.building.block.PaperLanternBlock;
+import vectorwing.farmersdelight.common.block.CookingPotBlock;
+import vectorwing.farmersdelight.common.block.state.CookingPotSupport;
 
 import java.lang.reflect.Field;
 import java.util.Objects;
@@ -14,6 +21,7 @@ import java.util.function.Consumer;
 
 import static cc.cassian.raspberry.RaspberryMod.MOD_ID;
 import static cc.cassian.raspberry.registry.RaspberryTags.*;
+import static vectorwing.farmersdelight.common.block.CookingPotBlock.SUPPORT;
 
 public class ModHelpers {
 
@@ -91,5 +99,15 @@ public class ModHelpers {
             return SoundEvents.HONEY_DRINK;
         }
         return original;
+    }
+
+    public static boolean shouldWoodPostChainConnect(BlockState downState) {
+        if(downState.getBlock() instanceof CookingPotBlock && downState.getValue(SUPPORT).equals(CookingPotSupport.HANDLE)) {
+            return true;
+        }
+        else if (downState.getBlock() instanceof CandleHolderBlock && downState.getValue(BlockStateProperties.ATTACH_FACE).equals(AttachFace.CEILING)) {
+            return true;
+        }
+        else return downState.getBlock() instanceof PaperLanternBlock;
     }
 }
