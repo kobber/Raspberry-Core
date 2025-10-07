@@ -12,6 +12,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.ForgeRegistries;
+import vazkii.quark.content.building.block.PaperLanternBlock;
 import vazkii.quark.content.tools.entity.TorchArrow;
 import vazkii.quark.content.tools.module.TorchArrowModule;
 import vazkii.quark.content.tweaks.module.GoldToolsHaveFortuneModule;
@@ -36,6 +37,10 @@ public class QuarkCompat {
         }
 
         return false;
+    }
+
+    public static boolean isPaperLantern(BlockState downState) {
+        return downState.getBlock() instanceof PaperLanternBlock;
     }
 
     public static void register() {
