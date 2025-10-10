@@ -1,6 +1,7 @@
 package cc.cassian.raspberry.registry;
 
 import cc.cassian.raspberry.items.AshballItem;
+import cc.cassian.raspberry.items.CatFoodItem;
 import cc.cassian.raspberry.items.RoseGoldBombItem;
 import com.starfish_studios.naturalist.Naturalist;
 import com.starfish_studios.naturalist.item.forge.CaughtMobItem;
@@ -24,6 +25,7 @@ public class RaspberryItems {
     public static Supplier<Item> ASHBALL = registerBlock("ashball", () -> new AshballItem(new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
     public static Supplier<Item> FIREFLY = registerBlock("firefly", () -> new CaughtMobItem(NaturalistEntityTypes.FIREFLY, ()-> Fluids.EMPTY, NaturalistSoundEvents.SNAIL_FORWARD, new Item.Properties().tab(Naturalist.TAB)));
     public static Supplier<Item> ROSE_GOLD_BOMB = registerBlock("rose_gold_bomb", () -> new RoseGoldBombItem(new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
+    public static Supplier<Item> CAT_FOOD = registerBlock("cat_food", () -> new CatFoodItem(new Item.Properties().tab(CreativeModeTab.TAB_FOOD)));
 
     public static RegistryObject<Item> registerBlock(String blockID, Supplier<Item> item) {
         return RaspberryItems.ITEMS.register(blockID, item);

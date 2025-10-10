@@ -31,6 +31,10 @@
   "block.raspberry.red_moss_block": "Red Moss Block",
   "block.raspberry.red_moss_carpet": "Red Moss Carpet",
 
+  "raspberry.tooltip.cat_food.when_feeding": "When fed to a tamed Cat:",
+  "item.raspberry.cat_food": "Cat Food",
+  "lore.raspberry.cat_food": "A foodstuff meant for your cat! ",
+
 
   "raspberry.subtitles.entity.ashball.throw": "Ashball flies",
  "raspberry.subtitles.player.attack.silver_hit": "Mirror connects",
@@ -544,5 +548,4 @@
   "advancements.rf.machines.mechanical_saw.description": "Place down a mechanical saw to cut blocks up or use it to chop down trees in one fell swoop - sawing sturdy alloy is the most resource efficient way to make shafts, by the way!",
   "advancements.rf.machines.mechanical_drill.title": "I Repeat, This is a Drill!",
   "advancements.rf.machines.mechanical_drill.description": "Place down a mechanical drill to start mining blocks automatically - time to invest in a giant tunnel bore!"
-
 }

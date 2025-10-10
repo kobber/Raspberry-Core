@@ -46,6 +46,7 @@ public class RaspberryTags {
     public static final TagKey<Item> DRINK_SOUNDS = createItemTag("sounds/drink");
     public static final TagKey<Item> HONEY_SOUNDS = createItemTag("sounds/honey");
     public static final TagKey<Item> REPAIRS_IN_DARKNESS = createItemTag("repairs_in_darkness");
+    public static final TagKey<EntityType<?>> CAT_FOOD_USERS = createEntityTypeTag("cat_food_users");
 
     private static TagKey<Block> createBlockTag(String id) {
         return TagKey.create(ForgeRegistries.BLOCKS.getRegistryKey(), locate(id));
