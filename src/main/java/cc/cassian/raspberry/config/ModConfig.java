@@ -49,6 +49,8 @@ public class ModConfig {
     public boolean bannerlessRaiders = false;
     public boolean naturalist_stackableItems = true;
     public double rose_gold_bomb_knockback = 1.5;
+    public int rose_gold_arrow_knockback = 2;
+    public double rose_gold_arrow_velocity = 1.5;
     public boolean unified_wrenches = false;
 
     public static void load() {
