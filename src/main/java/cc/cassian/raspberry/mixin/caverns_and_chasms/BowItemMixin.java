@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.Mixin;
 public class BowItemMixin {
     @WrapMethod(
             method = "shootFromRotation")
-    public void core$setKnockback(Entity shooter, float x, float y, float z, float velocity, float inaccuracy, Operation<Void> original) {
+    public void raspberry$setVelocity(Entity shooter, float x, float y, float z, float velocity, float inaccuracy, Operation<Void> original) {
         var arrow = (Projectile) (Object) this;
         if (arrow instanceof BluntArrow) velocity = (float) (velocity* ModConfig.get().rose_gold_arrow_velocity);
         original.call(shooter, x, y, z, velocity, inaccuracy);

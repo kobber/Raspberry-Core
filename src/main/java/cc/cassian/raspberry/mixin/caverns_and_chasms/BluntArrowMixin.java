@@ -12,13 +12,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(AbstractArrow.class)
 public abstract class BluntArrowMixin {
 
-    @Shadow
-    public abstract int getKnockback();
-
     @Inject(
             method = "onHitEntity", at = @At(value = "HEAD"))
-    public void core$setKnockback(EntityHitResult result, CallbackInfo ci) {
+    public void raspberry$setKnockback(EntityHitResult result, CallbackInfo ci) {
         var arrow = (AbstractArrow) (Object) this;
-        arrow.setKnockback(getKnockback() * ModConfig.get().rose_gold_arrow_knockback);
+        arrow.setKnockback(ModConfig.get().rose_gold_arrow_knockback);
     }
 }
