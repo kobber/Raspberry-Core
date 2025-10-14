@@ -53,6 +53,7 @@ public class ModConfig {
     public int rose_gold_arrow_knockback = 2;
     public double rose_gold_arrow_velocity = 1.5;
     public boolean unified_wrenches = false;
+    public boolean saferKnightJump = true;
 
     public static void load() {
         if (!Files.exists(configPath())) {

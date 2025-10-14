@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added blacklist tag to Quark Oddities Storage Crate (`raspberry:crate_blacklist`). (@evanbones)
 - Fallback translations for RF advancements.
 - Horses no longer buck.
+- Knight Jump now has a 50% chance to not consume durability.
 
 ### Changed
 - Clovers are now replaceable.
