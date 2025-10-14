@@ -34,6 +34,7 @@ public class ModConfig {
     public boolean create_blastproofing = true;
     public boolean searchContainers = true;
     public boolean horses_noWander = true;
+    public boolean horses_noBuck = true;
     public boolean horses_stepHeight = true;
     public boolean emi_tablets = true;
     public boolean toms_hideBeacon = true;

@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Additional blocks now connect to Posts. (Quark, Supplementaries, Farmer's Delight)
 - Added blacklist tag to Quark Oddities Storage Crate (`raspberry:crate_blacklist`). (@evanbones)
 - Fallback translations for RF advancements.
+- Horses no longer buck.
 
 ### Changed
 - Clovers are now replaceable.

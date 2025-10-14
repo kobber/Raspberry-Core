@@ -75,6 +75,7 @@
  "config.raspberry.config.aftershock": "Enable Aftershock effect from lightning strikes",
  "config.raspberry.config.create_blastproofing": "Disable Create blasting destroying items.",
  "config.raspberry.config.horses_noWander": "Prevent Horse Wandering",
+ "config.raspberry.config.horses_noBuck": "Prevent Horse Bucking",
  "config.raspberry.config.horses_stepHeight": "Increase Horse Step Height",
 
  "config.raspberry.config.searchContainers": "Allow items in bundles/containers",
