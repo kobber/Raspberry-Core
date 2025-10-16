@@ -31,6 +31,10 @@
   "block.raspberry.red_moss_block": "Red Moss Block",
   "block.raspberry.red_moss_carpet": "Red Moss Carpet",
 
+  "raspberry.tooltip.cat_food.when_feeding": "When fed to a tamed Cat:",
+  "item.raspberry.cat_food": "Cat Food",
+  "lore.raspberry.cat_food": "A foodstuff meant for your cat! ",
+
 
   "raspberry.subtitles.entity.ashball.throw": "Ashball flies",
  "raspberry.subtitles.player.attack.silver_hit": "Mirror connects",
@@ -71,6 +75,7 @@
  "config.raspberry.config.aftershock": "Enable Aftershock effect from lightning strikes",
  "config.raspberry.config.create_blastproofing": "Disable Create blasting destroying items.",
  "config.raspberry.config.horses_noWander": "Prevent Horse Wandering",
+ "config.raspberry.config.horses_noBuck": "Prevent Horse Bucking",
  "config.raspberry.config.horses_stepHeight": "Increase Horse Step Height",
 
  "config.raspberry.config.searchContainers": "Allow items in bundles/containers",
@@ -544,5 +549,4 @@
   "advancements.rf.machines.mechanical_saw.description": "Place down a mechanical saw to cut blocks up or use it to chop down trees in one fell swoop - sawing sturdy alloy is the most resource efficient way to make shafts, by the way!",
   "advancements.rf.machines.mechanical_drill.title": "I Repeat, This is a Drill!",
   "advancements.rf.machines.mechanical_drill.description": "Place down a mechanical drill to start mining blocks automatically - time to invest in a giant tunnel bore!"
-
 }
