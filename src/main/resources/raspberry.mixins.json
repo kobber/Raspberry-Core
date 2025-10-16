@@ -67,6 +67,7 @@
     "minecraft.ScreenMixin",
     "minecraft.SpreadingSnowyDirtBlockMixin",
     "minecraft.ThrowableProjectileMixin",
+    "minecraft.MinecartChestMixin",
     "naturalist.CatchableFireflyMixin",
     "naturalist.CaterpillarMixin",
     "naturalist.CaughtMobItemMixin",
