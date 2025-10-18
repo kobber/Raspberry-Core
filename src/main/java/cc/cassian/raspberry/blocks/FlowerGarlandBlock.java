@@ -21,16 +21,16 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class FlowerGarlandBlock extends Block {
-    public static final BooleanProperty NORTH;
-    public static final BooleanProperty EAST;
-    public static final BooleanProperty SOUTH;
-    public static final BooleanProperty WEST;
-    public static final Map<Direction, BooleanProperty> PROPERTY_BY_DIRECTION;
-    private static final VoxelShape WEST_AABB;
-    private static final VoxelShape EAST_AABB;
-    private static final VoxelShape NORTH_AABB;
-    private static final VoxelShape SOUTH_AABB;
-    private static final VoxelShape SUPPORT_SHAPE;
+    public static final BooleanProperty NORTH = BlockStateProperties.NORTH;
+    public static final BooleanProperty EAST = BlockStateProperties.EAST;
+    public static final BooleanProperty SOUTH = BlockStateProperties.SOUTH;
+    public static final BooleanProperty WEST = BlockStateProperties.WEST;
+    public static final Map<Direction, BooleanProperty> PROPERTY_BY_DIRECTION = PipeBlock.PROPERTY_BY_DIRECTION.entrySet().stream().filter((entry) -> (entry.getKey() != Direction.DOWN && entry.getKey() != Direction.UP)).collect(Util.toMap());;
+    private static final VoxelShape WEST_AABB = Block.box(0.0F, 9.0F, 0.0F, 1.0F, 15.0F, 16.0F);
+    private static final VoxelShape EAST_AABB = Block.box(15.0F, 9.0F, 0.0F, 16.0F, 15.0F, 16.0F);
+    private static final VoxelShape NORTH_AABB = Block.box(0.0F, 9.0F, 0.0F, 16.0F, 15.0F, 1.0F);
+    private static final VoxelShape SOUTH_AABB = Block.box(0.0F, 9.0F, 15.0F, 16.0F, 15.0F, 16.0F);
+    private static final VoxelShape SUPPORT_SHAPE = Block.box(0.0F, 13.0F, 0.0F, 16.0F, 16.0F, 16.0F);
     private final Map<BlockState, VoxelShape> shapesCache;
 
     public FlowerGarlandBlock(BlockBehaviour.Properties properties) {
@@ -147,6 +147,7 @@ public class FlowerGarlandBlock extends Block {
         }
     }
 
+    @Override
     public boolean canBeReplaced(BlockState blockState, BlockPlaceContext blockPlaceContext) {
         if (!blockPlaceContext.isSecondaryUseActive() && blockPlaceContext.getItemInHand().is(this.asItem())) {
             return this.countFaces(blockState) < PROPERTY_BY_DIRECTION.size();
@@ -174,6 +175,7 @@ public class FlowerGarlandBlock extends Block {
         return flag ? blockstate1 : null;
     }
 
+    @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(NORTH, EAST, SOUTH, WEST);
     }
@@ -213,18 +215,5 @@ public class FlowerGarlandBlock extends Block {
 
     public static BooleanProperty getPropertyForFace(Direction face) {
         return PROPERTY_BY_DIRECTION.get(face);
-    }
-
-    static {
-        NORTH = PipeBlock.NORTH;
-        EAST = PipeBlock.EAST;
-        SOUTH = PipeBlock.SOUTH;
-        WEST = PipeBlock.WEST;
-        PROPERTY_BY_DIRECTION = PipeBlock.PROPERTY_BY_DIRECTION.entrySet().stream().filter((entry) -> (entry.getKey() != Direction.DOWN && entry.getKey() != Direction.UP)).collect(Util.toMap());
-        WEST_AABB = Block.box(0.0F, 9.0F, 0.0F, 1.0F, 15.0F, 16.0F);
-        EAST_AABB = Block.box(15.0F, 9.0F, 0.0F, 16.0F, 15.0F, 16.0F);
-        NORTH_AABB = Block.box(0.0F, 9.0F, 0.0F, 16.0F, 15.0F, 1.0F);
-        SOUTH_AABB = Block.box(0.0F, 9.0F, 15.0F, 16.0F, 15.0F, 16.0F);
-        SUPPORT_SHAPE = Block.box(0.0F, 13.0F, 0.0F, 16.0F, 16.0F, 16.0F);
     }
 }
