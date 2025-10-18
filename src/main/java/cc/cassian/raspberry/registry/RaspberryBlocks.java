@@ -88,6 +88,22 @@ public class RaspberryBlocks {
             ()-> new FlowerBedBlock(flowerBedProperties(false)), CreativeModeTab.TAB_DECORATIONS);
 
     public static BlockSupplier
+            CHEERY_WILDFLOWER_GARLAND= registerBlock("cheery_wildflower_garland",
+            ()-> new FlowerGarlandBlock(flowerBedProperties(false)), CreativeModeTab.TAB_DECORATIONS);
+
+    public static BlockSupplier
+            HOPEFUL_WILDFLOWER_GARLAND= registerBlock("hopeful_wildflower_garland",
+            ()-> new FlowerGarlandBlock(flowerBedProperties(false)), CreativeModeTab.TAB_DECORATIONS);
+
+    public static BlockSupplier
+            PLAYFUL_WILDFLOWER_GARLAND= registerBlock("playful_wildflower_garland",
+            ()-> new FlowerGarlandBlock(flowerBedProperties(false)), CreativeModeTab.TAB_DECORATIONS);
+
+    public static BlockSupplier
+            MOODY_WILDFLOWER_GARLAND= registerBlock("moody_wildflower_garland",
+            ()-> new FlowerGarlandBlock(flowerBedProperties(false)), CreativeModeTab.TAB_DECORATIONS);
+
+    public static BlockSupplier
             CAKE = registerBlock("cake",
             ()-> new RaspberryCakeBlock(BlockBehaviour.Properties.copy(Blocks.CAKE), "farmersdelight:cake_slice"), CreativeModeTab.TAB_DECORATIONS);
 
