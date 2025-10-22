@@ -41,9 +41,6 @@ public class EmiFermentingRecipe implements EmiRecipe {
         this.inputItems = ingredients;
 
         this.fluidItem = fluidItem;
-        if (this.fluidItem != null) {
-            this.inputItems.remove(this.inputItems.size()-1);
-        }
         this.output = output;
         if (!container.isEmpty()) {
             this.container = container;
