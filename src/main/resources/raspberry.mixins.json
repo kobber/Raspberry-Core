@@ -55,6 +55,7 @@
     "farmersdelight.StoveBlockMixin",
     "map_atlases.MapCollectionMixin",
     "minecraft.AbstractHorseMixin",
+    "minecraft.AbstractMinecartEntityMixin",
     "minecraft.CampfireBlockMixin",
     "minecraft.EnchantmentMixin",
     "minecraft.FoxMixin",

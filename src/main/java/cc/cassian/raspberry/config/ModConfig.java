@@ -54,6 +54,7 @@ public class ModConfig {
     public double rose_gold_arrow_velocity = 1.5;
     public boolean unified_wrenches = false;
     public boolean saferKnightJump = true;
+    public boolean raspberryCartEngine = true;
 
     public static void load() {
         if (!Files.exists(configPath())) {

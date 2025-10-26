@@ -98,6 +98,14 @@
   "config.raspberry.config.bannerlessRaiders": "Raiders no longer have banners",
   "config.raspberry.config.better_haste": "Exponential Haste",
   "config.raspberry.config.rose_gold_bomb_knockback": "Rose Gold Bomb Knockback",
+  "config.raspberry.config.rose_gold_arrow_knockback": "Rose Gold Arrow Knockback",
+  "config.raspberry.config.rose_gold_arrow_velocity": "Rose Gold Arrow Velocity",
+  "config.raspberry.config.raspberryCartEngine": "Implement Audaki Cart Engine",
+  "config.raspberry.config.unified_wrenches": "Merge Create/Supplementaries Wrenches",
+  "config.raspberry.config.saferKnightJump": "Prevent damage from Knight Jump 50% of the time",
+  "config.raspberry.config.naturalist_stackableItems": "Stack items from Naturalist",
+  "config.raspberry.config.create_emi": "Create Mod EMI Integration",
+  "config.raspberry.config.mapsWorkInInventory": "Maps work in inventory, not just in hand",
 
 
  "emi.category.raspberry.anvil": "Runic Etching",
