@@ -1,6 +1,7 @@
 package cc.cassian.raspberry;
 
 import cc.cassian.raspberry.registry.BlockSupplier;
+import cc.cassian.raspberry.registry.ModItemProperties;
 import cc.cassian.raspberry.registry.RaspberryBlocks;
 import cc.cassian.raspberry.registry.RaspberryEntityTypes;
 import net.minecraft.client.color.block.BlockColors;
@@ -11,6 +12,7 @@ import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 @Mod.EventBusSubscriber(modid = RaspberryMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class RaspberryModClient {
@@ -31,5 +33,10 @@ public class RaspberryModClient {
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(RaspberryEntityTypes.ASHBALL.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(RaspberryEntityTypes.ROSE_GOLD_BOMB.get(), ThrownItemRenderer::new);
+    }
+
+    @SubscribeEvent
+    public static void onClientSetup(FMLClientSetupEvent event) {
+        ModItemProperties.register();
     }
 }
