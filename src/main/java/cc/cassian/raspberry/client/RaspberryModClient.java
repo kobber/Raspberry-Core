@@ -1,7 +1,8 @@
-package cc.cassian.raspberry;
+package cc.cassian.raspberry.client;
 
+import cc.cassian.raspberry.RaspberryMod;
 import cc.cassian.raspberry.registry.BlockSupplier;
-import cc.cassian.raspberry.registry.ModItemProperties;
+import cc.cassian.raspberry.client.registry.RaspberryItemProperties;
 import cc.cassian.raspberry.registry.RaspberryBlocks;
 import cc.cassian.raspberry.registry.RaspberryEntityTypes;
 import net.minecraft.client.color.block.BlockColors;
@@ -37,6 +38,6 @@ public class RaspberryModClient {
 
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
-        ModItemProperties.register();
+        RaspberryItemProperties.register();
     }
 }
