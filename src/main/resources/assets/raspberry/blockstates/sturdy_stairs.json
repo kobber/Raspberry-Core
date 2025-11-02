@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north,type=single": {"model": "raspberry:block/sturdy_stairs" },
+    "facing=west,type=single": {"model": "raspberry:block/sturdy_stairs", "y": 270, "uvlock": false },
+    "facing=east,type=single": {"model": "raspberry:block/sturdy_stairs", "y": 90, "uvlock": false },
+    "facing=south,type=single": {"model": "raspberry:block/sturdy_stairs", "y": 180, "uvlock": false },
+    "facing=north,type=left": {"model": "raspberry:block/sturdy_stairs_left" },
+    "facing=west,type=left": {"model": "raspberry:block/sturdy_stairs_left", "y": 270, "uvlock": false },
+    "facing=east,type=left": {"model": "raspberry:block/sturdy_stairs_left", "y": 90, "uvlock": false },
+    "facing=south,type=left": {"model": "raspberry:block/sturdy_stairs_left", "y": 180, "uvlock": false },
+    "facing=north,type=right": {"model": "raspberry:block/sturdy_stairs_right" },
+    "facing=west,type=right": {"model": "raspberry:block/sturdy_stairs_right", "y": 270, "uvlock": false },
+    "facing=east,type=right": {"model": "raspberry:block/sturdy_stairs_right", "y": 90, "uvlock": false },
+    "facing=south,type=right": {"model": "raspberry:block/sturdy_stairs_right", "y": 180, "uvlock": false },
+    "facing=north,type=middle": {"model": "raspberry:block/sturdy_stairs_middle" },
+    "facing=west,type=middle": {"model": "raspberry:block/sturdy_stairs_middle", "y": 270, "uvlock": false },
+    "facing=east,type=middle": {"model": "raspberry:block/sturdy_stairs_middle", "y": 90, "uvlock": false },
+    "facing=south,type=middle": {"model": "raspberry:block/sturdy_stairs_middle", "y": 180, "uvlock": false }
+  }
+}

@@ -172,6 +172,10 @@ public class RaspberryBlocks {
             ()-> new BrickCounterBlock(BlockBehaviour.Properties.copy(Blocks.BRICKS)), CreativeModeTab.TAB_BUILDING_BLOCKS);
 
     public static BlockSupplier
+            STURDY_STAIRS = registerBlock("sturdy_stairs",
+            ()-> new SturdyStairBlock(BlockBehaviour.Properties.copy(Blocks.BRICKS)), CreativeModeTab.TAB_BUILDING_BLOCKS);
+
+    public static BlockSupplier
             RED_MOSS_CARPET = registerBlock("red_moss_carpet",
             ()-> new CarpetBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK).color(MaterialColor.COLOR_RED)), CreativeModeTab.TAB_BUILDING_BLOCKS);
 
