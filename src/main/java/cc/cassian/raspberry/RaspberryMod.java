@@ -6,6 +6,7 @@ import cc.cassian.raspberry.compat.oreganized.OreganizedEvents;
 import cc.cassian.raspberry.compat.oreganized.network.RaspberryOreganizedNetwork;
 import cc.cassian.raspberry.config.ModConfig;
 import cc.cassian.raspberry.events.DarknessRepairEvent;
+import cc.cassian.raspberry.events.FlowerGarlandEvent;
 import cc.cassian.raspberry.registry.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.ComposterBlock;
@@ -102,6 +103,7 @@ public final class RaspberryMod {
         if (ModCompat.COPPERIZED && ModCompat.COFH_CORE)
             CopperizedCompat.resist(event);
         DarknessRepairEvent.tick(event.player);
+        FlowerGarlandEvent.tick(event.player);
     }
 
     /**
