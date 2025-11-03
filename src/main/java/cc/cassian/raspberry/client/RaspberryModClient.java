@@ -8,8 +8,10 @@ import cc.cassian.raspberry.registry.RaspberryEntityTypes;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.client.event.ModelEvent;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -39,5 +41,14 @@ public class RaspberryModClient {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
         RaspberryItemProperties.register();
+    }
+
+    @SubscribeEvent
+    public static void onModelBake(ModelEvent.RegisterAdditional event) {
+        // This should probably be extracted into a handler of some kind
+        event.register(new ResourceLocation(RaspberryMod.MOD_ID,"block/cheery_wildflowers_potted"));
+        event.register(new ResourceLocation(RaspberryMod.MOD_ID,"block/moody_wildflowers_potted"));
+        event.register(new ResourceLocation(RaspberryMod.MOD_ID,"block/playful_wildflowers_potted"));
+        event.register(new ResourceLocation(RaspberryMod.MOD_ID,"block/hopeful_wildflowers_potted"));
     }
 }

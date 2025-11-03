@@ -1,11 +1,15 @@
 package cc.cassian.raspberry.compat;
 
+import cc.cassian.raspberry.RaspberryMod;
 import cc.cassian.raspberry.entity.Ashball;
+import cc.cassian.raspberry.registry.RaspberryBlocks;
 import cc.cassian.raspberry.registry.RaspberryItems;
 import net.mehvahdjukaar.supplementaries.common.block.tiles.SackBlockTile;
 import net.mehvahdjukaar.supplementaries.common.block.tiles.SafeBlockTile;
+import net.mehvahdjukaar.supplementaries.common.utils.FlowerPotHandler;
 import net.minecraft.core.Position;
 import net.minecraft.core.dispenser.AbstractProjectileDispenseBehavior;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -23,5 +27,10 @@ public class SupplementariesCompat {
                 return new Ashball(level, position.x(), position.y(), position.z());
             }
         });
+
+        FlowerPotHandler.registerCustomFlower(RaspberryBlocks.CHEERFUL_WILDFLOWERS.getItemSupplier().get(), new ResourceLocation(RaspberryMod.MOD_ID,"block/cheery_wildflowers_potted"));
+        FlowerPotHandler.registerCustomFlower(RaspberryBlocks.PINK_PETALS.getItemSupplier().get(), new ResourceLocation(RaspberryMod.MOD_ID,"block/playful_wildflowers_potted"));
+        FlowerPotHandler.registerCustomFlower(RaspberryBlocks.MOODY_WILDFLOWERS.getItemSupplier().get(), new ResourceLocation(RaspberryMod.MOD_ID,"block/moody_wildflowers_potted"));
+        FlowerPotHandler.registerCustomFlower(RaspberryBlocks.HOPEFUL_WILDFLOWERS.getItemSupplier().get(), new ResourceLocation(RaspberryMod.MOD_ID,"block/hopeful_wildflowers_potted"));
     }
 }
