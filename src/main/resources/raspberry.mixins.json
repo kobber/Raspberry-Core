@@ -96,6 +96,7 @@
     "supplementaries.BombItemMixin",
     "supplementaries.CandleHolderBlockMixin",
     "supplementaries.CartographersQuillItemMixin",
+    "supplementaries.PancakeBlockMixin",
     "supplementaries.RakedGravelBlockMixin",
     "supplementaries.SoapClearMixin",
     "survivality.SurvivalityUtilsMixin",
