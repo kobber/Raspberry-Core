@@ -90,6 +90,8 @@ public final class RaspberryMod {
         if (ModCompat.SUPPLEMENTARIES) {
             SupplementariesCompat.register();
         }
+
+        event.enqueueWork(RaspberryBlocks::addPottedPlants);
     }
 
     @SubscribeEvent
