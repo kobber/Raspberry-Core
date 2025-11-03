@@ -11,7 +11,6 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-@OnlyIn(Dist.CLIENT)
 public class FlowerPetalParticle extends TextureSheetParticle {
     private final float yRot;
     private final float yOffset;
@@ -21,7 +20,7 @@ public class FlowerPetalParticle extends TextureSheetParticle {
         super(level, x, y, z, vx, vy, vz);
         this.lifetime = 200 + this.random.nextInt(20);
         this.gravity = 0.01F;
-        this.yd = -0.03F;
+        this.yd = -0.08F;
         this.xd = (-0.5 + this.random.nextFloat()) / 10;
         this.zd = (-0.5 + this.random.nextFloat()) / 10;
         this.quadSize = 0.5F;

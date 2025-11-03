@@ -48,9 +48,9 @@ public class FlowerGarlandEvent {
                     for (int i = 0; i < particleCount; i++) {
                         player.level.addParticle(
                             particle,
-                            playerPos.x() + movement.x,
-                            playerPos.y() + player.getRandom().nextFloat() * 0.4,
-                            playerPos.z() + movement.z,
+                            playerPos.x() + (movement.x/2),
+                            playerPos.y()+1 + player.getRandom().nextFloat() * 0.4,
+                            playerPos.z() + (movement.z/2),
                             0, 0, 0
                         );
                     }
