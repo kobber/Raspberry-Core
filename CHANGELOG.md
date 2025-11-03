@@ -19,6 +19,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - A port of [Audaki Cart Engine](https://modrinth.com/mod/audaki-cart-engine) to Forge - Minecart speed has now been buffed to 34 meters per second. This should not affect Minecart Contraptions as this buff only applies to carts with players in them.
 - Skillets can now be enchanted with melee weapon enchantments. (Farmer's Delight)
 - Create Wrench functionality has been added to the Supplementaries Wrench (disabled by default).
+- Pancakes can now be topped with Lemons, consuming a Lemon Pancake will give you Adrenaline.
+- Pancakes with condiments now give additional nutrition and Sugar Rush when consumed.
 
 ### Changed
 - Clovers are now replaceable.

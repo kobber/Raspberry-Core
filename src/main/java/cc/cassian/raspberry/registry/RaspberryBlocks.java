@@ -5,6 +5,7 @@ import cc.cassian.raspberry.blocks.*;
 import cc.cassian.raspberry.compat.CopperBackportCompat;
 import cc.cassian.raspberry.compat.EnvironmentalCompat;
 import net.mehvahdjukaar.supplementaries.common.block.blocks.AshLayerBlock;
+import net.mehvahdjukaar.supplementaries.common.block.blocks.PancakeBlock;
 import net.mehvahdjukaar.supplementaries.common.block.blocks.RakedGravelBlock;
 import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
 import net.minecraft.resources.ResourceLocation;
@@ -41,7 +42,7 @@ public class RaspberryBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MOD_ID);
     public static final Map<ResourceLocation, RegistryObject<Block>> POTTED_PLANTS = new HashMap<>();
 
-    public static final RegistryObject<Block> TEMPORARY_COBWEB = BLOCKS.register("temporary_cobweb",
+    public static final Supplier<Block> TEMPORARY_COBWEB = registerBlock("temporary_cobweb",
             ()-> new TemporaryCobwebBlock(BlockBehaviour.Properties.copy(Blocks.COBWEB)));
 
     public static BlockSupplier
@@ -188,6 +189,10 @@ public class RaspberryBlocks {
             RED_MOSS_CARPET = registerBlock("red_moss_carpet",
             ()-> new CarpetBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK).color(MaterialColor.COLOR_RED)), CreativeModeTab.TAB_BUILDING_BLOCKS);
 
+    public static Supplier<Block>
+            LEMON_PANCAKE = registerBlock("lemon_pancake",
+            ()-> new LemonPancakeBlock(BlockBehaviour.Properties.copy(ModRegistry.PANCAKE.get())));
+
     private static BlockBehaviour.Properties flowerBedProperties(boolean replaceable) {
         var material = Material.PLANT;
         if (replaceable) material = Material.REPLACEABLE_PLANT;
@@ -224,6 +229,11 @@ public class RaspberryBlocks {
         final var item = RaspberryItems.ITEMS.register(blockID, () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));
         return new BlockSupplier(blockID, block, item);
     }
+
+    public static Supplier<Block> registerBlock(String blockID, Supplier<Block> blockSupplier) {
+        return BLOCKS.register(blockID, blockSupplier);
+    }
+
 
     public static void addPottedPlants() {
         RaspberryBlocks.POTTED_PLANTS.forEach(((FlowerPotBlock)Blocks.FLOWER_POT)::addPlant);
