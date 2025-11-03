@@ -52,9 +52,9 @@ public class RaspberryModClient {
     @SubscribeEvent
     public static void onModelBake(ModelEvent.RegisterAdditional event) {
         // This should probably be extracted into a handler of some kind
-        event.register(new ResourceLocation(RaspberryMod.MOD_ID,"block/cheery_wildflowers_potted"));
-        event.register(new ResourceLocation(RaspberryMod.MOD_ID,"block/moody_wildflowers_potted"));
-        event.register(new ResourceLocation(RaspberryMod.MOD_ID,"block/playful_wildflowers_potted"));
-        event.register(new ResourceLocation(RaspberryMod.MOD_ID,"block/hopeful_wildflowers_potted"));
+        event.register(RaspberryMod.locate("block/cheery_wildflowers_potted"));
+        event.register(RaspberryMod.locate("block/moody_wildflowers_potted"));
+        event.register(RaspberryMod.locate("block/playful_wildflowers_potted"));
+        event.register(RaspberryMod.locate("block/hopeful_wildflowers_potted"));
     }
 }
