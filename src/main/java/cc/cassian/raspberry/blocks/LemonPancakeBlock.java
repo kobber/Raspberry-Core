@@ -6,6 +6,7 @@ import com.teamabnormals.environmental.core.registry.EnvironmentalMobEffects;
 import net.mehvahdjukaar.moonlight.api.util.Utils;
 import net.mehvahdjukaar.supplementaries.common.block.ModBlockProperties;
 import net.mehvahdjukaar.supplementaries.common.block.blocks.PancakeBlock;
+import net.mehvahdjukaar.supplementaries.common.items.PancakeItem;
 import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
@@ -19,6 +20,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
@@ -37,9 +39,20 @@ public class LemonPancakeBlock extends PancakeBlock {
 
     public static final BooleanProperty LEMON_TOPPING = BooleanProperty.create("lemon_topping");
 
+
+    @Override
+    public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
+        ItemStack stack = player.getItemInHand(handIn);
+        ModBlockProperties.Topping t = ModBlockProperties.Topping.fromItem(stack);
+        if (t != ModBlockProperties.Topping.NONE) {
+            return InteractionResult.PASS;
+        }
+        return super.use(state, worldIn, pos, player, handIn, hit);
+    }
+
     public static InteractionResult place(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
         ItemStack stack = player.getItemInHand(handIn);
-        if (!state.getOptionalValue(LEMON_TOPPING).orElse(false)) {
+        if (!state.getOptionalValue(LEMON_TOPPING).orElse(false) && state.getValue(TOPPING) == ModBlockProperties.Topping.NONE) {
             if (stack.is(ModItems.LEMON.get())) {
                 if (!worldIn.isClientSide) {
                     worldIn.setBlock(pos, RaspberryBlocks.LEMON_PANCAKE.get().withPropertiesOf(state).setValue(LEMON_TOPPING, true), 3);
@@ -52,10 +65,21 @@ public class LemonPancakeBlock extends PancakeBlock {
                 return InteractionResult.sidedSuccess(worldIn.isClientSide);
             }
         } else {
-            if (stack.is(ModRegistry.PANCAKE_ITEM.get()) && state.getOptionalValue(PANCAKES).orElse(0)<8) {
-                worldIn.setBlock(pos, state.setValue(PANCAKES, state.getValue(PANCAKES)+1), 3);
-                stack.setCount(stack.getCount()-1);
-                return InteractionResult.SUCCESS;
+            if (state.is(RaspberryBlocks.LEMON_PANCAKE.get())) {
+                if (stack.getItem() instanceof PancakeItem && state.getOptionalValue(PANCAKES).orElse(0)<8) {
+                    worldIn.setBlock(pos, state.setValue(PANCAKES, state.getValue(PANCAKES)+1), 3);
+                    stack.setCount(stack.getCount()-1);
+                    SoundType soundtype = state.getSoundType(worldIn, pos, player);
+                    worldIn.playSound(
+                            player,
+                            pos,
+                            SoundEvents.WOOL_PLACE,
+                            SoundSource.BLOCKS,
+                            (soundtype.getVolume() + 1.0F) / 2.0F,
+                            soundtype.getPitch() * 0.8F
+                    );
+                    return InteractionResult.SUCCESS;
+                }
             }
         }
 

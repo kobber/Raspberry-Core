@@ -20,6 +20,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
+import static cc.cassian.raspberry.blocks.LemonPancakeBlock.LEMON_TOPPING;
 import static net.mehvahdjukaar.supplementaries.common.block.ModBlockProperties.TOPPING;
 
 @Mixin(PancakeBlock.class)
@@ -27,7 +28,7 @@ public class PancakeBlockMixin {
 
     @ModifyArg(method = "use", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/food/FoodData;eat(IF)V"))
     private int toppingsGiveMoreFood(int foodLevelModifier, @Local BlockState state) {
-        if (state.getValue(TOPPING) != ModBlockProperties.Topping.NONE)
+        if (state.getValue(TOPPING) != ModBlockProperties.Topping.NONE || state.getOptionalValue(LEMON_TOPPING).orElse(false))
             return 4;
         return 3;
     }
@@ -43,8 +44,10 @@ public class PancakeBlockMixin {
 
     @WrapMethod(method = "removeLayer", remap = false)
     private void eatLemonPancake(BlockState state, BlockPos pos, Level world, Player player, Operation<Void> original) {
-        if (state.getOptionalValue(LemonPancakeBlock.LEMON_TOPPING).orElse(false)) {
+        if (state.getOptionalValue(LEMON_TOPPING).orElse(false)) {
             LemonPancakeBlock.removeLayer(state, pos, world, player);
+        } else {
+            original.call(state, pos, world, player);
         }
     }
 

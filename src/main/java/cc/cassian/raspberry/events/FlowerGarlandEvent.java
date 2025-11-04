@@ -39,7 +39,7 @@ public class FlowerGarlandEvent {
             Vec3 prevPlayerPos = prevPositions.get(playerId);
             double distance = playerPos.distanceTo(prevPlayerPos);
 
-            if (distance > STEP_LENGTH && player.getRandom().nextFloat() <= 0.5) {
+            if (distance > STEP_LENGTH && player.getRandom().nextFloat() <= 0.75) {
                 Vec3 movement = player.getDeltaMovement().normalize().reverse();
                 SimpleParticleType particle = PARTICLES.get(headItem);
 
