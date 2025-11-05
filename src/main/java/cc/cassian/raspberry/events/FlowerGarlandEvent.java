@@ -7,7 +7,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.ParticleStatus;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.phys.Vec3;
 
@@ -30,9 +29,11 @@ public class FlowerGarlandEvent {
         PARTICLES.put(RaspberryItems.MOODY_WILDFLOWER_GARLAND.get(), RaspberryParticleTypes.MOODY_PETAL.get());
     }
 
-    public static void tick(Player player) {
-        ParticleStatus status = Minecraft.getInstance().options.particles().get();
+    public static void tick(Minecraft mc) {
+        ParticleStatus status = mc.options.particles().get();
+        var player = mc.player;
         if (status == ParticleStatus.MINIMAL) return;
+        if (player == null) return;
 
         Item headItem = player.getItemBySlot(EquipmentSlot.HEAD).getItem();
         if (headItem instanceof FlowerGarlandItem && player.isOnGround()) {

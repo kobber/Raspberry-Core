@@ -1,5 +1,6 @@
 package cc.cassian.raspberry;
 
+import cc.cassian.raspberry.client.RaspberryModClient;
 import cc.cassian.raspberry.client.config.ModConfigFactory;
 import cc.cassian.raspberry.compat.*;
 import cc.cassian.raspberry.compat.oreganized.OreganizedEvents;
@@ -61,8 +62,7 @@ public final class RaspberryMod {
             MinecraftForge.EVENT_BUS.addListener(OreganizedEvents::onHurtEvent);
         }
         if (FMLEnvironment.dist.isClient()) {
-            // Register config
-            registerModsPage(context);
+            RaspberryModClient.init(context);
         }
         if (ModCompat.BLUEPRINT) {
             RaspberryData.register();
@@ -105,15 +105,6 @@ public final class RaspberryMod {
         if (ModCompat.COPPERIZED && ModCompat.COFH_CORE)
             CopperizedCompat.resist(event);
         DarknessRepairEvent.tick(event.player);
-        FlowerGarlandEvent.tick(event.player);
-    }
-
-    /**
-	 * Integrate Cloth Config screen (if mod present) with Forge mod menu.
-	 */
-    public static void registerModsPage(FMLJavaModLoadingContext context) {
-        if (ModCompat.CLOTH_CONFIG)
-            context.registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class, () -> new ConfigScreenHandler.ConfigScreenFactory(ModConfigFactory::createScreen));
     }
 
     @SubscribeEvent
