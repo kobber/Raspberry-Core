@@ -3,6 +3,7 @@ package cc.cassian.raspberry.client;
 import cc.cassian.raspberry.ModCompat;
 import cc.cassian.raspberry.RaspberryMod;
 import cc.cassian.raspberry.client.config.ModConfigFactory;
+import cc.cassian.raspberry.client.entity.renderer.SwapArrowRenderer;
 import cc.cassian.raspberry.events.FlowerGarlandEvent;
 import cc.cassian.raspberry.registry.BlockSupplier;
 import cc.cassian.raspberry.client.registry.RaspberryItemProperties;
@@ -52,6 +53,7 @@ public class RaspberryModClient {
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(RaspberryEntityTypes.ASHBALL.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(RaspberryEntityTypes.ROSE_GOLD_BOMB.get(), ThrownItemRenderer::new);
+        event.registerEntityRenderer(RaspberryEntityTypes.SWAP_ARROW.get(), SwapArrowRenderer::new);
     }
 
     @SubscribeEvent
