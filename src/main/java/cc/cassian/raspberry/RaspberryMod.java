@@ -6,10 +6,12 @@ import cc.cassian.raspberry.compat.*;
 import cc.cassian.raspberry.compat.oreganized.OreganizedEvents;
 import cc.cassian.raspberry.compat.oreganized.network.RaspberryOreganizedNetwork;
 import cc.cassian.raspberry.config.ModConfig;
+import cc.cassian.raspberry.entity.SwapArrowEntity;
 import cc.cassian.raspberry.events.DarknessRepairEvent;
 import cc.cassian.raspberry.events.FlowerGarlandEvent;
 import cc.cassian.raspberry.registry.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.common.MinecraftForge;
@@ -17,6 +19,7 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -52,6 +55,7 @@ public final class RaspberryMod {
         MinecraftForge.EVENT_BUS.addListener(this::onEntityInteract);
         MinecraftForge.EVENT_BUS.addListener(this::onEntityJoinLevel);
         MinecraftForge.EVENT_BUS.addListener(this::onLivingUpdate);
+        MinecraftForge.EVENT_BUS.addListener(this::onLivingHurt);
         eventBus.addListener(RaspberryMod::commonSetup);
         MinecraftForge.EVENT_BUS.addListener(RaspberryMod::playerTick);
         MinecraftForge.EVENT_BUS.addListener(RaspberryMod::lightningTick);
@@ -129,5 +133,14 @@ public final class RaspberryMod {
     public void onLivingUpdate(LivingEvent.LivingTickEvent event) {
         if (ModCompat.ENVIRONMENTAL)
             EnvironmentalCompat.onLivingUpdate(event);
+    }
+
+    @SubscribeEvent
+    public void onLivingHurt(LivingHurtEvent event) {
+        DamageSource source = event.getSource();
+        if (source.getDirectEntity() instanceof SwapArrowEntity) {
+            // Copies the way Caverns and Chasms make Blunt Arrows deal no damage
+            event.setAmount(0.0F);
+        }
     }
 }
