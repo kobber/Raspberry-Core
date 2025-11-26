@@ -7,13 +7,28 @@ plugins {
 group = project.maven_group
 version = project.mod_version + "+" + minecraft_version
 
+def generatedResources = file("src/generated/resources")
+
 base {
     archivesName = project.archives_name
+}
+
+sourceSets {
+    main {
+        resources.srcDir generatedResources
+    }
 }
 
 loom {
     forge {
         mixinConfig 'raspberry.mixins.json'
+    }
+    runs {
+        data {
+            data()
+            programArgs "--mod", "raspberry", "--all", "--output", generatedResources.absolutePath
+            programArgs "--existing", file('src/main/resources/').absolutePath
+        }
     }
 }
 

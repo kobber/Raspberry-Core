@@ -187,6 +187,29 @@ public class RaspberryBlocks {
             RED_MOSS_CARPET = registerBlock("red_moss_carpet",
             ()-> new CarpetBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK).color(MaterialColor.COLOR_RED)), CreativeModeTab.TAB_BUILDING_BLOCKS);
 
+    public static BlockSupplier
+            TALL_CABINET = registerBlock("tall_cabinet",
+            ()-> new TallCabinetBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), CreativeModeTab.TAB_BUILDING_BLOCKS);
+
+    public static BlockSupplier OAK_CABINET = registerBlock("oak_cabinet",
+            () -> new TallCabinetBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), CreativeModeTab.TAB_BUILDING_BLOCKS);
+//    public static BlockSupplier BIRCH_CABINET = registerBlock("birch_cabinet",
+//            () -> new TallCabinetBlock(BlockBehaviour.Properties.copy(Blocks.BIRCH_PLANKS)), CreativeModeTab.TAB_BUILDING_BLOCKS);
+//    public static BlockSupplier SPRUCE_CABINET = registerBlock("spruce_cabinet",
+//            () -> new TallCabinetBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_PLANKS)), CreativeModeTab.TAB_BUILDING_BLOCKS);
+//    public static BlockSupplier JUNGLE_CABINET = registerBlock("jungle_cabinet",
+//            () -> new TallCabinetBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_PLANKS)), CreativeModeTab.TAB_BUILDING_BLOCKS);
+//    public static BlockSupplier ACACIA_CABINET = registerBlock("acacia_cabinet",
+//            () -> new TallCabinetBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_PLANKS)), CreativeModeTab.TAB_BUILDING_BLOCKS);
+//    public static BlockSupplier DARK_OAK_CABINET = registerBlock("dark_oak_cabinet",
+//            () -> new TallCabinetBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS)), CreativeModeTab.TAB_BUILDING_BLOCKS);
+//    public static BlockSupplier MANGROVE_CABINET = registerBlock("mangrove_cabinet",
+//            () -> new TallCabinetBlock(BlockBehaviour.Properties.copy(Blocks.MANGROVE_PLANKS)), CreativeModeTab.TAB_BUILDING_BLOCKS);
+//    public static BlockSupplier CRIMSON_CABINET = registerBlock("crimson_cabinet",
+//            () -> new TallCabinetBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_PLANKS)), CreativeModeTab.TAB_BUILDING_BLOCKS);
+//    public static BlockSupplier WARPED_CABINET = registerBlock("warped_cabinet",
+//            () -> new TallCabinetBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_PLANKS)), CreativeModeTab.TAB_BUILDING_BLOCKS);
+
     public static Supplier<Block>
             LEMON_PANCAKE = registerBlock("lemon_pancake",
             ()-> new LemonPancakeBlock(BlockBehaviour.Properties.copy(ModRegistry.PANCAKE.get())));

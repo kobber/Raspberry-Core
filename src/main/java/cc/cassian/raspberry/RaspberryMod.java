@@ -45,6 +45,7 @@ public final class RaspberryMod {
         ModConfig.load();
         // Register deferred registers.
         RaspberryBlocks.register(eventBus);
+        RaspberryBlockEntityTypes.BLOCK_ENTITIES.register(eventBus);
         RaspberryItems.ITEMS.register(eventBus);
         RaspberryMobEffects.MOB_EFFECTS.register(eventBus);
         RaspberryEntityTypes.ENTITIES.register(eventBus);
