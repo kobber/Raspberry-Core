@@ -9,6 +9,7 @@ import cc.cassian.raspberry.config.ModConfig;
 import cc.cassian.raspberry.entity.SwapArrowEntity;
 import cc.cassian.raspberry.events.DarknessRepairEvent;
 import cc.cassian.raspberry.events.FlowerGarlandEvent;
+import cc.cassian.raspberry.events.GrindingBootsEvent;
 import cc.cassian.raspberry.registry.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.damagesource.DamageSource;
@@ -109,6 +110,7 @@ public final class RaspberryMod {
         if (ModCompat.COPPERIZED && ModCompat.COFH_CORE)
             CopperizedCompat.resist(event);
         DarknessRepairEvent.tick(event.player);
+        GrindingBootsEvent.tick(event);
     }
 
     @SubscribeEvent

@@ -4,6 +4,7 @@ import cc.cassian.raspberry.ModCompat;
 import cc.cassian.raspberry.RaspberryMod;
 import cc.cassian.raspberry.client.config.ModConfigFactory;
 import cc.cassian.raspberry.client.entity.renderer.SwapArrowRenderer;
+import cc.cassian.raspberry.entity.vehicle.GrindingCartEntity;
 import cc.cassian.raspberry.events.FlowerGarlandEvent;
 import cc.cassian.raspberry.registry.BlockSupplier;
 import cc.cassian.raspberry.client.registry.RaspberryItemProperties;
@@ -14,7 +15,9 @@ import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -54,6 +57,14 @@ public class RaspberryModClient {
         event.registerEntityRenderer(RaspberryEntityTypes.ASHBALL.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(RaspberryEntityTypes.ROSE_GOLD_BOMB.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(RaspberryEntityTypes.SWAP_ARROW.get(), SwapArrowRenderer::new);
+        event.registerEntityRenderer(RaspberryEntityTypes.GRINDING_CART.get(), ctx ->
+                new EntityRenderer<>(ctx) {
+                    @Override
+                    public ResourceLocation getTextureLocation(GrindingCartEntity entity) {
+                        return null;
+                    }
+                }
+        );
     }
 
     @SubscribeEvent
