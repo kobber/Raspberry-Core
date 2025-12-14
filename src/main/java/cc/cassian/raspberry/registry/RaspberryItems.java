@@ -30,6 +30,8 @@ public class RaspberryItems {
 
     public static Supplier<Item> ROSE_GOLD_BOMB = registerItem("rose_gold_bomb", () -> new RoseGoldBombItem(new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
     public static Supplier<Item> SWAP_ARROW = registerItem("swap_arrow", () -> new SwapArrowItem(new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
+    public static Supplier<Item> LIGHTNING_ARROW = registerItem("lightning_arrow", () -> new LightningArrowItem(new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
+    public static Supplier<Item> LEASH_ARROW = registerItem("leash_arrow", () -> new LeashArrowItem(new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
     public static Supplier<Item> CAT_FOOD = registerItem("cat_food", () -> new CatFoodItem(new Item.Properties().craftRemainder(Items.BOWL).tab(CreativeModeTab.TAB_FOOD)));
     public static Supplier<Item> ATLAS = registerItem("atlas", () -> new AtlasItem(new Item.Properties()));
 

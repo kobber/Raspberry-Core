@@ -1,9 +1,7 @@
 package cc.cassian.raspberry.registry;
 
 import cc.cassian.raspberry.compat.supplementaries.RoseGoldBombExplosion;
-import cc.cassian.raspberry.entity.Ashball;
-import cc.cassian.raspberry.entity.RoseGoldBombEntity;
-import cc.cassian.raspberry.entity.SwapArrowEntity;
+import cc.cassian.raspberry.entity.*;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -27,6 +25,14 @@ public class RaspberryEntityTypes {
 
     public static final RegistryObject<EntityType<SwapArrowEntity>> SWAP_ARROW = register(
             "swap_arrow", EntityType.Builder.<SwapArrowEntity>of(SwapArrowEntity::new, MobCategory.MISC).sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(10)
+    );
+
+    public static final RegistryObject<EntityType<LightningArrowEntity>> LIGHTNING_ARROW = register(
+            "lightning_arrow", EntityType.Builder.<LightningArrowEntity>of(LightningArrowEntity::new, MobCategory.MISC).sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(10)
+    );
+
+    public static final RegistryObject<EntityType<LeashArrowEntity>> LEASH_ARROW = register(
+            "leash_arrow", EntityType.Builder.<LeashArrowEntity>of(LeashArrowEntity::new, MobCategory.MISC).sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(10)
     );
 
     private static <T extends Entity> RegistryObject<EntityType<T>> register(String key, EntityType.Builder<T> builder) {

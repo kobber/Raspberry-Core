@@ -3,6 +3,8 @@ package cc.cassian.raspberry.client;
 import cc.cassian.raspberry.ModCompat;
 import cc.cassian.raspberry.RaspberryMod;
 import cc.cassian.raspberry.client.config.ModConfigFactory;
+import cc.cassian.raspberry.client.entity.renderer.LeashArrowRenderer;
+import cc.cassian.raspberry.client.entity.renderer.LightningArrowRenderer;
 import cc.cassian.raspberry.client.entity.renderer.SwapArrowRenderer;
 import cc.cassian.raspberry.client.music.MusicHandler;
 import cc.cassian.raspberry.events.FlowerGarlandEvent;
@@ -61,6 +63,8 @@ public class RaspberryModClient {
         event.registerEntityRenderer(RaspberryEntityTypes.ASHBALL.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(RaspberryEntityTypes.ROSE_GOLD_BOMB.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(RaspberryEntityTypes.SWAP_ARROW.get(), SwapArrowRenderer::new);
+        event.registerEntityRenderer(RaspberryEntityTypes.LIGHTNING_ARROW.get(), LightningArrowRenderer::new);
+        event.registerEntityRenderer(RaspberryEntityTypes.LEASH_ARROW.get(), LeashArrowRenderer::new);
     }
 
     @SubscribeEvent

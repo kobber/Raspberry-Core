@@ -73,6 +73,7 @@
     "jade.OverlayRendererMixin",
     "jade.RayTracingMixin",
     "map_atlases.MapCollectionMixin",
+    "minecraft.AbstractArrowMixin",
     "minecraft.AbstractHorseMixin",
     "minecraft.AbstractMinecartEntityMixin",
     "minecraft.BoatMixin",

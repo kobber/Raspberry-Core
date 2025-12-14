@@ -1,5 +1,7 @@
 {
   "values": [
-    "raspberry:swap_arrow"
+    "raspberry:swap_arrow",
+    "raspberry:lightning_arrow",
+    "raspberry:leash_arrow"
   ]
 }
